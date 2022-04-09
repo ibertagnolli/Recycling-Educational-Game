@@ -1,0 +1,2 @@
+# Ignore Qt build files
+build-*
