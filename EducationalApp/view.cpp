@@ -15,19 +15,34 @@ View::~View()
 
 // TITLE SCREEN METHODS
 /**
- * @brief Called
+ * @brief Moves user from titleScreen to purposeScreen.
  */
 void View::on_startButton_clicked()
 {
-
 }
 
 // PURPOSE SCREEN METHODS
 
+void View::on_buttonToInstrScreen_clicked()
+{
+
+}
+
 // INSTRUCTION SCREEN METHODS
+
+void View::on_buttonToGameScreen_clicked()
+{
+
+}
 
 // GAME SCREEN METHODS
 
 // LOADING SCREEN METHODS
 
 // CONCLUDING SCREEN METHODS
+
+
+
+
+
+

@@ -18,6 +18,10 @@ public:
 private slots:
     void on_startButton_clicked();
 
+    void on_buttonToInstrScreen_clicked();
+
+    void on_buttonToGameScreen_clicked();
+
 private:
     Ui::View *ui;
 };
