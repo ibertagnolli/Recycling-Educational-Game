@@ -13,3 +13,8 @@ View::~View()
     delete ui;
 }
 
+void View::on_startButton_clicked()
+{
+
+}
+
