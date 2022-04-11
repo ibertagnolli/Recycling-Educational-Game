@@ -19,20 +19,25 @@ View::~View()
  */
 void View::on_startButton_clicked()
 {
+    ui->stackWidget->setCurrentIndex(1);
 }
 
 // PURPOSE SCREEN METHODS
-
+/**
+ * @brief Moves user from purposeScreen to instructionScreen.
+ */
 void View::on_buttonToInstrScreen_clicked()
 {
-
+    ui->stackWidget->setCurrentIndex(2);
 }
 
 // INSTRUCTION SCREEN METHODS
-
+/**
+ * @brief Moves user from instructionScreen to gameScreen.
+ */
 void View::on_buttonToGameScreen_clicked()
 {
-
+    ui->stackWidget->setCurrentIndex(3);
 }
 
 // GAME SCREEN METHODS

@@ -26,12 +26,13 @@ public:
     QWidget *centralwidget;
     QStackedWidget *stackWidget;
     QWidget *titleScreen;
-    QPushButton *pushButton;
+    QPushButton *startButton;
     QWidget *purposeScreen;
+    QPushButton *buttonToInstrScreen;
     QWidget *instructionScreen;
+    QPushButton *buttonToGameScreen;
     QWidget *gameScreen;
     QWidget *loadingScreen1;
-    QPushButton *pushButton_2;
     QWidget *loadingScreen2;
     QWidget *conclusionScreen;
     QMenuBar *menubar;
@@ -49,24 +50,27 @@ public:
         stackWidget->setGeometry(QRect(-1, -1, 801, 561));
         titleScreen = new QWidget();
         titleScreen->setObjectName(QString::fromUtf8("titleScreen"));
-        pushButton = new QPushButton(titleScreen);
-        pushButton->setObjectName(QString::fromUtf8("pushButton"));
-        pushButton->setGeometry(QRect(230, 120, 80, 18));
+        startButton = new QPushButton(titleScreen);
+        startButton->setObjectName(QString::fromUtf8("startButton"));
+        startButton->setGeometry(QRect(400, 520, 80, 18));
         stackWidget->addWidget(titleScreen);
         purposeScreen = new QWidget();
         purposeScreen->setObjectName(QString::fromUtf8("purposeScreen"));
+        buttonToInstrScreen = new QPushButton(purposeScreen);
+        buttonToInstrScreen->setObjectName(QString::fromUtf8("buttonToInstrScreen"));
+        buttonToInstrScreen->setGeometry(QRect(600, 520, 80, 18));
         stackWidget->addWidget(purposeScreen);
         instructionScreen = new QWidget();
         instructionScreen->setObjectName(QString::fromUtf8("instructionScreen"));
+        buttonToGameScreen = new QPushButton(instructionScreen);
+        buttonToGameScreen->setObjectName(QString::fromUtf8("buttonToGameScreen"));
+        buttonToGameScreen->setGeometry(QRect(600, 520, 80, 18));
         stackWidget->addWidget(instructionScreen);
         gameScreen = new QWidget();
         gameScreen->setObjectName(QString::fromUtf8("gameScreen"));
         stackWidget->addWidget(gameScreen);
         loadingScreen1 = new QWidget();
         loadingScreen1->setObjectName(QString::fromUtf8("loadingScreen1"));
-        pushButton_2 = new QPushButton(loadingScreen1);
-        pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
-        pushButton_2->setGeometry(QRect(560, 310, 80, 18));
         stackWidget->addWidget(loadingScreen1);
         loadingScreen2 = new QWidget();
         loadingScreen2->setObjectName(QString::fromUtf8("loadingScreen2"));
@@ -91,8 +95,9 @@ public:
     void retranslateUi(QMainWindow *View)
     {
         View->setWindowTitle(QCoreApplication::translate("View", "View", nullptr));
-        pushButton->setText(QCoreApplication::translate("View", "PushButton", nullptr));
-        pushButton_2->setText(QCoreApplication::translate("View", "otherbutton", nullptr));
+        startButton->setText(QCoreApplication::translate("View", "Start", nullptr));
+        buttonToInstrScreen->setText(QCoreApplication::translate("View", "Continue", nullptr));
+        buttonToGameScreen->setText(QCoreApplication::translate("View", "Continue", nullptr));
     } // retranslateUi
 
 };
