@@ -6,6 +6,11 @@ View::View(QWidget *parent)
       , ui(new Ui::View)
 {
     ui->setupUi(this);
+    QPixmap pixmap("/Users/vista/Desktop/frog.png");
+    ui->instructionPictureLabel->setScaledContents(true);
+    ui->instructionPictureLabel->setSizePolicy( QSizePolicy::Ignored, QSizePolicy::Ignored);
+    ui->instructionPictureLabel->setPixmap(pixmap);
+
 }
 
 View::~View()
@@ -43,10 +48,10 @@ void View::on_buttonToGameScreen_clicked()
 /**
  * @brief Moves user from instructionScreen back to the purposeScreen
  */
-void View::on_buttonToPurposeScreen_clicked()
-{
-    ui->stackWidget->setCurrentIndex(1);
-}
+//void View::on_buttonToPurposeScreen_clicked()
+//{
+//    ui->stackWidget->setCurrentIndex(1);
+//}
 
 // GAME SCREEN METHODS
 

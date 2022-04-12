@@ -11,11 +11,16 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QFrame>
+#include <QtWidgets/QGridLayout>
+#include <QtWidgets/QHBoxLayout>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStackedWidget>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -24,13 +29,31 @@ class Ui_View
 {
 public:
     QWidget *centralwidget;
+    QVBoxLayout *verticalLayout_2;
     QStackedWidget *stackWidget;
     QWidget *titleScreen;
     QPushButton *startButton;
     QWidget *purposeScreen;
     QPushButton *buttonToInstrScreen;
     QWidget *instructionScreen;
+    QFrame *frame;
+    QWidget *horizontalLayoutWidget;
+    QHBoxLayout *horizontalLayout;
+    QLabel *instructionPictureLabel;
+    QGridLayout *gridLayout;
+    QLabel *label_6;
+    QLabel *HowToPlayLabel;
+    QLabel *label_5;
+    QHBoxLayout *horizontalLayout_2;
+    QLabel *label_8;
+    QPushButton *buttonToPurposeScreen;
     QPushButton *buttonToGameScreen;
+    QLabel *label_9;
+    QLabel *label_7;
+    QLabel *label;
+    QLabel *label_3;
+    QLabel *label_2;
+    QLabel *label_4;
     QWidget *gameScreen;
     QWidget *loadingScreen1;
     QWidget *loadingScreen2;
@@ -43,11 +66,14 @@ public:
         if (View->objectName().isEmpty())
             View->setObjectName(QString::fromUtf8("View"));
         View->resize(800, 600);
+        View->setMinimumSize(QSize(800, 600));
+        View->setMaximumSize(QSize(800, 600));
         centralwidget = new QWidget(View);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
+        verticalLayout_2 = new QVBoxLayout(centralwidget);
+        verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
         stackWidget = new QStackedWidget(centralwidget);
         stackWidget->setObjectName(QString::fromUtf8("stackWidget"));
-        stackWidget->setGeometry(QRect(-1, -1, 801, 561));
         titleScreen = new QWidget();
         titleScreen->setObjectName(QString::fromUtf8("titleScreen"));
         startButton = new QPushButton(titleScreen);
@@ -58,13 +84,134 @@ public:
         purposeScreen->setObjectName(QString::fromUtf8("purposeScreen"));
         buttonToInstrScreen = new QPushButton(purposeScreen);
         buttonToInstrScreen->setObjectName(QString::fromUtf8("buttonToInstrScreen"));
-        buttonToInstrScreen->setGeometry(QRect(600, 520, 80, 18));
+        buttonToInstrScreen->setGeometry(QRect(680, 510, 91, 31));
         stackWidget->addWidget(purposeScreen);
         instructionScreen = new QWidget();
         instructionScreen->setObjectName(QString::fromUtf8("instructionScreen"));
-        buttonToGameScreen = new QPushButton(instructionScreen);
+        instructionScreen->setMinimumSize(QSize(778, 528));
+        instructionScreen->setMaximumSize(QSize(778, 528));
+        instructionScreen->setStyleSheet(QString::fromUtf8("background-color: rgba(195, 255, 165, 60);"));
+        frame = new QFrame(instructionScreen);
+        frame->setObjectName(QString::fromUtf8("frame"));
+        frame->setGeometry(QRect(10, 10, 761, 511));
+        frame->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);"));
+        frame->setFrameShape(QFrame::StyledPanel);
+        frame->setFrameShadow(QFrame::Raised);
+        horizontalLayoutWidget = new QWidget(frame);
+        horizontalLayoutWidget->setObjectName(QString::fromUtf8("horizontalLayoutWidget"));
+        horizontalLayoutWidget->setGeometry(QRect(10, 10, 751, 501));
+        horizontalLayout = new QHBoxLayout(horizontalLayoutWidget);
+        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
+        horizontalLayout->setContentsMargins(0, 0, 0, 0);
+        instructionPictureLabel = new QLabel(horizontalLayoutWidget);
+        instructionPictureLabel->setObjectName(QString::fromUtf8("instructionPictureLabel"));
+        instructionPictureLabel->setMaximumSize(QSize(350, 16777215));
+        instructionPictureLabel->setStyleSheet(QString::fromUtf8("background-image: url(\"/Users/vista/Desktop/frog.png\")"));
+
+        horizontalLayout->addWidget(instructionPictureLabel);
+
+        gridLayout = new QGridLayout();
+        gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
+        label_6 = new QLabel(horizontalLayoutWidget);
+        label_6->setObjectName(QString::fromUtf8("label_6"));
+        label_6->setStyleSheet(QString::fromUtf8("font: 12pt \"Helvetica\";\n"
+"color: rgba(63, 191, 4 ,255);"));
+        label_6->setAlignment(Qt::AlignCenter);
+
+        gridLayout->addWidget(label_6, 8, 1, 1, 1);
+
+        HowToPlayLabel = new QLabel(horizontalLayoutWidget);
+        HowToPlayLabel->setObjectName(QString::fromUtf8("HowToPlayLabel"));
+        HowToPlayLabel->setStyleSheet(QString::fromUtf8("font: 700 20pt \"Georgia\";\n"
+"color: rgb(46, 138, 3);"));
+        HowToPlayLabel->setAlignment(Qt::AlignCenter);
+
+        gridLayout->addWidget(HowToPlayLabel, 0, 1, 1, 1);
+
+        label_5 = new QLabel(horizontalLayoutWidget);
+        label_5->setObjectName(QString::fromUtf8("label_5"));
+        label_5->setMaximumSize(QSize(16777215, 40));
+        label_5->setStyleSheet(QString::fromUtf8("font: 16pt \"Helvetica\";\n"
+"color: rgb(46, 138, 3);"));
+        label_5->setAlignment(Qt::AlignCenter);
+
+        gridLayout->addWidget(label_5, 7, 1, 1, 1);
+
+        horizontalLayout_2 = new QHBoxLayout();
+        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
+        label_8 = new QLabel(horizontalLayoutWidget);
+        label_8->setObjectName(QString::fromUtf8("label_8"));
+        label_8->setMaximumSize(QSize(10, 16777215));
+
+        horizontalLayout_2->addWidget(label_8);
+
+        buttonToPurposeScreen = new QPushButton(horizontalLayoutWidget);
+        buttonToPurposeScreen->setObjectName(QString::fromUtf8("buttonToPurposeScreen"));
+        buttonToPurposeScreen->setMaximumSize(QSize(100, 40));
+        buttonToPurposeScreen->setStyleSheet(QString::fromUtf8("color: rgb(46, 138, 3);\n"
+"border-color: rgb(0, 0, 0);"));
+
+        horizontalLayout_2->addWidget(buttonToPurposeScreen);
+
+        buttonToGameScreen = new QPushButton(horizontalLayoutWidget);
         buttonToGameScreen->setObjectName(QString::fromUtf8("buttonToGameScreen"));
-        buttonToGameScreen->setGeometry(QRect(600, 520, 80, 18));
+        buttonToGameScreen->setMaximumSize(QSize(100, 40));
+        buttonToGameScreen->setStyleSheet(QString::fromUtf8("color: rgb(46, 138, 3);\n"
+"border-color: rgb(0, 0, 0);"));
+
+        horizontalLayout_2->addWidget(buttonToGameScreen);
+
+        label_9 = new QLabel(horizontalLayoutWidget);
+        label_9->setObjectName(QString::fromUtf8("label_9"));
+        label_9->setMaximumSize(QSize(10, 16777215));
+
+        horizontalLayout_2->addWidget(label_9);
+
+
+        gridLayout->addLayout(horizontalLayout_2, 10, 1, 1, 1);
+
+        label_7 = new QLabel(horizontalLayoutWidget);
+        label_7->setObjectName(QString::fromUtf8("label_7"));
+
+        gridLayout->addWidget(label_7, 9, 1, 1, 1);
+
+        label = new QLabel(horizontalLayoutWidget);
+        label->setObjectName(QString::fromUtf8("label"));
+        label->setMaximumSize(QSize(16777215, 40));
+        label->setStyleSheet(QString::fromUtf8("font: 16pt \"Helvetica\";\n"
+"color: rgb(46, 138, 3);"));
+        label->setAlignment(Qt::AlignCenter);
+
+        gridLayout->addWidget(label, 5, 1, 1, 1);
+
+        label_3 = new QLabel(horizontalLayoutWidget);
+        label_3->setObjectName(QString::fromUtf8("label_3"));
+        label_3->setStyleSheet(QString::fromUtf8("font: 12pt \"Helvetica\";\n"
+"color: rgba(63, 191, 4 ,255);"));
+        label_3->setAlignment(Qt::AlignCenter);
+
+        gridLayout->addWidget(label_3, 3, 1, 1, 1);
+
+        label_2 = new QLabel(horizontalLayoutWidget);
+        label_2->setObjectName(QString::fromUtf8("label_2"));
+        label_2->setMaximumSize(QSize(16777215, 40));
+        label_2->setStyleSheet(QString::fromUtf8("font: 16pt \"Helvetica\";\n"
+"color: rgb(46, 138, 3);"));
+        label_2->setAlignment(Qt::AlignCenter);
+
+        gridLayout->addWidget(label_2, 1, 1, 1, 1);
+
+        label_4 = new QLabel(horizontalLayoutWidget);
+        label_4->setObjectName(QString::fromUtf8("label_4"));
+        label_4->setStyleSheet(QString::fromUtf8("font: 12pt \"Helvetica\";\n"
+"color: rgba(63, 191, 4 ,255);"));
+        label_4->setAlignment(Qt::AlignCenter);
+
+        gridLayout->addWidget(label_4, 6, 1, 1, 1);
+
+
+        horizontalLayout->addLayout(gridLayout);
+
         stackWidget->addWidget(instructionScreen);
         gameScreen = new QWidget();
         gameScreen->setObjectName(QString::fromUtf8("gameScreen"));
@@ -78,16 +225,22 @@ public:
         conclusionScreen = new QWidget();
         conclusionScreen->setObjectName(QString::fromUtf8("conclusionScreen"));
         stackWidget->addWidget(conclusionScreen);
+
+        verticalLayout_2->addWidget(stackWidget);
+
         View->setCentralWidget(centralwidget);
         menubar = new QMenuBar(View);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 800, 17));
+        menubar->setGeometry(QRect(0, 0, 800, 25));
         View->setMenuBar(menubar);
         statusbar = new QStatusBar(View);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
         View->setStatusBar(statusbar);
 
         retranslateUi(View);
+
+        stackWidget->setCurrentIndex(2);
+
 
         QMetaObject::connectSlotsByName(View);
     } // setupUi
@@ -97,7 +250,22 @@ public:
         View->setWindowTitle(QCoreApplication::translate("View", "View", nullptr));
         startButton->setText(QCoreApplication::translate("View", "Start", nullptr));
         buttonToInstrScreen->setText(QCoreApplication::translate("View", "Continue", nullptr));
+        instructionPictureLabel->setText(QString());
+        label_6->setText(QCoreApplication::translate("View", "Requires to correctly place all trash items\n"
+" into their corresponding bin", nullptr));
+        HowToPlayLabel->setText(QCoreApplication::translate("View", "How To Play", nullptr));
+        label_5->setText(QCoreApplication::translate("View", "Level Advancement", nullptr));
+        label_8->setText(QString());
+        buttonToPurposeScreen->setText(QCoreApplication::translate("View", "back", nullptr));
         buttonToGameScreen->setText(QCoreApplication::translate("View", "Continue", nullptr));
+        label_9->setText(QString());
+        label_7->setText(QString());
+        label->setText(QCoreApplication::translate("View", "Placement of Bins", nullptr));
+        label_3->setText(QCoreApplication::translate("View", "Goal: Place all trash items into \n"
+"their respectable bins.", nullptr));
+        label_2->setText(QCoreApplication::translate("View", "Goal", nullptr));
+        label_4->setText(QCoreApplication::translate("View", "Click on the trash item and dragging it to \n"
+"their corresponding bin.", nullptr));
     } // retranslateUi
 
 };
