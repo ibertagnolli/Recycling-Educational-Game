@@ -6,6 +6,9 @@ View::View(QWidget *parent)
       , ui(new Ui::View)
 {
     ui->setupUi(this);
+    // ui->titleScreen->
+    ui->wizard->setPixmap(
+        QPixmap("/Users/isabellabertagnolli/a8-Edu-app/a8-edu-app-ibertagnolli/wizard.png"));
 }
 
 View::~View()

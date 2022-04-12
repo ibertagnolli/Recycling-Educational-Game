@@ -47,7 +47,7 @@
        <string>Start</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label">
+     <widget class="QLabel" name="titleLabel">
       <property name="geometry">
        <rect>
         <x>190</x>
@@ -70,6 +70,40 @@
        <string>Don't Be Trashy!</string>
       </property>
      </widget>
+     <widget class="QLabel" name="wizard">
+      <property name="geometry">
+       <rect>
+        <x>190</x>
+        <y>100</y>
+        <width>451</width>
+        <height>461</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::NoFrame</enum>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap>../wizard.png</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="buddy">
+       <cstring></cstring>
+      </property>
+     </widget>
+     <zorder>wizard</zorder>
+     <zorder>startButton</zorder>
+     <zorder>titleLabel</zorder>
     </widget>
     <widget class="QWidget" name="purposeScreen">
      <widget class="QPushButton" name="buttonToInstrScreen">
