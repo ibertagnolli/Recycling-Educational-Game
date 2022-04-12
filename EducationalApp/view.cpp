@@ -8,7 +8,9 @@ View::View(QWidget *parent)
     ui->setupUi(this);
     // ui->titleScreen->
     ui->wizard->setPixmap(
-        QPixmap("/Users/isabellabertagnolli/a8-Edu-app/a8-edu-app-ibertagnolli/wizard.png"));
+        QPixmap("/Users/isabellabertagnolli/a8-Edu-app/a8-edu-app-ibertagnolli/wizardBig.png"));
+    ui->backgroundImage->setPixmap(
+        QPixmap("/Users/isabellabertagnolli/a8-Edu-app/a8-edu-app-ibertagnolli/meadow.jpg"));
 }
 
 View::~View()

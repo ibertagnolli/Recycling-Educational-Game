@@ -24,13 +24,16 @@
      </rect>
     </property>
     <widget class="QWidget" name="titleScreen">
+     <property name="styleSheet">
+      <string notr="true">background-image: {/Users/isabellabertagnolli/a8-Edu-app/a8-edu-app-ibertagnolli/meadow.png;}</string>
+     </property>
      <widget class="QPushButton" name="startButton">
       <property name="geometry">
        <rect>
-        <x>280</x>
-        <y>420</y>
-        <width>251</width>
-        <height>71</height>
+        <x>490</x>
+        <y>160</y>
+        <width>241</width>
+        <height>61</height>
        </rect>
       </property>
       <property name="font">
@@ -41,7 +44,7 @@
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">QPushButton {background-color: rgb(50,205,50);border-style: solid;border-color: rgb(94, 110, 71);border-width: 2px; border-radius:10px; color: rgb(255, 255, 255)} QPushButton:pressed {background-color: rgb(230, 249, 193);border-style: solid;border-color: rgb(94, 110, 71);border-width: 2px;border-radius:10px; color: rgb(0, 0, 0)}</string>
+       <string notr="true">QPushButton {background-color: rgb(63, 191, 4);border-style: solid;border-color: rgb(94, 110, 71);border-width: 2px; border-radius:10px; color: rgb(255, 255, 255)} QPushButton:pressed {background-color: rgb(230, 249, 193);border-style: solid;border-color: rgb(94, 110, 71);border-width: 2px;border-radius:10px; color: rgb(0, 0, 0)}</string>
       </property>
       <property name="text">
        <string>Start</string>
@@ -50,34 +53,42 @@
      <widget class="QLabel" name="titleLabel">
       <property name="geometry">
        <rect>
-        <x>190</x>
-        <y>80</y>
-        <width>431</width>
+        <x>400</x>
+        <y>50</y>
+        <width>411</width>
         <height>101</height>
        </rect>
       </property>
       <property name="font">
        <font>
         <family>Georgia</family>
-        <pointsize>48</pointsize>
+        <pointsize>45</pointsize>
         <bold>true</bold>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">color:rgb(50, 205, 88)</string>
+       <string notr="true">color:rgb(2, 115, 51)</string>
       </property>
       <property name="text">
        <string>Don't Be Trashy!</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
       </property>
      </widget>
      <widget class="QLabel" name="wizard">
       <property name="geometry">
        <rect>
-        <x>190</x>
-        <y>100</y>
-        <width>451</width>
-        <height>461</height>
+        <x>360</x>
+        <y>160</y>
+        <width>531</width>
+        <height>541</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Baskerville</family>
+       </font>
       </property>
       <property name="styleSheet">
        <string notr="true"/>
@@ -101,9 +112,54 @@
        <cstring></cstring>
       </property>
      </widget>
+     <widget class="QLabel" name="backgroundImage">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>791</width>
+        <height>571</height>
+       </rect>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="flavorTextLabel">
+      <property name="geometry">
+       <rect>
+        <x>250</x>
+        <y>310</y>
+        <width>161</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Helvetica</family>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color:rgb(63, 191, 4)</string>
+      </property>
+      <property name="text">
+       <string>Make Recycling Magical!</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <zorder>backgroundImage</zorder>
      <zorder>wizard</zorder>
      <zorder>startButton</zorder>
      <zorder>titleLabel</zorder>
+     <zorder>flavorTextLabel</zorder>
     </widget>
     <widget class="QWidget" name="purposeScreen">
      <widget class="QPushButton" name="buttonToInstrScreen">
