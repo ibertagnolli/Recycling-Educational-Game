@@ -176,6 +176,7 @@ DIST          = ../../Qt/6.2.3/macos/mkspecs/features/spec_pre.prf \
 		../../Qt/6.2.3/macos/mkspecs/features/qt_config.prf \
 		../../Qt/6.2.3/macos/mkspecs/macx-clang/qmake.conf \
 		../../Qt/6.2.3/macos/mkspecs/features/spec_post.prf \
+		../EducationalApp/.qmake.stash \
 		../../Qt/6.2.3/macos/mkspecs/features/exclusive_builds.prf \
 		../../Qt/6.2.3/macos/mkspecs/features/mac/sdk.prf \
 		../../Qt/6.2.3/macos/mkspecs/features/toolchain.prf \
@@ -218,7 +219,7 @@ TARGET        = EducationalApp.app/Contents/MacOS/EducationalApp
 EXPORT_QMAKE_MAC_SDK = macosx
 EXPORT_QMAKE_MAC_SDK_VERSION = 12.1
 EXPORT_QMAKE_XCODE_DEVELOPER_PATH = /Library/Developer/CommandLineTools
-EXPORT__QMAKE_STASH_ = 
+EXPORT__QMAKE_STASH_ = /Users/audreyolson/a8-edu-app-ibertagnolli/build-EducationalApp-Qt_6_2_3_for_macOS-Debug/.qmake.stash
 EXPORT_VALID_ARCHS = x86_64 arm64
 EXPORT_DEFAULT_ARCHS = arm64
 EXPORT_ARCHS = $(filter $(EXPORT_VALID_ARCHS), $(if $(ARCHS), $(ARCHS), $(if $(EXPORT_DEFAULT_ARCHS), $(EXPORT_DEFAULT_ARCHS), $(EXPORT_VALID_ARCHS))))
@@ -345,6 +346,7 @@ Makefile: ../EducationalApp/EducationalApp.pro ../../Qt/6.2.3/macos/mkspecs/macx
 		../../Qt/6.2.3/macos/mkspecs/features/qt_config.prf \
 		../../Qt/6.2.3/macos/mkspecs/macx-clang/qmake.conf \
 		../../Qt/6.2.3/macos/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		../../Qt/6.2.3/macos/mkspecs/features/exclusive_builds.prf \
 		../../Qt/6.2.3/macos/mkspecs/features/mac/sdk.prf \
 		../../Qt/6.2.3/macos/mkspecs/features/toolchain.prf \
@@ -489,6 +491,7 @@ Makefile: ../EducationalApp/EducationalApp.pro ../../Qt/6.2.3/macos/mkspecs/macx
 ../../Qt/6.2.3/macos/mkspecs/features/qt_config.prf:
 ../../Qt/6.2.3/macos/mkspecs/macx-clang/qmake.conf:
 ../../Qt/6.2.3/macos/mkspecs/features/spec_post.prf:
+.qmake.stash:
 ../../Qt/6.2.3/macos/mkspecs/features/exclusive_builds.prf:
 ../../Qt/6.2.3/macos/mkspecs/features/mac/sdk.prf:
 ../../Qt/6.2.3/macos/mkspecs/features/toolchain.prf:
@@ -562,6 +565,7 @@ clean: compiler_clean
 
 distclean: clean 
 	-$(DEL_FILE) -r EducationalApp.app
+	-$(DEL_FILE) .qmake.stash
 	-$(DEL_FILE) Makefile
 
 
@@ -586,6 +590,10 @@ compiler_moc_header_clean:
 moc_controller.cpp: ../EducationalApp/controller.h \
 		../../Qt/6.2.3/macos/lib/QtCore.framework/Headers/QObject \
 		../../Qt/6.2.3/macos/lib/QtCore.framework/Headers/qobject.h \
+		../EducationalApp/model.h \
+		../EducationalApp/view.h \
+		../../Qt/6.2.3/macos/lib/QtWidgets.framework/Headers/QMainWindow \
+		../../Qt/6.2.3/macos/lib/QtWidgets.framework/Headers/qmainwindow.h \
 		../../Qt/6.2.3/macos/libexec/moc
 	/Users/audreyolson/Qt/6.2.3/macos/libexec/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -D__cplusplus=199711L -D__APPLE_CC__=6000 -D__clang__ -D__clang_major__=12 -D__clang_minor__=0 -D__clang_patchlevel__=5 -D__GNUC__=4 -D__GNUC_MINOR__=2 -D__GNUC_PATCHLEVEL__=1 -I/Users/audreyolson/Qt/6.2.3/macos/mkspecs/macx-clang -I/Users/audreyolson/a8-edu-app-ibertagnolli/EducationalApp -I/Users/audreyolson/Qt/6.2.3/macos/lib/QtWidgets.framework/Headers -I/Users/audreyolson/Qt/6.2.3/macos/lib/QtGui.framework/Headers -I/Users/audreyolson/Qt/6.2.3/macos/lib/QtCore.framework/Headers -I. -I/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/12.0.5/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include -I/Library/Developer/CommandLineTools/usr/include -F/Users/audreyolson/Qt/6.2.3/macos/lib ../EducationalApp/controller.h -o moc_controller.cpp
 
@@ -626,10 +634,18 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 
 controller.o: ../EducationalApp/controller.cpp ../EducationalApp/controller.h \
 		../../Qt/6.2.3/macos/lib/QtCore.framework/Headers/QObject \
-		../../Qt/6.2.3/macos/lib/QtCore.framework/Headers/qobject.h
+		../../Qt/6.2.3/macos/lib/QtCore.framework/Headers/qobject.h \
+		../EducationalApp/model.h \
+		../EducationalApp/view.h \
+		../../Qt/6.2.3/macos/lib/QtWidgets.framework/Headers/QMainWindow \
+		../../Qt/6.2.3/macos/lib/QtWidgets.framework/Headers/qmainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o controller.o ../EducationalApp/controller.cpp
 
-main.o: ../EducationalApp/main.cpp ../EducationalApp/view.h \
+main.o: ../EducationalApp/main.cpp ../EducationalApp/controller.h \
+		../../Qt/6.2.3/macos/lib/QtCore.framework/Headers/QObject \
+		../../Qt/6.2.3/macos/lib/QtCore.framework/Headers/qobject.h \
+		../EducationalApp/model.h \
+		../EducationalApp/view.h \
 		../../Qt/6.2.3/macos/lib/QtWidgets.framework/Headers/QMainWindow \
 		../../Qt/6.2.3/macos/lib/QtWidgets.framework/Headers/qmainwindow.h \
 		../../Qt/6.2.3/macos/lib/QtWidgets.framework/Headers/QApplication \

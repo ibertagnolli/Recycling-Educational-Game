@@ -1,17 +1,26 @@
 #include "controller.h"
 
-Controller::Controller(QObject *parent)
-    : QObject{parent}
+Controller::Controller(QObject *parent) : QObject{parent} {}
+
+Controller::Controller(View *view, Model *model)
 {
-    // TITLE SCREEN METHODS
-
-    // PURPOSE SCREEN METHODS
-
-    // INSTRUCTION SCREEN METHODS
-
-    // GAME SCREEN METHODS
-
-    // LOADING SCREEN METHODS
-
-    // CONCLUDING SCREEN METHODS
+    this->view = view;
+    this->model = model;
 }
+
+// GENERAL METHODS
+void Controller::generalConnections()
+{
+    connect(view, &View::currentPageChanged, model, &Model::pageChanged);
+}
+// TITLE SCREEN METHODS
+
+// PURPOSE SCREEN METHODS
+
+// INSTRUCTION SCREEN METHODS
+
+// GAME SCREEN METHODS
+
+// LOADING SCREEN METHODS
+
+// CONCLUDING SCREEN METHODS

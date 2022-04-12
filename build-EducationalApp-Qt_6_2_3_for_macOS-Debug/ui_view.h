@@ -31,6 +31,7 @@ public:
     QPushButton *buttonToInstrScreen;
     QWidget *instructionScreen;
     QPushButton *buttonToGameScreen;
+    QPushButton *buttonToPurposeScreen;
     QWidget *gameScreen;
     QWidget *loadingScreen1;
     QWidget *loadingScreen2;
@@ -58,13 +59,16 @@ public:
         purposeScreen->setObjectName(QString::fromUtf8("purposeScreen"));
         buttonToInstrScreen = new QPushButton(purposeScreen);
         buttonToInstrScreen->setObjectName(QString::fromUtf8("buttonToInstrScreen"));
-        buttonToInstrScreen->setGeometry(QRect(600, 520, 80, 18));
+        buttonToInstrScreen->setGeometry(QRect(680, 510, 91, 31));
         stackWidget->addWidget(purposeScreen);
         instructionScreen = new QWidget();
         instructionScreen->setObjectName(QString::fromUtf8("instructionScreen"));
         buttonToGameScreen = new QPushButton(instructionScreen);
         buttonToGameScreen->setObjectName(QString::fromUtf8("buttonToGameScreen"));
-        buttonToGameScreen->setGeometry(QRect(600, 520, 80, 18));
+        buttonToGameScreen->setGeometry(QRect(670, 500, 81, 31));
+        buttonToPurposeScreen = new QPushButton(instructionScreen);
+        buttonToPurposeScreen->setObjectName(QString::fromUtf8("buttonToPurposeScreen"));
+        buttonToPurposeScreen->setGeometry(QRect(40, 500, 100, 32));
         stackWidget->addWidget(instructionScreen);
         gameScreen = new QWidget();
         gameScreen->setObjectName(QString::fromUtf8("gameScreen"));
@@ -81,13 +85,16 @@ public:
         View->setCentralWidget(centralwidget);
         menubar = new QMenuBar(View);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 800, 17));
+        menubar->setGeometry(QRect(0, 0, 800, 24));
         View->setMenuBar(menubar);
         statusbar = new QStatusBar(View);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
         View->setStatusBar(statusbar);
 
         retranslateUi(View);
+
+        stackWidget->setCurrentIndex(0);
+
 
         QMetaObject::connectSlotsByName(View);
     } // setupUi
@@ -98,6 +105,7 @@ public:
         startButton->setText(QCoreApplication::translate("View", "Start", nullptr));
         buttonToInstrScreen->setText(QCoreApplication::translate("View", "Continue", nullptr));
         buttonToGameScreen->setText(QCoreApplication::translate("View", "Continue", nullptr));
+        buttonToPurposeScreen->setText(QCoreApplication::translate("View", "back", nullptr));
     } // retranslateUi
 
 };

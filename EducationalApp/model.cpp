@@ -1,19 +1,18 @@
 #include "model.h"
 
-Model::Model(QObject *parent)
-    : QObject{parent}
-{
+Model::Model(QObject *parent) : QObject{parent} {}
 
-    // TITLE SCREEN METHODS
+//GENERAL METHODS
+void Model::pageChanged(int index) {}
 
-    // PURPOSE SCREEN METHODS
+// TITLE SCREEN METHODS
 
-    // INSTRUCTION SCREEN METHODS
+// PURPOSE SCREEN METHODS
 
-    // GAME SCREEN METHODS
+// INSTRUCTION SCREEN METHODS
 
-    // LOADING SCREEN METHODS
+// GAME SCREEN METHODS
 
-    // CONCLUDING SCREEN METHODS
+// LOADING SCREEN METHODS
 
-}
+// CONCLUDING SCREEN METHODS
