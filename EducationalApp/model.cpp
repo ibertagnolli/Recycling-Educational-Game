@@ -3,7 +3,10 @@
 Model::Model(QObject *parent) : QObject{parent} {}
 
 //GENERAL METHODS
-void Model::pageChanged(int index) {}
+void Model::pageChanged(int index)
+{
+
+}
 
 // TITLE SCREEN METHODS
 

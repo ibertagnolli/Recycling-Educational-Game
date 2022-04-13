@@ -59,5 +59,15 @@ private slots:
     * @brief Moves user from instructionScreen back to the purposeScreen
     */
     void on_buttonToPurposeScreen_clicked();
+
+    /**
+     * @brief This method will be deleted. Moves from gameScreen to loadingScreen1.
+     */
+    void on_buttonToLoad1_clicked();
+
+    /**
+     * @brief This method will be deleted. Moves from gameScreen to loadingScreen2.
+     */
+    void on_buttonToLoad2_clicked();
 };
 #endif // VIEW_H
