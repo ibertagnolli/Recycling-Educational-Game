@@ -52,20 +52,114 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = ../EducationalApp/controller.cpp \
+SOURCES       = ../EducationalApp/Box2D/Collision/Shapes/b2ChainShape.cpp \
+		../EducationalApp/Box2D/Collision/Shapes/b2CircleShape.cpp \
+		../EducationalApp/Box2D/Collision/Shapes/b2EdgeShape.cpp \
+		../EducationalApp/Box2D/Collision/Shapes/b2PolygonShape.cpp \
+		../EducationalApp/Box2D/Collision/b2BroadPhase.cpp \
+		../EducationalApp/Box2D/Collision/b2CollideCircle.cpp \
+		../EducationalApp/Box2D/Collision/b2CollideEdge.cpp \
+		../EducationalApp/Box2D/Collision/b2CollidePolygon.cpp \
+		../EducationalApp/Box2D/Collision/b2Collision.cpp \
+		../EducationalApp/Box2D/Collision/b2Distance.cpp \
+		../EducationalApp/Box2D/Collision/b2DynamicTree.cpp \
+		../EducationalApp/Box2D/Collision/b2TimeOfImpact.cpp \
+		../EducationalApp/Box2D/Common/b2BlockAllocator.cpp \
+		../EducationalApp/Box2D/Common/b2Draw.cpp \
+		../EducationalApp/Box2D/Common/b2Math.cpp \
+		../EducationalApp/Box2D/Common/b2Settings.cpp \
+		../EducationalApp/Box2D/Common/b2StackAllocator.cpp \
+		../EducationalApp/Box2D/Common/b2Timer.cpp \
+		../EducationalApp/Box2D/Dynamics/Contacts/b2ChainAndCircleContact.cpp \
+		../EducationalApp/Box2D/Dynamics/Contacts/b2ChainAndPolygonContact.cpp \
+		../EducationalApp/Box2D/Dynamics/Contacts/b2CircleContact.cpp \
+		../EducationalApp/Box2D/Dynamics/Contacts/b2Contact.cpp \
+		../EducationalApp/Box2D/Dynamics/Contacts/b2ContactSolver.cpp \
+		../EducationalApp/Box2D/Dynamics/Contacts/b2EdgeAndCircleContact.cpp \
+		../EducationalApp/Box2D/Dynamics/Contacts/b2EdgeAndPolygonContact.cpp \
+		../EducationalApp/Box2D/Dynamics/Contacts/b2PolygonAndCircleContact.cpp \
+		../EducationalApp/Box2D/Dynamics/Contacts/b2PolygonContact.cpp \
+		../EducationalApp/Box2D/Dynamics/Joints/b2DistanceJoint.cpp \
+		../EducationalApp/Box2D/Dynamics/Joints/b2FrictionJoint.cpp \
+		../EducationalApp/Box2D/Dynamics/Joints/b2GearJoint.cpp \
+		../EducationalApp/Box2D/Dynamics/Joints/b2Joint.cpp \
+		../EducationalApp/Box2D/Dynamics/Joints/b2MotorJoint.cpp \
+		../EducationalApp/Box2D/Dynamics/Joints/b2MouseJoint.cpp \
+		../EducationalApp/Box2D/Dynamics/Joints/b2PrismaticJoint.cpp \
+		../EducationalApp/Box2D/Dynamics/Joints/b2PulleyJoint.cpp \
+		../EducationalApp/Box2D/Dynamics/Joints/b2RevoluteJoint.cpp \
+		../EducationalApp/Box2D/Dynamics/Joints/b2RopeJoint.cpp \
+		../EducationalApp/Box2D/Dynamics/Joints/b2WeldJoint.cpp \
+		../EducationalApp/Box2D/Dynamics/Joints/b2WheelJoint.cpp \
+		../EducationalApp/Box2D/Dynamics/b2Body.cpp \
+		../EducationalApp/Box2D/Dynamics/b2ContactManager.cpp \
+		../EducationalApp/Box2D/Dynamics/b2Fixture.cpp \
+		../EducationalApp/Box2D/Dynamics/b2Island.cpp \
+		../EducationalApp/Box2D/Dynamics/b2World.cpp \
+		../EducationalApp/Box2D/Dynamics/b2WorldCallbacks.cpp \
+		../EducationalApp/Box2D/Rope/b2Rope.cpp \
+		../EducationalApp/controller.cpp \
 		../EducationalApp/main.cpp \
 		../EducationalApp/model.cpp \
 		../EducationalApp/view.cpp moc_controller.cpp \
 		moc_model.cpp \
 		moc_view.cpp
-OBJECTS       = controller.o \
+OBJECTS       = b2ChainShape.o \
+		b2CircleShape.o \
+		b2EdgeShape.o \
+		b2PolygonShape.o \
+		b2BroadPhase.o \
+		b2CollideCircle.o \
+		b2CollideEdge.o \
+		b2CollidePolygon.o \
+		b2Collision.o \
+		b2Distance.o \
+		b2DynamicTree.o \
+		b2TimeOfImpact.o \
+		b2BlockAllocator.o \
+		b2Draw.o \
+		b2Math.o \
+		b2Settings.o \
+		b2StackAllocator.o \
+		b2Timer.o \
+		b2ChainAndCircleContact.o \
+		b2ChainAndPolygonContact.o \
+		b2CircleContact.o \
+		b2Contact.o \
+		b2ContactSolver.o \
+		b2EdgeAndCircleContact.o \
+		b2EdgeAndPolygonContact.o \
+		b2PolygonAndCircleContact.o \
+		b2PolygonContact.o \
+		b2DistanceJoint.o \
+		b2FrictionJoint.o \
+		b2GearJoint.o \
+		b2Joint.o \
+		b2MotorJoint.o \
+		b2MouseJoint.o \
+		b2PrismaticJoint.o \
+		b2PulleyJoint.o \
+		b2RevoluteJoint.o \
+		b2RopeJoint.o \
+		b2WeldJoint.o \
+		b2WheelJoint.o \
+		b2Body.o \
+		b2ContactManager.o \
+		b2Fixture.o \
+		b2Island.o \
+		b2World.o \
+		b2WorldCallbacks.o \
+		b2Rope.o \
+		controller.o \
 		main.o \
 		model.o \
 		view.o \
 		moc_controller.o \
 		moc_model.o \
 		moc_view.o
-DIST          = ../../Qt/6.2.3/macos/mkspecs/features/spec_pre.prf \
+DIST          = ../EducationalApp/Box2D/Box2DConfig.cmake \
+		../EducationalApp/Box2D/CMakeLists.txt \
+		../../Qt/6.2.3/macos/mkspecs/features/spec_pre.prf \
 		../../Qt/6.2.3/macos/mkspecs/features/device_config.prf \
 		../../Qt/6.2.3/macos/mkspecs/common/unix.conf \
 		../../Qt/6.2.3/macos/mkspecs/common/mac.conf \
@@ -205,9 +299,102 @@ DIST          = ../../Qt/6.2.3/macos/mkspecs/features/spec_pre.prf \
 		../../Qt/6.2.3/macos/mkspecs/features/exceptions.prf \
 		../../Qt/6.2.3/macos/mkspecs/features/yacc.prf \
 		../../Qt/6.2.3/macos/mkspecs/features/lex.prf \
-		../EducationalApp/EducationalApp.pro ../EducationalApp/controller.h \
+		../EducationalApp/EducationalApp.pro ../EducationalApp/Box2D/Box2D.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2ChainShape.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2CircleShape.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2EdgeShape.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2PolygonShape.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2Shape.h \
+		../EducationalApp/Box2D/Collision/b2BroadPhase.h \
+		../EducationalApp/Box2D/Collision/b2Collision.h \
+		../EducationalApp/Box2D/Collision/b2Distance.h \
+		../EducationalApp/Box2D/Collision/b2DynamicTree.h \
+		../EducationalApp/Box2D/Collision/b2TimeOfImpact.h \
+		../EducationalApp/Box2D/Common/b2BlockAllocator.h \
+		../EducationalApp/Box2D/Common/b2Draw.h \
+		../EducationalApp/Box2D/Common/b2GrowableStack.h \
+		../EducationalApp/Box2D/Common/b2Math.h \
+		../EducationalApp/Box2D/Common/b2Settings.h \
+		../EducationalApp/Box2D/Common/b2StackAllocator.h \
+		../EducationalApp/Box2D/Common/b2Timer.h \
+		../EducationalApp/Box2D/Dynamics/Contacts/b2ChainAndCircleContact.h \
+		../EducationalApp/Box2D/Dynamics/Contacts/b2ChainAndPolygonContact.h \
+		../EducationalApp/Box2D/Dynamics/Contacts/b2CircleContact.h \
+		../EducationalApp/Box2D/Dynamics/Contacts/b2Contact.h \
+		../EducationalApp/Box2D/Dynamics/Contacts/b2ContactSolver.h \
+		../EducationalApp/Box2D/Dynamics/Contacts/b2EdgeAndCircleContact.h \
+		../EducationalApp/Box2D/Dynamics/Contacts/b2EdgeAndPolygonContact.h \
+		../EducationalApp/Box2D/Dynamics/Contacts/b2PolygonAndCircleContact.h \
+		../EducationalApp/Box2D/Dynamics/Contacts/b2PolygonContact.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2DistanceJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2FrictionJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2GearJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2Joint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2MotorJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2MouseJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2PrismaticJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2PulleyJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2RevoluteJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2RopeJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2WeldJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2WheelJoint.h \
+		../EducationalApp/Box2D/Dynamics/b2Body.h \
+		../EducationalApp/Box2D/Dynamics/b2ContactManager.h \
+		../EducationalApp/Box2D/Dynamics/b2Fixture.h \
+		../EducationalApp/Box2D/Dynamics/b2Island.h \
+		../EducationalApp/Box2D/Dynamics/b2TimeStep.h \
+		../EducationalApp/Box2D/Dynamics/b2World.h \
+		../EducationalApp/Box2D/Dynamics/b2WorldCallbacks.h \
+		../EducationalApp/Box2D/Rope/b2Rope.h \
+		../EducationalApp/controller.h \
 		../EducationalApp/model.h \
-		../EducationalApp/view.h ../EducationalApp/controller.cpp \
+		../EducationalApp/view.h ../EducationalApp/Box2D/Collision/Shapes/b2ChainShape.cpp \
+		../EducationalApp/Box2D/Collision/Shapes/b2CircleShape.cpp \
+		../EducationalApp/Box2D/Collision/Shapes/b2EdgeShape.cpp \
+		../EducationalApp/Box2D/Collision/Shapes/b2PolygonShape.cpp \
+		../EducationalApp/Box2D/Collision/b2BroadPhase.cpp \
+		../EducationalApp/Box2D/Collision/b2CollideCircle.cpp \
+		../EducationalApp/Box2D/Collision/b2CollideEdge.cpp \
+		../EducationalApp/Box2D/Collision/b2CollidePolygon.cpp \
+		../EducationalApp/Box2D/Collision/b2Collision.cpp \
+		../EducationalApp/Box2D/Collision/b2Distance.cpp \
+		../EducationalApp/Box2D/Collision/b2DynamicTree.cpp \
+		../EducationalApp/Box2D/Collision/b2TimeOfImpact.cpp \
+		../EducationalApp/Box2D/Common/b2BlockAllocator.cpp \
+		../EducationalApp/Box2D/Common/b2Draw.cpp \
+		../EducationalApp/Box2D/Common/b2Math.cpp \
+		../EducationalApp/Box2D/Common/b2Settings.cpp \
+		../EducationalApp/Box2D/Common/b2StackAllocator.cpp \
+		../EducationalApp/Box2D/Common/b2Timer.cpp \
+		../EducationalApp/Box2D/Dynamics/Contacts/b2ChainAndCircleContact.cpp \
+		../EducationalApp/Box2D/Dynamics/Contacts/b2ChainAndPolygonContact.cpp \
+		../EducationalApp/Box2D/Dynamics/Contacts/b2CircleContact.cpp \
+		../EducationalApp/Box2D/Dynamics/Contacts/b2Contact.cpp \
+		../EducationalApp/Box2D/Dynamics/Contacts/b2ContactSolver.cpp \
+		../EducationalApp/Box2D/Dynamics/Contacts/b2EdgeAndCircleContact.cpp \
+		../EducationalApp/Box2D/Dynamics/Contacts/b2EdgeAndPolygonContact.cpp \
+		../EducationalApp/Box2D/Dynamics/Contacts/b2PolygonAndCircleContact.cpp \
+		../EducationalApp/Box2D/Dynamics/Contacts/b2PolygonContact.cpp \
+		../EducationalApp/Box2D/Dynamics/Joints/b2DistanceJoint.cpp \
+		../EducationalApp/Box2D/Dynamics/Joints/b2FrictionJoint.cpp \
+		../EducationalApp/Box2D/Dynamics/Joints/b2GearJoint.cpp \
+		../EducationalApp/Box2D/Dynamics/Joints/b2Joint.cpp \
+		../EducationalApp/Box2D/Dynamics/Joints/b2MotorJoint.cpp \
+		../EducationalApp/Box2D/Dynamics/Joints/b2MouseJoint.cpp \
+		../EducationalApp/Box2D/Dynamics/Joints/b2PrismaticJoint.cpp \
+		../EducationalApp/Box2D/Dynamics/Joints/b2PulleyJoint.cpp \
+		../EducationalApp/Box2D/Dynamics/Joints/b2RevoluteJoint.cpp \
+		../EducationalApp/Box2D/Dynamics/Joints/b2RopeJoint.cpp \
+		../EducationalApp/Box2D/Dynamics/Joints/b2WeldJoint.cpp \
+		../EducationalApp/Box2D/Dynamics/Joints/b2WheelJoint.cpp \
+		../EducationalApp/Box2D/Dynamics/b2Body.cpp \
+		../EducationalApp/Box2D/Dynamics/b2ContactManager.cpp \
+		../EducationalApp/Box2D/Dynamics/b2Fixture.cpp \
+		../EducationalApp/Box2D/Dynamics/b2Island.cpp \
+		../EducationalApp/Box2D/Dynamics/b2World.cpp \
+		../EducationalApp/Box2D/Dynamics/b2WorldCallbacks.cpp \
+		../EducationalApp/Box2D/Rope/b2Rope.cpp \
+		../EducationalApp/controller.cpp \
 		../EducationalApp/main.cpp \
 		../EducationalApp/model.cpp \
 		../EducationalApp/view.cpp
@@ -553,8 +740,8 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents ../EducationalApp/controller.h ../EducationalApp/model.h ../EducationalApp/view.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../EducationalApp/controller.cpp ../EducationalApp/main.cpp ../EducationalApp/model.cpp ../EducationalApp/view.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../EducationalApp/Box2D/Box2D.h ../EducationalApp/Box2D/Collision/Shapes/b2ChainShape.h ../EducationalApp/Box2D/Collision/Shapes/b2CircleShape.h ../EducationalApp/Box2D/Collision/Shapes/b2EdgeShape.h ../EducationalApp/Box2D/Collision/Shapes/b2PolygonShape.h ../EducationalApp/Box2D/Collision/Shapes/b2Shape.h ../EducationalApp/Box2D/Collision/b2BroadPhase.h ../EducationalApp/Box2D/Collision/b2Collision.h ../EducationalApp/Box2D/Collision/b2Distance.h ../EducationalApp/Box2D/Collision/b2DynamicTree.h ../EducationalApp/Box2D/Collision/b2TimeOfImpact.h ../EducationalApp/Box2D/Common/b2BlockAllocator.h ../EducationalApp/Box2D/Common/b2Draw.h ../EducationalApp/Box2D/Common/b2GrowableStack.h ../EducationalApp/Box2D/Common/b2Math.h ../EducationalApp/Box2D/Common/b2Settings.h ../EducationalApp/Box2D/Common/b2StackAllocator.h ../EducationalApp/Box2D/Common/b2Timer.h ../EducationalApp/Box2D/Dynamics/Contacts/b2ChainAndCircleContact.h ../EducationalApp/Box2D/Dynamics/Contacts/b2ChainAndPolygonContact.h ../EducationalApp/Box2D/Dynamics/Contacts/b2CircleContact.h ../EducationalApp/Box2D/Dynamics/Contacts/b2Contact.h ../EducationalApp/Box2D/Dynamics/Contacts/b2ContactSolver.h ../EducationalApp/Box2D/Dynamics/Contacts/b2EdgeAndCircleContact.h ../EducationalApp/Box2D/Dynamics/Contacts/b2EdgeAndPolygonContact.h ../EducationalApp/Box2D/Dynamics/Contacts/b2PolygonAndCircleContact.h ../EducationalApp/Box2D/Dynamics/Contacts/b2PolygonContact.h ../EducationalApp/Box2D/Dynamics/Joints/b2DistanceJoint.h ../EducationalApp/Box2D/Dynamics/Joints/b2FrictionJoint.h ../EducationalApp/Box2D/Dynamics/Joints/b2GearJoint.h ../EducationalApp/Box2D/Dynamics/Joints/b2Joint.h ../EducationalApp/Box2D/Dynamics/Joints/b2MotorJoint.h ../EducationalApp/Box2D/Dynamics/Joints/b2MouseJoint.h ../EducationalApp/Box2D/Dynamics/Joints/b2PrismaticJoint.h ../EducationalApp/Box2D/Dynamics/Joints/b2PulleyJoint.h ../EducationalApp/Box2D/Dynamics/Joints/b2RevoluteJoint.h ../EducationalApp/Box2D/Dynamics/Joints/b2RopeJoint.h ../EducationalApp/Box2D/Dynamics/Joints/b2WeldJoint.h ../EducationalApp/Box2D/Dynamics/Joints/b2WheelJoint.h ../EducationalApp/Box2D/Dynamics/b2Body.h ../EducationalApp/Box2D/Dynamics/b2ContactManager.h ../EducationalApp/Box2D/Dynamics/b2Fixture.h ../EducationalApp/Box2D/Dynamics/b2Island.h ../EducationalApp/Box2D/Dynamics/b2TimeStep.h ../EducationalApp/Box2D/Dynamics/b2World.h ../EducationalApp/Box2D/Dynamics/b2WorldCallbacks.h ../EducationalApp/Box2D/Rope/b2Rope.h ../EducationalApp/controller.h ../EducationalApp/model.h ../EducationalApp/view.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../EducationalApp/Box2D/Collision/Shapes/b2ChainShape.cpp ../EducationalApp/Box2D/Collision/Shapes/b2CircleShape.cpp ../EducationalApp/Box2D/Collision/Shapes/b2EdgeShape.cpp ../EducationalApp/Box2D/Collision/Shapes/b2PolygonShape.cpp ../EducationalApp/Box2D/Collision/b2BroadPhase.cpp ../EducationalApp/Box2D/Collision/b2CollideCircle.cpp ../EducationalApp/Box2D/Collision/b2CollideEdge.cpp ../EducationalApp/Box2D/Collision/b2CollidePolygon.cpp ../EducationalApp/Box2D/Collision/b2Collision.cpp ../EducationalApp/Box2D/Collision/b2Distance.cpp ../EducationalApp/Box2D/Collision/b2DynamicTree.cpp ../EducationalApp/Box2D/Collision/b2TimeOfImpact.cpp ../EducationalApp/Box2D/Common/b2BlockAllocator.cpp ../EducationalApp/Box2D/Common/b2Draw.cpp ../EducationalApp/Box2D/Common/b2Math.cpp ../EducationalApp/Box2D/Common/b2Settings.cpp ../EducationalApp/Box2D/Common/b2StackAllocator.cpp ../EducationalApp/Box2D/Common/b2Timer.cpp ../EducationalApp/Box2D/Dynamics/Contacts/b2ChainAndCircleContact.cpp ../EducationalApp/Box2D/Dynamics/Contacts/b2ChainAndPolygonContact.cpp ../EducationalApp/Box2D/Dynamics/Contacts/b2CircleContact.cpp ../EducationalApp/Box2D/Dynamics/Contacts/b2Contact.cpp ../EducationalApp/Box2D/Dynamics/Contacts/b2ContactSolver.cpp ../EducationalApp/Box2D/Dynamics/Contacts/b2EdgeAndCircleContact.cpp ../EducationalApp/Box2D/Dynamics/Contacts/b2EdgeAndPolygonContact.cpp ../EducationalApp/Box2D/Dynamics/Contacts/b2PolygonAndCircleContact.cpp ../EducationalApp/Box2D/Dynamics/Contacts/b2PolygonContact.cpp ../EducationalApp/Box2D/Dynamics/Joints/b2DistanceJoint.cpp ../EducationalApp/Box2D/Dynamics/Joints/b2FrictionJoint.cpp ../EducationalApp/Box2D/Dynamics/Joints/b2GearJoint.cpp ../EducationalApp/Box2D/Dynamics/Joints/b2Joint.cpp ../EducationalApp/Box2D/Dynamics/Joints/b2MotorJoint.cpp ../EducationalApp/Box2D/Dynamics/Joints/b2MouseJoint.cpp ../EducationalApp/Box2D/Dynamics/Joints/b2PrismaticJoint.cpp ../EducationalApp/Box2D/Dynamics/Joints/b2PulleyJoint.cpp ../EducationalApp/Box2D/Dynamics/Joints/b2RevoluteJoint.cpp ../EducationalApp/Box2D/Dynamics/Joints/b2RopeJoint.cpp ../EducationalApp/Box2D/Dynamics/Joints/b2WeldJoint.cpp ../EducationalApp/Box2D/Dynamics/Joints/b2WheelJoint.cpp ../EducationalApp/Box2D/Dynamics/b2Body.cpp ../EducationalApp/Box2D/Dynamics/b2ContactManager.cpp ../EducationalApp/Box2D/Dynamics/b2Fixture.cpp ../EducationalApp/Box2D/Dynamics/b2Island.cpp ../EducationalApp/Box2D/Dynamics/b2World.cpp ../EducationalApp/Box2D/Dynamics/b2WorldCallbacks.cpp ../EducationalApp/Box2D/Rope/b2Rope.cpp ../EducationalApp/controller.cpp ../EducationalApp/main.cpp ../EducationalApp/model.cpp ../EducationalApp/view.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../EducationalApp/view.ui $(DISTDIR)/
 
 
@@ -631,6 +818,546 @@ compiler_lex_clean:
 compiler_clean: compiler_moc_header_clean compiler_uic_clean 
 
 ####### Compile
+
+b2ChainShape.o: ../EducationalApp/Box2D/Collision/Shapes/b2ChainShape.cpp ../EducationalApp/Box2D/Collision/Shapes/b2ChainShape.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2Shape.h \
+		../EducationalApp/Box2D/Common/b2BlockAllocator.h \
+		../EducationalApp/Box2D/Common/b2Settings.h \
+		../EducationalApp/Box2D/Common/b2Math.h \
+		../EducationalApp/Box2D/Collision/b2Collision.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2EdgeShape.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o b2ChainShape.o ../EducationalApp/Box2D/Collision/Shapes/b2ChainShape.cpp
+
+b2CircleShape.o: ../EducationalApp/Box2D/Collision/Shapes/b2CircleShape.cpp ../EducationalApp/Box2D/Collision/Shapes/b2CircleShape.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2Shape.h \
+		../EducationalApp/Box2D/Common/b2BlockAllocator.h \
+		../EducationalApp/Box2D/Common/b2Settings.h \
+		../EducationalApp/Box2D/Common/b2Math.h \
+		../EducationalApp/Box2D/Collision/b2Collision.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o b2CircleShape.o ../EducationalApp/Box2D/Collision/Shapes/b2CircleShape.cpp
+
+b2EdgeShape.o: ../EducationalApp/Box2D/Collision/Shapes/b2EdgeShape.cpp ../EducationalApp/Box2D/Collision/Shapes/b2EdgeShape.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2Shape.h \
+		../EducationalApp/Box2D/Common/b2BlockAllocator.h \
+		../EducationalApp/Box2D/Common/b2Settings.h \
+		../EducationalApp/Box2D/Common/b2Math.h \
+		../EducationalApp/Box2D/Collision/b2Collision.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o b2EdgeShape.o ../EducationalApp/Box2D/Collision/Shapes/b2EdgeShape.cpp
+
+b2PolygonShape.o: ../EducationalApp/Box2D/Collision/Shapes/b2PolygonShape.cpp ../EducationalApp/Box2D/Collision/Shapes/b2PolygonShape.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2Shape.h \
+		../EducationalApp/Box2D/Common/b2BlockAllocator.h \
+		../EducationalApp/Box2D/Common/b2Settings.h \
+		../EducationalApp/Box2D/Common/b2Math.h \
+		../EducationalApp/Box2D/Collision/b2Collision.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o b2PolygonShape.o ../EducationalApp/Box2D/Collision/Shapes/b2PolygonShape.cpp
+
+b2BroadPhase.o: ../EducationalApp/Box2D/Collision/b2BroadPhase.cpp ../EducationalApp/Box2D/Collision/b2BroadPhase.h \
+		../EducationalApp/Box2D/Common/b2Settings.h \
+		../EducationalApp/Box2D/Collision/b2Collision.h \
+		../EducationalApp/Box2D/Common/b2Math.h \
+		../EducationalApp/Box2D/Collision/b2DynamicTree.h \
+		../EducationalApp/Box2D/Common/b2GrowableStack.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o b2BroadPhase.o ../EducationalApp/Box2D/Collision/b2BroadPhase.cpp
+
+b2CollideCircle.o: ../EducationalApp/Box2D/Collision/b2CollideCircle.cpp ../EducationalApp/Box2D/Collision/b2Collision.h \
+		../EducationalApp/Box2D/Common/b2Math.h \
+		../EducationalApp/Box2D/Common/b2Settings.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2CircleShape.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2Shape.h \
+		../EducationalApp/Box2D/Common/b2BlockAllocator.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2PolygonShape.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o b2CollideCircle.o ../EducationalApp/Box2D/Collision/b2CollideCircle.cpp
+
+b2CollideEdge.o: ../EducationalApp/Box2D/Collision/b2CollideEdge.cpp ../EducationalApp/Box2D/Collision/b2Collision.h \
+		../EducationalApp/Box2D/Common/b2Math.h \
+		../EducationalApp/Box2D/Common/b2Settings.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2CircleShape.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2Shape.h \
+		../EducationalApp/Box2D/Common/b2BlockAllocator.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2EdgeShape.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2PolygonShape.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o b2CollideEdge.o ../EducationalApp/Box2D/Collision/b2CollideEdge.cpp
+
+b2CollidePolygon.o: ../EducationalApp/Box2D/Collision/b2CollidePolygon.cpp ../EducationalApp/Box2D/Collision/b2Collision.h \
+		../EducationalApp/Box2D/Common/b2Math.h \
+		../EducationalApp/Box2D/Common/b2Settings.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2PolygonShape.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2Shape.h \
+		../EducationalApp/Box2D/Common/b2BlockAllocator.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o b2CollidePolygon.o ../EducationalApp/Box2D/Collision/b2CollidePolygon.cpp
+
+b2Collision.o: ../EducationalApp/Box2D/Collision/b2Collision.cpp ../EducationalApp/Box2D/Collision/b2Collision.h \
+		../EducationalApp/Box2D/Common/b2Math.h \
+		../EducationalApp/Box2D/Common/b2Settings.h \
+		../EducationalApp/Box2D/Collision/b2Distance.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o b2Collision.o ../EducationalApp/Box2D/Collision/b2Collision.cpp
+
+b2Distance.o: ../EducationalApp/Box2D/Collision/b2Distance.cpp ../EducationalApp/Box2D/Collision/b2Distance.h \
+		../EducationalApp/Box2D/Common/b2Math.h \
+		../EducationalApp/Box2D/Common/b2Settings.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2CircleShape.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2Shape.h \
+		../EducationalApp/Box2D/Common/b2BlockAllocator.h \
+		../EducationalApp/Box2D/Collision/b2Collision.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2EdgeShape.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2ChainShape.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2PolygonShape.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o b2Distance.o ../EducationalApp/Box2D/Collision/b2Distance.cpp
+
+b2DynamicTree.o: ../EducationalApp/Box2D/Collision/b2DynamicTree.cpp ../EducationalApp/Box2D/Collision/b2DynamicTree.h \
+		../EducationalApp/Box2D/Collision/b2Collision.h \
+		../EducationalApp/Box2D/Common/b2Math.h \
+		../EducationalApp/Box2D/Common/b2Settings.h \
+		../EducationalApp/Box2D/Common/b2GrowableStack.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o b2DynamicTree.o ../EducationalApp/Box2D/Collision/b2DynamicTree.cpp
+
+b2TimeOfImpact.o: ../EducationalApp/Box2D/Collision/b2TimeOfImpact.cpp ../EducationalApp/Box2D/Collision/b2Collision.h \
+		../EducationalApp/Box2D/Common/b2Math.h \
+		../EducationalApp/Box2D/Common/b2Settings.h \
+		../EducationalApp/Box2D/Collision/b2Distance.h \
+		../EducationalApp/Box2D/Collision/b2TimeOfImpact.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2CircleShape.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2Shape.h \
+		../EducationalApp/Box2D/Common/b2BlockAllocator.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2PolygonShape.h \
+		../EducationalApp/Box2D/Common/b2Timer.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o b2TimeOfImpact.o ../EducationalApp/Box2D/Collision/b2TimeOfImpact.cpp
+
+b2BlockAllocator.o: ../EducationalApp/Box2D/Common/b2BlockAllocator.cpp ../EducationalApp/Box2D/Common/b2BlockAllocator.h \
+		../EducationalApp/Box2D/Common/b2Settings.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o b2BlockAllocator.o ../EducationalApp/Box2D/Common/b2BlockAllocator.cpp
+
+b2Draw.o: ../EducationalApp/Box2D/Common/b2Draw.cpp ../EducationalApp/Box2D/Common/b2Draw.h \
+		../EducationalApp/Box2D/Common/b2Math.h \
+		../EducationalApp/Box2D/Common/b2Settings.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o b2Draw.o ../EducationalApp/Box2D/Common/b2Draw.cpp
+
+b2Math.o: ../EducationalApp/Box2D/Common/b2Math.cpp ../EducationalApp/Box2D/Common/b2Math.h \
+		../EducationalApp/Box2D/Common/b2Settings.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o b2Math.o ../EducationalApp/Box2D/Common/b2Math.cpp
+
+b2Settings.o: ../EducationalApp/Box2D/Common/b2Settings.cpp ../EducationalApp/Box2D/Common/b2Settings.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o b2Settings.o ../EducationalApp/Box2D/Common/b2Settings.cpp
+
+b2StackAllocator.o: ../EducationalApp/Box2D/Common/b2StackAllocator.cpp ../EducationalApp/Box2D/Common/b2StackAllocator.h \
+		../EducationalApp/Box2D/Common/b2Settings.h \
+		../EducationalApp/Box2D/Common/b2Math.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o b2StackAllocator.o ../EducationalApp/Box2D/Common/b2StackAllocator.cpp
+
+b2Timer.o: ../EducationalApp/Box2D/Common/b2Timer.cpp ../EducationalApp/Box2D/Common/b2Timer.h \
+		../EducationalApp/Box2D/Common/b2Settings.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o b2Timer.o ../EducationalApp/Box2D/Common/b2Timer.cpp
+
+b2ChainAndCircleContact.o: ../EducationalApp/Box2D/Dynamics/Contacts/b2ChainAndCircleContact.cpp ../EducationalApp/Box2D/Dynamics/Contacts/b2ChainAndCircleContact.h \
+		../EducationalApp/Box2D/Dynamics/Contacts/b2Contact.h \
+		../EducationalApp/Box2D/Common/b2Math.h \
+		../EducationalApp/Box2D/Common/b2Settings.h \
+		../EducationalApp/Box2D/Collision/b2Collision.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2Shape.h \
+		../EducationalApp/Box2D/Common/b2BlockAllocator.h \
+		../EducationalApp/Box2D/Dynamics/b2Fixture.h \
+		../EducationalApp/Box2D/Dynamics/b2Body.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2ChainShape.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2EdgeShape.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o b2ChainAndCircleContact.o ../EducationalApp/Box2D/Dynamics/Contacts/b2ChainAndCircleContact.cpp
+
+b2ChainAndPolygonContact.o: ../EducationalApp/Box2D/Dynamics/Contacts/b2ChainAndPolygonContact.cpp ../EducationalApp/Box2D/Dynamics/Contacts/b2ChainAndPolygonContact.h \
+		../EducationalApp/Box2D/Dynamics/Contacts/b2Contact.h \
+		../EducationalApp/Box2D/Common/b2Math.h \
+		../EducationalApp/Box2D/Common/b2Settings.h \
+		../EducationalApp/Box2D/Collision/b2Collision.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2Shape.h \
+		../EducationalApp/Box2D/Common/b2BlockAllocator.h \
+		../EducationalApp/Box2D/Dynamics/b2Fixture.h \
+		../EducationalApp/Box2D/Dynamics/b2Body.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2ChainShape.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2EdgeShape.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o b2ChainAndPolygonContact.o ../EducationalApp/Box2D/Dynamics/Contacts/b2ChainAndPolygonContact.cpp
+
+b2CircleContact.o: ../EducationalApp/Box2D/Dynamics/Contacts/b2CircleContact.cpp ../EducationalApp/Box2D/Dynamics/Contacts/b2CircleContact.h \
+		../EducationalApp/Box2D/Dynamics/Contacts/b2Contact.h \
+		../EducationalApp/Box2D/Common/b2Math.h \
+		../EducationalApp/Box2D/Common/b2Settings.h \
+		../EducationalApp/Box2D/Collision/b2Collision.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2Shape.h \
+		../EducationalApp/Box2D/Common/b2BlockAllocator.h \
+		../EducationalApp/Box2D/Dynamics/b2Fixture.h \
+		../EducationalApp/Box2D/Dynamics/b2Body.h \
+		../EducationalApp/Box2D/Dynamics/b2WorldCallbacks.h \
+		../EducationalApp/Box2D/Collision/b2TimeOfImpact.h \
+		../EducationalApp/Box2D/Collision/b2Distance.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o b2CircleContact.o ../EducationalApp/Box2D/Dynamics/Contacts/b2CircleContact.cpp
+
+b2Contact.o: ../EducationalApp/Box2D/Dynamics/Contacts/b2Contact.cpp ../EducationalApp/Box2D/Dynamics/Contacts/b2Contact.h \
+		../EducationalApp/Box2D/Common/b2Math.h \
+		../EducationalApp/Box2D/Common/b2Settings.h \
+		../EducationalApp/Box2D/Collision/b2Collision.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2Shape.h \
+		../EducationalApp/Box2D/Common/b2BlockAllocator.h \
+		../EducationalApp/Box2D/Dynamics/b2Fixture.h \
+		../EducationalApp/Box2D/Dynamics/b2Body.h \
+		../EducationalApp/Box2D/Dynamics/Contacts/b2CircleContact.h \
+		../EducationalApp/Box2D/Dynamics/Contacts/b2PolygonAndCircleContact.h \
+		../EducationalApp/Box2D/Dynamics/Contacts/b2PolygonContact.h \
+		../EducationalApp/Box2D/Dynamics/Contacts/b2EdgeAndCircleContact.h \
+		../EducationalApp/Box2D/Dynamics/Contacts/b2EdgeAndPolygonContact.h \
+		../EducationalApp/Box2D/Dynamics/Contacts/b2ChainAndCircleContact.h \
+		../EducationalApp/Box2D/Dynamics/Contacts/b2ChainAndPolygonContact.h \
+		../EducationalApp/Box2D/Dynamics/Contacts/b2ContactSolver.h \
+		../EducationalApp/Box2D/Dynamics/b2TimeStep.h \
+		../EducationalApp/Box2D/Collision/b2TimeOfImpact.h \
+		../EducationalApp/Box2D/Collision/b2Distance.h \
+		../EducationalApp/Box2D/Dynamics/b2World.h \
+		../EducationalApp/Box2D/Common/b2StackAllocator.h \
+		../EducationalApp/Box2D/Dynamics/b2ContactManager.h \
+		../EducationalApp/Box2D/Collision/b2BroadPhase.h \
+		../EducationalApp/Box2D/Collision/b2DynamicTree.h \
+		../EducationalApp/Box2D/Common/b2GrowableStack.h \
+		../EducationalApp/Box2D/Dynamics/b2WorldCallbacks.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o b2Contact.o ../EducationalApp/Box2D/Dynamics/Contacts/b2Contact.cpp
+
+b2ContactSolver.o: ../EducationalApp/Box2D/Dynamics/Contacts/b2ContactSolver.cpp ../EducationalApp/Box2D/Dynamics/Contacts/b2ContactSolver.h \
+		../EducationalApp/Box2D/Common/b2Math.h \
+		../EducationalApp/Box2D/Common/b2Settings.h \
+		../EducationalApp/Box2D/Collision/b2Collision.h \
+		../EducationalApp/Box2D/Dynamics/b2TimeStep.h \
+		../EducationalApp/Box2D/Dynamics/Contacts/b2Contact.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2Shape.h \
+		../EducationalApp/Box2D/Common/b2BlockAllocator.h \
+		../EducationalApp/Box2D/Dynamics/b2Fixture.h \
+		../EducationalApp/Box2D/Dynamics/b2Body.h \
+		../EducationalApp/Box2D/Dynamics/b2World.h \
+		../EducationalApp/Box2D/Common/b2StackAllocator.h \
+		../EducationalApp/Box2D/Dynamics/b2ContactManager.h \
+		../EducationalApp/Box2D/Collision/b2BroadPhase.h \
+		../EducationalApp/Box2D/Collision/b2DynamicTree.h \
+		../EducationalApp/Box2D/Common/b2GrowableStack.h \
+		../EducationalApp/Box2D/Dynamics/b2WorldCallbacks.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o b2ContactSolver.o ../EducationalApp/Box2D/Dynamics/Contacts/b2ContactSolver.cpp
+
+b2EdgeAndCircleContact.o: ../EducationalApp/Box2D/Dynamics/Contacts/b2EdgeAndCircleContact.cpp ../EducationalApp/Box2D/Dynamics/Contacts/b2EdgeAndCircleContact.h \
+		../EducationalApp/Box2D/Dynamics/Contacts/b2Contact.h \
+		../EducationalApp/Box2D/Common/b2Math.h \
+		../EducationalApp/Box2D/Common/b2Settings.h \
+		../EducationalApp/Box2D/Collision/b2Collision.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2Shape.h \
+		../EducationalApp/Box2D/Common/b2BlockAllocator.h \
+		../EducationalApp/Box2D/Dynamics/b2Fixture.h \
+		../EducationalApp/Box2D/Dynamics/b2Body.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o b2EdgeAndCircleContact.o ../EducationalApp/Box2D/Dynamics/Contacts/b2EdgeAndCircleContact.cpp
+
+b2EdgeAndPolygonContact.o: ../EducationalApp/Box2D/Dynamics/Contacts/b2EdgeAndPolygonContact.cpp ../EducationalApp/Box2D/Dynamics/Contacts/b2EdgeAndPolygonContact.h \
+		../EducationalApp/Box2D/Dynamics/Contacts/b2Contact.h \
+		../EducationalApp/Box2D/Common/b2Math.h \
+		../EducationalApp/Box2D/Common/b2Settings.h \
+		../EducationalApp/Box2D/Collision/b2Collision.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2Shape.h \
+		../EducationalApp/Box2D/Common/b2BlockAllocator.h \
+		../EducationalApp/Box2D/Dynamics/b2Fixture.h \
+		../EducationalApp/Box2D/Dynamics/b2Body.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o b2EdgeAndPolygonContact.o ../EducationalApp/Box2D/Dynamics/Contacts/b2EdgeAndPolygonContact.cpp
+
+b2PolygonAndCircleContact.o: ../EducationalApp/Box2D/Dynamics/Contacts/b2PolygonAndCircleContact.cpp ../EducationalApp/Box2D/Dynamics/Contacts/b2PolygonAndCircleContact.h \
+		../EducationalApp/Box2D/Dynamics/Contacts/b2Contact.h \
+		../EducationalApp/Box2D/Common/b2Math.h \
+		../EducationalApp/Box2D/Common/b2Settings.h \
+		../EducationalApp/Box2D/Collision/b2Collision.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2Shape.h \
+		../EducationalApp/Box2D/Common/b2BlockAllocator.h \
+		../EducationalApp/Box2D/Dynamics/b2Fixture.h \
+		../EducationalApp/Box2D/Dynamics/b2Body.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o b2PolygonAndCircleContact.o ../EducationalApp/Box2D/Dynamics/Contacts/b2PolygonAndCircleContact.cpp
+
+b2PolygonContact.o: ../EducationalApp/Box2D/Dynamics/Contacts/b2PolygonContact.cpp ../EducationalApp/Box2D/Dynamics/Contacts/b2PolygonContact.h \
+		../EducationalApp/Box2D/Dynamics/Contacts/b2Contact.h \
+		../EducationalApp/Box2D/Common/b2Math.h \
+		../EducationalApp/Box2D/Common/b2Settings.h \
+		../EducationalApp/Box2D/Collision/b2Collision.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2Shape.h \
+		../EducationalApp/Box2D/Common/b2BlockAllocator.h \
+		../EducationalApp/Box2D/Dynamics/b2Fixture.h \
+		../EducationalApp/Box2D/Dynamics/b2Body.h \
+		../EducationalApp/Box2D/Collision/b2TimeOfImpact.h \
+		../EducationalApp/Box2D/Collision/b2Distance.h \
+		../EducationalApp/Box2D/Dynamics/b2WorldCallbacks.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o b2PolygonContact.o ../EducationalApp/Box2D/Dynamics/Contacts/b2PolygonContact.cpp
+
+b2DistanceJoint.o: ../EducationalApp/Box2D/Dynamics/Joints/b2DistanceJoint.cpp ../EducationalApp/Box2D/Dynamics/Joints/b2DistanceJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2Joint.h \
+		../EducationalApp/Box2D/Common/b2Math.h \
+		../EducationalApp/Box2D/Common/b2Settings.h \
+		../EducationalApp/Box2D/Dynamics/b2Body.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2Shape.h \
+		../EducationalApp/Box2D/Common/b2BlockAllocator.h \
+		../EducationalApp/Box2D/Collision/b2Collision.h \
+		../EducationalApp/Box2D/Dynamics/b2TimeStep.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o b2DistanceJoint.o ../EducationalApp/Box2D/Dynamics/Joints/b2DistanceJoint.cpp
+
+b2FrictionJoint.o: ../EducationalApp/Box2D/Dynamics/Joints/b2FrictionJoint.cpp ../EducationalApp/Box2D/Dynamics/Joints/b2FrictionJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2Joint.h \
+		../EducationalApp/Box2D/Common/b2Math.h \
+		../EducationalApp/Box2D/Common/b2Settings.h \
+		../EducationalApp/Box2D/Dynamics/b2Body.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2Shape.h \
+		../EducationalApp/Box2D/Common/b2BlockAllocator.h \
+		../EducationalApp/Box2D/Collision/b2Collision.h \
+		../EducationalApp/Box2D/Dynamics/b2TimeStep.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o b2FrictionJoint.o ../EducationalApp/Box2D/Dynamics/Joints/b2FrictionJoint.cpp
+
+b2GearJoint.o: ../EducationalApp/Box2D/Dynamics/Joints/b2GearJoint.cpp ../EducationalApp/Box2D/Dynamics/Joints/b2GearJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2Joint.h \
+		../EducationalApp/Box2D/Common/b2Math.h \
+		../EducationalApp/Box2D/Common/b2Settings.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2RevoluteJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2PrismaticJoint.h \
+		../EducationalApp/Box2D/Dynamics/b2Body.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2Shape.h \
+		../EducationalApp/Box2D/Common/b2BlockAllocator.h \
+		../EducationalApp/Box2D/Collision/b2Collision.h \
+		../EducationalApp/Box2D/Dynamics/b2TimeStep.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o b2GearJoint.o ../EducationalApp/Box2D/Dynamics/Joints/b2GearJoint.cpp
+
+b2Joint.o: ../EducationalApp/Box2D/Dynamics/Joints/b2Joint.cpp ../EducationalApp/Box2D/Dynamics/Joints/b2Joint.h \
+		../EducationalApp/Box2D/Common/b2Math.h \
+		../EducationalApp/Box2D/Common/b2Settings.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2DistanceJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2WheelJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2MouseJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2RevoluteJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2PrismaticJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2PulleyJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2GearJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2WeldJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2FrictionJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2RopeJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2MotorJoint.h \
+		../EducationalApp/Box2D/Dynamics/b2Body.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2Shape.h \
+		../EducationalApp/Box2D/Common/b2BlockAllocator.h \
+		../EducationalApp/Box2D/Collision/b2Collision.h \
+		../EducationalApp/Box2D/Dynamics/b2World.h \
+		../EducationalApp/Box2D/Common/b2StackAllocator.h \
+		../EducationalApp/Box2D/Dynamics/b2ContactManager.h \
+		../EducationalApp/Box2D/Collision/b2BroadPhase.h \
+		../EducationalApp/Box2D/Collision/b2DynamicTree.h \
+		../EducationalApp/Box2D/Common/b2GrowableStack.h \
+		../EducationalApp/Box2D/Dynamics/b2WorldCallbacks.h \
+		../EducationalApp/Box2D/Dynamics/b2TimeStep.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o b2Joint.o ../EducationalApp/Box2D/Dynamics/Joints/b2Joint.cpp
+
+b2MotorJoint.o: ../EducationalApp/Box2D/Dynamics/Joints/b2MotorJoint.cpp ../EducationalApp/Box2D/Dynamics/Joints/b2MotorJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2Joint.h \
+		../EducationalApp/Box2D/Common/b2Math.h \
+		../EducationalApp/Box2D/Common/b2Settings.h \
+		../EducationalApp/Box2D/Dynamics/b2Body.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2Shape.h \
+		../EducationalApp/Box2D/Common/b2BlockAllocator.h \
+		../EducationalApp/Box2D/Collision/b2Collision.h \
+		../EducationalApp/Box2D/Dynamics/b2TimeStep.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o b2MotorJoint.o ../EducationalApp/Box2D/Dynamics/Joints/b2MotorJoint.cpp
+
+b2MouseJoint.o: ../EducationalApp/Box2D/Dynamics/Joints/b2MouseJoint.cpp ../EducationalApp/Box2D/Dynamics/Joints/b2MouseJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2Joint.h \
+		../EducationalApp/Box2D/Common/b2Math.h \
+		../EducationalApp/Box2D/Common/b2Settings.h \
+		../EducationalApp/Box2D/Dynamics/b2Body.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2Shape.h \
+		../EducationalApp/Box2D/Common/b2BlockAllocator.h \
+		../EducationalApp/Box2D/Collision/b2Collision.h \
+		../EducationalApp/Box2D/Dynamics/b2TimeStep.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o b2MouseJoint.o ../EducationalApp/Box2D/Dynamics/Joints/b2MouseJoint.cpp
+
+b2PrismaticJoint.o: ../EducationalApp/Box2D/Dynamics/Joints/b2PrismaticJoint.cpp ../EducationalApp/Box2D/Dynamics/Joints/b2PrismaticJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2Joint.h \
+		../EducationalApp/Box2D/Common/b2Math.h \
+		../EducationalApp/Box2D/Common/b2Settings.h \
+		../EducationalApp/Box2D/Dynamics/b2Body.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2Shape.h \
+		../EducationalApp/Box2D/Common/b2BlockAllocator.h \
+		../EducationalApp/Box2D/Collision/b2Collision.h \
+		../EducationalApp/Box2D/Dynamics/b2TimeStep.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o b2PrismaticJoint.o ../EducationalApp/Box2D/Dynamics/Joints/b2PrismaticJoint.cpp
+
+b2PulleyJoint.o: ../EducationalApp/Box2D/Dynamics/Joints/b2PulleyJoint.cpp ../EducationalApp/Box2D/Dynamics/Joints/b2PulleyJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2Joint.h \
+		../EducationalApp/Box2D/Common/b2Math.h \
+		../EducationalApp/Box2D/Common/b2Settings.h \
+		../EducationalApp/Box2D/Dynamics/b2Body.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2Shape.h \
+		../EducationalApp/Box2D/Common/b2BlockAllocator.h \
+		../EducationalApp/Box2D/Collision/b2Collision.h \
+		../EducationalApp/Box2D/Dynamics/b2TimeStep.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o b2PulleyJoint.o ../EducationalApp/Box2D/Dynamics/Joints/b2PulleyJoint.cpp
+
+b2RevoluteJoint.o: ../EducationalApp/Box2D/Dynamics/Joints/b2RevoluteJoint.cpp ../EducationalApp/Box2D/Dynamics/Joints/b2RevoluteJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2Joint.h \
+		../EducationalApp/Box2D/Common/b2Math.h \
+		../EducationalApp/Box2D/Common/b2Settings.h \
+		../EducationalApp/Box2D/Dynamics/b2Body.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2Shape.h \
+		../EducationalApp/Box2D/Common/b2BlockAllocator.h \
+		../EducationalApp/Box2D/Collision/b2Collision.h \
+		../EducationalApp/Box2D/Dynamics/b2TimeStep.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o b2RevoluteJoint.o ../EducationalApp/Box2D/Dynamics/Joints/b2RevoluteJoint.cpp
+
+b2RopeJoint.o: ../EducationalApp/Box2D/Dynamics/Joints/b2RopeJoint.cpp ../EducationalApp/Box2D/Dynamics/Joints/b2RopeJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2Joint.h \
+		../EducationalApp/Box2D/Common/b2Math.h \
+		../EducationalApp/Box2D/Common/b2Settings.h \
+		../EducationalApp/Box2D/Dynamics/b2Body.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2Shape.h \
+		../EducationalApp/Box2D/Common/b2BlockAllocator.h \
+		../EducationalApp/Box2D/Collision/b2Collision.h \
+		../EducationalApp/Box2D/Dynamics/b2TimeStep.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o b2RopeJoint.o ../EducationalApp/Box2D/Dynamics/Joints/b2RopeJoint.cpp
+
+b2WeldJoint.o: ../EducationalApp/Box2D/Dynamics/Joints/b2WeldJoint.cpp ../EducationalApp/Box2D/Dynamics/Joints/b2WeldJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2Joint.h \
+		../EducationalApp/Box2D/Common/b2Math.h \
+		../EducationalApp/Box2D/Common/b2Settings.h \
+		../EducationalApp/Box2D/Dynamics/b2Body.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2Shape.h \
+		../EducationalApp/Box2D/Common/b2BlockAllocator.h \
+		../EducationalApp/Box2D/Collision/b2Collision.h \
+		../EducationalApp/Box2D/Dynamics/b2TimeStep.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o b2WeldJoint.o ../EducationalApp/Box2D/Dynamics/Joints/b2WeldJoint.cpp
+
+b2WheelJoint.o: ../EducationalApp/Box2D/Dynamics/Joints/b2WheelJoint.cpp ../EducationalApp/Box2D/Dynamics/Joints/b2WheelJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2Joint.h \
+		../EducationalApp/Box2D/Common/b2Math.h \
+		../EducationalApp/Box2D/Common/b2Settings.h \
+		../EducationalApp/Box2D/Dynamics/b2Body.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2Shape.h \
+		../EducationalApp/Box2D/Common/b2BlockAllocator.h \
+		../EducationalApp/Box2D/Collision/b2Collision.h \
+		../EducationalApp/Box2D/Dynamics/b2TimeStep.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o b2WheelJoint.o ../EducationalApp/Box2D/Dynamics/Joints/b2WheelJoint.cpp
+
+b2Body.o: ../EducationalApp/Box2D/Dynamics/b2Body.cpp ../EducationalApp/Box2D/Dynamics/b2Body.h \
+		../EducationalApp/Box2D/Common/b2Math.h \
+		../EducationalApp/Box2D/Common/b2Settings.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2Shape.h \
+		../EducationalApp/Box2D/Common/b2BlockAllocator.h \
+		../EducationalApp/Box2D/Collision/b2Collision.h \
+		../EducationalApp/Box2D/Dynamics/b2Fixture.h \
+		../EducationalApp/Box2D/Dynamics/b2World.h \
+		../EducationalApp/Box2D/Common/b2StackAllocator.h \
+		../EducationalApp/Box2D/Dynamics/b2ContactManager.h \
+		../EducationalApp/Box2D/Collision/b2BroadPhase.h \
+		../EducationalApp/Box2D/Collision/b2DynamicTree.h \
+		../EducationalApp/Box2D/Common/b2GrowableStack.h \
+		../EducationalApp/Box2D/Dynamics/b2WorldCallbacks.h \
+		../EducationalApp/Box2D/Dynamics/b2TimeStep.h \
+		../EducationalApp/Box2D/Dynamics/Contacts/b2Contact.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2Joint.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o b2Body.o ../EducationalApp/Box2D/Dynamics/b2Body.cpp
+
+b2ContactManager.o: ../EducationalApp/Box2D/Dynamics/b2ContactManager.cpp ../EducationalApp/Box2D/Dynamics/b2ContactManager.h \
+		../EducationalApp/Box2D/Collision/b2BroadPhase.h \
+		../EducationalApp/Box2D/Common/b2Settings.h \
+		../EducationalApp/Box2D/Collision/b2Collision.h \
+		../EducationalApp/Box2D/Common/b2Math.h \
+		../EducationalApp/Box2D/Collision/b2DynamicTree.h \
+		../EducationalApp/Box2D/Common/b2GrowableStack.h \
+		../EducationalApp/Box2D/Dynamics/b2Body.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2Shape.h \
+		../EducationalApp/Box2D/Common/b2BlockAllocator.h \
+		../EducationalApp/Box2D/Dynamics/b2Fixture.h \
+		../EducationalApp/Box2D/Dynamics/b2WorldCallbacks.h \
+		../EducationalApp/Box2D/Dynamics/Contacts/b2Contact.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o b2ContactManager.o ../EducationalApp/Box2D/Dynamics/b2ContactManager.cpp
+
+b2Fixture.o: ../EducationalApp/Box2D/Dynamics/b2Fixture.cpp ../EducationalApp/Box2D/Dynamics/b2Fixture.h \
+		../EducationalApp/Box2D/Dynamics/b2Body.h \
+		../EducationalApp/Box2D/Common/b2Math.h \
+		../EducationalApp/Box2D/Common/b2Settings.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2Shape.h \
+		../EducationalApp/Box2D/Common/b2BlockAllocator.h \
+		../EducationalApp/Box2D/Collision/b2Collision.h \
+		../EducationalApp/Box2D/Dynamics/Contacts/b2Contact.h \
+		../EducationalApp/Box2D/Dynamics/b2World.h \
+		../EducationalApp/Box2D/Common/b2StackAllocator.h \
+		../EducationalApp/Box2D/Dynamics/b2ContactManager.h \
+		../EducationalApp/Box2D/Collision/b2BroadPhase.h \
+		../EducationalApp/Box2D/Collision/b2DynamicTree.h \
+		../EducationalApp/Box2D/Common/b2GrowableStack.h \
+		../EducationalApp/Box2D/Dynamics/b2WorldCallbacks.h \
+		../EducationalApp/Box2D/Dynamics/b2TimeStep.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2CircleShape.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2EdgeShape.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2PolygonShape.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2ChainShape.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o b2Fixture.o ../EducationalApp/Box2D/Dynamics/b2Fixture.cpp
+
+b2Island.o: ../EducationalApp/Box2D/Dynamics/b2Island.cpp ../EducationalApp/Box2D/Collision/b2Distance.h \
+		../EducationalApp/Box2D/Common/b2Math.h \
+		../EducationalApp/Box2D/Common/b2Settings.h \
+		../EducationalApp/Box2D/Dynamics/b2Island.h \
+		../EducationalApp/Box2D/Dynamics/b2Body.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2Shape.h \
+		../EducationalApp/Box2D/Common/b2BlockAllocator.h \
+		../EducationalApp/Box2D/Collision/b2Collision.h \
+		../EducationalApp/Box2D/Dynamics/b2TimeStep.h \
+		../EducationalApp/Box2D/Dynamics/b2Fixture.h \
+		../EducationalApp/Box2D/Dynamics/b2World.h \
+		../EducationalApp/Box2D/Common/b2StackAllocator.h \
+		../EducationalApp/Box2D/Dynamics/b2ContactManager.h \
+		../EducationalApp/Box2D/Collision/b2BroadPhase.h \
+		../EducationalApp/Box2D/Collision/b2DynamicTree.h \
+		../EducationalApp/Box2D/Common/b2GrowableStack.h \
+		../EducationalApp/Box2D/Dynamics/b2WorldCallbacks.h \
+		../EducationalApp/Box2D/Dynamics/Contacts/b2Contact.h \
+		../EducationalApp/Box2D/Dynamics/Contacts/b2ContactSolver.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2Joint.h \
+		../EducationalApp/Box2D/Common/b2Timer.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o b2Island.o ../EducationalApp/Box2D/Dynamics/b2Island.cpp
+
+b2World.o: ../EducationalApp/Box2D/Dynamics/b2World.cpp ../EducationalApp/Box2D/Dynamics/b2World.h \
+		../EducationalApp/Box2D/Common/b2Math.h \
+		../EducationalApp/Box2D/Common/b2Settings.h \
+		../EducationalApp/Box2D/Common/b2BlockAllocator.h \
+		../EducationalApp/Box2D/Common/b2StackAllocator.h \
+		../EducationalApp/Box2D/Dynamics/b2ContactManager.h \
+		../EducationalApp/Box2D/Collision/b2BroadPhase.h \
+		../EducationalApp/Box2D/Collision/b2Collision.h \
+		../EducationalApp/Box2D/Collision/b2DynamicTree.h \
+		../EducationalApp/Box2D/Common/b2GrowableStack.h \
+		../EducationalApp/Box2D/Dynamics/b2WorldCallbacks.h \
+		../EducationalApp/Box2D/Dynamics/b2TimeStep.h \
+		../EducationalApp/Box2D/Dynamics/b2Body.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2Shape.h \
+		../EducationalApp/Box2D/Dynamics/b2Fixture.h \
+		../EducationalApp/Box2D/Dynamics/b2Island.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2PulleyJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2Joint.h \
+		../EducationalApp/Box2D/Dynamics/Contacts/b2Contact.h \
+		../EducationalApp/Box2D/Dynamics/Contacts/b2ContactSolver.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2CircleShape.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2EdgeShape.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2ChainShape.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2PolygonShape.h \
+		../EducationalApp/Box2D/Collision/b2TimeOfImpact.h \
+		../EducationalApp/Box2D/Collision/b2Distance.h \
+		../EducationalApp/Box2D/Common/b2Draw.h \
+		../EducationalApp/Box2D/Common/b2Timer.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o b2World.o ../EducationalApp/Box2D/Dynamics/b2World.cpp
+
+b2WorldCallbacks.o: ../EducationalApp/Box2D/Dynamics/b2WorldCallbacks.cpp ../EducationalApp/Box2D/Dynamics/b2WorldCallbacks.h \
+		../EducationalApp/Box2D/Common/b2Settings.h \
+		../EducationalApp/Box2D/Dynamics/b2Fixture.h \
+		../EducationalApp/Box2D/Dynamics/b2Body.h \
+		../EducationalApp/Box2D/Common/b2Math.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2Shape.h \
+		../EducationalApp/Box2D/Common/b2BlockAllocator.h \
+		../EducationalApp/Box2D/Collision/b2Collision.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o b2WorldCallbacks.o ../EducationalApp/Box2D/Dynamics/b2WorldCallbacks.cpp
+
+b2Rope.o: ../EducationalApp/Box2D/Rope/b2Rope.cpp ../EducationalApp/Box2D/Rope/b2Rope.h \
+		../EducationalApp/Box2D/Common/b2Math.h \
+		../EducationalApp/Box2D/Common/b2Settings.h \
+		../EducationalApp/Box2D/Common/b2Draw.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o b2Rope.o ../EducationalApp/Box2D/Rope/b2Rope.cpp
 
 controller.o: ../EducationalApp/controller.cpp ../EducationalApp/controller.h \
 		../../Qt/6.2.3/macos/lib/QtCore.framework/Headers/QObject \
