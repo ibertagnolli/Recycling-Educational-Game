@@ -13,7 +13,7 @@ View::View(QWidget *parent)
     ui->instructionPictureLabel->setPixmap(pixmap);
     ui->instructionFrame->setAutoFillBackground(false);
 
-    ui->instructionScreen->setStyleSheet("QWidget#instructionScreen {background-color: rgb(211, 253, 255); background-image: url(/Users/vista/Desktop/meadow6.png) 0 0 0 0 stretch stretch;background-repeat: no-repeat;}");
+    ui->instructionScreen->setStyleSheet("QWidget#instructionScreen {background-color: rgb(211, 253, 255); background-image: url(:/images/images/meadow6.png) 0 0 0 0 stretch stretch;background-repeat: no-repeat;}");
 
 
     // ui->titleScreen->

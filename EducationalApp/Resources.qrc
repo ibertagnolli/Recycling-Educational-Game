@@ -3,5 +3,7 @@
         <file>images/test.png</file>
         <file>images/wizardBig.png</file>
         <file>images/meadow.jpg</file>
+        <file>images/frog.png</file>
+        <file>images/meadow6.png</file>
     </qresource>
 </RCC>
