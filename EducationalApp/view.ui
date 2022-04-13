@@ -65,7 +65,7 @@
      <widget class="QLabel" name="titleLabel">
       <property name="geometry">
        <rect>
-        <x>380</x>
+        <x>350</x>
         <y>0</y>
         <width>391</width>
         <height>51</height>
@@ -88,8 +88,8 @@
      <widget class="QLabel" name="wizardLabel">
       <property name="geometry">
        <rect>
-        <x>390</x>
-        <y>70</y>
+        <x>400</x>
+        <y>80</y>
         <width>441</width>
         <height>461</height>
        </rect>
@@ -107,11 +107,17 @@
      <widget class="QLabel" name="backgroundLabel">
       <property name="geometry">
        <rect>
-        <x>-70</x>
+        <x>0</x>
         <y>0</y>
-        <width>771</width>
-        <height>561</height>
+        <width>800</width>
+        <height>600</height>
        </rect>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>800</width>
+        <height>16777215</height>
+       </size>
       </property>
       <property name="text">
        <string/>
@@ -121,6 +127,9 @@
       </property>
       <property name="scaledContents">
        <bool>true</bool>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
       </property>
      </widget>
      <zorder>backgroundLabel</zorder>
