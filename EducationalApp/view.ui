@@ -31,10 +31,10 @@
    <widget class="QStackedWidget" name="stackWidget">
     <property name="geometry">
      <rect>
-      <x>-1</x>
-      <y>-1</y>
-      <width>801</width>
-      <height>561</height>
+      <x>50</x>
+      <y>50</y>
+      <width>800</width>
+      <height>600</height>
      </rect>
     </property>
     <widget class="QWidget" name="titleScreen">
@@ -53,7 +53,7 @@
       <property name="font">
        <font>
         <family>Georgia</family>
-        <pointsize>48</pointsize>
+        <pointsize>45</pointsize>
         <bold>true</bold>
        </font>
       </property>
@@ -851,6 +851,8 @@ their correct bin.</string>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources/>
+ <resources>
+  <include location="Resources.qrc"/>
+ </resources>
  <connections/>
 </ui>
