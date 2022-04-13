@@ -13,16 +13,61 @@ class View : public QMainWindow
 
 public:
     View(QWidget *parent = nullptr);
+    /*
+    * Destructor for the View
+    */
     ~View();
 
-private slots:
-    void on_startButton_clicked();
+signals:
 
-    void on_buttonToInstrScreen_clicked();
-
-    void on_buttonToGameScreen_clicked();
+    /**
+     * @brief Informs the model when the current page has changed
+     * @param index of the current model page
+     */
+    void currentPageChanged(int index);
 
 private:
+    /**
+     * @brief Tracks the current ui
+     */
     Ui::View *ui;
+
+private slots:
+
+    /**
+     * @brief Informs the view whenever the current widget has changed
+     * @param current stack widget index
+     */
+    void on_stackWidget_currentChanged(int index);
+
+    /**
+    * @brief Moves user from titleScreen to purposeScreen.
+    */
+    void on_startButton_clicked();
+
+    /**
+    * @brief Moves user from purposeScreen to instructionScreen.
+    */
+    void on_buttonToInstrScreen_clicked();
+
+    /**
+    * @brief Moves user from instructionScreen to gameScreen.
+    */
+    void on_buttonToGameScreen_clicked();
+
+    /**
+    * @brief Moves user from instructionScreen back to the purposeScreen
+    */
+    void on_buttonToPurposeScreen_clicked();
+
+    /**
+     * @brief This method will be deleted. Moves from gameScreen to loadingScreen1.
+     */
+    void on_buttonToLoad1_clicked();
+
+    /**
+     * @brief This method will be deleted. Moves from gameScreen to loadingScreen2.
+     */
+    void on_buttonToLoad2_clicked();
 };
 #endif // VIEW_H
