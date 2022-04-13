@@ -97,7 +97,7 @@ public:
         titleScreen->setStyleSheet(QString::fromUtf8("background-image: {/Users/isabellabertagnolli/a8-Edu-app/a8-edu-app-ibertagnolli/meadow.png;}"));
         startButton = new QPushButton(titleScreen);
         startButton->setObjectName(QString::fromUtf8("startButton"));
-        startButton->setGeometry(QRect(490, 160, 241, 61));
+        startButton->setGeometry(QRect(470, 170, 241, 61));
         QFont font;
         font.setPointSize(45);
         font.setBold(true);
@@ -105,7 +105,7 @@ public:
         startButton->setStyleSheet(QString::fromUtf8("QPushButton {background-color: rgb(63, 191, 4);border-style: solid;border-color: rgb(94, 110, 71);border-width: 2px; border-radius:10px; color: rgb(255, 255, 255)} QPushButton:pressed {background-color: rgb(230, 249, 193);border-style: solid;border-color: rgb(94, 110, 71);border-width: 2px;border-radius:10px; color: rgb(0, 0, 0)}"));
         titleLabel = new QLabel(titleScreen);
         titleLabel->setObjectName(QString::fromUtf8("titleLabel"));
-        titleLabel->setGeometry(QRect(400, 50, 411, 101));
+        titleLabel->setGeometry(QRect(400, 0, 371, 171));
         titleLabel->setFont(font);
         titleLabel->setStyleSheet(QString::fromUtf8("color:rgb(2, 115, 51)"));
         titleLabel->setAlignment(Qt::AlignCenter);
@@ -430,7 +430,8 @@ public:
     {
         View->setWindowTitle(QCoreApplication::translate("View", "View", nullptr));
         startButton->setText(QCoreApplication::translate("View", "Start", nullptr));
-        titleLabel->setText(QCoreApplication::translate("View", "Don't Be Trashy!", nullptr));
+        titleLabel->setText(QCoreApplication::translate("View", "Don't Be \n"
+"Trashy!", nullptr));
         wizard->setText(QString());
         backgroundImage->setText(QCoreApplication::translate("View", "TextLabel", nullptr));
         flavorTextLabel->setText(QCoreApplication::translate("View", "Make Recycling Magical!", nullptr));

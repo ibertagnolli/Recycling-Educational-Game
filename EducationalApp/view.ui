@@ -36,8 +36,8 @@
        <widget class="QPushButton" name="startButton">
         <property name="geometry">
          <rect>
-          <x>490</x>
-          <y>160</y>
+          <x>470</x>
+          <y>170</y>
           <width>241</width>
           <height>61</height>
          </rect>
@@ -59,9 +59,9 @@
         <property name="geometry">
          <rect>
           <x>400</x>
-          <y>50</y>
-          <width>411</width>
-          <height>101</height>
+          <y>0</y>
+          <width>371</width>
+          <height>171</height>
          </rect>
         </property>
         <property name="font">
@@ -74,7 +74,8 @@
          <string notr="true">color:rgb(2, 115, 51)</string>
         </property>
         <property name="text">
-         <string>Don't Be Trashy!</string>
+         <string>Don't Be 
+Trashy!</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
