@@ -219,6 +219,9 @@ Trashy!</string>
         <property name="text">
          <string>Saves Resources and Reduces Pollution</string>
         </property>
+        <property name="scaledContents">
+         <bool>false</bool>
+        </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
         </property>
@@ -250,31 +253,6 @@ Trashy!</string>
          <set>Qt::AlignCenter</set>
         </property>
        </widget>
-       <widget class="QLabel" name="backgroungImageLabel">
-        <property name="geometry">
-         <rect>
-          <x>0</x>
-          <y>0</y>
-          <width>811</width>
-          <height>571</height>
-         </rect>
-        </property>
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="pixmap">
-         <pixmap>../../../../../Downloads/purposeField1.jpg</pixmap>
-        </property>
-        <property name="scaledContents">
-         <bool>true</bool>
-        </property>
-       </widget>
        <widget class="QLabel" name="purposeSubtitleLabel2">
         <property name="geometry">
          <rect>
@@ -302,107 +280,12 @@ Trashy!</string>
          <bool>true</bool>
         </property>
        </widget>
-       <widget class="QLabel" name="pinkTulipLabel">
-        <property name="geometry">
-         <rect>
-          <x>180</x>
-          <y>90</y>
-          <width>431</width>
-          <height>481</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="pixmap">
-         <pixmap>../../../../../Downloads/pinkTulip1.png</pixmap>
-        </property>
-        <property name="scaledContents">
-         <bool>true</bool>
-        </property>
-       </widget>
-       <widget class="QLabel" name="orangeTulipLabel">
-        <property name="geometry">
-         <rect>
-          <x>70</x>
-          <y>260</y>
-          <width>401</width>
-          <height>401</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="pixmap">
-         <pixmap>../../../../../Downloads/orangeTulip1.png</pixmap>
-        </property>
-        <property name="scaledContents">
-         <bool>true</bool>
-        </property>
-       </widget>
-       <widget class="QLabel" name="blueTulipLabel">
-        <property name="geometry">
-         <rect>
-          <x>-80</x>
-          <y>160</y>
-          <width>391</width>
-          <height>421</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="pixmap">
-         <pixmap>../../../../../Downloads/blueTulip1.png</pixmap>
-        </property>
-        <property name="scaledContents">
-         <bool>true</bool>
-        </property>
-       </widget>
-       <widget class="QLabel" name="redTulipLabel">
-        <property name="geometry">
-         <rect>
-          <x>500</x>
-          <y>110</y>
-          <width>421</width>
-          <height>461</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="pixmap">
-         <pixmap>../../../../../Downloads/redTulip1.png</pixmap>
-        </property>
-        <property name="scaledContents">
-         <bool>true</bool>
-        </property>
-       </widget>
-       <widget class="QLabel" name="yellowTulipLabel">
-        <property name="geometry">
-         <rect>
-          <x>350</x>
-          <y>210</y>
-          <width>401</width>
-          <height>411</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="pixmap">
-         <pixmap>../../../../../Downloads/yellowTulip1.png</pixmap>
-        </property>
-        <property name="scaledContents">
-         <bool>true</bool>
-        </property>
-       </widget>
        <widget class="QLabel" name="waterLabel">
         <property name="geometry">
          <rect>
           <x>30</x>
           <y>290</y>
-          <width>141</width>
+          <width>131</width>
           <height>111</height>
          </rect>
         </property>
@@ -427,7 +310,7 @@ Trashy!</string>
        <widget class="QLabel" name="electricityLabel">
         <property name="geometry">
          <rect>
-          <x>460</x>
+          <x>450</x>
           <y>350</y>
           <width>151</width>
           <height>71</height>
@@ -454,7 +337,7 @@ Trashy!</string>
        <widget class="QLabel" name="treeLabel">
         <property name="geometry">
          <rect>
-          <x>190</x>
+          <x>170</x>
           <y>370</y>
           <width>121</width>
           <height>111</height>
@@ -481,9 +364,9 @@ Trashy!</string>
        <widget class="QLabel" name="gasLabel">
         <property name="geometry">
          <rect>
-          <x>300</x>
-          <y>240</y>
-          <width>161</width>
+          <x>280</x>
+          <y>250</y>
+          <width>171</width>
           <height>111</height>
          </rect>
         </property>
@@ -508,8 +391,8 @@ Trashy!</string>
        <widget class="QLabel" name="landfillLabel">
         <property name="geometry">
          <rect>
-          <x>620</x>
-          <y>220</y>
+          <x>610</x>
+          <y>240</y>
           <width>161</width>
           <height>151</height>
          </rect>
@@ -532,15 +415,129 @@ Trashy!</string>
          <bool>true</bool>
         </property>
        </widget>
-       <zorder>backgroungImageLabel</zorder>
-       <zorder>purposeSubtitleLabel1</zorder>
-       <zorder>purposeTitleLabel</zorder>
-       <zorder>purposeSubtitleLabel2</zorder>
+       <widget class="QLabel" name="blueTulipLabel">
+        <property name="geometry">
+         <rect>
+          <x>-90</x>
+          <y>160</y>
+          <width>391</width>
+          <height>421</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="pixmap">
+         <pixmap>images/blueTulip1.png</pixmap>
+        </property>
+        <property name="scaledContents">
+         <bool>true</bool>
+        </property>
+       </widget>
+       <widget class="QLabel" name="orangeTulipLabel">
+        <property name="geometry">
+         <rect>
+          <x>60</x>
+          <y>280</y>
+          <width>371</width>
+          <height>351</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="pixmap">
+         <pixmap>images/orangeTulip1.png</pixmap>
+        </property>
+        <property name="scaledContents">
+         <bool>true</bool>
+        </property>
+       </widget>
+       <widget class="QLabel" name="pinkTulipLabel">
+        <property name="geometry">
+         <rect>
+          <x>170</x>
+          <y>100</y>
+          <width>421</width>
+          <height>491</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="pixmap">
+         <pixmap>images/pinkTulip1.png</pixmap>
+        </property>
+        <property name="scaledContents">
+         <bool>true</bool>
+        </property>
+       </widget>
+       <widget class="QLabel" name="yellowTulipLabel">
+        <property name="geometry">
+         <rect>
+          <x>350</x>
+          <y>230</y>
+          <width>371</width>
+          <height>361</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="pixmap">
+         <pixmap>images/yellowTulip1.png</pixmap>
+        </property>
+        <property name="scaledContents">
+         <bool>true</bool>
+        </property>
+       </widget>
+       <widget class="QLabel" name="redTulipLabel">
+        <property name="geometry">
+         <rect>
+          <x>490</x>
+          <y>130</y>
+          <width>431</width>
+          <height>461</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="pixmap">
+         <pixmap>images/redTulip1.png</pixmap>
+        </property>
+        <property name="scaledContents">
+         <bool>true</bool>
+        </property>
+       </widget>
+       <widget class="QLabel" name="backgroundPurposeLabel">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>800</width>
+          <height>600</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="pixmap">
+         <pixmap>images/purposeField1.jpg</pixmap>
+        </property>
+        <property name="scaledContents">
+         <bool>true</bool>
+        </property>
+       </widget>
+       <zorder>backgroundPurposeLabel</zorder>
+       <zorder>redTulipLabel</zorder>
+       <zorder>yellowTulipLabel</zorder>
        <zorder>pinkTulipLabel</zorder>
        <zorder>orangeTulipLabel</zorder>
        <zorder>blueTulipLabel</zorder>
-       <zorder>redTulipLabel</zorder>
-       <zorder>yellowTulipLabel</zorder>
+       <zorder>purposeSubtitleLabel1</zorder>
+       <zorder>purposeTitleLabel</zorder>
+       <zorder>purposeSubtitleLabel2</zorder>
        <zorder>waterLabel</zorder>
        <zorder>electricityLabel</zorder>
        <zorder>buttonToInstrScreen</zorder>
@@ -832,7 +829,7 @@ their correct bin.</string>
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>25</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>

@@ -7,7 +7,7 @@ View::View(QWidget *parent)
       , ui(new Ui::View)
 {
     ui->setupUi(this);
-    QPixmap pixmap("/Users/vista/Desktop/frog.png");
+    QPixmap pixmap(":/images/images/frog.png");
     ui->instructionPictureLabel->setScaledContents(true);
     ui->instructionPictureLabel->setSizePolicy( QSizePolicy::Ignored, QSizePolicy::Ignored);
     ui->instructionPictureLabel->setPixmap(pixmap);
@@ -21,6 +21,15 @@ View::View(QWidget *parent)
         QPixmap(":/images/images/wizardBig.png"));
     ui->backgroundImage->setPixmap(
         QPixmap(":/images/images/meadow.jpg"));
+
+    // Image Importing for Purpose Screen
+    ui->backgroundPurposeLabel->setPixmap(QPixmap(":/images/images/purposeField1"));
+    ui->blueTulipLabel->setPixmap(QPixmap(":/images/images/blueTulip1"));
+    ui->orangeTulipLabel->setPixmap(QPixmap(":/images/images/orangeTulip1"));
+    ui->pinkTulipLabel->setPixmap(QPixmap(":/images/images/pinkTulip1"));
+    ui->yellowTulipLabel->setPixmap(QPixmap(":/images/images/yellowTulip1"));
+    ui->redTulipLabel->setPixmap(QPixmap(":/images/images/redTulip1"));
+
 }
 
 View::~View()

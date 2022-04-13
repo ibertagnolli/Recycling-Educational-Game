@@ -5,5 +5,11 @@
         <file>images/meadow.jpg</file>
         <file>images/frog.png</file>
         <file>images/meadow6.png</file>
+        <file>images/blueTulip1.png</file>
+        <file>images/redTulip1.png</file>
+        <file>images/orangeTulip1.png</file>
+        <file>images/pinkTulip1.png</file>
+        <file>images/yellowTulip1.png</file>
+        <file>images/purposeField1.jpg</file>
     </qresource>
 </RCC>
