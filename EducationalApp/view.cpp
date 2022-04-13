@@ -16,6 +16,11 @@ View::View(QWidget *parent)
     ui->instructionScreen->setStyleSheet("QWidget#instructionScreen {background-color: rgb(211, 253, 255); background-image: url(/Users/vista/Desktop/meadow6.png) 0 0 0 0 stretch stretch;background-repeat: no-repeat;}");
 
 
+    // ui->titleScreen->
+    ui->wizard->setPixmap(
+        QPixmap("/Users/isabellabertagnolli/a8-Edu-app/a8-edu-app-ibertagnolli/wizardBig.png"));
+    ui->backgroundImage->setPixmap(
+        QPixmap("/Users/isabellabertagnolli/a8-Edu-app/a8-edu-app-ibertagnolli/meadow.jpg"));
 }
 
 View::~View()
