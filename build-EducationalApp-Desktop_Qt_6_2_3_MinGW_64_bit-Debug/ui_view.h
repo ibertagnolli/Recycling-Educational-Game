@@ -149,7 +149,8 @@ public:
         buttonToPurposeScreen->setObjectName(QString::fromUtf8("buttonToPurposeScreen"));
         buttonToPurposeScreen->setMaximumSize(QSize(100, 40));
         buttonToPurposeScreen->setStyleSheet(QString::fromUtf8("color: rgb(46, 138, 3);\n"
-"border-color: rgb(0, 0, 0);"));
+"border-color: rgb(0, 0, 0);\n"
+"background-color: rgb(128, 242, 46);"));
 
         horizontalLayout_2->addWidget(buttonToPurposeScreen);
 
@@ -157,6 +158,7 @@ public:
         buttonToGameScreen->setObjectName(QString::fromUtf8("buttonToGameScreen"));
         buttonToGameScreen->setMaximumSize(QSize(100, 40));
         buttonToGameScreen->setStyleSheet(QString::fromUtf8("color: rgb(46, 138, 3);\n"
+"background-color: rgb(128, 242, 46);\n"
 "border-color: rgb(0, 0, 0);"));
 
         horizontalLayout_2->addWidget(buttonToGameScreen);
@@ -251,21 +253,21 @@ public:
         startButton->setText(QCoreApplication::translate("View", "Start", nullptr));
         buttonToInstrScreen->setText(QCoreApplication::translate("View", "Continue", nullptr));
         instructionPictureLabel->setText(QString());
-        label_6->setText(QCoreApplication::translate("View", "Requires to correctly place all trash items\n"
-" into their corresponding bin", nullptr));
+        label_6->setText(QCoreApplication::translate("View", "Advance to the next level by \n"
+"placing all trash items into the correct bin.", nullptr));
         HowToPlayLabel->setText(QCoreApplication::translate("View", "How To Play", nullptr));
         label_5->setText(QCoreApplication::translate("View", "Level Advancement", nullptr));
         label_8->setText(QString());
-        buttonToPurposeScreen->setText(QCoreApplication::translate("View", "back", nullptr));
+        buttonToPurposeScreen->setText(QCoreApplication::translate("View", "Back", nullptr));
         buttonToGameScreen->setText(QCoreApplication::translate("View", "Continue", nullptr));
         label_9->setText(QString());
         label_7->setText(QString());
         label->setText(QCoreApplication::translate("View", "Placement of Bins", nullptr));
-        label_3->setText(QCoreApplication::translate("View", "Goal: Place all trash items into \n"
-"their respectable bins.", nullptr));
+        label_3->setText(QCoreApplication::translate("View", "Place all trash items into \n"
+"their correct bins.", nullptr));
         label_2->setText(QCoreApplication::translate("View", "Goal", nullptr));
-        label_4->setText(QCoreApplication::translate("View", "Click on the trash item and dragging it to \n"
-"their corresponding bin.", nullptr));
+        label_4->setText(QCoreApplication::translate("View", "Click on the trash item and drag it to \n"
+"their correct bin.", nullptr));
     } // retranslateUi
 
 };

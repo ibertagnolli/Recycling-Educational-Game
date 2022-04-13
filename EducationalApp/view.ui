@@ -131,8 +131,8 @@
 color: rgba(63, 191, 4 ,255);</string>
               </property>
               <property name="text">
-               <string>Requires to correctly place all trash items
- into their corresponding bin</string>
+               <string>Advance to the next level by 
+placing all trash items into the correct bin.</string>
               </property>
               <property name="alignment">
                <set>Qt::AlignCenter</set>
@@ -198,10 +198,11 @@ color: rgb(46, 138, 3);</string>
                 </property>
                 <property name="styleSheet">
                  <string notr="true">color: rgb(46, 138, 3);
-border-color: rgb(0, 0, 0);</string>
+border-color: rgb(0, 0, 0);
+background-color: rgb(128, 242, 46);</string>
                 </property>
                 <property name="text">
-                 <string>back</string>
+                 <string>Back</string>
                 </property>
                </widget>
               </item>
@@ -215,6 +216,7 @@ border-color: rgb(0, 0, 0);</string>
                 </property>
                 <property name="styleSheet">
                  <string notr="true">color: rgb(46, 138, 3);
+background-color: rgb(128, 242, 46);
 border-color: rgb(0, 0, 0);</string>
                 </property>
                 <property name="text">
@@ -240,7 +242,7 @@ border-color: rgb(0, 0, 0);</string>
             <item row="9" column="1">
              <widget class="QLabel" name="label_7">
               <property name="text">
-               <string>  </string>
+               <string/>
               </property>
              </widget>
             </item>
@@ -271,8 +273,8 @@ color: rgb(46, 138, 3);</string>
 color: rgba(63, 191, 4 ,255);</string>
               </property>
               <property name="text">
-               <string>Goal: Place all trash items into 
-their respectable bins.</string>
+               <string>Place all trash items into 
+their correct bins.</string>
               </property>
               <property name="alignment">
                <set>Qt::AlignCenter</set>
@@ -306,8 +308,8 @@ color: rgb(46, 138, 3);</string>
 color: rgba(63, 191, 4 ,255);</string>
               </property>
               <property name="text">
-               <string>Click on the trash item and dragging it to 
-their corresponding bin.</string>
+               <string>Click on the trash item and drag it to 
+their correct bin.</string>
               </property>
               <property name="alignment">
                <set>Qt::AlignCenter</set>
