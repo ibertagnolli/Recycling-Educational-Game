@@ -36,7 +36,7 @@ public:
     QWidget *purposeScreen;
     QPushButton *buttonToInstrScreen;
     QWidget *instructionScreen;
-    QFrame *frame;
+    QFrame *instructionFrame;
     QWidget *horizontalLayoutWidget;
     QHBoxLayout *horizontalLayout;
     QLabel *instructionPictureLabel;
@@ -90,14 +90,16 @@ public:
         instructionScreen->setObjectName(QString::fromUtf8("instructionScreen"));
         instructionScreen->setMinimumSize(QSize(778, 528));
         instructionScreen->setMaximumSize(QSize(778, 528));
-        instructionScreen->setStyleSheet(QString::fromUtf8("background-color: rgba(195, 255, 165, 60);"));
-        frame = new QFrame(instructionScreen);
-        frame->setObjectName(QString::fromUtf8("frame"));
-        frame->setGeometry(QRect(10, 10, 761, 511));
-        frame->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);"));
-        frame->setFrameShape(QFrame::StyledPanel);
-        frame->setFrameShadow(QFrame::Raised);
-        horizontalLayoutWidget = new QWidget(frame);
+        instructionScreen->setAutoFillBackground(false);
+        instructionScreen->setStyleSheet(QString::fromUtf8("background-color: rgb(211, 253, 255);\n"
+""));
+        instructionFrame = new QFrame(instructionScreen);
+        instructionFrame->setObjectName(QString::fromUtf8("instructionFrame"));
+        instructionFrame->setGeometry(QRect(10, 10, 761, 511));
+        instructionFrame->setStyleSheet(QString::fromUtf8(""));
+        instructionFrame->setFrameShape(QFrame::StyledPanel);
+        instructionFrame->setFrameShadow(QFrame::Raised);
+        horizontalLayoutWidget = new QWidget(instructionFrame);
         horizontalLayoutWidget->setObjectName(QString::fromUtf8("horizontalLayoutWidget"));
         horizontalLayoutWidget->setGeometry(QRect(10, 10, 751, 501));
         horizontalLayout = new QHBoxLayout(horizontalLayoutWidget);
@@ -106,7 +108,8 @@ public:
         instructionPictureLabel = new QLabel(horizontalLayoutWidget);
         instructionPictureLabel->setObjectName(QString::fromUtf8("instructionPictureLabel"));
         instructionPictureLabel->setMaximumSize(QSize(350, 16777215));
-        instructionPictureLabel->setStyleSheet(QString::fromUtf8("background-image: url(\"/Users/vista/Desktop/frog.png\")"));
+        instructionPictureLabel->setStyleSheet(QString::fromUtf8("background-image: url(\"/Users/vista/Desktop/frog.png\");\n"
+"background-color: rgba( 255, 255, 255, 0%);"));
 
         horizontalLayout->addWidget(instructionPictureLabel);
 
@@ -115,7 +118,7 @@ public:
         label_6 = new QLabel(horizontalLayoutWidget);
         label_6->setObjectName(QString::fromUtf8("label_6"));
         label_6->setStyleSheet(QString::fromUtf8("font: 12pt \"Helvetica\";\n"
-"color: rgba(63, 191, 4 ,255);"));
+"color: rgb(0, 0, 0);"));
         label_6->setAlignment(Qt::AlignCenter);
 
         gridLayout->addWidget(label_6, 8, 1, 1, 1);
@@ -123,7 +126,8 @@ public:
         HowToPlayLabel = new QLabel(horizontalLayoutWidget);
         HowToPlayLabel->setObjectName(QString::fromUtf8("HowToPlayLabel"));
         HowToPlayLabel->setStyleSheet(QString::fromUtf8("font: 700 20pt \"Georgia\";\n"
-"color: rgb(46, 138, 3);"));
+"color: rgb(0, 0, 0);\n"
+"background-color: rgba( 255, 255, 255, 0%);"));
         HowToPlayLabel->setAlignment(Qt::AlignCenter);
 
         gridLayout->addWidget(HowToPlayLabel, 0, 1, 1, 1);
@@ -132,7 +136,8 @@ public:
         label_5->setObjectName(QString::fromUtf8("label_5"));
         label_5->setMaximumSize(QSize(16777215, 40));
         label_5->setStyleSheet(QString::fromUtf8("font: 16pt \"Helvetica\";\n"
-"color: rgb(46, 138, 3);"));
+"color: rgb(0, 0, 0);\n"
+""));
         label_5->setAlignment(Qt::AlignCenter);
 
         gridLayout->addWidget(label_5, 7, 1, 1, 1);
@@ -142,6 +147,7 @@ public:
         label_8 = new QLabel(horizontalLayoutWidget);
         label_8->setObjectName(QString::fromUtf8("label_8"));
         label_8->setMaximumSize(QSize(10, 16777215));
+        label_8->setStyleSheet(QString::fromUtf8("background-color: rgba( 255, 255, 255, 0%);"));
 
         horizontalLayout_2->addWidget(label_8);
 
@@ -181,7 +187,7 @@ public:
         label->setObjectName(QString::fromUtf8("label"));
         label->setMaximumSize(QSize(16777215, 40));
         label->setStyleSheet(QString::fromUtf8("font: 16pt \"Helvetica\";\n"
-"color: rgb(46, 138, 3);"));
+"color: rgb(0, 0, 0);"));
         label->setAlignment(Qt::AlignCenter);
 
         gridLayout->addWidget(label, 5, 1, 1, 1);
@@ -189,7 +195,7 @@ public:
         label_3 = new QLabel(horizontalLayoutWidget);
         label_3->setObjectName(QString::fromUtf8("label_3"));
         label_3->setStyleSheet(QString::fromUtf8("font: 12pt \"Helvetica\";\n"
-"color: rgba(63, 191, 4 ,255);"));
+"color: rgb(0, 0, 0);"));
         label_3->setAlignment(Qt::AlignCenter);
 
         gridLayout->addWidget(label_3, 3, 1, 1, 1);
@@ -198,7 +204,7 @@ public:
         label_2->setObjectName(QString::fromUtf8("label_2"));
         label_2->setMaximumSize(QSize(16777215, 40));
         label_2->setStyleSheet(QString::fromUtf8("font: 16pt \"Helvetica\";\n"
-"color: rgb(46, 138, 3);"));
+"color: rgb(0, 0, 0);"));
         label_2->setAlignment(Qt::AlignCenter);
 
         gridLayout->addWidget(label_2, 1, 1, 1, 1);
@@ -206,7 +212,7 @@ public:
         label_4 = new QLabel(horizontalLayoutWidget);
         label_4->setObjectName(QString::fromUtf8("label_4"));
         label_4->setStyleSheet(QString::fromUtf8("font: 12pt \"Helvetica\";\n"
-"color: rgba(63, 191, 4 ,255);"));
+"color: rgb(0, 0, 0);"));
         label_4->setAlignment(Qt::AlignCenter);
 
         gridLayout->addWidget(label_4, 6, 1, 1, 1);

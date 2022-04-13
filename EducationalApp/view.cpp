@@ -1,6 +1,6 @@
 #include "view.h"
 #include "ui_view.h"
-
+#include <QDebug>
 View::View(QWidget *parent)
     : QMainWindow(parent)
       , ui(new Ui::View)
@@ -10,6 +10,10 @@ View::View(QWidget *parent)
     ui->instructionPictureLabel->setScaledContents(true);
     ui->instructionPictureLabel->setSizePolicy( QSizePolicy::Ignored, QSizePolicy::Ignored);
     ui->instructionPictureLabel->setPixmap(pixmap);
+    ui->instructionFrame->setAutoFillBackground(false);
+
+    ui->instructionScreen->setStyleSheet("QWidget#instructionScreen {background-color: rgb(211, 253, 255); background-image: url(/Users/vista/Desktop/meadow6.png) 0 0 0 0 stretch stretch;background-repeat: no-repeat;}");
+
 
 }
 
