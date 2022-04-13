@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="titleScreen">
      <widget class="QPushButton" name="startButton">
@@ -38,6 +38,52 @@
       </property>
       <property name="text">
        <string>Start</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton">
+      <property name="geometry">
+       <rect>
+        <x>530</x>
+        <y>130</y>
+        <width>201</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Georgia</family>
+        <pointsize>48</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {background-color: rgb(50,205,50);border-style: solid;border-color: rgb(94, 110, 71);border-width: 2px; border-radius:10px;} QPushButton:pressed {background-color: rgb(230, 249, 193);border-style: solid;border-color: rgb(94, 110, 71);border-width: 2px;border-radius:10px; color: rgb(0, 0, 0)}</string>
+      </property>
+      <property name="text">
+       <string>Start</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_3">
+      <property name="geometry">
+       <rect>
+        <x>410</x>
+        <y>60</y>
+        <width>391</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Georgia</family>
+        <pointsize>45</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color:rgb(2, 115, 51)</string>
+      </property>
+      <property name="text">
+       <string>Don't Be Trashy!</string>
       </property>
      </widget>
     </widget>
@@ -151,7 +197,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>17</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>
