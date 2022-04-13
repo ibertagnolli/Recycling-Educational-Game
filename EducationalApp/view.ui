@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>3</number>
     </property>
     <widget class="QWidget" name="titleScreen">
      <widget class="QPushButton" name="startButton">
@@ -84,9 +84,64 @@
       </property>
      </widget>
     </widget>
-    <widget class="QWidget" name="gameScreen"/>
-    <widget class="QWidget" name="loadingScreen1"/>
-    <widget class="QWidget" name="loadingScreen2"/>
+    <widget class="QWidget" name="gameScreen">
+     <widget class="QPushButton" name="buttonToLoad1">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>140</y>
+        <width>201</width>
+        <height>18</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>DELETE go to loadingScreen1</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="buttonToLoad2">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>200</y>
+        <width>201</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>DELETE go to loadingScreen2</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="loadingScreen1">
+     <widget class="QLabel" name="label">
+      <property name="geometry">
+       <rect>
+        <x>156</x>
+        <y>110</y>
+        <width>171</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Loading Screen 1</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="loadingScreen2">
+     <widget class="QLabel" name="label_2">
+      <property name="geometry">
+       <rect>
+        <x>106</x>
+        <y>90</y>
+        <width>171</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Loading Screen 2</string>
+      </property>
+     </widget>
+    </widget>
     <widget class="QWidget" name="conclusionScreen"/>
    </widget>
   </widget>
@@ -96,7 +151,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>24</height>
+     <height>17</height>
     </rect>
    </property>
   </widget>

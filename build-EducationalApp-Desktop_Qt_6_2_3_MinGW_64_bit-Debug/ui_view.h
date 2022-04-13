@@ -11,6 +11,7 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
@@ -31,9 +32,14 @@ public:
     QPushButton *buttonToInstrScreen;
     QWidget *instructionScreen;
     QPushButton *buttonToGameScreen;
+    QPushButton *buttonToPurposeScreen;
     QWidget *gameScreen;
+    QPushButton *buttonToLoad1;
+    QPushButton *buttonToLoad2;
     QWidget *loadingScreen1;
+    QLabel *label;
     QWidget *loadingScreen2;
+    QLabel *label_2;
     QWidget *conclusionScreen;
     QMenuBar *menubar;
     QStatusBar *statusbar;
@@ -58,22 +64,37 @@ public:
         purposeScreen->setObjectName(QString::fromUtf8("purposeScreen"));
         buttonToInstrScreen = new QPushButton(purposeScreen);
         buttonToInstrScreen->setObjectName(QString::fromUtf8("buttonToInstrScreen"));
-        buttonToInstrScreen->setGeometry(QRect(600, 520, 80, 18));
+        buttonToInstrScreen->setGeometry(QRect(680, 510, 91, 31));
         stackWidget->addWidget(purposeScreen);
         instructionScreen = new QWidget();
         instructionScreen->setObjectName(QString::fromUtf8("instructionScreen"));
         buttonToGameScreen = new QPushButton(instructionScreen);
         buttonToGameScreen->setObjectName(QString::fromUtf8("buttonToGameScreen"));
-        buttonToGameScreen->setGeometry(QRect(600, 520, 80, 18));
+        buttonToGameScreen->setGeometry(QRect(670, 500, 81, 31));
+        buttonToPurposeScreen = new QPushButton(instructionScreen);
+        buttonToPurposeScreen->setObjectName(QString::fromUtf8("buttonToPurposeScreen"));
+        buttonToPurposeScreen->setGeometry(QRect(40, 500, 100, 32));
         stackWidget->addWidget(instructionScreen);
         gameScreen = new QWidget();
         gameScreen->setObjectName(QString::fromUtf8("gameScreen"));
+        buttonToLoad1 = new QPushButton(gameScreen);
+        buttonToLoad1->setObjectName(QString::fromUtf8("buttonToLoad1"));
+        buttonToLoad1->setGeometry(QRect(120, 140, 201, 18));
+        buttonToLoad2 = new QPushButton(gameScreen);
+        buttonToLoad2->setObjectName(QString::fromUtf8("buttonToLoad2"));
+        buttonToLoad2->setGeometry(QRect(120, 200, 201, 20));
         stackWidget->addWidget(gameScreen);
         loadingScreen1 = new QWidget();
         loadingScreen1->setObjectName(QString::fromUtf8("loadingScreen1"));
+        label = new QLabel(loadingScreen1);
+        label->setObjectName(QString::fromUtf8("label"));
+        label->setGeometry(QRect(156, 110, 171, 20));
         stackWidget->addWidget(loadingScreen1);
         loadingScreen2 = new QWidget();
         loadingScreen2->setObjectName(QString::fromUtf8("loadingScreen2"));
+        label_2 = new QLabel(loadingScreen2);
+        label_2->setObjectName(QString::fromUtf8("label_2"));
+        label_2->setGeometry(QRect(106, 90, 171, 20));
         stackWidget->addWidget(loadingScreen2);
         conclusionScreen = new QWidget();
         conclusionScreen->setObjectName(QString::fromUtf8("conclusionScreen"));
@@ -89,6 +110,9 @@ public:
 
         retranslateUi(View);
 
+        stackWidget->setCurrentIndex(3);
+
+
         QMetaObject::connectSlotsByName(View);
     } // setupUi
 
@@ -98,6 +122,11 @@ public:
         startButton->setText(QCoreApplication::translate("View", "Start", nullptr));
         buttonToInstrScreen->setText(QCoreApplication::translate("View", "Continue", nullptr));
         buttonToGameScreen->setText(QCoreApplication::translate("View", "Continue", nullptr));
+        buttonToPurposeScreen->setText(QCoreApplication::translate("View", "back", nullptr));
+        buttonToLoad1->setText(QCoreApplication::translate("View", "DELETE go to loadingScreen1", nullptr));
+        buttonToLoad2->setText(QCoreApplication::translate("View", "DELETE go to loadingScreen2", nullptr));
+        label->setText(QCoreApplication::translate("View", "Loading Screen 1", nullptr));
+        label_2->setText(QCoreApplication::translate("View", "Loading Screen 2", nullptr));
     } // retranslateUi
 
 };
