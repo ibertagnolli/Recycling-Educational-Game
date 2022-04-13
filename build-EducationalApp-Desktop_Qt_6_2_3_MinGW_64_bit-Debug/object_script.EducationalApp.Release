@@ -48,6 +48,7 @@ release/controller.o
 release/main.o
 release/model.o
 release/view.o
+release/qrc_Resources.o
 release/moc_controller.o
 release/moc_model.o
 release/moc_view.o

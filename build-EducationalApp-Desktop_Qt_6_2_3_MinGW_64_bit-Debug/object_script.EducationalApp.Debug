@@ -48,6 +48,7 @@ debug/controller.o
 debug/main.o
 debug/model.o
 debug/view.o
+debug/qrc_Resources.o
 debug/moc_controller.o
 debug/moc_model.o
 debug/moc_view.o
