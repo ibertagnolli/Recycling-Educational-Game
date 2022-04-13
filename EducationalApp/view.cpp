@@ -40,14 +40,6 @@ void View::on_buttonToGameScreen_clicked()
     ui->stackWidget->setCurrentIndex(3);
 }
 
-/**
- * @brief Moves user from instructionScreen back to the purposeScreen
- */
-void View::on_buttonToPurposeScreen_clicked()
-{
-    ui->stackWidget->setCurrentIndex(1);
-}
-
 // GAME SCREEN METHODS
 
 // LOADING SCREEN METHODS

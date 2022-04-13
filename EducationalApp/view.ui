@@ -23,6 +23,9 @@
       <height>561</height>
      </rect>
     </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
     <property name="currentIndex">
      <number>1</number>
     </property>
@@ -45,22 +48,212 @@
      <widget class="QPushButton" name="buttonToInstrScreen">
       <property name="geometry">
        <rect>
-        <x>680</x>
-        <y>510</y>
-        <width>91</width>
-        <height>31</height>
+        <x>670</x>
+        <y>500</y>
+        <width>101</width>
+        <height>41</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Georgia</family>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(4, 255, 0); color: rgb(0, 85, 0);</string>
       </property>
       <property name="text">
        <string>Continue</string>
       </property>
      </widget>
-     <widget class="QLabel" name="purposeImageLabel">
+     <widget class="QLabel" name="purposeSubtitleLabel1">
       <property name="geometry">
        <rect>
-        <x>30</x>
-        <y>75</y>
-        <width>741</width>
+        <x>0</x>
+        <y>80</y>
+        <width>801</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>22</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 85, 0);</string>
+      </property>
+      <property name="text">
+       <string>Saves Resources and Reduces Pollution</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="purposeTitleLabel">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>40</y>
+        <width>801</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Georgia</family>
+        <pointsize>30</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 85, 0);</string>
+      </property>
+      <property name="text">
+       <string>Recycling Matters</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="backgroungImageLabel">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>811</width>
+        <height>571</height>
+       </rect>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap>../../../../../Downloads/purposeField1.jpg</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="purposeSubtitleLabel2">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>120</y>
+        <width>801</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Georgia</family>
+        <pointsize>22</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 85, 0);</string>
+      </property>
+      <property name="text">
+       <string>In June 2019, Salt Lake City recycled and saved:</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="pinkTulipLabel">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>90</y>
+        <width>431</width>
+        <height>481</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap>../../../../../Downloads/pinkTulip1.png</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="orangeTulipLabel">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>260</y>
+        <width>401</width>
+        <height>401</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap>../../../../../Downloads/orangeTulip1.png</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="blueTulipLabel">
+      <property name="geometry">
+       <rect>
+        <x>-80</x>
+        <y>160</y>
+        <width>391</width>
+        <height>421</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap>../../../../../Downloads/blueTulip1.png</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="redTulipLabel">
+      <property name="geometry">
+       <rect>
+        <x>500</x>
+        <y>110</y>
+        <width>421</width>
+        <height>461</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap>../../../../../Downloads/redTulip1.png</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="yellowTulipLabel">
+      <property name="geometry">
+       <rect>
+        <x>350</x>
+        <y>210</y>
+        <width>401</width>
         <height>411</height>
        </rect>
       </property>
@@ -68,25 +261,167 @@
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap>../../../../../Downloads/recyclePurpose.png</pixmap>
+       <pixmap>../../../../../Downloads/yellowTulip1.png</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QLabel" name="purposeLabel">
+     <widget class="QLabel" name="waterLabel">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>10</y>
-        <width>49</width>
-        <height>16</height>
+        <x>30</x>
+        <y>290</y>
+        <width>141</width>
+        <height>111</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <family>Georgia</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 85, 0);</string>
+      </property>
       <property name="text">
-       <string>TextLabel</string>
+       <string>3,121,890                                  Gallons of Water</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
       </property>
      </widget>
+     <widget class="QLabel" name="electricityLabel">
+      <property name="geometry">
+       <rect>
+        <x>460</x>
+        <y>350</y>
+        <width>151</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Georgia</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 85, 0);</string>
+      </property>
+      <property name="text">
+       <string>1,832                                            MWH of Electricity</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="treeLabel">
+      <property name="geometry">
+       <rect>
+        <x>190</x>
+        <y>370</y>
+        <width>121</width>
+        <height>111</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Georgia</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 85, 0);</string>
+      </property>
+      <property name="text">
+       <string>5,732                                              Mature Trees</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="gasLabel">
+      <property name="geometry">
+       <rect>
+        <x>300</x>
+        <y>240</y>
+        <width>161</width>
+        <height>111</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Georgia</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 85, 0);</string>
+      </property>
+      <property name="text">
+       <string>2,027                                    Metric Tons of                                Greenhouse Gas Emissions</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="landfillLabel">
+      <property name="geometry">
+       <rect>
+        <x>620</x>
+        <y>220</y>
+        <width>161</width>
+        <height>151</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Georgia</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 85, 0);</string>
+      </property>
+      <property name="text">
+       <string>2,238                                 Cubic Yards of                         Landfill Airspace</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <zorder>backgroungImageLabel</zorder>
+     <zorder>purposeSubtitleLabel1</zorder>
+     <zorder>purposeTitleLabel</zorder>
+     <zorder>purposeSubtitleLabel2</zorder>
+     <zorder>pinkTulipLabel</zorder>
+     <zorder>orangeTulipLabel</zorder>
+     <zorder>blueTulipLabel</zorder>
+     <zorder>redTulipLabel</zorder>
+     <zorder>yellowTulipLabel</zorder>
+     <zorder>waterLabel</zorder>
+     <zorder>electricityLabel</zorder>
+     <zorder>buttonToInstrScreen</zorder>
+     <zorder>treeLabel</zorder>
+     <zorder>gasLabel</zorder>
+     <zorder>landfillLabel</zorder>
     </widget>
     <widget class="QWidget" name="instructionScreen">
      <widget class="QPushButton" name="buttonToGameScreen">
