@@ -871,7 +871,7 @@ their correct bin.</string>
         <property name="geometry">
          <rect>
           <x>140</x>
-          <y>50</y>
+          <y>110</y>
           <width>191</width>
           <height>18</height>
          </rect>
@@ -884,7 +884,7 @@ their correct bin.</string>
         <property name="geometry">
          <rect>
           <x>140</x>
-          <y>110</y>
+          <y>150</y>
           <width>191</width>
           <height>18</height>
          </rect>
@@ -893,6 +893,212 @@ their correct bin.</string>
          <string>DELETE! Go to LoadingScreen2</string>
         </property>
        </widget>
+       <widget class="QLabel" name="trashBinLabel">
+        <property name="geometry">
+         <rect>
+          <x>240</x>
+          <y>240</y>
+          <width>150</width>
+          <height>220</height>
+         </rect>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="toolTip">
+         <string>This is the Garbage bin</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="pixmap">
+         <pixmap resource="Resources.qrc">:/images/images/trashBin.png</pixmap>
+        </property>
+        <property name="scaledContents">
+         <bool>true</bool>
+        </property>
+       </widget>
+       <widget class="QLabel" name="yardBinLabel">
+        <property name="geometry">
+         <rect>
+          <x>420</x>
+          <y>240</y>
+          <width>150</width>
+          <height>223</height>
+         </rect>
+        </property>
+        <property name="toolTip">
+         <string>This is the Yard Waste bin </string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="pixmap">
+         <pixmap resource="Resources.qrc">:/images/images/yardBin.png</pixmap>
+        </property>
+        <property name="scaledContents">
+         <bool>true</bool>
+        </property>
+       </widget>
+       <widget class="QLabel" name="recycleBinLabel">
+        <property name="geometry">
+         <rect>
+          <x>60</x>
+          <y>240</y>
+          <width>150</width>
+          <height>220</height>
+         </rect>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="toolTip">
+         <string>This is the Recycle Bin </string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="pixmap">
+         <pixmap resource="Resources.qrc">:/images/images/recycleBin.png</pixmap>
+        </property>
+        <property name="scaledContents">
+         <bool>true</bool>
+        </property>
+       </widget>
+       <widget class="QLabel" name="gameScreenBackgroundLabel">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>800</width>
+          <height>600</height>
+         </rect>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="pixmap">
+         <pixmap resource="Resources.qrc">:/images/images/GameScreenGrass.png</pixmap>
+        </property>
+        <property name="scaledContents">
+         <bool>true</bool>
+        </property>
+       </widget>
+       <widget class="QWidget" name="ItemBarWidget" native="true">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>591</width>
+          <height>91</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">
+border: 1px solid white;
+border-top-left-radius: 10px;
+border-top-right-radius: 10px;
+border-bottom-left-radius: 10px;
+border-bottom-right-radius: 10px;
+
+</string>
+        </property>
+       </widget>
+       <widget class="QGroupBox" name="ItemInfoBox">
+        <property name="geometry">
+         <rect>
+          <x>610</x>
+          <y>70</y>
+          <width>161</width>
+          <height>301</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color:rgb(255, 255, 255)</string>
+        </property>
+        <property name="title">
+         <string>Item Info</string>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout">
+         <item>
+          <widget class="QLabel" name="itemTitleLabel">
+           <property name="text">
+            <string>item name</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="correctLabel">
+           <property name="text">
+            <string>Correct or incorrect</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="itemImageLabel">
+           <property name="text">
+            <string>image here</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="sideBarLabel">
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="text">
+            <string>description here</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QLabel" name="itemBarLabel">
+        <property name="geometry">
+         <rect>
+          <x>610</x>
+          <y>0</y>
+          <width>101</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Georgia</family>
+          <pointsize>24</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Item Bar</string>
+        </property>
+       </widget>
+       <zorder>gameScreenBackgroundLabel</zorder>
+       <zorder>buttonToLoad1</zorder>
+       <zorder>buttonToLoad2</zorder>
+       <zorder>trashBinLabel</zorder>
+       <zorder>yardBinLabel</zorder>
+       <zorder>recycleBinLabel</zorder>
+       <zorder>ItemBarWidget</zorder>
+       <zorder>ItemInfoBox</zorder>
+       <zorder>itemBarLabel</zorder>
       </widget>
       <widget class="QWidget" name="loadingScreen1">
        <widget class="QLabel" name="label_10">
@@ -935,12 +1141,14 @@ their correct bin.</string>
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>17</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources/>
+ <resources>
+  <include location="Resources.qrc"/>
+ </resources>
  <connections/>
 </ui>
