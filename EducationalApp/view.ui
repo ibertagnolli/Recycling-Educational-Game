@@ -26,9 +26,36 @@
    <string>View</string>
   </property>
   <widget class="QWidget" name="centralwidget">
+   <property name="minimumSize">
+    <size>
+     <width>800</width>
+     <height>0</height>
+    </size>
+   </property>
    <layout class="QVBoxLayout" name="verticalLayout_2">
     <item>
      <widget class="QStackedWidget" name="stackWidget">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>800</width>
+        <height>600</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>800</width>
+        <height>600</height>
+       </size>
+      </property>
+      <property name="baseSize">
+       <size>
+        <width>800</width>
+        <height>600</height>
+       </size>
+      </property>
       <widget class="QWidget" name="titleScreen">
        <property name="styleSheet">
         <string notr="true">background-image: {/Users/isabellabertagnolli/a8-Edu-app/a8-edu-app-ibertagnolli/meadow.png;}</string>
@@ -118,11 +145,23 @@ Trashy!</string>
        <widget class="QLabel" name="backgroundImage">
         <property name="geometry">
          <rect>
-          <x>10</x>
-          <y>10</y>
-          <width>791</width>
-          <height>571</height>
+          <x>0</x>
+          <y>0</y>
+          <width>800</width>
+          <height>600</height>
          </rect>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>800</width>
+          <height>600</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>800</width>
+          <height>600</height>
+         </size>
         </property>
         <property name="autoFillBackground">
          <bool>false</bool>
@@ -519,6 +558,18 @@ Trashy!</string>
           <height>600</height>
          </rect>
         </property>
+        <property name="minimumSize">
+         <size>
+          <width>800</width>
+          <height>597</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>800</width>
+          <height>600</height>
+         </size>
+        </property>
         <property name="text">
          <string/>
         </property>
@@ -815,9 +866,64 @@ their correct bin.</string>
         </widget>
        </widget>
       </widget>
-      <widget class="QWidget" name="gameScreen"/>
-      <widget class="QWidget" name="loadingScreen1"/>
-      <widget class="QWidget" name="loadingScreen2"/>
+      <widget class="QWidget" name="gameScreen">
+       <widget class="QPushButton" name="buttonToLoad1">
+        <property name="geometry">
+         <rect>
+          <x>140</x>
+          <y>50</y>
+          <width>191</width>
+          <height>18</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>DELETE! Go to LoadingScreen1</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="buttonToLoad2">
+        <property name="geometry">
+         <rect>
+          <x>140</x>
+          <y>110</y>
+          <width>191</width>
+          <height>18</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>DELETE! Go to LoadingScreen2</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="loadingScreen1">
+       <widget class="QLabel" name="label_10">
+        <property name="geometry">
+         <rect>
+          <x>180</x>
+          <y>60</y>
+          <width>201</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>DELETE! LoadingScreen1</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="loadingScreen2">
+       <widget class="QLabel" name="label_11">
+        <property name="geometry">
+         <rect>
+          <x>180</x>
+          <y>70</y>
+          <width>151</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>DELETE! LoadingScreen2</string>
+        </property>
+       </widget>
+      </widget>
       <widget class="QWidget" name="conclusionScreen"/>
      </widget>
     </item>
@@ -829,7 +935,7 @@ their correct bin.</string>
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>21</height>
+     <height>17</height>
     </rect>
    </property>
   </widget>

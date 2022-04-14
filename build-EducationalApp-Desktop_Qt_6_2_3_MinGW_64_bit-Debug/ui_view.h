@@ -73,8 +73,12 @@ public:
     QLabel *label_2;
     QLabel *label_4;
     QWidget *gameScreen;
+    QPushButton *buttonToLoad1;
+    QPushButton *buttonToLoad2;
     QWidget *loadingScreen1;
+    QLabel *label_10;
     QWidget *loadingScreen2;
+    QLabel *label_11;
     QWidget *conclusionScreen;
     QMenuBar *menubar;
     QStatusBar *statusbar;
@@ -88,10 +92,15 @@ public:
         View->setMaximumSize(QSize(800, 600));
         centralwidget = new QWidget(View);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
+        centralwidget->setMinimumSize(QSize(800, 0));
         verticalLayout_2 = new QVBoxLayout(centralwidget);
         verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
         stackWidget = new QStackedWidget(centralwidget);
         stackWidget->setObjectName(QString::fromUtf8("stackWidget"));
+        stackWidget->setEnabled(true);
+        stackWidget->setMinimumSize(QSize(800, 600));
+        stackWidget->setMaximumSize(QSize(800, 600));
+        stackWidget->setBaseSize(QSize(800, 600));
         titleScreen = new QWidget();
         titleScreen->setObjectName(QString::fromUtf8("titleScreen"));
         titleScreen->setStyleSheet(QString::fromUtf8("background-image: {/Users/isabellabertagnolli/a8-Edu-app/a8-edu-app-ibertagnolli/meadow.png;}"));
@@ -121,7 +130,9 @@ public:
         wizard->setAlignment(Qt::AlignCenter);
         backgroundImage = new QLabel(titleScreen);
         backgroundImage->setObjectName(QString::fromUtf8("backgroundImage"));
-        backgroundImage->setGeometry(QRect(10, 10, 791, 571));
+        backgroundImage->setGeometry(QRect(0, 0, 800, 600));
+        backgroundImage->setMinimumSize(QSize(800, 600));
+        backgroundImage->setMaximumSize(QSize(800, 600));
         backgroundImage->setAutoFillBackground(false);
         backgroundImage->setScaledContents(true);
         flavorTextLabel = new QLabel(titleScreen);
@@ -198,7 +209,7 @@ public:
         treeLabel->setWordWrap(true);
         gasLabel = new QLabel(purposeScreen);
         gasLabel->setObjectName(QString::fromUtf8("gasLabel"));
-        gasLabel->setGeometry(QRect(280, 250, 161, 111));
+        gasLabel->setGeometry(QRect(280, 250, 171, 111));
         gasLabel->setFont(font5);
         gasLabel->setStyleSheet(QString::fromUtf8("color: rgb(0, 85, 0);"));
         gasLabel->setAlignment(Qt::AlignCenter);
@@ -222,7 +233,7 @@ public:
         orangeTulipLabel->setScaledContents(true);
         pinkTulipLabel = new QLabel(purposeScreen);
         pinkTulipLabel->setObjectName(QString::fromUtf8("pinkTulipLabel"));
-        pinkTulipLabel->setGeometry(QRect(170, 100, 411, 491));
+        pinkTulipLabel->setGeometry(QRect(170, 100, 421, 491));
         pinkTulipLabel->setPixmap(QPixmap(QString::fromUtf8("images/pinkTulip1.png")));
         pinkTulipLabel->setScaledContents(true);
         yellowTulipLabel = new QLabel(purposeScreen);
@@ -238,6 +249,8 @@ public:
         backgroundPurposeLabel = new QLabel(purposeScreen);
         backgroundPurposeLabel->setObjectName(QString::fromUtf8("backgroundPurposeLabel"));
         backgroundPurposeLabel->setGeometry(QRect(0, 0, 800, 600));
+        backgroundPurposeLabel->setMinimumSize(QSize(800, 597));
+        backgroundPurposeLabel->setMaximumSize(QSize(800, 600));
         backgroundPurposeLabel->setPixmap(QPixmap(QString::fromUtf8("images/purposeField1.jpg")));
         backgroundPurposeLabel->setScaledContents(true);
         stackWidget->addWidget(purposeScreen);
@@ -393,12 +406,24 @@ public:
         stackWidget->addWidget(instructionScreen);
         gameScreen = new QWidget();
         gameScreen->setObjectName(QString::fromUtf8("gameScreen"));
+        buttonToLoad1 = new QPushButton(gameScreen);
+        buttonToLoad1->setObjectName(QString::fromUtf8("buttonToLoad1"));
+        buttonToLoad1->setGeometry(QRect(140, 50, 191, 18));
+        buttonToLoad2 = new QPushButton(gameScreen);
+        buttonToLoad2->setObjectName(QString::fromUtf8("buttonToLoad2"));
+        buttonToLoad2->setGeometry(QRect(140, 110, 191, 18));
         stackWidget->addWidget(gameScreen);
         loadingScreen1 = new QWidget();
         loadingScreen1->setObjectName(QString::fromUtf8("loadingScreen1"));
+        label_10 = new QLabel(loadingScreen1);
+        label_10->setObjectName(QString::fromUtf8("label_10"));
+        label_10->setGeometry(QRect(180, 60, 201, 16));
         stackWidget->addWidget(loadingScreen1);
         loadingScreen2 = new QWidget();
         loadingScreen2->setObjectName(QString::fromUtf8("loadingScreen2"));
+        label_11 = new QLabel(loadingScreen2);
+        label_11->setObjectName(QString::fromUtf8("label_11"));
+        label_11->setGeometry(QRect(180, 70, 151, 16));
         stackWidget->addWidget(loadingScreen2);
         conclusionScreen = new QWidget();
         conclusionScreen->setObjectName(QString::fromUtf8("conclusionScreen"));
@@ -409,7 +434,7 @@ public:
         View->setCentralWidget(centralwidget);
         menubar = new QMenuBar(View);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 800, 21));
+        menubar->setGeometry(QRect(0, 0, 800, 17));
         View->setMenuBar(menubar);
         statusbar = new QStatusBar(View);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -462,6 +487,10 @@ public:
         label_2->setText(QCoreApplication::translate("View", "Goal", nullptr));
         label_4->setText(QCoreApplication::translate("View", "Click on the trash item and drag it to \n"
 "their correct bin.", nullptr));
+        buttonToLoad1->setText(QCoreApplication::translate("View", "DELETE! Go to LoadingScreen1", nullptr));
+        buttonToLoad2->setText(QCoreApplication::translate("View", "DELETE! Go to LoadingScreen2", nullptr));
+        label_10->setText(QCoreApplication::translate("View", "DELETE! LoadingScreen1", nullptr));
+        label_11->setText(QCoreApplication::translate("View", "DELETE! LoadingScreen2", nullptr));
     } // retranslateUi
 
 };
