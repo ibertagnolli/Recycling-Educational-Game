@@ -122,7 +122,12 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 DISTFILES += \
     Box2D/Box2DConfig.cmake \
-    Box2D/CMakeLists.txt
+    Box2D/CMakeLists.txt \
+    images/GameScreenMeadow.png \
+    images/recycleBin.png \
+    images/recycleLoading.png \
+    images/trashBin.png \
+    images/yardBin.png
 
 RESOURCES += \
     Resources.qrc

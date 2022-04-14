@@ -11,5 +11,10 @@
         <file>images/pinkTulip1.png</file>
         <file>images/yellowTulip1.png</file>
         <file>images/purposeField1.jpg</file>
+        <file>images/GameScreenMeadow.png</file>
+        <file>images/recycleBin.png</file>
+        <file>images/trashBin.png</file>
+        <file>images/yardBin.png</file>
+        <file>images/recycleLoading.png</file>
     </qresource>
 </RCC>
