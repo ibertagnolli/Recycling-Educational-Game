@@ -3,35 +3,22 @@
 
 #include "bins.h"
 
+/**
+ * @brief The SpecialBins class - This class is used
+ * to represent all of the special locations that
+ * certain items have to be recycled at
+ */
 class SpecialBins : public Bins
 {
-    /**
-     * @brief boundingRegion - x cord, y cord,
-     * width, height
-     */
-    std::vector<int> boundingRegion;
-
-    /**
-     * @brief description - explaination of
-     * what this bin is.
-     */
-    std::string description;
-
-    /**
-     * @brief name - The name of the trash bin
-     */
-    std::string name;
-
-    /**
-     * @brief type - the type of bin
-     */
-    std::string type;
 
 public:
     /**
-     * @brief SpecialBins - Constructor for the Special Bin
+     * @brief SpecialBins - The constructor for the
+     * special bin
+     * @param name - The specific name location
+     * for the special recycle center.
      */
-    SpecialBins();
+    SpecialBins(std::string name);
 
     /**
      * @brief getDescription - retreives the description
@@ -51,7 +38,7 @@ public:
      * @brief getType - Indicates the type of bin
      * @return a string representation of the type of bin.
      */
-    std::string getType();
+    Bins::BinType getType();
 
     /**
      * @brief getName - Gets the name of the bin

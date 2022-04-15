@@ -25,7 +25,7 @@ class YardWaste : public Bins
     /**
      * @brief type - the type of bin
      */
-    std::string type;
+    Bins::BinType type;
 
 public:
     /**
@@ -52,7 +52,7 @@ public:
      * @brief getType - Indicates the type of bin
      * @return a string representation of the type of bin.
      */
-    std::string getType();
+    Bins::BinType getType();
 
     /**
      * @brief getName - Gets the name of the bin
