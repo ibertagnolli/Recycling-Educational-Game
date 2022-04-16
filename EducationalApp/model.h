@@ -24,6 +24,12 @@ private:
      * in the game.
      */
     std::vector<Items*> items;
+
+    /**
+     * @brief setUpItems - A helper method that sets up
+     * all the items that will be in the game.
+     */
+    void setUpItems();
 };
 
 #endif // MODEL_H

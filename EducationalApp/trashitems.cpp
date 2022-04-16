@@ -19,6 +19,20 @@ std::string TrashItems::getDescription(){
     return description;
 }
 
+void TrashItems::setImage(int index) {
+    switch(index) {
+    case 0: { // banana Peel
+        QImage image(":/images/images/pinkTulip1.png");
+        itemImage = image.copy();
+        break;
+    } case 1: { // Lawn Clippings
+        QImage image(":/images/images/pinkTulip1.png");
+        itemImage = image.copy();
+        break;
+    }
+    }
+}
+
 void TrashItems::setDescription(int index){
     switch(index) {
     case 0: { // Meat

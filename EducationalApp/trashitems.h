@@ -23,26 +23,26 @@ public:
      * */
     ~TrashItems();
 
-//    /**
-//     * @brief getType - Gets the item type of the specific item
-//     * @return ItemType enum. Trash = 0, Recycle = 1, Compost = 2
-//     * Special = 3.
-//     */
-//    ItemType getType();
+    /**
+     * @brief getType - Gets the item type of the specific item
+     * @return ItemType enum. Trash = 0, Recycle = 1, Compost = 2
+     * Special = 3.
+     */
+    ItemType getType();
 
-//    /**
-//     * @brief getName - Gets the item's specific name
-//     * @return A string representation of the item's name
-//     */
-//    std::string getName();
+    /**
+     * @brief getName - Gets the item's specific name
+     * @return A string representation of the item's name
+     */
+    std::string getName();
 
-//    /**
-//     * @brief getDescription - Gets the item's specific
-//     * description.
-//     * @return A string representation of the item's
-//     * description.
-//     */
-//    std::string getDescription();
+    /**
+     * @brief getDescription - Gets the item's specific
+     * description.
+     * @return A string representation of the item's
+     * description.
+     */
+    std::string getDescription();
 private:
     /**
      * @brief name - The item's specific name
