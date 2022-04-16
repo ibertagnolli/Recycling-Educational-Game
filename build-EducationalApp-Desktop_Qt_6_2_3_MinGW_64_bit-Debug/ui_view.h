@@ -13,6 +13,7 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QFrame>
 #include <QtWidgets/QGridLayout>
+#include <QtWidgets/QGroupBox>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
@@ -75,6 +76,18 @@ public:
     QWidget *gameScreen;
     QPushButton *buttonToLoad1;
     QPushButton *buttonToLoad2;
+    QLabel *trashBinLabel;
+    QLabel *yardBinLabel;
+    QLabel *recycleBinLabel;
+    QLabel *gameScreenBackgroundLabel;
+    QWidget *ItemBarWidget;
+    QGroupBox *ItemInfoBox;
+    QVBoxLayout *verticalLayout;
+    QLabel *itemTitleLabel;
+    QLabel *correctLabel;
+    QLabel *itemImageLabel;
+    QLabel *sideBarLabel;
+    QLabel *itemBarLabel;
     QWidget *loadingScreen1;
     QLabel *label_10;
     QWidget *loadingScreen2;
@@ -408,11 +421,95 @@ public:
         gameScreen->setObjectName(QString::fromUtf8("gameScreen"));
         buttonToLoad1 = new QPushButton(gameScreen);
         buttonToLoad1->setObjectName(QString::fromUtf8("buttonToLoad1"));
-        buttonToLoad1->setGeometry(QRect(140, 50, 191, 18));
+        buttonToLoad1->setGeometry(QRect(140, 110, 191, 18));
         buttonToLoad2 = new QPushButton(gameScreen);
         buttonToLoad2->setObjectName(QString::fromUtf8("buttonToLoad2"));
-        buttonToLoad2->setGeometry(QRect(140, 110, 191, 18));
+        buttonToLoad2->setGeometry(QRect(140, 150, 191, 18));
+        trashBinLabel = new QLabel(gameScreen);
+        trashBinLabel->setObjectName(QString::fromUtf8("trashBinLabel"));
+        trashBinLabel->setGeometry(QRect(240, 240, 150, 220));
+        QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(trashBinLabel->sizePolicy().hasHeightForWidth());
+        trashBinLabel->setSizePolicy(sizePolicy);
+        trashBinLabel->setPixmap(QPixmap(QString::fromUtf8(":/images/images/trashBin.png")));
+        trashBinLabel->setScaledContents(true);
+        yardBinLabel = new QLabel(gameScreen);
+        yardBinLabel->setObjectName(QString::fromUtf8("yardBinLabel"));
+        yardBinLabel->setGeometry(QRect(420, 240, 150, 223));
+        yardBinLabel->setPixmap(QPixmap(QString::fromUtf8(":/images/images/yardBin.png")));
+        yardBinLabel->setScaledContents(true);
+        recycleBinLabel = new QLabel(gameScreen);
+        recycleBinLabel->setObjectName(QString::fromUtf8("recycleBinLabel"));
+        recycleBinLabel->setGeometry(QRect(60, 240, 150, 220));
+        sizePolicy.setHeightForWidth(recycleBinLabel->sizePolicy().hasHeightForWidth());
+        recycleBinLabel->setSizePolicy(sizePolicy);
+        recycleBinLabel->setPixmap(QPixmap(QString::fromUtf8(":/images/images/recycleBin.png")));
+        recycleBinLabel->setScaledContents(true);
+        gameScreenBackgroundLabel = new QLabel(gameScreen);
+        gameScreenBackgroundLabel->setObjectName(QString::fromUtf8("gameScreenBackgroundLabel"));
+        gameScreenBackgroundLabel->setGeometry(QRect(0, 0, 800, 600));
+        sizePolicy.setHeightForWidth(gameScreenBackgroundLabel->sizePolicy().hasHeightForWidth());
+        gameScreenBackgroundLabel->setSizePolicy(sizePolicy);
+        gameScreenBackgroundLabel->setPixmap(QPixmap(QString::fromUtf8(":/images/images/GameScreenGrass.png")));
+        gameScreenBackgroundLabel->setScaledContents(true);
+        ItemBarWidget = new QWidget(gameScreen);
+        ItemBarWidget->setObjectName(QString::fromUtf8("ItemBarWidget"));
+        ItemBarWidget->setGeometry(QRect(0, 0, 591, 91));
+        ItemBarWidget->setStyleSheet(QString::fromUtf8("\n"
+"border: 1px solid white;\n"
+"border-top-left-radius: 10px;\n"
+"border-top-right-radius: 10px;\n"
+"border-bottom-left-radius: 10px;\n"
+"border-bottom-right-radius: 10px;\n"
+"\n"
+""));
+        ItemInfoBox = new QGroupBox(gameScreen);
+        ItemInfoBox->setObjectName(QString::fromUtf8("ItemInfoBox"));
+        ItemInfoBox->setGeometry(QRect(610, 70, 161, 301));
+        ItemInfoBox->setStyleSheet(QString::fromUtf8("color:rgb(255, 255, 255)"));
+        verticalLayout = new QVBoxLayout(ItemInfoBox);
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
+        itemTitleLabel = new QLabel(ItemInfoBox);
+        itemTitleLabel->setObjectName(QString::fromUtf8("itemTitleLabel"));
+        itemTitleLabel->setAlignment(Qt::AlignCenter);
+
+        verticalLayout->addWidget(itemTitleLabel);
+
+        correctLabel = new QLabel(ItemInfoBox);
+        correctLabel->setObjectName(QString::fromUtf8("correctLabel"));
+        correctLabel->setAlignment(Qt::AlignCenter);
+
+        verticalLayout->addWidget(correctLabel);
+
+        itemImageLabel = new QLabel(ItemInfoBox);
+        itemImageLabel->setObjectName(QString::fromUtf8("itemImageLabel"));
+
+        verticalLayout->addWidget(itemImageLabel);
+
+        sideBarLabel = new QLabel(ItemInfoBox);
+        sideBarLabel->setObjectName(QString::fromUtf8("sideBarLabel"));
+        sideBarLabel->setStyleSheet(QString::fromUtf8(""));
+
+        verticalLayout->addWidget(sideBarLabel);
+
+        itemBarLabel = new QLabel(gameScreen);
+        itemBarLabel->setObjectName(QString::fromUtf8("itemBarLabel"));
+        itemBarLabel->setGeometry(QRect(610, 0, 101, 31));
+        QFont font6;
+        font6.setPointSize(24);
+        itemBarLabel->setFont(font6);
         stackWidget->addWidget(gameScreen);
+        gameScreenBackgroundLabel->raise();
+        buttonToLoad1->raise();
+        buttonToLoad2->raise();
+        trashBinLabel->raise();
+        yardBinLabel->raise();
+        recycleBinLabel->raise();
+        ItemBarWidget->raise();
+        ItemInfoBox->raise();
+        itemBarLabel->raise();
         loadingScreen1 = new QWidget();
         loadingScreen1->setObjectName(QString::fromUtf8("loadingScreen1"));
         label_10 = new QLabel(loadingScreen1);
@@ -434,7 +531,7 @@ public:
         View->setCentralWidget(centralwidget);
         menubar = new QMenuBar(View);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 800, 17));
+        menubar->setGeometry(QRect(0, 0, 800, 25));
         View->setMenuBar(menubar);
         statusbar = new QStatusBar(View);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -489,6 +586,25 @@ public:
 "their correct bin.", nullptr));
         buttonToLoad1->setText(QCoreApplication::translate("View", "DELETE! Go to LoadingScreen1", nullptr));
         buttonToLoad2->setText(QCoreApplication::translate("View", "DELETE! Go to LoadingScreen2", nullptr));
+#if QT_CONFIG(tooltip)
+        trashBinLabel->setToolTip(QCoreApplication::translate("View", "This is the Garbage bin", nullptr));
+#endif // QT_CONFIG(tooltip)
+        trashBinLabel->setText(QString());
+#if QT_CONFIG(tooltip)
+        yardBinLabel->setToolTip(QCoreApplication::translate("View", "This is the Yard Waste bin ", nullptr));
+#endif // QT_CONFIG(tooltip)
+        yardBinLabel->setText(QString());
+#if QT_CONFIG(tooltip)
+        recycleBinLabel->setToolTip(QCoreApplication::translate("View", "This is the Recycle Bin ", nullptr));
+#endif // QT_CONFIG(tooltip)
+        recycleBinLabel->setText(QString());
+        gameScreenBackgroundLabel->setText(QString());
+        ItemInfoBox->setTitle(QCoreApplication::translate("View", "Item Info", nullptr));
+        itemTitleLabel->setText(QCoreApplication::translate("View", "item name", nullptr));
+        correctLabel->setText(QCoreApplication::translate("View", "Correct or incorrect", nullptr));
+        itemImageLabel->setText(QCoreApplication::translate("View", "image here", nullptr));
+        sideBarLabel->setText(QCoreApplication::translate("View", "description here", nullptr));
+        itemBarLabel->setText(QCoreApplication::translate("View", "Item Bar", nullptr));
         label_10->setText(QCoreApplication::translate("View", "DELETE! LoadingScreen1", nullptr));
         label_11->setText(QCoreApplication::translate("View", "DELETE! LoadingScreen2", nullptr));
     } // retranslateUi

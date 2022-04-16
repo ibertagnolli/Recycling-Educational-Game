@@ -2,8 +2,8 @@
 
 SpecialBins::SpecialBins()
 {
-//    QImage image("");
-//    binImage = image;
+    QImage image(":/images/images/yellowTulip1.png");
+    binImage = image;
 }
 
 SpecialBins::~SpecialBins(){}
@@ -25,4 +25,8 @@ Bins::BinType SpecialBins::getType(){
 
 std::vector<int> SpecialBins::getRegion(){
     return std::vector<int> {420, 240, 150,220};
+}
+
+QImage* SpecialBins::getImage() {
+    return &binImage;
 }

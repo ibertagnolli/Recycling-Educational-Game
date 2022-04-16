@@ -44,9 +44,14 @@ debug/b2Island.o
 debug/b2World.o
 debug/b2WorldCallbacks.o
 debug/b2Rope.o
+debug/bins.o
+debug/compostbin.o
 debug/controller.o
 debug/main.o
 debug/model.o
+debug/recyclebins.o
+debug/specialbins.o
+debug/trashbins.o
 debug/view.o
 debug/qrc_Resources.o
 debug/moc_controller.o
