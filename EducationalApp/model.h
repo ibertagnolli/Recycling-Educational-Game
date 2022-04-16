@@ -1,5 +1,6 @@
 #ifndef MODEL_H
 #define MODEL_H
+#include "bins.h"
 
 #include <QObject>
 
@@ -17,6 +18,7 @@ public:
 signals:
 
 private:
+    std::vector<Bins*> cans;
 };
 
 #endif // MODEL_H

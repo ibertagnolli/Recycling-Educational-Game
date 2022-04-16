@@ -10,6 +10,10 @@
  */
 class SpecialBins : public Bins
 {
+    /**
+     * @brief binImage - The image of the bin
+     */
+    QImage binImage;
 
 public:
     /**
@@ -18,7 +22,14 @@ public:
      * @param name - The specific name location
      * for the special recycle center.
      */
-    SpecialBins(std::string name);
+    SpecialBins();
+
+    /**
+     * @brief ~SpecialBins - The Destructor for the
+     * special object
+     *
+     * */
+    ~SpecialBins();
 
     /**
      * @brief getDescription - retreives the description

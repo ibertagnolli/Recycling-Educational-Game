@@ -1,24 +1,28 @@
 #include "specialbins.h"
 
-SpecialBins::SpecialBins(std::string center) :
-    Bins(std::vector<int> {240, 240, 150,220},
-         Bins::BinType::Special, center, "some text")
+SpecialBins::SpecialBins()
 {
-
+//    QImage image("");
+//    binImage = image;
 }
 
+SpecialBins::~SpecialBins(){}
+
 std::string SpecialBins::getDescription(){
-    return description;
+    return "Even though materials are recycle some of these"
+           " items are not allowed in the curbside recycle bin. Some "
+           "items are glass, electronics, clothing, art supplies, and "
+           "auto tires.";
 }
 
 std::string SpecialBins::getName(){
-    return name;
+    return "Special Recycling Center";
 }
 
 Bins::BinType SpecialBins::getType(){
-    return type;
+    return Bins::BinType::Special;
 }
 
 std::vector<int> SpecialBins::getRegion(){
-    return boundingRegion;
+    return std::vector<int> {420, 240, 150,220};
 }

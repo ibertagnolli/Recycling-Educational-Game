@@ -1,38 +1,27 @@
-#ifndef YARDWASTE_H
-#define YARDWASTE_H
+#ifndef COMPOSTBIN_H
+#define COMPOSTBIN_H
 
 # include "bins.h"
 
-class YardWaste : public Bins
+class CompostBin : public Bins
 {
     /**
-     * @brief boundingRegion - x cord, y cord,
-     * width, height
+     * @brief binImage - the image of the bin
      */
-    std::vector<int> boundingRegion;
-
-    /**
-     * @brief description - explaination of
-     * what this bin is.
-     */
-    std::string description;
-
-    /**
-     * @brief name - The name of the trash bin
-     */
-    std::string name;
-
-    /**
-     * @brief type - the type of bin
-     */
-    Bins::BinType type;
+    QImage binImage;
 
 public:
     /**
      * @brief YardWaste - Constructor for YardWaste
      * bins.
      */
-    YardWaste();
+    CompostBin();
+
+    /**
+     * @brief - ~CompostBin - The destructor for the
+     * compost bin.
+     * */
+    ~CompostBin();
 
     /**
      * @brief getDescription - retreives the description
@@ -69,4 +58,4 @@ public:
     std::vector<int> getRegion();
 };
 
-#endif // YARDWASTE_H
+#endif // COMPOSTBIN_H

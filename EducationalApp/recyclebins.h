@@ -5,6 +5,10 @@
 
 class RecycleBins : public Bins
 {
+    /**
+     * @brief binImage - The image of the bin
+     */
+    QImage binImage;
 
 public:
 
@@ -13,6 +17,11 @@ public:
      * bin
      */
     RecycleBins();
+
+    /**
+     * @brief ~RecycleBins - The destructor for recycle
+     **/
+    ~RecycleBins();
 
     /**
      * @brief getDescription - retreives the description

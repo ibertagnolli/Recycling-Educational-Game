@@ -13,26 +13,9 @@
 class TrashBins : public Bins
 {
     /**
-     * @brief boundingRegion - x cord, y cord,
-     * width, height
+     * @brief binImage - The image of the bin
      */
-    std::vector<int> boundingRegion;
-
-    /**
-     * @brief description - explaination of
-     * what this bin is.
-     */
-    std::string description;
-
-    /**
-     * @brief name - The name of the trash bin
-     */
-    std::string name;
-
-    /**
-     * @brief type - the type of bin
-     */
-    Bins::BinType type;
+    QImage binImage;
 
 public:
     /**
@@ -40,6 +23,12 @@ public:
      * to create a trash bin object
      */
     TrashBins();
+
+    /**
+     * @brief ~TrashBins - The destructor for the
+     * trash bin.
+     * */
+    ~TrashBins();
 
     /**
      * @brief getDescription - retreives the description
