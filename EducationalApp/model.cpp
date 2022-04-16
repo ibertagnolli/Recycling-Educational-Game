@@ -1,7 +1,7 @@
 #include "model.h"
 #include <iostream>
 
-Model::Model(QObject *parent) : QObject{parent}, world(b2Vec2 (0.0f, -10.0f)) {}
+Model::Model(QObject *parent) : QObject{parent}, world(b2Vec2 (0.0f, 10.0f)) {}
 
 //GENERAL METHODS
 void Model::pageChanged(int index)
@@ -31,7 +31,7 @@ void Model::setupWorld()
 
     // Define the ground body.
     b2BodyDef groundBodyDef;
-    groundBodyDef.position.Set(0.0f, -10.0f);
+    groundBodyDef.position.Set(0.0f, 4.0f);
 
     // Call the body factory which allocates memory for the ground body
     // from a pool and creates the ground box shape (also from a pool).
@@ -42,7 +42,7 @@ void Model::setupWorld()
     b2PolygonShape groundBox;
 
     // The extents are the half-widths of the box.
-    groundBox.SetAsBox(50.0f, 10.0f);
+    groundBox.SetAsBox(50.0f, 0.001f);
 
     // Add the ground fixture to the ground body.
     groundBody->CreateFixture(&groundBox, 0.0f);
@@ -50,12 +50,12 @@ void Model::setupWorld()
     // Define the dynamic body. We set its position and call the body factory.
     b2BodyDef bodyDef;
     bodyDef.type = b2_dynamicBody;
-    bodyDef.position.Set(0.0f, 4.0f);
+    bodyDef.position.Set(1.0f, 0.0f);
     body = world.CreateBody(&bodyDef);
 
     // Define another box shape for our dynamic body.
     b2PolygonShape dynamicBox;
-    dynamicBox.SetAsBox(1.0f, 1.0f);
+    dynamicBox.SetAsBox(0.01f, 0.01f);
 
     // Define the dynamic body fixture.
     b2FixtureDef fixtureDef;
