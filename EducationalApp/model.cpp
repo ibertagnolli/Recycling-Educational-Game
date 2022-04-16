@@ -23,7 +23,7 @@ void Model::pageChanged(int index)
 void Model::setupWorld()
 {
     // Define the gravity vector.
-    b2Vec2 gravity(0.0f, -10.0f);
+    //b2Vec2 gravity(0.0f, -10.0f);
 
     // Construct a world object, which will hold and simulate the rigid bodies.
     // DONT MAKE A SECOND WORLD AAAAAHH
@@ -73,6 +73,35 @@ void Model::setupWorld()
     // Add the shape to the body.
     body->CreateFixture(&fixtureDef);
 
+
+    updateWorld();
+
+}
+
+void Model::updateWorld(){
+    // Prepare for simulation. Typically we use a time step of 1/60 of a
+    // second (60Hz) and 10 iterations. This provides a high quality simulation
+    // in most game scenarios.
+    float32 timeStep = 1.0f / 60.0f;
+    int32 velocityIterations = 6;
+    int32 positionIterations = 2;
+
+    // Instruct the world to perform a single step of simulation.
+    // It is generally best to keep the time step and iterations fixed.
+    world.Step(timeStep, velocityIterations, positionIterations);
+
+    // Now print the position and angle of the body.
+    b2Vec2 position = body->GetPosition();
+    float32 angle = body->GetAngle();
+
+    printf("%4.2f %4.2f %4.2f\n", position.x, position.y, angle);
+    //int yPosition = position.y * 100;
+
+    //printf("%4.2f \n", yPosition);
+
+    emit updateLabelPosition(position.x*100, position.y*100);
+
+    QTimer::singleShot(20, this, &Model::updateWorld);
 
 }
 

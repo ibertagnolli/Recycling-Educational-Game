@@ -75,7 +75,8 @@ void View::on_buttonToPurposeScreen_clicked()
 void View::on_buttonToLoad1_clicked()
 {
     ui->stackWidget->setCurrentIndex(4);
-    QTimer::singleShot(1500, ui->stackWidget, [this](){ui->stackWidget->setCurrentIndex(3);});
+    emit firstLoadScreenStart();
+    //QTimer::singleShot(1500, ui->stackWidget, [this](){ui->stackWidget->setCurrentIndex(3);});
 }
 
 void View::on_buttonToLoad2_clicked()
@@ -86,9 +87,9 @@ void View::on_buttonToLoad2_clicked()
 
 // LOADING SCREEN METHODS
 
-void View::setLabelPosition()
+void View::setLabelPosition(int xPosition, int yPosition)
 {
-    ui->label_10->setGeometry(700, 500, 50, 50);
+    ui->label_10->setGeometry(xPosition, yPosition, 50, 50);
 }
 
 // CONCLUDING SCREEN METHODS

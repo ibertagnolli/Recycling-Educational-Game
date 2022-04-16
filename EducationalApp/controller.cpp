@@ -26,7 +26,8 @@ void Controller::generalConnections()
 // LOADING SCREEN METHODS
 void Controller::firstLoadingScreenConnections()
 {
-    view->setLabelPosition();
+    connect(view, &View::firstLoadScreenStart, model, &Model::setupWorld);
+    connect(model, &Model::updateLabelPosition, view, &View::setLabelPosition);
 }
 
 // CONCLUDING SCREEN METHODS

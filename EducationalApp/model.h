@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include "Box2D/Box2D.h"
+#include <QTimer>
 
 class Model : public QObject
 {
@@ -16,9 +17,12 @@ public:
     void pageChanged(int index);
 
 signals:
+    // First Loading Screen Signals
+    void updateLabelPosition(int xPosition, int yPosition);
 
 public slots:
     void setupWorld();
+    void updateWorld();
 
 private:
     b2World world;

@@ -26,6 +26,9 @@ signals:
      */
     void currentPageChanged(int index);
 
+    // First Loading Screen Signals
+     void firstLoadScreenStart();
+
 private:
     /**
      * @brief Tracks the current ui
@@ -33,7 +36,7 @@ private:
     Ui::View *ui;
 
 public slots:
-    void setLabelPosition();
+    void setLabelPosition(int xPosition, int yPosition);
 
 private slots:
 
