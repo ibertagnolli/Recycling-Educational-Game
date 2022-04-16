@@ -1,7 +1,9 @@
 #ifndef MODEL_H
 #define MODEL_H
 
+#include <vector>
 #include <QObject>
+#include "items.h"
 
 class Model : public QObject
 {
@@ -17,6 +19,11 @@ public:
 signals:
 
 private:
+    /**
+     * @brief items - A list of all of the items that will be
+     * in the game.
+     */
+    std::vector<Items*> items;
 };
 
 #endif // MODEL_H
