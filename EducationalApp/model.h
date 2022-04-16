@@ -2,7 +2,9 @@
 #define MODEL_H
 #include "bins.h"
 
+#include <vector>
 #include <QObject>
+#include "items.h"
 
 /**
  * @brief The Model class - This class is used
@@ -22,7 +24,24 @@ public:
 signals:
 
 private:
+
+    /**
+    * @brief cans - A list of all of the bins that will be 
+    * in the game.
+    **/
     std::vector<Bins*> cans;
+    
+    /**
+     * @brief items - A list of all of the items that will be
+     * in the game.
+     */
+    std::vector<Items*> items;
+
+    /**
+     * @brief setUpItems - A helper method that sets up
+     * all the items that will be in the game.
+     */
+    void setUpItems();
 };
 
 #endif // MODEL_H
