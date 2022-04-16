@@ -31,7 +31,8 @@ View::View(QWidget *parent)
     ui->redTulipLabel->setPixmap(QPixmap(":/images/images/redTulip1"));
 
     // Image Importing for First LoadingScreen
-    ui->label_10->setPixmap(QPixmap(":/images/images/purposeField1"));
+    ui->label_10->setPixmap(QPixmap(":/images/images/recycleLoading"));
+    ui->label_10->setScaledContents(true);
 
 }
 
@@ -89,7 +90,7 @@ void View::on_buttonToLoad2_clicked()
 
 void View::setLabelPosition(int xPosition, int yPosition)
 {
-    ui->label_10->setGeometry(xPosition, yPosition, 50, 50);
+    ui->label_10->setGeometry(xPosition, yPosition, 200, 200);
 }
 
 // CONCLUDING SCREEN METHODS

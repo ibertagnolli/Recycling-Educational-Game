@@ -50,8 +50,10 @@ void Model::setupWorld()
     // Define the dynamic body. We set its position and call the body factory.
     b2BodyDef bodyDef;
     bodyDef.type = b2_dynamicBody;
-    bodyDef.position.Set(1.0f, 0.0f);
+    bodyDef.position.Set(-2.0f, 0.0f);
     body = world.CreateBody(&bodyDef);
+
+        body->ApplyForceToCenter(b2Vec2 (0.08f, 0.0f), true);
 
     // Define another box shape for our dynamic body.
     b2PolygonShape dynamicBox;
@@ -68,7 +70,7 @@ void Model::setupWorld()
     fixtureDef.restitution = 0.9f;
 
     // Override the default friction.
-    fixtureDef.friction = 0.3f;
+    fixtureDef.friction = 0.01f;
 
     // Add the shape to the body.
     body->CreateFixture(&fixtureDef);
