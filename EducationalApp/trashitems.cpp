@@ -1,6 +1,47 @@
 #include "trashitems.h"
 
-TrashItems::TrashItems()
+TrashItems::TrashItems(int itemIndex)
 {
+    setImage(itemIndex);
+    setDescription(itemIndex);
+    setName(itemIndex);
+}
 
+Items::ItemType TrashItems::getType(){
+    return Items::ItemType::Trash;
+}
+
+std::string TrashItems::getName(){
+    return name;
+}
+
+std::string TrashItems::getDescription(){
+    return description;
+}
+
+void TrashItems::setDescription(int index){
+    switch(index) {
+    case 0: { // Meat
+        description = "Meat, dairy, and non-compostable food waste"
+                      " goes into the trash bin; wheras compostable food "
+                      "waste goes into the compost bin";
+        break;
+    } case 1: { // Food Wrappers
+        description = "In salt lake city, most food wrappers are non "
+                      "recyclable. Food wrappers that are recyclable are "
+                      "plastic containers and cardboard boxes.";
+        break;
+    }
+    }
+}
+
+void TrashItems::setName(int index){
+    switch(index){
+    case 0: {
+        name = "Meat";
+        break;
+    } case 1: {
+        name = "Lawn Clippings";
+    }
+    }
 }
