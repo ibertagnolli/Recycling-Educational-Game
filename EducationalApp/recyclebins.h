@@ -3,6 +3,11 @@
 
 #include "bins.h"
 
+/**
+ * @brief The RecycleBins class - This class is used to
+ * store all information and functions for the recycling
+ * bins for the game.
+ */
 class RecycleBins : public Bins
 {
     /**

@@ -4,6 +4,10 @@
 
 #include <QObject>
 
+/**
+ * @brief The Model class - This class is used
+ * to manage all of the logic throughout the game
+ */
 class Model : public QObject
 {
     Q_OBJECT

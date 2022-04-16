@@ -7,8 +7,9 @@
 #include <QImage>
 
 /**
- * @brief The TrashBins class - This class is used
- * to create trash bin objects
+ * @brief The TrashBins class - This class is used to
+ * store all of the information and functionality of the
+ * trash bins for the game.
  */
 class TrashBins : public Bins
 {

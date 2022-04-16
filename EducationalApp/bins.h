@@ -13,6 +13,10 @@ class Bins
 {
 
 public:
+    /**
+     * @brief The BinType enum - A way of classification
+     * of the bins that can be inherited from.
+     */
     enum BinType {
         Trash = 0,
         Recycle = 1,

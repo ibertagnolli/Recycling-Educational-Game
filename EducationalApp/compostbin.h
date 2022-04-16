@@ -3,6 +3,10 @@
 
 # include "bins.h"
 
+/**
+ * @brief The CompostBin class - This class stores all of the information
+ * and functions that happens for the Compost bin for the game levels.
+ */
 class CompostBin : public Bins
 {
     /**
