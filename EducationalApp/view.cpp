@@ -30,6 +30,9 @@ View::View(QWidget *parent)
     ui->yellowTulipLabel->setPixmap(QPixmap(":/images/images/yellowTulip1"));
     ui->redTulipLabel->setPixmap(QPixmap(":/images/images/redTulip1"));
 
+    // Image Importing for First LoadingScreen
+    ui->label_10->setPixmap(QPixmap(":/images/images/purposeField1"));
+
 }
 
 View::~View()
@@ -82,6 +85,11 @@ void View::on_buttonToLoad2_clicked()
 }
 
 // LOADING SCREEN METHODS
+
+void View::setLabelPosition()
+{
+    ui->label_10->setGeometry(700, 500, 50, 50);
+}
 
 // CONCLUDING SCREEN METHODS
 

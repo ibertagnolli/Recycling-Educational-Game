@@ -32,6 +32,9 @@ private:
      */
     Ui::View *ui;
 
+public slots:
+    void setLabelPosition();
+
 private slots:
 
     /**
@@ -69,5 +72,9 @@ private slots:
      * @brief This method will be deleted. Moves from gameScreen to loadingScreen2.
      */
     void on_buttonToLoad2_clicked();
+
+    // First Loading Screen Slots
+
+
 };
 #endif // VIEW_H

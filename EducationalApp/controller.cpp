@@ -7,6 +7,7 @@ Controller::Controller(View *view, Model *model)
     this->view = view;
     this->model = model;
     generalConnections();
+    firstLoadingScreenConnections();
 }
 
 // GENERAL METHODS
@@ -23,5 +24,9 @@ void Controller::generalConnections()
 // GAME SCREEN METHODS
 
 // LOADING SCREEN METHODS
+void Controller::firstLoadingScreenConnections()
+{
+    view->setLabelPosition();
+}
 
 // CONCLUDING SCREEN METHODS

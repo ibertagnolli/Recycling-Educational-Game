@@ -915,7 +915,7 @@ their correct bin.</string>
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="Resources.qrc">:/images/images/trashBin.png</pixmap>
+         <pixmap>:/images/images/trashBin.png</pixmap>
         </property>
         <property name="scaledContents">
          <bool>true</bool>
@@ -937,7 +937,7 @@ their correct bin.</string>
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="Resources.qrc">:/images/images/yardBin.png</pixmap>
+         <pixmap>:/images/images/yardBin.png</pixmap>
         </property>
         <property name="scaledContents">
          <bool>true</bool>
@@ -965,7 +965,7 @@ their correct bin.</string>
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="Resources.qrc">:/images/images/recycleBin.png</pixmap>
+         <pixmap>:/images/images/recycleBin.png</pixmap>
         </property>
         <property name="scaledContents">
          <bool>true</bool>
@@ -990,7 +990,7 @@ their correct bin.</string>
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="Resources.qrc">:/images/images/GameScreenGrass.png</pixmap>
+         <pixmap>:/images/images/GameScreenGrass.png</pixmap>
         </property>
         <property name="scaledContents">
          <bool>true</bool>
@@ -1082,7 +1082,6 @@ border-bottom-right-radius: 10px;
         </property>
         <property name="font">
          <font>
-          <family>Georgia</family>
           <pointsize>24</pointsize>
          </font>
         </property>
@@ -1147,8 +1146,6 @@ border-bottom-right-radius: 10px;
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources>
-  <include location="Resources.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

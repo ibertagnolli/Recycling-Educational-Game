@@ -20,6 +20,11 @@ public:
 
 signals:
 
+public slots:
+    // First Loading Screen
+    void firstLoadingScreenConnections();
+
+
 private:
     /**
      * @brief Holds the current instance of the model.
@@ -35,6 +40,8 @@ private:
      * @brief General connections between the view and the model
      */
     void generalConnections();
+
+
 };
 
 #endif // CONTROLLER_H

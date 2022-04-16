@@ -2,6 +2,7 @@
 #define MODEL_H
 
 #include <QObject>
+#include "Box2D/Box2D.h"
 
 class Model : public QObject
 {
@@ -16,7 +17,12 @@ public:
 
 signals:
 
+public slots:
+    void setupWorld();
+
 private:
+    b2World world;
+    b2Body* body;
 };
 
 #endif // MODEL_H
