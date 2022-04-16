@@ -23,7 +23,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_View_t {
     const uint offsetsAndSize[30];
-    char stringdata0[286];
+    char stringdata0[285];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(offsetof(qt_meta_stringdata_View_t, stringdata0) + ofs), len 
@@ -34,20 +34,20 @@ QT_MOC_LITERAL(5, 18), // "currentPageChanged"
 QT_MOC_LITERAL(24, 0), // ""
 QT_MOC_LITERAL(25, 5), // "index"
 QT_MOC_LITERAL(31, 20), // "firstLoadScreenStart"
-QT_MOC_LITERAL(52, 16), // "setLabelPosition"
-QT_MOC_LITERAL(69, 9), // "xPosition"
-QT_MOC_LITERAL(79, 9), // "yPosition"
-QT_MOC_LITERAL(89, 29), // "on_stackWidget_currentChanged"
-QT_MOC_LITERAL(119, 22), // "on_startButton_clicked"
-QT_MOC_LITERAL(142, 30), // "on_buttonToInstrScreen_clicked"
-QT_MOC_LITERAL(173, 29), // "on_buttonToGameScreen_clicked"
-QT_MOC_LITERAL(203, 32), // "on_buttonToPurposeScreen_clicked"
-QT_MOC_LITERAL(236, 24), // "on_buttonToLoad1_clicked"
-QT_MOC_LITERAL(261, 24) // "on_buttonToLoad2_clicked"
+QT_MOC_LITERAL(52, 15), // "setLogoPosition"
+QT_MOC_LITERAL(68, 9), // "xPosition"
+QT_MOC_LITERAL(78, 9), // "yPosition"
+QT_MOC_LITERAL(88, 29), // "on_stackWidget_currentChanged"
+QT_MOC_LITERAL(118, 22), // "on_startButton_clicked"
+QT_MOC_LITERAL(141, 30), // "on_buttonToInstrScreen_clicked"
+QT_MOC_LITERAL(172, 29), // "on_buttonToGameScreen_clicked"
+QT_MOC_LITERAL(202, 32), // "on_buttonToPurposeScreen_clicked"
+QT_MOC_LITERAL(235, 24), // "on_buttonToLoad1_clicked"
+QT_MOC_LITERAL(260, 24) // "on_buttonToLoad2_clicked"
 
     },
     "View\0currentPageChanged\0\0index\0"
-    "firstLoadScreenStart\0setLabelPosition\0"
+    "firstLoadScreenStart\0setLogoPosition\0"
     "xPosition\0yPosition\0on_stackWidget_currentChanged\0"
     "on_startButton_clicked\0"
     "on_buttonToInstrScreen_clicked\0"
@@ -110,7 +110,7 @@ void View::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void *
         switch (_id) {
         case 0: _t->currentPageChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 1: _t->firstLoadScreenStart(); break;
-        case 2: _t->setLabelPosition((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
+        case 2: _t->setLogoPosition((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
         case 3: _t->on_stackWidget_currentChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 4: _t->on_startButton_clicked(); break;
         case 5: _t->on_buttonToInstrScreen_clicked(); break;

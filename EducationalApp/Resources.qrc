@@ -17,5 +17,7 @@
         <file>images/yardBin.png</file>
         <file>images/recycleLoading.png</file>
         <file>images/GameScreenGrass.png</file>
+        <file>images/firstLoadingScreen.jpg</file>
+        <file>images/recycleLoadingBlue.png</file>
     </qresource>
 </RCC>

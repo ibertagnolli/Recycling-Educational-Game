@@ -1,3 +1,9 @@
+/**
+ * 4 Weeks To Go
+ * CS 3505 - Spring 2022
+ * Assignment 8 - Learn to Recycle
+ */
+
 #include "controller.h"
 
 Controller::Controller(QObject *parent) : QObject{parent} {}
@@ -26,8 +32,8 @@ void Controller::generalConnections()
 // LOADING SCREEN METHODS
 void Controller::firstLoadingScreenConnections()
 {
-    connect(view, &View::firstLoadScreenStart, model, &Model::setupWorld);
-    connect(model, &Model::updateLabelPosition, view, &View::setLabelPosition);
+    connect(view, &View::firstLoadScreenStart, model, &Model::setupFirstLoadingWorld);
+    connect(model, &Model::updateLabelPosition, view, &View::setLogoPosition);
 }
 
 // CONCLUDING SCREEN METHODS

@@ -1,8 +1,13 @@
+/**
+ * 4 Weeks To Go
+ * CS 3505 - Spring 2022
+ * Assignment 8 - Learn to Recycle
+ */
+
 #ifndef CONTROLLER_H
 #define CONTROLLER_H
 
 #include <QObject>
-
 #include "model.h"
 #include "view.h"
 
@@ -20,11 +25,6 @@ public:
 
 signals:
 
-public slots:
-    // First Loading Screen
-    void firstLoadingScreenConnections();
-
-
 private:
     /**
      * @brief Holds the current instance of the model.
@@ -41,7 +41,10 @@ private:
      */
     void generalConnections();
 
+    /**
+     * @brief Connects what is happening in the first loading screen's world to the ui.
+     */
+    void firstLoadingScreenConnections();
 
 };
-
 #endif // CONTROLLER_H

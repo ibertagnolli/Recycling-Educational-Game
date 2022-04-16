@@ -159,7 +159,12 @@ OBJECTS       = debug/b2ChainShape.o \
 		debug/moc_view.o
 
 DIST          = Box2D/Box2DConfig.cmake \
-		Box2D/CMakeLists.txt ..\EducationalApp\Box2D\Box2D.h \
+		Box2D/CMakeLists.txt \
+		images/GameScreenMeadow.png \
+		images/recycleBin.png \
+		images/recycleLoading.png \
+		images/trashBin.png \
+		images/yardBin.png ..\EducationalApp\Box2D\Box2D.h \
 		..\EducationalApp\Box2D\Collision\Shapes\b2ChainShape.h \
 		..\EducationalApp\Box2D\Collision\Shapes\b2CircleShape.h \
 		..\EducationalApp\Box2D\Collision\Shapes\b2EdgeShape.h \
@@ -302,17 +307,26 @@ compiler_rcc_clean:
 	-$(DEL_FILE) debug\qrc_Resources.cpp
 debug/qrc_Resources.cpp: ../EducationalApp/Resources.qrc \
 		C:/Qt/6.2.3/mingw_64/bin/rcc.exe \
-		../EducationalApp/images/frog.png \
+		../EducationalApp/images/recycleLoading.png \
 		../EducationalApp/images/orangeTulip1.png \
-		../EducationalApp/images/wizardBig.png \
 		../EducationalApp/images/purposeField1.jpg \
 		../EducationalApp/images/blueTulip1.png \
+		../EducationalApp/images/recycleBin.png \
+		../EducationalApp/images/GameScreenMeadow.png \
 		../EducationalApp/images/redTulip1.png \
+		../EducationalApp/images/meadow.jpg \
+		../EducationalApp/images/meadow6.png \
+		../EducationalApp/images/loadingScreen1.png \
+		../EducationalApp/images/GameScreenGrass.png \
+		../EducationalApp/images/frog.png \
+		../EducationalApp/images/trashBin.png \
+		../EducationalApp/images/wizardBig.png \
+		../EducationalApp/images/recycleLoadingBlue.png \
 		../EducationalApp/images/pinkTulip1.png \
 		../EducationalApp/images/yellowTulip1.png \
 		../EducationalApp/images/test.png \
-		../EducationalApp/images/meadow.jpg \
-		../EducationalApp/images/meadow6.png
+		../EducationalApp/images/yardBin.png \
+		../EducationalApp/images/firstLoadingScreen.jpg
 	C:\Qt\6.2.3\mingw_64\bin\rcc.exe -name Resources ..\EducationalApp\Resources.qrc -o debug\qrc_Resources.cpp
 
 compiler_moc_predefs_make_all: debug/moc_predefs.h
@@ -392,6 +406,46 @@ debug/moc_controller.cpp: ../EducationalApp/controller.h \
 		C:/Qt/6.2.3/mingw_64/include/QtCore/qobject_impl.h \
 		C:/Qt/6.2.3/mingw_64/include/QtCore/qbindingstorage.h \
 		../EducationalApp/model.h \
+		../EducationalApp/Box2D/Box2D.h \
+		../EducationalApp/Box2D/Common/b2Settings.h \
+		../EducationalApp/Box2D/Common/b2Draw.h \
+		../EducationalApp/Box2D/Common/b2Math.h \
+		../EducationalApp/Box2D/Common/b2Timer.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2CircleShape.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2Shape.h \
+		../EducationalApp/Box2D/Common/b2BlockAllocator.h \
+		../EducationalApp/Box2D/Collision/b2Collision.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2EdgeShape.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2ChainShape.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2PolygonShape.h \
+		../EducationalApp/Box2D/Collision/b2BroadPhase.h \
+		../EducationalApp/Box2D/Collision/b2DynamicTree.h \
+		../EducationalApp/Box2D/Common/b2GrowableStack.h \
+		../EducationalApp/Box2D/Collision/b2Distance.h \
+		../EducationalApp/Box2D/Collision/b2TimeOfImpact.h \
+		../EducationalApp/Box2D/Dynamics/b2Body.h \
+		../EducationalApp/Box2D/Dynamics/b2Fixture.h \
+		../EducationalApp/Box2D/Dynamics/b2WorldCallbacks.h \
+		../EducationalApp/Box2D/Dynamics/b2TimeStep.h \
+		../EducationalApp/Box2D/Dynamics/b2World.h \
+		../EducationalApp/Box2D/Common/b2StackAllocator.h \
+		../EducationalApp/Box2D/Dynamics/b2ContactManager.h \
+		../EducationalApp/Box2D/Dynamics/Contacts/b2Contact.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2DistanceJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2Joint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2FrictionJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2GearJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2MotorJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2MouseJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2PrismaticJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2PulleyJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2RevoluteJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2RopeJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2WeldJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2WheelJoint.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/QTimer \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qtimer.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qbasictimer.h \
 		../EducationalApp/view.h \
 		C:/Qt/6.2.3/mingw_64/include/QtWidgets/QMainWindow \
 		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qmainwindow.h \
@@ -458,7 +512,7 @@ debug/moc_controller.cpp: ../EducationalApp/controller.h \
 		C:/Qt/6.2.3/mingw_64/include/QtGui/qicon.h \
 		debug/moc_predefs.h \
 		C:/Qt/6.2.3/mingw_64/bin/moc.exe
-	C:\Qt\6.2.3\mingw_64\bin\moc.exe $(DEFINES) --include C:/Users/emily/OneDrive/Documents/a8-edu-app-ibertagnolli/build-EducationalApp-Desktop_Qt_6_2_3_MinGW_64_bit-Debug/debug/moc_predefs.h -IC:/Qt/6.2.3/mingw_64/mkspecs/win32-g++ -IC:/Users/emily/OneDrive/Documents/a8-edu-app-ibertagnolli/EducationalApp -IC:/Qt/6.2.3/mingw_64/include -IC:/Qt/6.2.3/mingw_64/include/QtWidgets -IC:/Qt/6.2.3/mingw_64/include/QtGui -IC:/Qt/6.2.3/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw900_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw900_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw900_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw900_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw900_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw900_64/x86_64-w64-mingw32/include ..\EducationalApp\controller.h -o debug\moc_controller.cpp
+	C:\Qt\6.2.3\mingw_64\bin\moc.exe $(DEFINES) --include "C:/Users/alyss/Documents/CS 3505/RecycleProj/a8-edu-app-ibertagnolli/build-EducationalApp-Desktop_Qt_6_2_3_MinGW_64_bit-Debug/debug/moc_predefs.h" -IC:/Qt/6.2.3/mingw_64/mkspecs/win32-g++ -I"C:/Users/alyss/Documents/CS 3505/RecycleProj/a8-edu-app-ibertagnolli/EducationalApp" -IC:/Qt/6.2.3/mingw_64/include -IC:/Qt/6.2.3/mingw_64/include/QtWidgets -IC:/Qt/6.2.3/mingw_64/include/QtGui -IC:/Qt/6.2.3/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw900_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw900_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw900_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw900_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw900_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw900_64/x86_64-w64-mingw32/include ..\EducationalApp\controller.h -o debug\moc_controller.cpp
 
 debug/moc_model.cpp: ../EducationalApp/model.h \
 		C:/Qt/6.2.3/mingw_64/include/QtCore/QObject \
@@ -527,9 +581,49 @@ debug/moc_model.cpp: ../EducationalApp/model.h \
 		C:/Qt/6.2.3/mingw_64/include/QtCore/qmath.h \
 		C:/Qt/6.2.3/mingw_64/include/QtCore/qobject_impl.h \
 		C:/Qt/6.2.3/mingw_64/include/QtCore/qbindingstorage.h \
+		../EducationalApp/Box2D/Box2D.h \
+		../EducationalApp/Box2D/Common/b2Settings.h \
+		../EducationalApp/Box2D/Common/b2Draw.h \
+		../EducationalApp/Box2D/Common/b2Math.h \
+		../EducationalApp/Box2D/Common/b2Timer.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2CircleShape.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2Shape.h \
+		../EducationalApp/Box2D/Common/b2BlockAllocator.h \
+		../EducationalApp/Box2D/Collision/b2Collision.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2EdgeShape.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2ChainShape.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2PolygonShape.h \
+		../EducationalApp/Box2D/Collision/b2BroadPhase.h \
+		../EducationalApp/Box2D/Collision/b2DynamicTree.h \
+		../EducationalApp/Box2D/Common/b2GrowableStack.h \
+		../EducationalApp/Box2D/Collision/b2Distance.h \
+		../EducationalApp/Box2D/Collision/b2TimeOfImpact.h \
+		../EducationalApp/Box2D/Dynamics/b2Body.h \
+		../EducationalApp/Box2D/Dynamics/b2Fixture.h \
+		../EducationalApp/Box2D/Dynamics/b2WorldCallbacks.h \
+		../EducationalApp/Box2D/Dynamics/b2TimeStep.h \
+		../EducationalApp/Box2D/Dynamics/b2World.h \
+		../EducationalApp/Box2D/Common/b2StackAllocator.h \
+		../EducationalApp/Box2D/Dynamics/b2ContactManager.h \
+		../EducationalApp/Box2D/Dynamics/Contacts/b2Contact.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2DistanceJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2Joint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2FrictionJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2GearJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2MotorJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2MouseJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2PrismaticJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2PulleyJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2RevoluteJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2RopeJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2WeldJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2WheelJoint.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/QTimer \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qtimer.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qbasictimer.h \
 		debug/moc_predefs.h \
 		C:/Qt/6.2.3/mingw_64/bin/moc.exe
-	C:\Qt\6.2.3\mingw_64\bin\moc.exe $(DEFINES) --include C:/Users/emily/OneDrive/Documents/a8-edu-app-ibertagnolli/build-EducationalApp-Desktop_Qt_6_2_3_MinGW_64_bit-Debug/debug/moc_predefs.h -IC:/Qt/6.2.3/mingw_64/mkspecs/win32-g++ -IC:/Users/emily/OneDrive/Documents/a8-edu-app-ibertagnolli/EducationalApp -IC:/Qt/6.2.3/mingw_64/include -IC:/Qt/6.2.3/mingw_64/include/QtWidgets -IC:/Qt/6.2.3/mingw_64/include/QtGui -IC:/Qt/6.2.3/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw900_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw900_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw900_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw900_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw900_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw900_64/x86_64-w64-mingw32/include ..\EducationalApp\model.h -o debug\moc_model.cpp
+	C:\Qt\6.2.3\mingw_64\bin\moc.exe $(DEFINES) --include "C:/Users/alyss/Documents/CS 3505/RecycleProj/a8-edu-app-ibertagnolli/build-EducationalApp-Desktop_Qt_6_2_3_MinGW_64_bit-Debug/debug/moc_predefs.h" -IC:/Qt/6.2.3/mingw_64/mkspecs/win32-g++ -I"C:/Users/alyss/Documents/CS 3505/RecycleProj/a8-edu-app-ibertagnolli/EducationalApp" -IC:/Qt/6.2.3/mingw_64/include -IC:/Qt/6.2.3/mingw_64/include/QtWidgets -IC:/Qt/6.2.3/mingw_64/include/QtGui -IC:/Qt/6.2.3/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw900_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw900_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw900_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw900_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw900_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw900_64/x86_64-w64-mingw32/include ..\EducationalApp\model.h -o debug\moc_model.cpp
 
 debug/moc_view.cpp: ../EducationalApp/view.h \
 		C:/Qt/6.2.3/mingw_64/include/QtWidgets/QMainWindow \
@@ -663,7 +757,7 @@ debug/moc_view.cpp: ../EducationalApp/view.h \
 		C:/Qt/6.2.3/mingw_64/include/QtGui/qicon.h \
 		debug/moc_predefs.h \
 		C:/Qt/6.2.3/mingw_64/bin/moc.exe
-	C:\Qt\6.2.3\mingw_64\bin\moc.exe $(DEFINES) --include C:/Users/emily/OneDrive/Documents/a8-edu-app-ibertagnolli/build-EducationalApp-Desktop_Qt_6_2_3_MinGW_64_bit-Debug/debug/moc_predefs.h -IC:/Qt/6.2.3/mingw_64/mkspecs/win32-g++ -IC:/Users/emily/OneDrive/Documents/a8-edu-app-ibertagnolli/EducationalApp -IC:/Qt/6.2.3/mingw_64/include -IC:/Qt/6.2.3/mingw_64/include/QtWidgets -IC:/Qt/6.2.3/mingw_64/include/QtGui -IC:/Qt/6.2.3/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw900_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw900_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw900_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw900_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw900_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw900_64/x86_64-w64-mingw32/include ..\EducationalApp\view.h -o debug\moc_view.cpp
+	C:\Qt\6.2.3\mingw_64\bin\moc.exe $(DEFINES) --include "C:/Users/alyss/Documents/CS 3505/RecycleProj/a8-edu-app-ibertagnolli/build-EducationalApp-Desktop_Qt_6_2_3_MinGW_64_bit-Debug/debug/moc_predefs.h" -IC:/Qt/6.2.3/mingw_64/mkspecs/win32-g++ -I"C:/Users/alyss/Documents/CS 3505/RecycleProj/a8-edu-app-ibertagnolli/EducationalApp" -IC:/Qt/6.2.3/mingw_64/include -IC:/Qt/6.2.3/mingw_64/include/QtWidgets -IC:/Qt/6.2.3/mingw_64/include/QtGui -IC:/Qt/6.2.3/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw900_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw900_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw900_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw900_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw900_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw900_64/x86_64-w64-mingw32/include ..\EducationalApp\view.h -o debug\moc_view.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -1296,6 +1390,46 @@ debug/controller.o: ../EducationalApp/controller.cpp ../EducationalApp/controlle
 		C:/Qt/6.2.3/mingw_64/include/QtCore/qobject_impl.h \
 		C:/Qt/6.2.3/mingw_64/include/QtCore/qbindingstorage.h \
 		../EducationalApp/model.h \
+		../EducationalApp/Box2D/Box2D.h \
+		../EducationalApp/Box2D/Common/b2Settings.h \
+		../EducationalApp/Box2D/Common/b2Draw.h \
+		../EducationalApp/Box2D/Common/b2Math.h \
+		../EducationalApp/Box2D/Common/b2Timer.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2CircleShape.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2Shape.h \
+		../EducationalApp/Box2D/Common/b2BlockAllocator.h \
+		../EducationalApp/Box2D/Collision/b2Collision.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2EdgeShape.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2ChainShape.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2PolygonShape.h \
+		../EducationalApp/Box2D/Collision/b2BroadPhase.h \
+		../EducationalApp/Box2D/Collision/b2DynamicTree.h \
+		../EducationalApp/Box2D/Common/b2GrowableStack.h \
+		../EducationalApp/Box2D/Collision/b2Distance.h \
+		../EducationalApp/Box2D/Collision/b2TimeOfImpact.h \
+		../EducationalApp/Box2D/Dynamics/b2Body.h \
+		../EducationalApp/Box2D/Dynamics/b2Fixture.h \
+		../EducationalApp/Box2D/Dynamics/b2WorldCallbacks.h \
+		../EducationalApp/Box2D/Dynamics/b2TimeStep.h \
+		../EducationalApp/Box2D/Dynamics/b2World.h \
+		../EducationalApp/Box2D/Common/b2StackAllocator.h \
+		../EducationalApp/Box2D/Dynamics/b2ContactManager.h \
+		../EducationalApp/Box2D/Dynamics/Contacts/b2Contact.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2DistanceJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2Joint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2FrictionJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2GearJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2MotorJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2MouseJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2PrismaticJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2PulleyJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2RevoluteJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2RopeJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2WeldJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2WheelJoint.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/QTimer \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qtimer.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qbasictimer.h \
 		../EducationalApp/view.h \
 		C:/Qt/6.2.3/mingw_64/include/QtWidgets/QMainWindow \
 		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qmainwindow.h \
@@ -1430,6 +1564,46 @@ debug/main.o: ../EducationalApp/main.cpp ../EducationalApp/controller.h \
 		C:/Qt/6.2.3/mingw_64/include/QtCore/qobject_impl.h \
 		C:/Qt/6.2.3/mingw_64/include/QtCore/qbindingstorage.h \
 		../EducationalApp/model.h \
+		../EducationalApp/Box2D/Box2D.h \
+		../EducationalApp/Box2D/Common/b2Settings.h \
+		../EducationalApp/Box2D/Common/b2Draw.h \
+		../EducationalApp/Box2D/Common/b2Math.h \
+		../EducationalApp/Box2D/Common/b2Timer.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2CircleShape.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2Shape.h \
+		../EducationalApp/Box2D/Common/b2BlockAllocator.h \
+		../EducationalApp/Box2D/Collision/b2Collision.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2EdgeShape.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2ChainShape.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2PolygonShape.h \
+		../EducationalApp/Box2D/Collision/b2BroadPhase.h \
+		../EducationalApp/Box2D/Collision/b2DynamicTree.h \
+		../EducationalApp/Box2D/Common/b2GrowableStack.h \
+		../EducationalApp/Box2D/Collision/b2Distance.h \
+		../EducationalApp/Box2D/Collision/b2TimeOfImpact.h \
+		../EducationalApp/Box2D/Dynamics/b2Body.h \
+		../EducationalApp/Box2D/Dynamics/b2Fixture.h \
+		../EducationalApp/Box2D/Dynamics/b2WorldCallbacks.h \
+		../EducationalApp/Box2D/Dynamics/b2TimeStep.h \
+		../EducationalApp/Box2D/Dynamics/b2World.h \
+		../EducationalApp/Box2D/Common/b2StackAllocator.h \
+		../EducationalApp/Box2D/Dynamics/b2ContactManager.h \
+		../EducationalApp/Box2D/Dynamics/Contacts/b2Contact.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2DistanceJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2Joint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2FrictionJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2GearJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2MotorJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2MouseJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2PrismaticJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2PulleyJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2RevoluteJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2RopeJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2WeldJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2WheelJoint.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/QTimer \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qtimer.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qbasictimer.h \
 		../EducationalApp/view.h \
 		C:/Qt/6.2.3/mingw_64/include/QtWidgets/QMainWindow \
 		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qmainwindow.h \
@@ -1582,7 +1756,47 @@ debug/model.o: ../EducationalApp/model.cpp ../EducationalApp/model.h \
 		C:/Qt/6.2.3/mingw_64/include/QtCore/qtaggedpointer.h \
 		C:/Qt/6.2.3/mingw_64/include/QtCore/qmath.h \
 		C:/Qt/6.2.3/mingw_64/include/QtCore/qobject_impl.h \
-		C:/Qt/6.2.3/mingw_64/include/QtCore/qbindingstorage.h
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qbindingstorage.h \
+		../EducationalApp/Box2D/Box2D.h \
+		../EducationalApp/Box2D/Common/b2Settings.h \
+		../EducationalApp/Box2D/Common/b2Draw.h \
+		../EducationalApp/Box2D/Common/b2Math.h \
+		../EducationalApp/Box2D/Common/b2Timer.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2CircleShape.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2Shape.h \
+		../EducationalApp/Box2D/Common/b2BlockAllocator.h \
+		../EducationalApp/Box2D/Collision/b2Collision.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2EdgeShape.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2ChainShape.h \
+		../EducationalApp/Box2D/Collision/Shapes/b2PolygonShape.h \
+		../EducationalApp/Box2D/Collision/b2BroadPhase.h \
+		../EducationalApp/Box2D/Collision/b2DynamicTree.h \
+		../EducationalApp/Box2D/Common/b2GrowableStack.h \
+		../EducationalApp/Box2D/Collision/b2Distance.h \
+		../EducationalApp/Box2D/Collision/b2TimeOfImpact.h \
+		../EducationalApp/Box2D/Dynamics/b2Body.h \
+		../EducationalApp/Box2D/Dynamics/b2Fixture.h \
+		../EducationalApp/Box2D/Dynamics/b2WorldCallbacks.h \
+		../EducationalApp/Box2D/Dynamics/b2TimeStep.h \
+		../EducationalApp/Box2D/Dynamics/b2World.h \
+		../EducationalApp/Box2D/Common/b2StackAllocator.h \
+		../EducationalApp/Box2D/Dynamics/b2ContactManager.h \
+		../EducationalApp/Box2D/Dynamics/Contacts/b2Contact.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2DistanceJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2Joint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2FrictionJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2GearJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2MotorJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2MouseJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2PrismaticJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2PulleyJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2RevoluteJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2RopeJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2WeldJoint.h \
+		../EducationalApp/Box2D/Dynamics/Joints/b2WheelJoint.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/QTimer \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qtimer.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qbasictimer.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\model.o ..\EducationalApp\model.cpp
 
 debug/view.o: ../EducationalApp/view.cpp ../EducationalApp/view.h \
@@ -1744,6 +1958,8 @@ debug/view.o: ../EducationalApp/view.cpp ../EducationalApp/view.h \
 		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qlayout.h \
 		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qlayoutitem.h \
 		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qboxlayout.h \
+		C:/Qt/6.2.3/mingw_64/include/QtWidgets/QGroupBox \
+		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qgroupbox.h \
 		C:/Qt/6.2.3/mingw_64/include/QtWidgets/QHBoxLayout \
 		C:/Qt/6.2.3/mingw_64/include/QtWidgets/QLabel \
 		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qlabel.h \

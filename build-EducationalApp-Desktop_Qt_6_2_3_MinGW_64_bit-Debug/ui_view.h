@@ -89,7 +89,8 @@ public:
     QLabel *sideBarLabel;
     QLabel *itemBarLabel;
     QWidget *loadingScreen1;
-    QLabel *label_10;
+    QLabel *recycleLogo;
+    QLabel *loadingBackground1;
     QWidget *loadingScreen2;
     QLabel *label_11;
     QWidget *conclusionScreen;
@@ -512,10 +513,18 @@ public:
         itemBarLabel->raise();
         loadingScreen1 = new QWidget();
         loadingScreen1->setObjectName(QString::fromUtf8("loadingScreen1"));
-        label_10 = new QLabel(loadingScreen1);
-        label_10->setObjectName(QString::fromUtf8("label_10"));
-        label_10->setGeometry(QRect(180, 60, 201, 16));
+        recycleLogo = new QLabel(loadingScreen1);
+        recycleLogo->setObjectName(QString::fromUtf8("recycleLogo"));
+        recycleLogo->setGeometry(QRect(10, 0, 71, 31));
+        recycleLogo->setScaledContents(true);
+        loadingBackground1 = new QLabel(loadingScreen1);
+        loadingBackground1->setObjectName(QString::fromUtf8("loadingBackground1"));
+        loadingBackground1->setGeometry(QRect(0, 0, 800, 600));
+        loadingBackground1->setPixmap(QPixmap(QString::fromUtf8("images/firstLoadingScreen.jpg")));
+        loadingBackground1->setScaledContents(true);
         stackWidget->addWidget(loadingScreen1);
+        loadingBackground1->raise();
+        recycleLogo->raise();
         loadingScreen2 = new QWidget();
         loadingScreen2->setObjectName(QString::fromUtf8("loadingScreen2"));
         label_11 = new QLabel(loadingScreen2);
@@ -605,7 +614,8 @@ public:
         itemImageLabel->setText(QCoreApplication::translate("View", "image here", nullptr));
         sideBarLabel->setText(QCoreApplication::translate("View", "description here", nullptr));
         itemBarLabel->setText(QCoreApplication::translate("View", "Item Bar", nullptr));
-        label_10->setText(QCoreApplication::translate("View", "DELETE! LoadingScreen1", nullptr));
+        recycleLogo->setText(QCoreApplication::translate("View", "Recycle Logo", nullptr));
+        loadingBackground1->setText(QString());
         label_11->setText(QCoreApplication::translate("View", "DELETE! LoadingScreen2", nullptr));
     } // retranslateUi
 

@@ -1,3 +1,9 @@
+/**
+ * 4 Weeks To Go
+ * CS 3505 - Spring 2022
+ * Assignment 8 - Learn to Recycle
+ */
+
 #include "view.h"
 #include "ui_view.h"
 #include <QTimer>
@@ -15,7 +21,6 @@ View::View(QWidget *parent)
 
     ui->instructionScreen->setStyleSheet("QWidget#instructionScreen {background-color: rgb(211, 253, 255); background-image: url(:/images/images/meadow6.png) 0 0 0 0 stretch stretch;background-repeat: no-repeat;}");
 
-
     // ui->titleScreen->
     ui->wizard->setPixmap(
         QPixmap(":/images/images/wizardBig.png"));
@@ -30,10 +35,9 @@ View::View(QWidget *parent)
     ui->yellowTulipLabel->setPixmap(QPixmap(":/images/images/yellowTulip1"));
     ui->redTulipLabel->setPixmap(QPixmap(":/images/images/redTulip1"));
 
-    // Image Importing for First LoadingScreen
-    ui->label_10->setPixmap(QPixmap(":/images/images/recycleLoading"));
-    ui->label_10->setScaledContents(true);
-
+    // Image Importing for First Loading Screen
+    ui->recycleLogo->setPixmap(QPixmap(":/images/images/recycleLoadingBlue"));
+    ui->loadingBackground1->setPixmap(QPixmap(":/images/images/firstLoadingScreen"));
 }
 
 View::~View()
@@ -77,7 +81,7 @@ void View::on_buttonToLoad1_clicked()
 {
     ui->stackWidget->setCurrentIndex(4);
     emit firstLoadScreenStart();
-    //QTimer::singleShot(1500, ui->stackWidget, [this](){ui->stackWidget->setCurrentIndex(3);});
+    QTimer::singleShot(5000, ui->stackWidget, [this](){ui->stackWidget->setCurrentIndex(3);});
 }
 
 void View::on_buttonToLoad2_clicked()
@@ -87,10 +91,9 @@ void View::on_buttonToLoad2_clicked()
 }
 
 // LOADING SCREEN METHODS
-
-void View::setLabelPosition(int xPosition, int yPosition)
+void View::setLogoPosition(int xPosition, int yPosition)
 {
-    ui->label_10->setGeometry(xPosition, yPosition, 200, 200);
+    ui->recycleLogo->setGeometry(xPosition, yPosition, 200, 200);
 }
 
 // CONCLUDING SCREEN METHODS

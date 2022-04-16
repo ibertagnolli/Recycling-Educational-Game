@@ -1,9 +1,15 @@
+/**
+ * 4 Weeks To Go
+ * CS 3505 - Spring 2022
+ * Assignment 8 - Learn to Recycle
+ */
+
 #ifndef MODEL_H
 #define MODEL_H
 
 #include <QObject>
-#include "Box2D/Box2D.h"
 #include <QTimer>
+#include "Box2D/Box2D.h"
 
 class Model : public QObject
 {
@@ -17,16 +23,26 @@ public:
     void pageChanged(int index);
 
 signals:
-    // First Loading Screen Signals
     void updateLabelPosition(int xPosition, int yPosition);
 
 public slots:
-    void setupWorld();
-    void updateWorld();
+    /**
+     * @brief Sets up the world for the first loading screen.
+     * This defines a ground and a dynamic body that bounces on the ground.
+     */
+    void setupFirstLoadingWorld();
+
+private slots:
+    /**
+     * @brief Updates the world to perform a single step of the simulation.
+     * The updated coordinates of the body are emitted.
+     * The simulation runs until the simulation duration ends.
+     */
+    void updateFirstLoadingWorld();
 
 private:
     b2World world;
     b2Body* body;
+    int simulationDuration;
 };
-
 #endif // MODEL_H

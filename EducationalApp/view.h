@@ -1,3 +1,9 @@
+/**
+ * 4 Weeks To Go
+ * CS 3505 - Spring 2022
+ * Assignment 8 - Learn to Recycle
+ */
+
 #ifndef VIEW_H
 #define VIEW_H
 
@@ -36,10 +42,14 @@ private:
     Ui::View *ui;
 
 public slots:
-    void setLabelPosition(int xPosition, int yPosition);
+    /**
+     * @brief Updates the label's psoition in the UI with the provided X and X coordinates.
+     * @param xPosition - X position of the top left corner of the label
+     * @param yPosition - Y position of the top left corner of the label
+     */
+    void setLogoPosition(int xPosition, int yPosition);
 
 private slots:
-
     /**
      * @brief Informs the view whenever the current widget has changed
      * @param current stack widget index
@@ -75,9 +85,5 @@ private slots:
      * @brief This method will be deleted. Moves from gameScreen to loadingScreen2.
      */
     void on_buttonToLoad2_clicked();
-
-    // First Loading Screen Slots
-
-
 };
 #endif // VIEW_H
