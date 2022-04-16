@@ -23,7 +23,7 @@ Items::ItemType RecycleItems::getType(){
 void RecycleItems::setItemImage(int index){
     switch(index){
     case 0: { // Water Bottle
-        QImage image(":/images/images/pinkTulip1.png");
+        QImage image(":/images/images/TrashImages/plasticWaterBottle.png");
         itemImage = image.copy();
         break;
     } case 1: { // Cardboard Boxes
