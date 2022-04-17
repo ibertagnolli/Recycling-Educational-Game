@@ -915,7 +915,7 @@ their correct bin.</string>
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="Resources.qrc">:/images/images/trashBin.png</pixmap>
+         <pixmap>:/images/images/trashBin.png</pixmap>
         </property>
         <property name="scaledContents">
          <bool>true</bool>
@@ -937,7 +937,7 @@ their correct bin.</string>
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="Resources.qrc">:/images/images/yardBin.png</pixmap>
+         <pixmap>:/images/images/yardBin.png</pixmap>
         </property>
         <property name="scaledContents">
          <bool>true</bool>
@@ -965,7 +965,7 @@ their correct bin.</string>
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="Resources.qrc">:/images/images/recycleBin.png</pixmap>
+         <pixmap>:/images/images/recycleBin.png</pixmap>
         </property>
         <property name="scaledContents">
          <bool>true</bool>
@@ -990,7 +990,7 @@ their correct bin.</string>
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="Resources.qrc">:/images/images/GameScreenGrass.png</pixmap>
+         <pixmap>:/images/images/GameScreenGrass.png</pixmap>
         </property>
         <property name="scaledContents">
          <bool>true</bool>
@@ -1100,19 +1100,43 @@ border-bottom-right-radius: 10px;
        <zorder>itemBarLabel</zorder>
       </widget>
       <widget class="QWidget" name="loadingScreen1">
-       <widget class="QLabel" name="label_10">
+       <widget class="QLabel" name="recycleLogo">
         <property name="geometry">
          <rect>
-          <x>180</x>
-          <y>60</y>
-          <width>201</width>
-          <height>16</height>
+          <x>10</x>
+          <y>0</y>
+          <width>71</width>
+          <height>31</height>
          </rect>
         </property>
         <property name="text">
-         <string>DELETE! LoadingScreen1</string>
+         <string>Recycle Logo</string>
+        </property>
+        <property name="scaledContents">
+         <bool>true</bool>
         </property>
        </widget>
+       <widget class="QLabel" name="loadingBackground1">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>800</width>
+          <height>600</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="pixmap">
+         <pixmap>images/firstLoadingScreen.jpg</pixmap>
+        </property>
+        <property name="scaledContents">
+         <bool>true</bool>
+        </property>
+       </widget>
+       <zorder>loadingBackground1</zorder>
+       <zorder>recycleLogo</zorder>
       </widget>
       <widget class="QWidget" name="loadingScreen2">
        <widget class="QLabel" name="label_11">
@@ -1146,8 +1170,6 @@ border-bottom-right-radius: 10px;
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources>
-  <include location="Resources.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

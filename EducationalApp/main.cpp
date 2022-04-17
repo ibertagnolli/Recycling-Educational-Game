@@ -1,3 +1,9 @@
+/**
+ * 4 Weeks To Go
+ * CS 3505 - Spring 2022
+ * Assignment 8 - Learn to Recycle
+ */
+
 #include "controller.h"
 #include "model.h"
 #include "view.h"

@@ -1,8 +1,13 @@
+/**
+ * 4 Weeks To Go
+ * CS 3505 - Spring 2022
+ * Assignment 8 - Learn to Recycle
+ */
+
 #ifndef CONTROLLER_H
 #define CONTROLLER_H
 
 #include <QObject>
-
 #include "model.h"
 #include "view.h"
 
@@ -44,6 +49,11 @@ private:
      * @brief Connections between the game screen and the model
      */
     void gameScreenConnections();
-};
 
+    /**
+     * @brief Connects what is happening in the first loading screen's world to the ui.
+     */
+    void firstLoadingScreenConnections();
+
+};
 #endif // CONTROLLER_H
