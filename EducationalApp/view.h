@@ -8,6 +8,10 @@ QT_BEGIN_NAMESPACE
 namespace Ui { class View; }
 QT_END_NAMESPACE
 
+/**
+ * @brief The View class - This class manages all of the visual
+ * aspects of the game.
+ */
 class View : public QMainWindow
 {
     Q_OBJECT

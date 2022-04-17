@@ -6,6 +6,10 @@
 #include "model.h"
 #include "view.h"
 
+/**
+ * @brief The Controller class - This class is used to manage all
+ * of the connections between model and view objects.
+ */
 class Controller : public QObject
 {
     Q_OBJECT
