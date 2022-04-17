@@ -19,5 +19,7 @@
         <file>images/GameScreenGrass.png</file>
         <file>images/TrashImages/bananaPeel.png</file>
         <file>images/TrashImages/plasticWaterBottle.png</file>
+        <file>images/firstLoadingScreen.jpg</file>
+        <file>images/recycleLoadingBlue.png</file>
     </qresource>
 </RCC>

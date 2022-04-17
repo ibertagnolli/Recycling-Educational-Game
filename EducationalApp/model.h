@@ -1,3 +1,9 @@
+/**
+ * 4 Weeks To Go
+ * CS 3505 - Spring 2022
+ * Assignment 8 - Learn to Recycle
+ */
+
 #ifndef MODEL_H
 #define MODEL_H
 #include "bins.h"
@@ -5,6 +11,8 @@
 #include <vector>
 #include <QObject>
 #include "items.h"
+#include <QTimer>
+#include "Box2D/Box2D.h"
 
 /**
  * @brief The Model class - This class is used
@@ -22,6 +30,22 @@ public:
     void pageChanged(int index);
 
 signals:
+    void updateLabelPosition(int xPosition, int yPosition);
+
+public slots:
+    /**
+     * @brief Sets up the world for the first loading screen.
+     * This defines a ground and a dynamic body that bounces on the ground.
+     */
+    void setupFirstLoadingWorld();
+
+private slots:
+    /**
+     * @brief Updates the world to perform a single step of the simulation.
+     * The updated coordinates of the body are emitted.
+     * The simulation runs until the simulation duration ends.
+     */
+    void updateFirstLoadingWorld();
 
 private:
 
@@ -42,6 +66,8 @@ private:
      * all the items that will be in the game.
      */
     void setUpItems();
+    b2World world;
+    b2Body* body;
+    int simulationDuration;
 };
-
 #endif // MODEL_H
