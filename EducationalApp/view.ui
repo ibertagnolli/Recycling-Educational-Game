@@ -1082,7 +1082,6 @@ border-bottom-right-radius: 10px;
         </property>
         <property name="font">
          <font>
-          <family>Georgia</family>
           <pointsize>24</pointsize>
          </font>
         </property>
@@ -1141,7 +1140,7 @@ border-bottom-right-radius: 10px;
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>21</height>
+     <height>24</height>
     </rect>
    </property>
   </widget>

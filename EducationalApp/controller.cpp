@@ -7,6 +7,7 @@ Controller::Controller(View *view, Model *model)
     this->view = view;
     this->model = model;
     generalConnections();
+    gameScreenConnections();
 }
 
 // GENERAL METHODS
@@ -21,7 +22,10 @@ void Controller::generalConnections()
 // INSTRUCTION SCREEN METHODS
 
 // GAME SCREEN METHODS
-
+void Controller::gameScreenConnections()
+{
+    connect(view, &View::mouseReleased, model, &Model::mouseReleased);
+}
 // LOADING SCREEN METHODS
 
 // CONCLUDING SCREEN METHODS

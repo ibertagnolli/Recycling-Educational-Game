@@ -35,6 +35,11 @@ private:
      * @brief General connections between the view and the model
      */
     void generalConnections();
+
+    /**
+     * @brief Connections between the game screen and the model
+     */
+    void gameScreenConnections();
 };
 
 #endif // CONTROLLER_H

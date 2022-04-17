@@ -14,9 +14,16 @@ public:
      */
     void pageChanged(int index);
 
+    /**
+     * @brief Checks to see if there is a collision between where the mouse is released and a trash can object
+     * @param position of where the mouse is released
+     */
+    void mouseReleased(QPointF position);
+
 signals:
 
 private:
+    bool checkTrashCollision(QPointF position);
 };
 
 #endif // MODEL_H

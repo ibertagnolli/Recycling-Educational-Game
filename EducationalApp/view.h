@@ -2,6 +2,7 @@
 #define VIEW_H
 
 #include <QMainWindow>
+#include <QMouseEvent>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class View; }
@@ -26,11 +27,34 @@ signals:
      */
     void currentPageChanged(int index);
 
+    /**
+     * @brief Informs the model when the mouse has been released
+     * @param position of the mouse when released
+     */
+    void mouseReleased(QPointF position);
+
 private:
     /**
      * @brief Tracks the current ui
      */
     Ui::View *ui;
+    /**
+     * @brief Tracks when the mouse is moved
+     * @param event
+     */
+    void mousePressEvent(QMouseEvent *event);
+
+    /**
+     * @brief Tracks when the mouse is released
+     * @param event
+     */
+    void mouseReleaseEvent(QMouseEvent *event);
+
+    /**
+     * @brief Tracks when the mouse is moved
+     * @param event
+     */
+    void mouseMoveEvent(QMouseEvent *event);
 
 private slots:
 

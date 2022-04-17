@@ -1,5 +1,7 @@
 #include "view.h"
 #include "ui_view.h"
+#include <iostream>
+#include <QMouseEvent>
 #include <QTimer>
 
 View::View(QWidget *parent)
@@ -29,7 +31,6 @@ View::View(QWidget *parent)
     ui->pinkTulipLabel->setPixmap(QPixmap(":/images/images/pinkTulip1"));
     ui->yellowTulipLabel->setPixmap(QPixmap(":/images/images/yellowTulip1"));
     ui->redTulipLabel->setPixmap(QPixmap(":/images/images/redTulip1"));
-
 }
 
 View::~View()
@@ -80,6 +81,16 @@ void View::on_buttonToLoad2_clicked()
     ui->stackWidget->setCurrentIndex(5);
     QTimer::singleShot(1500, ui->stackWidget, [this](){ui->stackWidget->setCurrentIndex(3);});
 }
+
+void View::mousePressEvent(QMouseEvent *event) {}
+
+void View::mouseReleaseEvent(QMouseEvent *event)
+{
+    QPointF position = event->position();
+    emit mouseReleased(position);
+}
+
+void View::mouseMoveEvent(QMouseEvent *event) {}
 
 // LOADING SCREEN METHODS
 
