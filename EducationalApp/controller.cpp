@@ -20,7 +20,7 @@ Controller::Controller(View *view, Model *model)
 // GENERAL METHODS
 void Controller::generalConnections()
 {
-    connect(view, &View::currentPageChanged, model, &Model::pageChanged);
+    connect(view, &View::currentPageChanged, model, &Model::updateScreenIndex);
 }
 // TITLE SCREEN METHODS
 
@@ -31,9 +31,13 @@ void Controller::generalConnections()
 // GAME SCREEN METHODS
 void Controller::gameScreenConnections()
 {
-    connect(view, &View::mouseReleased, model, &Model::mouseReleased);
+    connect(view, &View::mouseReleased, model, &Model::mouseReleased);    
     connect(model, &Model::trashInBin, view, &View::trashInBin);
-    connect(model, &Model::itemBar, view, &View::receiveItemBar);
+    connect(model, &Model::sendFiveBarItems, view, &View::receiveItemBar);
+
+    connect(view, &View::sendSelectedItem, model, &Model::receiveSelectedItem);
+    connect(model, &Model::sendItemInfoToWindow, view, &View::receiveItemInfo);
+
 }
 // LOADING SCREEN METHODS
 void Controller::firstLoadingScreenConnections()
