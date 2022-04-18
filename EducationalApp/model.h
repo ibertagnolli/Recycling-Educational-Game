@@ -38,6 +38,12 @@ public:
 signals:
     void updateLabelPosition(int xPosition, int yPosition);
 
+    /**
+     * @brief Informs the view that trash has been put in a bin
+     * @param correctlyIdentified: whether or not the trash item type matches the trash can type
+     */
+    void trashInBin(bool correctlyIdentified);
+
 public slots:
     /**
      * @brief Sets up the world for the first loading screen.
@@ -54,8 +60,14 @@ private slots:
     void updateFirstLoadingWorld();
 
 private:
-    bool checkTrashCollision(QPointF position);
+    b2World world;
+    b2Body *body;
+    int simulationDuration;
 
+    /**
+     * @brief keeps track of what item is currently in use, -1 when none is selected
+     */
+    int currentItem = 0;
     /**
     * @brief cans - A list of all of the bins that will be 
     * in the game.
@@ -73,8 +85,12 @@ private:
      * all the items that will be in the game.
      */
     void setUpItems();
-    b2World world;
-    b2Body* body;
-    int simulationDuration;
+
+    /**
+     * @brief Checks if the trash item collided with a trash can
+     * @param position of where the trash item is released
+     * @return whether or not a collision occured
+     */
+    bool checkTrashCollision(QPointF position);
 };
 #endif // MODEL_H

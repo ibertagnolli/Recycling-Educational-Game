@@ -53,7 +53,7 @@ void Model::mouseReleased(QPointF position)
 {
     //if there is no current item. return.
     bool correctCollision = checkTrashCollision(position);
-
+    std::cout << correctCollision << std::endl;
     if (correctCollision) {
         //itemQueue.remove(currentItem);
         //if(itemQueue.size == 0){
@@ -61,10 +61,28 @@ void Model::mouseReleased(QPointF position)
         //emit changePage(currentPage);
         //}
     }
+    // currentItem = -1;
 }
 
 bool Model::checkTrashCollision(QPointF position)
 {
+    std::cout << items.at(currentItem)->getType() << " ";
+    std::cout << cans.at(0)->getType() << " ";
+    std::cout << cans.at(1)->getType() << " ";
+    std::cout << cans.at(2)->getType() << std::endl;
+    //std::cout << position.x() << " " << position.y() << std::endl;
+    if (position.x() > 81 && position.x() < 204 && position.y() > 288 && position.y() < 463) {
+        emit trashInBin(items.at(currentItem)->getType() == cans.at(0)->getType());
+        return items.at(currentItem)->getType() == cans.at(0)->getType();
+    } else if (position.x() > 261 && position.x() < 385 && position.y() > 288
+               && position.y() < 463) {
+        emit trashInBin(items.at(currentItem)->getType() == cans.at(1)->getType());
+        return items.at(currentItem)->getType() == cans.at(1)->getType();
+    } else if (position.x() > 446 && position.x() < 287 && position.y() > 288
+               && position.y() < 463) {
+        emit trashInBin(items.at(currentItem)->getType() == cans.at(2)->getType());
+        return items.at(currentItem)->getType() == cans.at(2)->getType();
+    }
     /*
     if(position.x() > trashIndex0.startX() && position.x() < trashIndex0.endX()
         &&position.y() >trashIndex0.bottomY() && position.y() < trashIndex0.topY()){

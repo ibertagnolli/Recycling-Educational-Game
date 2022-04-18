@@ -77,6 +77,12 @@ public slots:
      */
     void setLogoPosition(int xPosition, int yPosition);
 
+    /**
+     * @brief Recieved from the model when a user has put an item into a garbage bin
+     * @param correctlyIdentified
+     */
+    void trashInBin(bool correctlyIdentified);
+
 private slots:
     /**
      * @brief Informs the view whenever the current widget has changed

@@ -32,6 +32,7 @@ void Controller::generalConnections()
 void Controller::gameScreenConnections()
 {
     connect(view, &View::mouseReleased, model, &Model::mouseReleased);
+    connect(model, &Model::trashInBin, view, &View::trashInBin);
 }
 // LOADING SCREEN METHODS
 void Controller::firstLoadingScreenConnections()

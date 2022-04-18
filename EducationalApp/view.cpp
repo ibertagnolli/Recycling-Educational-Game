@@ -102,6 +102,17 @@ void View::mouseReleaseEvent(QMouseEvent *event)
 
 void View::mouseMoveEvent(QMouseEvent *event) {}
 
+void View::trashInBin(bool correctlyIdentified)
+{
+    if (correctlyIdentified) {
+        ui->correctLabel->setStyleSheet("color: rgb(63, 191, 4)");
+        ui->correctLabel->setText("Correct!");
+    } else {
+        ui->correctLabel->setStyleSheet("color: rgb(221, 80, 38)");
+        ui->correctLabel->setText("Incorrect!");
+    }
+}
+
 // LOADING SCREEN METHODS
 void View::setLogoPosition(int xPosition, int yPosition)
 {
