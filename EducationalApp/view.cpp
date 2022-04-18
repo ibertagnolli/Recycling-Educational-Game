@@ -90,6 +90,7 @@ void View::on_buttonToLoad2_clicked()
 {
     ui->stackWidget->setCurrentIndex(5);
     QTimer::singleShot(1500, ui->stackWidget, [this](){ui->stackWidget->setCurrentIndex(3);});
+    emit sendSelectedItem(0); // TODO this is just for testing, should be emitted when user clicks a trash item
 }
 
 void View::mousePressEvent(QMouseEvent *event) {}
@@ -111,6 +112,16 @@ void View::trashInBin(bool correctlyIdentified)
         ui->correctLabel->setStyleSheet("color: rgb(221, 80, 38)");
         ui->correctLabel->setText("Incorrect!");
     }
+}
+
+void View::receiveItemInfo(int itemType, QString itemName, QString itemDescrip)
+{
+    ui->itemTitleLabel->setText(itemName);
+    ui->sideBarLabel->setText(itemDescrip); // TODO just display this after user disposes of trash, then start timer? Or just have it up until the next item is selected
+    ui->itemImageLabel->setPixmap(
+        QPixmap(":/images/images/TrashImages/" + itemName + ".png")); // TODO have itemName mage file name!
+    ui->itemImageLabel->setScaledContents(true); // TODO can this line go in the form?
+    // TODO update correct/incorrect label when the user drags the image to the bin
 }
 
 void View::receiveItemBar(std::vector<int> items) {}

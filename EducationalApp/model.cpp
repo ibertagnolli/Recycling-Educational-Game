@@ -122,6 +122,13 @@ bool Model::checkTrashCollision(QPointF position, bool &trashCollision)
     }
     return correctCollision;
 }
+
+void Model::receiveSelectedItem(int index) // TODO this might have coordinate parameters from which we calculate index
+{
+    currSelectedItemIndex = index;
+    emit sendItemInfoToWindow(items.at(index)->getType(), items.at(index)->getName(), items.at(index)->getDescription());
+    // TODO check that I'm using enums correctly
+}
 // LOADING SCREEN METHODS
 
 // FIRST LOADING SCREEN METHODS
