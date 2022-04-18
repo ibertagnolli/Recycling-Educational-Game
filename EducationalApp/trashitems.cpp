@@ -12,11 +12,11 @@ Items::ItemType TrashItems::getType(){
     return Items::ItemType::Trash;
 }
 
-std::string TrashItems::getName(){
+QString TrashItems::getName(){
     return name;
 }
 
-std::string TrashItems::getDescription(){
+QString TrashItems::getDescription(){
     return description;
 }
 

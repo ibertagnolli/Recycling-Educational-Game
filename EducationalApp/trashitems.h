@@ -3,6 +3,7 @@
 
 #include "items.h"
 #include <QImage>
+#include <QString>
 
 /**
  * @brief The TrashItems class - This class is used to
@@ -34,7 +35,7 @@ public:
      * @brief getName - Gets the item's specific name
      * @return A string representation of the item's name
      */
-    std::string getName();
+    QString getName();
 
     /**
      * @brief getDescription - Gets the item's specific
@@ -42,7 +43,7 @@ public:
      * @return A string representation of the item's
      * description.
      */
-    std::string getDescription();
+    QString getDescription();
 
     /**
      * @brief Returns the item's game level
@@ -58,12 +59,12 @@ private:
     /**
      * @brief name - The item's specific name
      */
-    std::string name;
+    QString name;
 
     /**
      * @brief description - The item's specific description
      */
-    std::string description;
+    QString description;
 
     /**
      * @brief itemImage - The item's specific image.

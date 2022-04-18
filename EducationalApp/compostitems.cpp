@@ -12,11 +12,11 @@ Items::ItemType CompostItems::getType(){
     return Items::ItemType::Compost;
 }
 
-std::string CompostItems::getName(){
+QString CompostItems::getName(){
     return name;
 }
 
-std::string CompostItems::getDescription() {
+QString CompostItems::getDescription() {
     return description;
 }
 

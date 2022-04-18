@@ -8,13 +8,13 @@ CompostBin::CompostBin()
 
 CompostBin::~CompostBin(){}
 
-std::string CompostBin::getDescription(){
+QString CompostBin::getDescription(){
     return "The compost bin is used for yard waste items "
            "such as weeds, lawn clippings, leaves, tree branches, "
            "fruits, vegetables, tea bags, and coffee.";
 }
 
-std::string CompostBin::getName(){
+QString CompostBin::getName(){
     return "Compost Bin";
 }
 

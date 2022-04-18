@@ -3,6 +3,7 @@
 
 #include "items.h"
 #include <QImage>
+#include <QString>
 
 /**
  * @brief The RecycleItems class - This class is used to
@@ -36,7 +37,7 @@ public:
      * @brief getName - Returns the name of the item
      * @return A string representation of the name
      */
-    std::string getName();
+    QString getName();
 
     /**
      * @brief getDescription - Returns the description
@@ -45,7 +46,7 @@ public:
      * @return A string representation of the description
      * of the item.
      */
-    std::string getDescription();
+    QString getDescription();
 
     /**
      * @brief Returns the item's game level
@@ -67,13 +68,13 @@ private:
     /**
      * @brief name - The name associated with the item.
      */
-    std::string name;
+    QString name;
 
     /**
      * @brief description - The description associated with
      * the item.
      */
-    std::string description;
+    QString description;
 
     /**
      * @brief setItemImage - A helper method that will select

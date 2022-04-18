@@ -7,7 +7,6 @@
 #ifndef MODEL_H
 #define MODEL_H
 #include "bins.h"
-
 #include "Box2D/Box2D.h"
 #include "items.h"
 #include <vector>

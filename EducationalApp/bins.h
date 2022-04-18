@@ -4,6 +4,7 @@
 #include <string>
 #include <QImage>
 #include <vector>
+#include <QString>
 
 /**
  * @brief The Bins class - The abstract class that allows
@@ -29,7 +30,7 @@ public:
      * specific bin object.
      * @return The string description of the specific object.
      */
-    virtual std::string getDescription(void) = 0;
+    virtual QString getDescription(void) = 0;
 
     /**
      * @brief getImage - Retrives the associated bin image for the
@@ -50,7 +51,7 @@ public:
      * object
      * @return The string representation of the bin name
      */
-    virtual std::string getName(void) = 0;
+    virtual QString getName(void) = 0;
 
     /**
      * @brief getRegion - Retrieves the bounding region of the

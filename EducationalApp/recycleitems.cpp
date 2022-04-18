@@ -9,11 +9,11 @@ RecycleItems::RecycleItems(int index)
     setLevel(index);
 }
 
-std::string RecycleItems::getName() {
+QString RecycleItems::getName() {
     return name;
 }
 
-std::string RecycleItems::getDescription(){
+QString RecycleItems::getDescription(){
     return description;
 }
 
