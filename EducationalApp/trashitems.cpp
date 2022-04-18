@@ -5,6 +5,7 @@ TrashItems::TrashItems(int itemIndex)
     setImage(itemIndex);
     setDescription(itemIndex);
     setName(itemIndex);
+    setLevel(itemIndex);
 }
 
 Items::ItemType TrashItems::getType(){
@@ -17,6 +18,11 @@ std::string TrashItems::getName(){
 
 std::string TrashItems::getDescription(){
     return description;
+}
+
+int TrashItems::getLevel()
+{
+    return level;
 }
 
 void TrashItems::setImage(int index) {
@@ -56,6 +62,16 @@ void TrashItems::setName(int index){
         break;
     } case 1: {
         name = "Lawn Clippings";
+    }
+    }
+}
+
+void TrashItems::setLevel(int index)
+{
+    switch (index) {
+    case 0: {
+        level = 4;
+        break;
     }
     }
 }

@@ -113,6 +113,8 @@ void View::trashInBin(bool correctlyIdentified)
     }
 }
 
+void View::receiveItemBar(std::vector<int> items) {}
+
 // LOADING SCREEN METHODS
 void View::setLogoPosition(int xPosition, int yPosition)
 {

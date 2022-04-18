@@ -8,11 +8,12 @@
 #define MODEL_H
 #include "bins.h"
 
+#include "Box2D/Box2D.h"
+#include "items.h"
 #include <vector>
 #include <QObject>
-#include "items.h"
+#include <QQueue>
 #include <QTimer>
-#include "Box2D/Box2D.h"
 
 /**
  * @brief The Model class - This class is used
@@ -44,6 +45,18 @@ signals:
      */
     void trashInBin(bool correctlyIdentified);
 
+    /**
+     * @brief Informs the view which items should show up on the item bar
+     * @param items - array of trash items
+     */
+    void itemBar(std::vector<int> items);
+
+    /**
+     * @brief Informs the view the current screen the user is viewing must be changed
+     * @param screen - index of the screen to go to
+     */
+    void changeScreen(int screen);
+
 public slots:
     /**
      * @brief Sets up the world for the first loading screen.
@@ -65,9 +78,20 @@ private:
     int simulationDuration;
 
     /**
+     * @brief Keeps track of the current level in the game
+     */
+    int currentLevel = 0;
+
+    /**
      * @brief keeps track of what item is currently in use, -1 when none is selected
      */
-    int currentItem = 0;
+    int currentItem = -1;
+
+    /**
+     * @brief Keeps track of where the current item is in the item bar, -1 when no item is selected
+     */
+    int currentItemBarLoc = -1;
+
     /**
     * @brief cans - A list of all of the bins that will be 
     * in the game.
@@ -78,7 +102,17 @@ private:
      * @brief items - A list of all of the items that will be
      * in the game.
      */
-    std::vector<Items*> items;
+    std::vector<Items *> items;
+
+    /**
+     * @brief Keeps track of the current 5 item bar locations
+     */
+    std::vector<int> barItemLocs;
+
+    /**
+     * @brief Keeps track of the current items in the game
+     */
+    QQueue<int> currGameItems;
 
     /**
      * @brief setUpItems - A helper method that sets up
@@ -91,6 +125,8 @@ private:
      * @param position of where the trash item is released
      * @return whether or not a collision occured
      */
-    bool checkTrashCollision(QPointF position);
+    bool checkTrashCollision(QPointF position, bool &trashCollision);
+
+    void updateQueue(int level);
 };
 #endif // MODEL_H

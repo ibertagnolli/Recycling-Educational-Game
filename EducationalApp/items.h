@@ -45,6 +45,11 @@ public:
      */
     virtual std::string getDescription(void) = 0;
 
+    /**
+     * @brief getLevel- The abstract method to return the level the item is used on
+     * @return level of the item
+     */
+    virtual int getLevel(void) = 0;
 };
 
 #endif // ITEMS_H

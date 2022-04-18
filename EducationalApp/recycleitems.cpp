@@ -6,6 +6,7 @@ RecycleItems::RecycleItems(int index)
     setItemImage(index);
     setItemName(index);
     setItemDescription(index);
+    setLevel(index);
 }
 
 std::string RecycleItems::getName() {
@@ -18,6 +19,11 @@ std::string RecycleItems::getDescription(){
 
 Items::ItemType RecycleItems::getType(){
     return Items::ItemType::Recycle;
+}
+
+int RecycleItems::getLevel()
+{
+    return level;
 }
 
 void RecycleItems::setItemImage(int index){
@@ -64,3 +70,11 @@ void RecycleItems::setItemDescription(int index){
     }
 }
 
+void RecycleItems::setLevel(int index)
+{
+    switch (index) {
+    case 0: //Water Bottle
+        level = 4;
+        break;
+    }
+}

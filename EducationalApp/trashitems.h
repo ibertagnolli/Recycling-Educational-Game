@@ -43,7 +43,18 @@ public:
      * description.
      */
     std::string getDescription();
+
+    /**
+     * @brief Returns the item's game level
+     * @return int representing each game level
+     */
+    int getLevel();
+
 private:
+    /**
+     * @brief Level the item is used on (0-all levels, 1-level 1, 2-level 2, 3-level 3, 4-levels 1&2)
+     */
+    int level;
     /**
      * @brief name - The item's specific name
      */
@@ -80,6 +91,11 @@ private:
      */
     void setName(int index);
 
+    /**
+     * @brief setLevel - A helper method that will select the specific item's level
+     * @param index - Indicates which level to choose.
+     */
+    void setLevel(int index);
 };
 
 #endif // TRASHITEMS_H

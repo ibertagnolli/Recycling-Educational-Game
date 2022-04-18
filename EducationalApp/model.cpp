@@ -31,7 +31,30 @@ Model::Model(QObject *parent) : QObject{parent} , world(b2Vec2 (0.0f, 10.0f))
 //GENERAL METHODS
 void Model::pageChanged(int index)
 {
-    std::cout << "current index: " << index << std::endl;
+    if (index == 3) {
+        currentLevel++;
+    }
+    if (currentLevel == 1) {
+        //updateQueue(1);
+    } else if (currentLevel == 2) {
+        //updateQueue(2);
+    } else if (currentLevel == 3) {
+        //updateQueue(3);
+    }
+}
+
+void Model::updateQueue(int level)
+{
+    for (int i = 0; i < items.size(); i++) {
+        if (items.at(i)->getLevel() == level
+            || items.at(i)->getLevel() == 4) //modify this to be dynamic
+            currGameItems.enqueue(i);
+    }
+    //shuffle queue
+    for (int i = 0; i < 5; i++) {
+        barItemLocs[i] = currGameItems.dequeue();
+    }
+    emit itemBar(barItemLocs);
 }
 
 void Model::setUpItems(){
@@ -51,56 +74,53 @@ void Model::setUpItems(){
 // GAME SCREEN METHODS
 void Model::mouseReleased(QPointF position)
 {
-    //if there is no current item. return.
-    bool correctCollision = checkTrashCollision(position);
-    std::cout << correctCollision << std::endl;
-    if (correctCollision) {
-        //itemQueue.remove(currentItem);
-        //if(itemQueue.size == 0){
-        //currentPage++;
-        //emit changePage(currentPage);
-        //}
+    std::cout << position.x() << " " << position.y() << std::endl;
+    if (currentItemBarLoc == -1)
+        return;
+    bool trashCollision;
+    bool correctCollision = checkTrashCollision(position, trashCollision);
+
+    if (trashCollision) {
+        //barItemLocs[currentItemBarLoc] = currGameItems.dequeue(); //this will throw
+        if (correctCollision && barItemLocs.size() == 0) {
+            switch (currentLevel) {
+            case 1: //go to loading screen 1
+                emit changeScreen(4);
+                return;
+            case 2: //go to loading screen 2
+                emit changeScreen(5);
+                return;
+            case 3: // go to conclusion page
+                emit changeScreen(6);
+                return;
+            }
+        }
+        if (!correctCollision)
+            currGameItems.enqueue(currentItem);
     }
-    // currentItem = -1;
+    emit itemBar(barItemLocs);
 }
 
-bool Model::checkTrashCollision(QPointF position)
+bool Model::checkTrashCollision(QPointF position, bool &trashCollision)
 {
-    std::cout << items.at(currentItem)->getType() << " ";
-    std::cout << cans.at(0)->getType() << " ";
-    std::cout << cans.at(1)->getType() << " ";
-    std::cout << cans.at(2)->getType() << std::endl;
-    //std::cout << position.x() << " " << position.y() << std::endl;
+    Items::ItemType currentItemType = items.at(currentItemBarLoc)->getType();
+    trashCollision = true;
+    bool correctCollision = false;
     if (position.x() > 81 && position.x() < 204 && position.y() > 288 && position.y() < 463) {
-        emit trashInBin(items.at(currentItem)->getType() == cans.at(0)->getType());
-        return items.at(currentItem)->getType() == cans.at(0)->getType();
+        correctCollision = currentItemType == cans.at(0)->getType();
+        emit trashInBin(correctCollision);
     } else if (position.x() > 261 && position.x() < 385 && position.y() > 288
                && position.y() < 463) {
-        emit trashInBin(items.at(currentItem)->getType() == cans.at(1)->getType());
-        return items.at(currentItem)->getType() == cans.at(1)->getType();
-    } else if (position.x() > 446 && position.x() < 287 && position.y() > 288
+        correctCollision = currentItemType == cans.at(1)->getType();
+        emit trashInBin(correctCollision);
+    } else if (position.x() > 440 && position.x() < 573 && position.y() > 288
                && position.y() < 463) {
-        emit trashInBin(items.at(currentItem)->getType() == cans.at(2)->getType());
-        return items.at(currentItem)->getType() == cans.at(2)->getType();
+        correctCollision = currentItemType == cans.at(2)->getType();
+        emit trashInBin(correctCollision);
+    } else {
+        trashCollision = false;
     }
-    /*
-    if(position.x() > trashIndex0.startX() && position.x() < trashIndex0.endX()
-        &&position.y() >trashIndex0.bottomY() && position.y() < trashIndex0.topY()){
-        emit trashInBin(currentItem.trashType() == trashIndex0.trashType());
-        return currentItem.trashType() == trashIndex0.trashType();
-    }
-    else if(position.x() > trashIndex1.startX() && position.x() < trashIndex1.endX()
-        &&position.y() >trashIndex1.bottomY() && position.y() < trashIndex1.topY()){
-        emit trashInBin(currentItem.trashType() == trashIndex1.trashType());
-        return currentItem.trashType() == trashIndex1.trashType();
-    }
-    else if(position.x() > trashIndex2.startX() && position.x() < trashIndex2.endX()
-        &&position.y() >trashIndex2.bottomY() && position.y() < trashIndex2.topY()){
-        emit trashInBin(currentItem.trashType() == trashIndex2.trashType());
-        return currentItem.trashType() == trashIndex2.trashType();
-    }
-    */
-    return false;
+    return correctCollision;
 }
 // LOADING SCREEN METHODS
 

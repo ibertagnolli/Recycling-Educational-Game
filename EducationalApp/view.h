@@ -83,6 +83,12 @@ public slots:
      */
     void trashInBin(bool correctlyIdentified);
 
+    /**
+     * @brief Recieved from the model when the trash items are selected
+     * @param items - array of trash items
+     */
+    void receiveItemBar(std::vector<int> items);
+
 private slots:
     /**
      * @brief Informs the view whenever the current widget has changed

@@ -5,6 +5,7 @@ CompostItems::CompostItems(int itemIndex)
     setImage(itemIndex);
     setDescription(itemIndex);
     setName(itemIndex);
+    setLevel(itemIndex);
 }
 
 Items::ItemType CompostItems::getType(){
@@ -17,6 +18,11 @@ std::string CompostItems::getName(){
 
 std::string CompostItems::getDescription() {
     return description;
+}
+
+int CompostItems::getLevel()
+{
+    return level;
 }
 
 void CompostItems::setImage(int index){
@@ -59,5 +65,14 @@ void CompostItems::setDescription(int index) {
                       "wood can not go in compost bin";
         break;
     }
+    }
+}
+
+void CompostItems::setLevel(int index)
+{
+    switch (index) {
+    case 0: //Banana Peel
+        level = 4;
+        break;
     }
 }
