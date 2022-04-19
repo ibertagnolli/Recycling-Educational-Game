@@ -87,11 +87,6 @@ private:
      * @brief Tracks the current ui
      */
     Ui::View *ui;
-    /**
-     * @brief Tracks when the mouse is moved
-     * @param event
-     */
-    void mousePressEvent(QMouseEvent *event);
 
     /**
      * @brief Tracks when the mouse is released
@@ -146,5 +141,10 @@ private slots:
      * @brief THIS WILL BE DELETED. This method will move to the conclusion screen.
      */
     void on_conclusionButton_clicked();
+    void on_itemSlot0_pressed();
+    void on_itemSlot1_pressed();
+    void on_itemSlot2_pressed();
+    void on_itemSlot3_pressed();
+    void on_itemSlot4_pressed();
 };
 #endif // VIEW_H

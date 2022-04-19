@@ -22,9 +22,9 @@ Model::Model(QObject *parent) : QObject{parent} , world(b2Vec2 (0.0f, 10.0f))
 {
     simulationDuration = 5000;
     setUpItems();
+    cans.push_back(new RecycleBins);
     cans.push_back(new TrashBins);
     cans.push_back(new CompostBin);
-    cans.push_back(new RecycleBins);
     cans.push_back(new SpecialBins);
 }
 
