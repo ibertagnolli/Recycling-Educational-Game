@@ -46,8 +46,7 @@ void Model::pageChanged(int index)
 void Model::updateQueue(int level)
 {
     for (int i = 0; i < items.size(); i++) {
-        if (items.at(i)->getLevel() == level
-            || items.at(i)->getLevel() == 4) //modify this to be dynamic
+        if (items.at(i)->getLevel() == level) //modify this to be dynamic
             currGameItems.enqueue(i);
     }
     //shuffle queue
@@ -81,7 +80,15 @@ void Model::mouseReleased(QPointF position)
     bool correctCollision = checkTrashCollision(position, trashCollision);
 
     if (trashCollision) {
-        //barItemLocs[currentItemBarLoc] = currGameItems.dequeue(); //this will throw
+        if (currGameItems.size() > 0)
+            barItemLocs[currentItemBarLoc] = currGameItems.dequeue();
+        else {
+            barItemLocs.erase(barItemLocs.begin() + currentItemBarLoc);
+            //If this is drawing the items as if the index is shrinking,
+            //barItemLocs[currentItemBarLoc] = null;
+            //global variable tracking how many are left in array
+            //so here globalVar--; or something like that
+        }
         if (correctCollision && barItemLocs.size() == 0) {
             switch (currentLevel) {
             case 1: //go to loading screen 1
