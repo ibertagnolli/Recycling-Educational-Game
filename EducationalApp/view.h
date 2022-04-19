@@ -81,6 +81,11 @@ public slots:
      */
     void receiveItemInfo(int itemType, QString itemName, QString itemDescrip);
 
+    /**
+     * @brief informs the view when the current screen needs to be updated
+     * @param screen- index of screen to switch to
+     */
+    void changeScreen(int screen);
 
 private:
     /**

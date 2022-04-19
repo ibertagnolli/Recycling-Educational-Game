@@ -180,6 +180,18 @@ void View::receiveItemBar(std::vector<QString> items)
     ui->itemSlot4->setIconSize(QSize(70, 70));
 }
 
+void View::changeScreen(int screen)
+{
+    ui->stackWidget->setCurrentIndex(screen);
+    if (screen == 4) {
+        emit firstLoadScreenStart();
+        QTimer::singleShot(5000, ui->stackWidget, [this]() { ui->stackWidget->setCurrentIndex(3); });
+    }
+    if (screen == 5) {
+        //QTimer::singleShot(1500, ui->stackWidget, [this]() { ui->stackWidget->setCurrentIndex(3); });
+    }
+}
+
 // LOADING SCREEN METHODS
 void View::setLogoPosition(int xPosition, int yPosition)
 {

@@ -38,9 +38,9 @@ void Model::updateScreenIndex(int index)
     if (currentLevel == 1) {
         updateQueue(1);
     } else if (currentLevel == 2) {
-        //updateQueue(2);
+        updateQueue(2);
     } else if (currentLevel == 3) {
-        //updateQueue(3);
+        updateQueue(3);
     }
 }
 
@@ -55,9 +55,13 @@ void Model::updateQueue(int level)
     //shuffle queue
     std::vector<QString> barItemNames;
     for (int i = 0; i < 5; i++) {
-        int index = currGameItems.dequeue();
-        barItems.push_back(index);
-        barItemNames.push_back(items.at(index)->getName());
+        //TODO: get rid of these hacks
+        if (currentLevel == 1) {
+            int index = currGameItems.dequeue();
+            barItems.push_back(index);
+            barItemNames.push_back(items.at(index)->getName());
+        } else
+            barItemNames.push_back("none");
     }
     emit sendFiveBarItems(barItemNames);
 }
@@ -80,20 +84,22 @@ void Model::setUpItems()
 // GAME SCREEN METHODS
 void Model::mouseReleased(QPointF position)
 {
-    std::cout << position.x() << " " << position.y() << std::endl;
-    //if (currentItemBarLoc == -1)
     if (currentItemIndex == -1)
         return;
     bool trashCollision;
     bool correctCollision = checkTrashCollision(position, trashCollision);
 
     if (trashCollision) {
-        if (currGameItems.size() > 0)
+        if (currGameItems.size() > 0) {
+            int index = barItems[currentItemIndex];
             barItems[currentItemIndex] = currGameItems.dequeue();
+            if (!correctCollision)
+                currGameItems.enqueue(index);
+        }
         //barItemLocs[currentItemBarLoc] = currGameItems.dequeue();
         else {
             if (correctCollision)
-                barItems[currentItemIndex] = NULL;
+                barItems[currentItemIndex] = -1;
         }
         if (correctCollision)
             itemsLeft--;
@@ -110,12 +116,13 @@ void Model::mouseReleased(QPointF position)
                 return;
             }
         }
-        if (!correctCollision)
-            currGameItems.enqueue(currentItemIndex);
     }
     std::vector<QString> barItemNames;
-    for (int i = 1; i < barItems.size(); i++) {
-        barItemNames.push_back(items.at(barItems.at(i))->getName());
+    for (int i = 0; i < barItems.size(); i++) {
+        if (barItems.at(i) == -1)
+            barItemNames.push_back("empty");
+        else
+            barItemNames.push_back(items.at(barItems.at(i))->getName());
     }
     emit sendFiveBarItems(barItemNames);
     currentItemIndex = -1;
@@ -147,7 +154,9 @@ bool Model::checkTrashCollision(QPointF position, bool &trashCollision)
 void Model::receiveSelectedItem(int index) // TODO this might have coordinate parameters from which we calculate index
 {
     currentItemIndex = index;
-    emit sendItemInfoToWindow(items.at(index)->getType(), items.at(index)->getName(), items.at(index)->getDescription());
+    emit sendItemInfoToWindow(items.at(barItems.at(currentItemIndex))->getType(),
+                              items.at(barItems.at(currentItemIndex))->getName(),
+                              items.at(barItems.at(currentItemIndex))->getDescription());
     // TODO check that I'm using enums correctly
 }
 // LOADING SCREEN METHODS
