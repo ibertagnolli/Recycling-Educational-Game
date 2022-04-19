@@ -105,11 +105,33 @@ void View::on_buttonToLoad1_clicked()
 void View::on_buttonToLoad2_clicked()
 {
     ui->stackWidget->setCurrentIndex(5);
-    QTimer::singleShot(1500, ui->stackWidget, [this](){ui->stackWidget->setCurrentIndex(3);});
-    emit sendSelectedItem(0); // TODO this is just for testing, should be emitted when user clicks a trash item
+    QTimer::singleShot(1500, ui->stackWidget, [this]() { ui->stackWidget->setCurrentIndex(3); });
 }
 
-void View::mousePressEvent(QMouseEvent *event) {}
+void View::on_itemSlot0_pressed()
+{
+    emit sendSelectedItem(0);
+}
+
+void View::on_itemSlot1_pressed()
+{
+    emit sendSelectedItem(1);
+}
+
+void View::on_itemSlot2_pressed()
+{
+    emit sendSelectedItem(2);
+}
+
+void View::on_itemSlot3_pressed()
+{
+    emit sendSelectedItem(3);
+}
+
+void View::on_itemSlot4_pressed()
+{
+    emit sendSelectedItem(4);
+}
 
 void View::mouseReleaseEvent(QMouseEvent *event)
 {
@@ -153,4 +175,3 @@ void View::on_conclusionButton_clicked()
 {
     ui->stackWidget->setCurrentIndex(6);
 }
-
