@@ -36,11 +36,11 @@ void Model::updateScreenIndex(int index)
         currentLevel++;
     }
     if (currentLevel == 1) {
-        //updateQueue(1);
+        updateQueue(1);
     } else if (currentLevel == 2) {
-        //updateQueue(2);
+        updateQueue(2);
     } else if (currentLevel == 3) {
-        //updateQueue(3);
+        updateQueue(3);
     }
 }
 
@@ -50,14 +50,24 @@ void Model::updateQueue(int level)
         if (items.at(i)->getLevel() == level) //modify this to be MORE dynamic
             currGameItems.enqueue(i);
     }
+
+    itemsLeft = currGameItems.size();
     //shuffle queue
-    for (int i = 0; i < 3; i++) {
-        barItemLocs[i] = currGameItems.dequeue();
+    std::vector<QString> barItemNames;
+    for (int i = 0; i < 5; i++) {
+        //TODO: get rid of these hacks
+        if (currentLevel == 1) {
+            int index = currGameItems.dequeue();
+            barItems.push_back(index);
+            barItemNames.push_back(items.at(index)->getName());
+        } else
+            barItemNames.push_back("none");
     }
-    emit sendFiveBarItems(barItemLocs);
+    emit sendFiveBarItems(barItemNames);
 }
 
-void Model::setUpItems(){
+void Model::setUpItems()
+{
     for(int i = 0; i < 2; i++){
         items.push_back(new TrashItems(i));
         items.push_back(new RecycleItems(i));
@@ -74,26 +84,24 @@ void Model::setUpItems(){
 // GAME SCREEN METHODS
 void Model::mouseReleased(QPointF position)
 {
-    std::cout << position.x() << " " << position.y() << std::endl;
-    //if (currentItemBarLoc == -1)
     if (currentItemIndex == -1)
         return;
     bool trashCollision;
     bool correctCollision = checkTrashCollision(position, trashCollision);
 
     if (trashCollision) {
-        if (currGameItems.size() > 0)
-            barItemLocs[currentItemIndex] = currGameItems.dequeue();
-        //barItemLocs[currentItemBarLoc] = currGameItems.dequeue();
-        else {
-            //barItemLocs.erase(barItemLocs.begin() + currentItemIndex);
-            //barItemLocs.erase(barItemLocs.begin() + currentItemBarLoc);
-            //If this is drawing the items as if the index is shrinking,
-            //barItemLocs[currentItemBarLoc] = null;
-            //global variable tracking how many are left in array
-            //so here globalVar--; or something like that
+        if (currGameItems.size() > 0) {
+            int index = barItems[currentItemIndex];
+            barItems[currentItemIndex] = currGameItems.dequeue();
+            if (!correctCollision)
+                currGameItems.enqueue(index);
+        } else {
+            if (correctCollision)
+                barItems[currentItemIndex] = -1;
         }
-        if (correctCollision && barItemLocs.size() == 0) {
+        if (correctCollision)
+            itemsLeft--;
+        if (itemsLeft == 0) {
             switch (currentLevel) {
             case 1: //go to loading screen 1
                 emit changeScreen(4);
@@ -106,10 +114,15 @@ void Model::mouseReleased(QPointF position)
                 return;
             }
         }
-        if (!correctCollision)
-            currGameItems.enqueue(currentItemIndex);
     }
-    emit sendFiveBarItems(barItemLocs);
+    std::vector<QString> barItemNames;
+    for (int i = 0; i < barItems.size(); i++) {
+        if (barItems.at(i) == -1)
+            barItemNames.push_back("empty");
+        else
+            barItemNames.push_back(items.at(barItems.at(i))->getName());
+    }
+    emit sendFiveBarItems(barItemNames);
     currentItemIndex = -1;
 }
 
@@ -139,7 +152,9 @@ bool Model::checkTrashCollision(QPointF position, bool &trashCollision)
 void Model::receiveSelectedItem(int index) // TODO this might have coordinate parameters from which we calculate index
 {
     currentItemIndex = index;
-    emit sendItemInfoToWindow(items.at(index)->getType(), items.at(index)->getName(), items.at(index)->getDescription());
+    emit sendItemInfoToWindow(items.at(barItems.at(currentItemIndex))->getType(),
+                              items.at(barItems.at(currentItemIndex))->getName(),
+                              items.at(barItems.at(currentItemIndex))->getDescription());
     // TODO check that I'm using enums correctly
 }
 // LOADING SCREEN METHODS

@@ -71,7 +71,7 @@ public slots:
      * @brief Recieved from the model when the trash items are selected
      * @param items - array of trash items
      */
-    void receiveItemBar(std::vector<int> items);
+    void receiveItemBar(std::vector<QString> items);
 
     /**
      * @brief Connected to Model's sendItemInfoToWindow signal. Receives the currently
@@ -81,6 +81,11 @@ public slots:
      */
     void receiveItemInfo(int itemType, QString itemName, QString itemDescrip);
 
+    /**
+     * @brief informs the view when the current screen needs to be updated
+     * @param screen- index of screen to switch to
+     */
+    void changeScreen(int screen);
 
 private:
     /**
@@ -126,16 +131,6 @@ private slots:
     * @brief Moves user from instructionScreen back to the purposeScreen
     */
     void on_buttonToPurposeScreen_clicked();
-
-    /**
-     * @brief This method will be deleted. Moves from gameScreen to loadingScreen1.
-     */
-    void on_buttonToLoad1_clicked();
-
-    /**
-     * @brief This method will be deleted. Moves from gameScreen to loadingScreen2.
-     */
-    void on_buttonToLoad2_clicked();
 
     /**
      * @brief THIS WILL BE DELETED. This method will move to the conclusion screen.

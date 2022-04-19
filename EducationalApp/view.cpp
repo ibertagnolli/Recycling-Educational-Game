@@ -95,18 +95,6 @@ void View::on_buttonToPurposeScreen_clicked()
 }
 
 // GAME SCREEN METHODS
-void View::on_buttonToLoad1_clicked()
-{
-    ui->stackWidget->setCurrentIndex(4);
-    emit firstLoadScreenStart();
-    QTimer::singleShot(5000, ui->stackWidget, [this](){ui->stackWidget->setCurrentIndex(3);});
-}
-
-void View::on_buttonToLoad2_clicked()
-{
-    ui->stackWidget->setCurrentIndex(5);
-    QTimer::singleShot(1500, ui->stackWidget, [this]() { ui->stackWidget->setCurrentIndex(3); });
-}
 
 void View::on_itemSlot0_pressed()
 {
@@ -162,7 +150,35 @@ void View::receiveItemInfo(int itemType, QString itemName, QString itemDescrip)
     // TODO update correct/incorrect label when the user drags the image to the bin
 }
 
-void View::receiveItemBar(std::vector<int> items) {}
+void View::receiveItemBar(std::vector<QString> items)
+{
+    ui->itemSlot0->setIcon(QPixmap(":/images/images/TrashImages/" + items[0] + ".png"));
+    ui->itemSlot0->setIconSize(QSize(70, 70));
+
+    ui->itemSlot1->setIcon(QPixmap(":/images/images/TrashImages/" + items[1] + ".png"));
+    ui->itemSlot1->setIconSize(QSize(70, 70));
+
+    ui->itemSlot2->setIcon(QPixmap(":/images/images/TrashImages/" + items[2] + ".png"));
+    ui->itemSlot2->setIconSize(QSize(70, 70));
+
+    ui->itemSlot3->setIcon(QPixmap(":/images/images/TrashImages/" + items[3] + ".png"));
+    ui->itemSlot3->setIconSize(QSize(70, 70));
+
+    ui->itemSlot4->setIcon(QPixmap(":/images/images/TrashImages/" + items[4] + ".png"));
+    ui->itemSlot4->setIconSize(QSize(70, 70));
+}
+
+void View::changeScreen(int screen)
+{
+    ui->stackWidget->setCurrentIndex(screen);
+    if (screen == 4) {
+        emit firstLoadScreenStart();
+        QTimer::singleShot(5000, ui->stackWidget, [this]() { ui->stackWidget->setCurrentIndex(3); });
+    }
+    if (screen == 5) {
+        //QTimer::singleShot(1500, ui->stackWidget, [this]() { ui->stackWidget->setCurrentIndex(3); });
+    }
+}
 
 // LOADING SCREEN METHODS
 void View::setLogoPosition(int xPosition, int yPosition)
