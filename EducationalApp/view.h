@@ -23,6 +23,10 @@ class View : public QMainWindow
     Q_OBJECT
 
 public:
+    /**
+     * @brief View - Constructor for the view object
+     * @param parent
+     */
     View(QWidget *parent = nullptr);
     /*
     * Destructor for the View
@@ -43,7 +47,10 @@ signals:
      */
     void mouseReleased(QPointF position);
     
-    // First Loading Screen Signals
+    /**
+      * @brief firstLoadScreenStart - The signal to
+      * start the first loading screen
+      */
      void firstLoadScreenStart();
 
     /**
@@ -136,10 +143,34 @@ private slots:
      * @brief THIS WILL BE DELETED. This method will move to the conclusion screen.
      */
     void on_conclusionButton_clicked();
+    /**
+     * @brief on_itemSlot0_pressed - Indicates that the first item slot is
+     * selected
+     */
     void on_itemSlot0_pressed();
+
+    /**
+     * @brief on_itemSlot1_pressed - Indicates that the second item slot
+     * is selected
+     */
     void on_itemSlot1_pressed();
+
+    /**
+     * @brief on_itemSlot2_pressed - Indicate that the third item slot
+     * is selected
+     */
     void on_itemSlot2_pressed();
+
+    /**
+     * @brief on_itemSlot3_pressed - Indicates that the forth item slot
+     * is selected
+     */
     void on_itemSlot3_pressed();
+
+    /**
+     * @brief on_itemSlot4_pressed - Indicates that the five item
+     * slot is selected.
+     */
     void on_itemSlot4_pressed();
 };
 #endif // VIEW_H

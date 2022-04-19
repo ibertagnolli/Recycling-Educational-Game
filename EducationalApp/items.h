@@ -3,7 +3,7 @@
 
 
 #include <string>
-# include <QString>
+#include <QString>
 
 /**
  * @brief The Items class - This class is an abstract class

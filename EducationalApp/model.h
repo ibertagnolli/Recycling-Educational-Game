@@ -36,6 +36,11 @@ public:
     void mouseReleased(QPointF position);
 
 signals:
+    /**
+     * @brief updateLabelPosition - A signal that will update the label position
+     * @param xPosition - The x cordinates
+     * @param yPosition - The y cordinates
+     */
     void updateLabelPosition(int xPosition, int yPosition);
 
     /**
@@ -88,8 +93,23 @@ private slots:
     void updateFirstLoadingWorld();
 
 private:
+    /**
+     * @brief world - The world object that allows for the
+     * integeration of the Box2D
+     */
     b2World world;
+
+    /**
+     * @brief body - The body object that allows for
+     * the integeration of the Box2D
+     */
     b2Body *body;
+
+    /**
+     * @brief simulationDuration - The amount of
+     * time that will run the simulation of the
+     * loading screen
+     */
     int simulationDuration;
 
     /**
@@ -103,6 +123,10 @@ private:
      */
     int currentItemIndex = -1;
 
+    /**
+     * @brief itemsLeft - an indicator of how many items are remaining
+     * in the game.
+     */
     int itemsLeft;
 
     /**
@@ -145,6 +169,11 @@ private:
      */
     bool checkTrashCollision(QPointF position, bool &trashCollision);
 
+    /**
+     * @brief updateQueue - A method that will update the items
+     * in the queue for the game.
+     * @param level - The level that we are currently at.
+     */
     void updateQueue(int level);
 };
 #endif // MODEL_H

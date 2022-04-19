@@ -46,7 +46,7 @@ void Model::updateScreenIndex(int index)
 
 void Model::updateQueue(int level)
 {
-    for (int i = 0; i < items.size(); i++) {
+    for (int i = 0; i < (int)items.size(); i++) {
         if (items.at(i)->getLevel() == level) //modify this to be MORE dynamic
             currGameItems.enqueue(i);
     }
@@ -116,7 +116,7 @@ void Model::mouseReleased(QPointF position)
         }
     }
     std::vector<QString> barItemNames;
-    for (int i = 0; i < barItems.size(); i++) {
+    for (int i = 0; i < (int)barItems.size(); i++) {
         if (barItems.at(i) == -1)
             barItemNames.push_back("empty");
         else
@@ -133,15 +133,15 @@ bool Model::checkTrashCollision(QPointF position, bool &trashCollision)
     trashCollision = true;
     bool correctCollision = false;
     if (position.x() > 81 && position.x() < 204 && position.y() > 288 && position.y() < 463) {
-        correctCollision = currentItemType == cans.at(0)->getType();
+        correctCollision = (int)currentItemType == cans.at(0)->getType();
         emit trashInBin(correctCollision);
     } else if (position.x() > 261 && position.x() < 385 && position.y() > 288
                && position.y() < 463) {
-        correctCollision = currentItemType == cans.at(1)->getType();
+        correctCollision = (int)currentItemType == cans.at(1)->getType();
         emit trashInBin(correctCollision);
     } else if (position.x() > 440 && position.x() < 573 && position.y() > 288
                && position.y() < 463) {
-        correctCollision = currentItemType == cans.at(2)->getType();
+        correctCollision = (int)currentItemType == cans.at(2)->getType();
         emit trashInBin(correctCollision);
     } else {
         trashCollision = false;
