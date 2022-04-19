@@ -33,5 +33,20 @@
         <file>images/TrashImages/Tire.png</file>
         <file>images/TrashImages/Glass.png</file>
         <file>images/TrashImages/Paper Towels.png</file>
+        <file>images/TrashImages/Battery.png</file>
+        <file>images/TrashImages/Clothing.png</file>
+        <file>images/TrashImages/Coffee Grounds.png</file>
+        <file>images/TrashImages/Coffee Pod.png</file>
+        <file>images/TrashImages/Egg Shell.png</file>
+        <file>images/TrashImages/Electronics.png</file>
+        <file>images/TrashImages/Hot Beverage Cup.png</file>
+        <file>images/TrashImages/Milk Carton.png</file>
+        <file>images/TrashImages/Newspaper.png</file>
+        <file>images/TrashImages/Paper Bag.png</file>
+        <file>images/TrashImages/Plastic Bag.png</file>
+        <file>images/TrashImages/Shredded Paper.png</file>
+        <file>images/TrashImages/Sticky Tape.png</file>
+        <file>images/TrashImages/Styrofoam.png</file>
+        <file>images/TrashImages/Takeout Container.png</file>
     </qresource>
 </RCC>
