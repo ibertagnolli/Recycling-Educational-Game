@@ -25,5 +25,7 @@
         <file>images/TrashImages/Food Wrappers.png</file>
         <file>images/TrashImages/Lawn Clippings.png</file>
         <file>images/TrashImages/Meat.png</file>
+        <file>images/Concluding_Screen_Image.jpg</file>
+        <file>images/CongratsImage.png</file>
     </qresource>
 </RCC>

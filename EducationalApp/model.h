@@ -106,7 +106,7 @@ private:
     /**
      * @brief Keeps track of where the current item is in the item bar, -1 when no item is selected
      */
-    int currentItemBarLoc = -1;
+    //int currentItemBarLoc = -1;
 
     /**
     * @brief cans - A list of all of the bins that will be 
