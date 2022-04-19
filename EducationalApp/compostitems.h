@@ -3,6 +3,7 @@
 
 #include "items.h"
 #include <QImage>
+# include <QString>
 
 /**
  * @brief The CompostItems class - This class is used to
@@ -37,7 +38,7 @@ public:
      * the item
      * @return String representation of the item's name
      */
-    std::string getName();
+    QString getName();
 
     /**
      * @brief getDescription - Gets the specific
@@ -45,18 +46,30 @@ public:
      * @return String representation of the item's
      * description.
      */
-    std::string getDescription();
+    QString getDescription();
+
+    /**
+     * @brief Returns the item's game level
+     * @return int representing each game level
+     */
+    int getLevel();
+
 private:
+    /**
+     * @brief Level the item is used on (0-all levels, 1-level 1, 2-level 2, 3-level 3)
+     */
+    int level;
+
     /**
      * @brief name - The specific item's name
      */
-    std::string name;
+    QString name;
 
     /**
      * @brief description - The specific item's
      * description.
      */
-    std::string description;
+    QString description;
 
     /**
      * @brief itemImage - The specific item's
@@ -84,6 +97,12 @@ private:
      * @param index - Indicates which item name
      */
     void setName(int index);
+
+    /**
+     * @brief setLevel - A helper method that will select the specific item's level
+     * @param index - Indicates which level to choose.
+     */
+    void setLevel(int index);
 };
 
 #endif // COMPOSTITEMS_H

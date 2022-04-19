@@ -17,11 +17,36 @@
         <file>images/yardBin.png</file>
         <file>images/recycleLoading.png</file>
         <file>images/GameScreenGrass.png</file>
-        <file>images/TrashImages/bananaPeel.png</file>
-        <file>images/TrashImages/plasticWaterBottle.png</file>
+        <file>images/TrashImages/Banana Peel.png</file>
+        <file>images/TrashImages/Plastic Water Bottle.png</file>
         <file>images/firstLoadingScreen.jpg</file>
         <file>images/recycleLoadingBlue.png</file>
+        <file>images/TrashImages/Cardboard.png</file>
+        <file>images/TrashImages/Food Wrappers.png</file>
+        <file>images/TrashImages/Lawn Clippings.png</file>
+        <file>images/TrashImages/Meat.png</file>
         <file>images/Concluding_Screen_Image.jpg</file>
         <file>images/CongratsImage.png</file>
+        <file>images/TrashImages/Book.png</file>
+        <file>images/TrashImages/Metal and Aluminum Cans.png</file>
+        <file>images/TrashImages/Tea Bag.png</file>
+        <file>images/TrashImages/Tire.png</file>
+        <file>images/TrashImages/Glass.png</file>
+        <file>images/TrashImages/Paper Towels.png</file>
+        <file>images/TrashImages/Battery.png</file>
+        <file>images/TrashImages/Clothing.png</file>
+        <file>images/TrashImages/Coffee Grounds.png</file>
+        <file>images/TrashImages/Coffee Pod.png</file>
+        <file>images/TrashImages/Egg Shell.png</file>
+        <file>images/TrashImages/Electronics.png</file>
+        <file>images/TrashImages/Hot Beverage Cup.png</file>
+        <file>images/TrashImages/Milk Carton.png</file>
+        <file>images/TrashImages/Newspaper.png</file>
+        <file>images/TrashImages/Paper Bag.png</file>
+        <file>images/TrashImages/Plastic Bag.png</file>
+        <file>images/TrashImages/Shredded Paper.png</file>
+        <file>images/TrashImages/Sticky Tape.png</file>
+        <file>images/TrashImages/Styrofoam.png</file>
+        <file>images/TrashImages/Takeout Container.png</file>
     </qresource>
 </RCC>

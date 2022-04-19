@@ -16,24 +16,54 @@
 #include "recycleitems.h"
 #include <vector>
 #include <iostream>
+#include <QPointF>
 
 Model::Model(QObject *parent) : QObject{parent} , world(b2Vec2 (0.0f, 10.0f))
 {
     simulationDuration = 5000;
     setUpItems();
+    cans.push_back(new RecycleBins);
     cans.push_back(new TrashBins);
     cans.push_back(new CompostBin);
-    cans.push_back(new RecycleBins);
     cans.push_back(new SpecialBins);
 }
 
 //GENERAL METHODS
-void Model::pageChanged(int index)
+void Model::updateScreenIndex(int index)
 {
-    std::cout << "current index: " << index << std::endl;
+    // When index == 3, gameScreen is displayed. Increment the level shown on gameScreen.
+    if (index == 3) {
+        currentLevel++;
+    }
+    if (currentLevel == 1) {
+        updateQueue(1);
+    } else if (currentLevel == 2) {
+        updateQueue(2);
+    } else if (currentLevel == 3) {
+        updateQueue(3);
+    }
 }
 
-void Model::setUpItems(){
+void Model::updateQueue(int level)
+{
+    for (int i = 0; i < (int)items.size(); i++) {
+        if (items.at(i)->getLevel() == level) //modify this to be MORE dynamic
+            currGameItems.enqueue(i);
+    }
+
+    itemsLeft = currGameItems.size();
+    //shuffle queue
+    std::vector<QString> barItemNames;
+    for (int i = 0; i < 5; i++) {
+        int index = currGameItems.dequeue();
+        barItems.push_back(index);
+        barItemNames.push_back(items.at(index)->getName());
+    }
+    emit sendFiveBarItems(barItemNames);
+}
+
+void Model::setUpItems()
+{
     for(int i = 0; i < 2; i++){
         items.push_back(new TrashItems(i));
         items.push_back(new RecycleItems(i));
@@ -48,6 +78,82 @@ void Model::setUpItems(){
 // INSTRUCTION SCREEN METHODS
 
 // GAME SCREEN METHODS
+void Model::mouseReleased(QPointF position)
+{
+    if (currentItemIndex == -1)
+        return;
+    bool trashCollision;
+    bool correctCollision = checkTrashCollision(position, trashCollision);
+
+    if (trashCollision) {
+        if (currGameItems.size() > 0) {
+            int index = barItems[currentItemIndex];
+            barItems[currentItemIndex] = currGameItems.dequeue();
+            if (!correctCollision)
+                currGameItems.enqueue(index);
+        } else {
+            if (correctCollision)
+                barItems[currentItemIndex] = -1;
+        }
+        if (correctCollision)
+            itemsLeft--;
+        if (itemsLeft == 0) {
+            switch (currentLevel) {
+            case 1: //go to loading screen 1
+                emit changeScreen(4);
+                return;
+            case 2: //go to loading screen 2
+                emit changeScreen(5);
+                return;
+            case 3: // go to conclusion page
+                emit changeScreen(6);
+                return;
+            }
+        }
+    }
+    std::vector<QString> barItemNames;
+    for (int i = 0; i < (int)barItems.size(); i++) {
+        if (barItems.at(i) == -1)
+            barItemNames.push_back("empty");
+        else
+            barItemNames.push_back(items.at(barItems.at(i))->getName());
+    }
+    emit sendFiveBarItems(barItemNames);
+    currentItemIndex = -1;
+}
+
+bool Model::checkTrashCollision(QPointF position, bool &trashCollision)
+{
+    Items::ItemType currentItemType = items.at(currentItemIndex)->getType();
+    //Items::ItemType currentItemType = items.at(currentItemBarLoc)->getType();
+    trashCollision = true;
+    bool correctCollision = false;
+    if (position.x() > 81 && position.x() < 204 && position.y() > 288 && position.y() < 463) {
+        correctCollision = (int)currentItemType == cans.at(0)->getType();
+        emit trashInBin(correctCollision);
+    } else if (position.x() > 261 && position.x() < 385 && position.y() > 288
+               && position.y() < 463) {
+        correctCollision = (int)currentItemType == cans.at(1)->getType();
+        emit trashInBin(correctCollision);
+    } else if (position.x() > 440 && position.x() < 573 && position.y() > 288
+               && position.y() < 463) {
+        correctCollision = (int)currentItemType == cans.at(2)->getType();
+        emit trashInBin(correctCollision);
+    } else {
+        trashCollision = false;
+    }
+    return correctCollision;
+}
+
+void Model::receiveSelectedItem(int index) // TODO this might have coordinate parameters from which we calculate index
+{
+    currentItemIndex = index;
+    emit sendItemInfoToWindow(items.at(barItems.at(currentItemIndex))->getType(),
+                              items.at(barItems.at(currentItemIndex))->getName(),
+                              items.at(barItems.at(currentItemIndex))->getDescription());
+    // TODO check that I'm using enums correctly
+}
+// LOADING SCREEN METHODS
 
 // FIRST LOADING SCREEN METHODS
 void Model::setupFirstLoadingWorld()

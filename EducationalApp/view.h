@@ -8,6 +8,7 @@
 #define VIEW_H
 
 #include <QMainWindow>
+#include <QMouseEvent>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class View; }
@@ -22,6 +23,10 @@ class View : public QMainWindow
     Q_OBJECT
 
 public:
+    /**
+     * @brief View - Constructor for the view object
+     * @param parent
+     */
     View(QWidget *parent = nullptr);
     /*
     * Destructor for the View
@@ -36,14 +41,24 @@ signals:
      */
     void currentPageChanged(int index);
 
-    // First Loading Screen Signals
+    /**
+     * @brief Informs the model when the mouse has been released
+     * @param position of the mouse when released
+     */
+    void mouseReleased(QPointF position);
+    
+    /**
+      * @brief firstLoadScreenStart - The signal to
+      * start the first loading screen
+      */
      void firstLoadScreenStart();
 
-private:
     /**
-     * @brief Tracks the current ui
+     * @brief Sends the index of the selected item to the model.
+     * TODO might send coordinates, not index
+     * @param index
      */
-    Ui::View *ui;
+    void sendSelectedItem(int index);
 
 public slots:
     /**
@@ -52,6 +67,50 @@ public slots:
      * @param yPosition - Y position of the top left corner of the label
      */
     void setLogoPosition(int xPosition, int yPosition);
+
+    /**
+     * @brief Recieved from the model when a user has put an item into a garbage bin
+     * @param correctlyIdentified
+     */
+    void trashInBin(bool correctlyIdentified);
+
+    /**
+     * @brief Recieved from the model when the trash items are selected
+     * @param items - array of trash items
+     */
+    void receiveItemBar(std::vector<QString> items);
+
+    /**
+     * @brief Connected to Model's sendItemInfoToWindow signal. Receives the currently
+     * selected trash item's type, name, and description to update the item info window.
+     * @param itemType - Trash = 0, Recycle = 1, Compost = 2, Special = 3
+     * TODO make sure I'm using enums correctly
+     */
+    void receiveItemInfo(int itemType, QString itemName, QString itemDescrip);
+
+    /**
+     * @brief informs the view when the current screen needs to be updated
+     * @param screen- index of screen to switch to
+     */
+    void changeScreen(int screen);
+
+private:
+    /**
+     * @brief Tracks the current ui
+     */
+    Ui::View *ui;
+
+    /**
+     * @brief Tracks when the mouse is released
+     * @param event
+     */
+    void mouseReleaseEvent(QMouseEvent *event);
+
+    /**
+     * @brief Tracks when the mouse is moved
+     * @param event
+     */
+    void mouseMoveEvent(QMouseEvent *event);
 
 private slots:
     /**
@@ -81,18 +140,37 @@ private slots:
     void on_buttonToPurposeScreen_clicked();
 
     /**
-     * @brief This method will be deleted. Moves from gameScreen to loadingScreen1.
-     */
-    void on_buttonToLoad1_clicked();
-
-    /**
-     * @brief This method will be deleted. Moves from gameScreen to loadingScreen2.
-     */
-    void on_buttonToLoad2_clicked();
-
-    /**
      * @brief THIS WILL BE DELETED. This method will move to the conclusion screen.
      */
     void on_conclusionButton_clicked();
+    /**
+     * @brief on_itemSlot0_pressed - Indicates that the first item slot is
+     * selected
+     */
+    void on_itemSlot0_pressed();
+
+    /**
+     * @brief on_itemSlot1_pressed - Indicates that the second item slot
+     * is selected
+     */
+    void on_itemSlot1_pressed();
+
+    /**
+     * @brief on_itemSlot2_pressed - Indicate that the third item slot
+     * is selected
+     */
+    void on_itemSlot2_pressed();
+
+    /**
+     * @brief on_itemSlot3_pressed - Indicates that the forth item slot
+     * is selected
+     */
+    void on_itemSlot3_pressed();
+
+    /**
+     * @brief on_itemSlot4_pressed - Indicates that the five item
+     * slot is selected.
+     */
+    void on_itemSlot4_pressed();
 };
 #endif // VIEW_H

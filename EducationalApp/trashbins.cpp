@@ -8,13 +8,13 @@ TrashBins::TrashBins()
 
 TrashBins::~TrashBins(){}
 
-std::string TrashBins::getDescription(){
+QString TrashBins::getDescription(){
     return "The items that can't be recycled or composted classifies"
            " as being trashed. Some of the items include tissues, napkins, "
            "meat, dairy, diapers, and food wrappers";
 }
 
-std::string TrashBins::getName(){
+QString TrashBins::getName(){
     return "Trash Can";
 }
 

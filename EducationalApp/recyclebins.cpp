@@ -9,7 +9,7 @@ RecycleBins::RecycleBins()
 
 RecycleBins::~RecycleBins(){}
 
-std::string RecycleBins::getDescription(){
+QString RecycleBins::getDescription(){
     return "The curbside recycle bin, typically blue in color, "
            "Typical items that can go in the bin are boxes,"
            " cans, paper, and books. Items that can't go into "
@@ -17,7 +17,7 @@ std::string RecycleBins::getDescription(){
            "batteries, and plastic bags.";
 }
 
-std::string RecycleBins::getName(){
+QString RecycleBins::getName(){
     return "Recycle Bin";
 }
 

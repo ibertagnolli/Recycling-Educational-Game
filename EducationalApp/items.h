@@ -3,6 +3,7 @@
 
 
 #include <string>
+#include <QString>
 
 /**
  * @brief The Items class - This class is an abstract class
@@ -36,15 +37,20 @@ public:
      * @return String representation of the
      * name of the item.
      */
-    virtual std::string getName(void) = 0;
+    virtual QString getName(void) = 0;
 
     /**
      * @brief getDescription - The abstract method to
      * return a simple description of the item.
      * @return a simple description of the item.
      */
-    virtual std::string getDescription(void) = 0;
+    virtual QString getDescription(void) = 0;
 
+    /**
+     * @brief getLevel- The abstract method to return the level the item is used on
+     * @return level of the item
+     */
+    virtual int getLevel(void) = 0;
 };
 
 #endif // ITEMS_H

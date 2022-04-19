@@ -46,6 +46,11 @@ private:
     void generalConnections();
 
     /**
+     * @brief Connections between the game screen and the model
+     */
+    void gameScreenConnections();
+
+    /**
      * @brief Connects what is happening in the first loading screen's world to the ui.
      */
     void firstLoadingScreenConnections();
