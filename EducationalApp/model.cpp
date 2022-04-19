@@ -47,11 +47,11 @@ void Model::updateScreenIndex(int index)
 void Model::updateQueue(int level)
 {
     for (int i = 0; i < items.size(); i++) {
-        if (items.at(i)->getLevel() == level) //modify this to be dynamic
+        if (items.at(i)->getLevel() == level) //modify this to be MORE dynamic
             currGameItems.enqueue(i);
     }
     //shuffle queue
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < 3; i++) {
         barItemLocs[i] = currGameItems.dequeue();
     }
     emit sendFiveBarItems(barItemLocs);
@@ -75,16 +75,19 @@ void Model::setUpItems(){
 void Model::mouseReleased(QPointF position)
 {
     std::cout << position.x() << " " << position.y() << std::endl;
-    if (currentItemBarLoc == -1)
+    //if (currentItemBarLoc == -1)
+    if (currentItemIndex == -1)
         return;
     bool trashCollision;
     bool correctCollision = checkTrashCollision(position, trashCollision);
 
     if (trashCollision) {
         if (currGameItems.size() > 0)
-            barItemLocs[currentItemBarLoc] = currGameItems.dequeue();
+            barItemLocs[currentItemIndex] = currGameItems.dequeue();
+        //barItemLocs[currentItemBarLoc] = currGameItems.dequeue();
         else {
-            barItemLocs.erase(barItemLocs.begin() + currentItemBarLoc);
+            barItemLocs.erase(barItemLocs.begin() + currentItemIndex);
+            //barItemLocs.erase(barItemLocs.begin() + currentItemBarLoc);
             //If this is drawing the items as if the index is shrinking,
             //barItemLocs[currentItemBarLoc] = null;
             //global variable tracking how many are left in array
@@ -107,11 +110,13 @@ void Model::mouseReleased(QPointF position)
             currGameItems.enqueue(currentItemIndex);
     }
     emit sendFiveBarItems(barItemLocs);
+    currentItemIndex = -1;
 }
 
 bool Model::checkTrashCollision(QPointF position, bool &trashCollision)
 {
-    Items::ItemType currentItemType = items.at(currentItemBarLoc)->getType();
+    Items::ItemType currentItemType = items.at(currentItemIndex)->getType();
+    //Items::ItemType currentItemType = items.at(currentItemBarLoc)->getType();
     trashCollision = true;
     bool correctCollision = false;
     if (position.x() > 81 && position.x() < 204 && position.y() > 288 && position.y() < 463) {
