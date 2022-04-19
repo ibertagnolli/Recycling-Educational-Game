@@ -71,7 +71,7 @@ public slots:
      * @brief Recieved from the model when the trash items are selected
      * @param items - array of trash items
      */
-    void receiveItemBar(std::vector<int> items);
+    void receiveItemBar(std::vector<QString> items);
 
     /**
      * @brief Connected to Model's sendItemInfoToWindow signal. Receives the currently

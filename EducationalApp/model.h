@@ -48,7 +48,7 @@ signals:
      * @brief Informs the view which items should show up on the item bar
      * @param items - array of trash items
      */
-    void sendFiveBarItems(std::vector<int> items);
+    void sendFiveBarItems(std::vector<QString> items);
 
     /**
      * @brief Informs the view the current screen the user is viewing must be changed
@@ -103,6 +103,8 @@ private:
      */
     int currentItemIndex = -1;
 
+    int itemsLeft;
+
     /**
      * @brief Keeps track of where the current item is in the item bar, -1 when no item is selected
      */
@@ -123,7 +125,7 @@ private:
     /**
      * @brief Keeps track of the current 5 item bar locations
      */
-    std::vector<int> barItemLocs;
+    std::vector<int> barItems;
 
     /**
      * @brief Keeps track of the current items in the game

@@ -36,7 +36,7 @@ void Model::updateScreenIndex(int index)
         currentLevel++;
     }
     if (currentLevel == 1) {
-        //updateQueue(1);
+        updateQueue(1);
     } else if (currentLevel == 2) {
         //updateQueue(2);
     } else if (currentLevel == 3) {
@@ -50,14 +50,20 @@ void Model::updateQueue(int level)
         if (items.at(i)->getLevel() == level) //modify this to be MORE dynamic
             currGameItems.enqueue(i);
     }
+
+    itemsLeft = currGameItems.size();
     //shuffle queue
-    for (int i = 0; i < 3; i++) {
-        barItemLocs[i] = currGameItems.dequeue();
+    std::vector<QString> barItemNames;
+    for (int i = 0; i < 5; i++) {
+        int index = currGameItems.dequeue();
+        barItems.push_back(index);
+        barItemNames.push_back(items.at(index)->getName());
     }
-    emit sendFiveBarItems(barItemLocs);
+    emit sendFiveBarItems(barItemNames);
 }
 
-void Model::setUpItems(){
+void Model::setUpItems()
+{
     for(int i = 0; i < 2; i++){
         items.push_back(new TrashItems(i));
         items.push_back(new RecycleItems(i));
@@ -83,17 +89,15 @@ void Model::mouseReleased(QPointF position)
 
     if (trashCollision) {
         if (currGameItems.size() > 0)
-            barItemLocs[currentItemIndex] = currGameItems.dequeue();
+            barItems[currentItemIndex] = currGameItems.dequeue();
         //barItemLocs[currentItemBarLoc] = currGameItems.dequeue();
         else {
-            //barItemLocs.erase(barItemLocs.begin() + currentItemIndex);
-            //barItemLocs.erase(barItemLocs.begin() + currentItemBarLoc);
-            //If this is drawing the items as if the index is shrinking,
-            //barItemLocs[currentItemBarLoc] = null;
-            //global variable tracking how many are left in array
-            //so here globalVar--; or something like that
+            if (correctCollision)
+                barItems[currentItemIndex] = NULL;
         }
-        if (correctCollision && barItemLocs.size() == 0) {
+        if (correctCollision)
+            itemsLeft--;
+        if (itemsLeft == 0) {
             switch (currentLevel) {
             case 1: //go to loading screen 1
                 emit changeScreen(4);
@@ -109,7 +113,11 @@ void Model::mouseReleased(QPointF position)
         if (!correctCollision)
             currGameItems.enqueue(currentItemIndex);
     }
-    emit sendFiveBarItems(barItemLocs);
+    std::vector<QString> barItemNames;
+    for (int i = 1; i < barItems.size(); i++) {
+        barItemNames.push_back(items.at(barItems.at(i))->getName());
+    }
+    emit sendFiveBarItems(barItemNames);
     currentItemIndex = -1;
 }
 
