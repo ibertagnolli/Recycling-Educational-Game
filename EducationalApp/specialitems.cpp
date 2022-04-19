@@ -42,7 +42,7 @@
             break;
         }
         case 3: { //CLothing and Textiles
-            QImage image(":/images/images/TrashImages/Clothing and Textiles.png");
+            QImage image(":/images/images/TrashImages/Clothing.png");
             itemImage = image.copy();
             break;
         }
@@ -74,7 +74,7 @@
             break;
         }
         case 3: {
-            name = "Clothing and textiles";
+            name = "Clothing";
             break;
         }
         case 4: {
