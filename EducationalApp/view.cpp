@@ -38,6 +38,22 @@ View::View(QWidget *parent)
     // Image Importing for First Loading Screen
     ui->recycleLogo->setPixmap(QPixmap(":/images/images/recycleLoadingBlue"));
     ui->loadingBackground1->setPixmap(QPixmap(":/images/images/firstLoadingScreen"));
+
+    // Image importing for Conclusion Screen
+    ui->conclusionBackgroundLabel->setScaledContents(true);
+    ui->conclusionBackgroundLabel->setSizePolicy( QSizePolicy::Ignored, QSizePolicy::Ignored );
+    ui->conclusionBackgroundLabel->setPixmap(QPixmap(":/images/images/Concluding_Screen_Image.jpg"));
+
+    // Setting content for conclusion screen.
+    ui->congratLabel->setScaledContents(true);
+    ui->congratLabel->setSizePolicy( QSizePolicy::Ignored, QSizePolicy::Ignored );
+    ui->congratLabel->setPixmap(QPixmap(":/images/images/CongratsImage.png"));
+
+    // Setting the clickable link on the conclusion screen.
+    ui->learnMoreLink->setText("<a href=\"https://www.epa.gov/recycle/how-do-i-recycle-common-recyclables/\">Click Here!</a>");
+    ui->learnMoreLink->setTextFormat(Qt::RichText);
+    ui->learnMoreLink->setTextInteractionFlags(Qt::TextBrowserInteraction);
+    ui->learnMoreLink->setOpenExternalLinks(true);
 }
 
 View::~View()
@@ -97,9 +113,8 @@ void View::setLogoPosition(int xPosition, int yPosition)
 }
 
 // CONCLUDING SCREEN METHODS
-
-
-
-
-
+void View::on_conclusionButton_clicked()
+{
+    ui->stackWidget->setCurrentIndex(6);
+}
 

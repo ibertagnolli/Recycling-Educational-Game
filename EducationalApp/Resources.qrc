@@ -21,5 +21,7 @@
         <file>images/TrashImages/plasticWaterBottle.png</file>
         <file>images/firstLoadingScreen.jpg</file>
         <file>images/recycleLoadingBlue.png</file>
+        <file>images/Concluding_Screen_Image.jpg</file>
+        <file>images/CongratsImage.png</file>
     </qresource>
 </RCC>

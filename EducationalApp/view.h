@@ -89,5 +89,10 @@ private slots:
      * @brief This method will be deleted. Moves from gameScreen to loadingScreen2.
      */
     void on_buttonToLoad2_clicked();
+
+    /**
+     * @brief THIS WILL BE DELETED. This method will move to the conclusion screen.
+     */
+    void on_conclusionButton_clicked();
 };
 #endif // VIEW_H
