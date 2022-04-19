@@ -41,7 +41,22 @@ void RecycleItems::setItemImage(int index){
         itemImage = image.copy();
         break;
     }
-        //TODO: case 3, 4, and 5
+    case 3: { // Paper Bag
+            QImage image(":/images/images/TrashImages/Paper Bag.png");
+            itemImage = image.copy();
+            break;
+        }
+    case 4: { // Milk Carton
+            QImage image(":/images/images/TrashImages/Milk Carton.png");
+            itemImage = image.copy();
+            break;
+        }
+    case 5: { // Milk Carton
+            QImage image(":/images/images/TrashImages/NewsPaper.png");
+            itemImage = image.copy();
+            break;
+        }
+
     }
 }
 
@@ -64,7 +79,7 @@ void RecycleItems::setItemName(int index) {
         name = "Milk Carton";
     }
     case 5: {
-        name = "NewsPaper and Paper";
+        name = "NewsPaper";
     }
     }
 }

@@ -41,7 +41,21 @@
             itemImage = image.copy();
             break;
         }
-            //TODO: images 3, 4 and 5
+        case 3: { //CLothing and Textiles
+            QImage image(":/images/images/TrashImages/Clothing and Textiles.png");
+            itemImage = image.copy();
+            break;
+        }
+        case 4: { //Plastic Bag
+            QImage image(":/images/images/TrashImages/Plastic Bag.png");
+            itemImage = image.copy();
+            break;
+        }
+        case 5: { //Plastic Bag
+            QImage image(":/images/images/TrashImages/Styrofoam.png");
+            itemImage = image.copy();
+            break;
+        }
         }
     }
 
@@ -64,7 +78,7 @@
             break;
         }
         case 4: {
-            name = "Plastic bags and wrappers";
+            name = "Plastic bag";
             break;
         }
         case 5: {

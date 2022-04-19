@@ -41,7 +41,21 @@ void CompostItems::setImage(int index){
         itemImage = image.copy();
         break;
         }
-        //TODO: need images for 3, 4 and 5
+    case 3: { // Egg Shell
+        QImage image(":/images/images/TrashImages/Egg Shell.png");
+        itemImage = image.copy();
+        break;
+        }
+    case 4: { // Coffee Grounds
+        QImage image(":/images/images/TrashImages/Coffee Grounds.png");
+        itemImage = image.copy();
+        break;
+        }
+    case 5: { // Sticky Tape
+        QImage image(":/images/images/TrashImages/Sticky Tape.png");
+        itemImage = image.copy();
+        break;
+        }
    }
 }
 
