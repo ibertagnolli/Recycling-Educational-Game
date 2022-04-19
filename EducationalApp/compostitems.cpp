@@ -35,8 +35,13 @@ void CompostItems::setImage(int index){
         QImage image(":/images/images/TrashImages/Lawn Clippings.png");
         itemImage = image.copy();
         break;
-    }
-    }
+}
+    //case 2: { // Tea Bag
+//        QImage image(":/images/images/TrashImages/Tea Bag.png");
+//        itemImage = image.copy();
+//        break;
+        //}
+   }
 }
 
 void CompostItems::setName(int index) {
