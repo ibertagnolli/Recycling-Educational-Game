@@ -41,6 +41,7 @@ void RecycleItems::setItemImage(int index){
         itemImage = image.copy();
         break;
     }
+        //TODO: case 3, 4, and 5
     }
 }
 
@@ -54,7 +55,16 @@ void RecycleItems::setItemName(int index) {
         name = "Cardboard";
     }
     case 2: {
-        name = "Metal and Aluminum Cans";
+        name = "Aluminum and Metal";
+    }
+    case 3: {
+        name = "Paper Bag";
+    }
+    case 4: {
+        name = "Milk Carton";
+    }
+    case 5: {
+        name = "NewsPaper and Paper";
     }
     }
 }
@@ -80,6 +90,22 @@ void RecycleItems::setItemDescription(int index){
                       "Make sure no liquid is left in the cans";
         break;
     }
+    case 3: { // Paper Bag
+        description = " Paper bags from grocery stores or retail stores "
+                      "can be recycled with other paper items.";
+        break;
+    }
+    case 4: { // Milk Carton
+        description = "Milk cartons(plastic or paper) "
+                      "can be recycled in Salt Lake. "
+                      "Empty the container, rinse it out, and put it in your recycling bin.";
+        break;
+    }
+    case 5: { // NewsPaper
+        description = "Newspaper and other paper adds and goods can be recycled."
+                      " Shredded paper however cannot be recycled. ";
+        break;
+    }
     }
 }
 
@@ -94,8 +120,20 @@ void RecycleItems::setLevel(int index)
         level = 1;
         break;
     }
-    case 2: { // Cardboard
+    case 2: { // Aluminum and metals
         level = 1;
+        break;
+    }
+    case 3: { // Paper Bag
+        level = 2;
+        break;
+    }
+    case 4: { // Milk Carton
+        level = 2;
+        break;
+    }
+    case 5: { // Newspaper
+        level = 2;
         break;
     }
     }

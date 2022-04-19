@@ -30,5 +30,8 @@
         <file>images/TrashImages/Book.png</file>
         <file>images/TrashImages/Metal and Aluminum Cans.png</file>
         <file>images/TrashImages/Tea Bag.png</file>
+        <file>images/TrashImages/Tire.png</file>
+        <file>images/TrashImages/Glass.png</file>
+        <file>images/TrashImages/Paper Towels.png</file>
     </qresource>
 </RCC>

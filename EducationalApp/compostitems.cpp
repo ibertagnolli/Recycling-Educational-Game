@@ -41,6 +41,7 @@ void CompostItems::setImage(int index){
         itemImage = image.copy();
         break;
         }
+        //TODO: need images for 3, 4 and 5
    }
 }
 
@@ -56,6 +57,18 @@ void CompostItems::setName(int index) {
     }
     case 2: {
         name = "Tea bag";
+        break;
+    }
+    case 3: {
+        name = "Egg shell";
+        break;
+    }
+    case 4: {
+        name = "Coffee Grounds";
+        break;
+    }
+    case 5: {
+        name = "Sticky Tape";
         break;
     }
     }
@@ -80,6 +93,20 @@ void CompostItems::setDescription(int index) {
                       "or cofee grounds can be composted as well.";
         break;
     }
+    case 3: { // Egg Shells
+        description = "Salt Lake allows egg shells to be composted unlike meat";
+        break;
+    }
+    case 4: { // Coffee Grounds
+        description = "Salt Lake allows Coffee Grounds, not cups or lids to be composted.";
+        break;
+    }
+    case 5: { // Sticky Tape
+        description = "Sticky tape is not recyclable and should be put in the compost bin. "
+                      "Sticky tape is reffering to painters or yellow tape that will degrade over time,"
+                      "not packing or clear tape. ";
+        break;
+    }
     }
 }
 
@@ -96,6 +123,18 @@ void CompostItems::setLevel(int index)
     }
     case 2: { // Tea Bag
         level = 1;
+        break;
+    }
+    case 3: { // Egg Shells
+        level = 2;
+        break;
+    }
+    case 4: { // Coffee Grounds
+        level = 2;
+        break;
+    }
+    case 5: { // Sticky Tape
+        level = 2;
         break;
     }
     }

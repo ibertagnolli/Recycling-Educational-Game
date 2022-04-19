@@ -35,6 +35,10 @@ void TrashItems::setImage(int index) {
         QImage image(":/images/images/TrashImages/Food Wrappers.png");
         itemImage = image.copy();
         break;
+    }case 2: { // Paper towels
+        QImage image(":/images/images/TrashImages/Paper Towels.png");
+        itemImage = image.copy();
+        break;
     }
     }
 }
@@ -51,6 +55,11 @@ void TrashItems::setDescription(int index){
                       "recyclable. Food wrappers that are recyclable are "
                       "plastic containers and cardboard boxes.";
         break;
+    }case 2: { // Paper Towels
+        description = "Tissue paper is hard to recycle because it's already been recycled:"
+                      " it's made from recycled paper, so the fibers are shortened to the point where it "
+                      "cannot feasibly go through the recycling process again.";
+        break;
     }
     }
 }
@@ -63,6 +72,9 @@ void TrashItems::setName(int index){
     } case 1: {
         name = "Food Wrappers";
     }
+    case 2: {
+            name = "Paper Towels";
+        }
     }
 }
 
@@ -74,6 +86,10 @@ void TrashItems::setLevel(int index)
         break;
     }
     case 1: { // Food Wrappers
+        level = 1;
+        break;
+    }
+    case 2: { // Paper Towels
         level = 1;
         break;
     }
