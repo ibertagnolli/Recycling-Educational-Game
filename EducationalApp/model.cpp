@@ -55,13 +55,9 @@ void Model::updateQueue(int level)
     //shuffle queue
     std::vector<QString> barItemNames;
     for (int i = 0; i < 5; i++) {
-        //TODO: get rid of these hacks
-        if (currentLevel == 1) {
-            int index = currGameItems.dequeue();
-            barItems.push_back(index);
-            barItemNames.push_back(items.at(index)->getName());
-        } else
-            barItemNames.push_back("none");
+        int index = currGameItems.dequeue();
+        barItems.push_back(index);
+        barItemNames.push_back(items.at(index)->getName());
     }
     emit sendFiveBarItems(barItemNames);
 }
