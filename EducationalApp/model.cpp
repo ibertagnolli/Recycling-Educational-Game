@@ -86,7 +86,7 @@ void Model::mouseReleased(QPointF position)
             barItemLocs[currentItemIndex] = currGameItems.dequeue();
         //barItemLocs[currentItemBarLoc] = currGameItems.dequeue();
         else {
-            barItemLocs.erase(barItemLocs.begin() + currentItemIndex);
+            //barItemLocs.erase(barItemLocs.begin() + currentItemIndex);
             //barItemLocs.erase(barItemLocs.begin() + currentItemBarLoc);
             //If this is drawing the items as if the index is shrinking,
             //barItemLocs[currentItemBarLoc] = null;
