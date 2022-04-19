@@ -36,6 +36,10 @@ void RecycleItems::setItemImage(int index){
         QImage image(":/images/images/TrashImages/Cardboard Box.png");
         itemImage = image.copy();
         break;
+    }case 2: { // Cardboard
+        QImage image(":/images/images/TrashImages/Metal and Aluminum Cans.png");
+        itemImage = image.copy();
+        break;
     }
     }
 }
@@ -48,6 +52,9 @@ void RecycleItems::setItemName(int index) {
     }
     case 1: {
         name = "Cardboard";
+    }
+    case 2: {
+        name = "Metal and Aluminum Cans";
     }
     }
 }
@@ -67,6 +74,12 @@ void RecycleItems::setItemDescription(int index){
                       "boxes before placing them in the bin.";
         break;
     }
+    case 2: { // Aluminum Can
+        description = "Aluminum cans, soda cans, beer cans and other metals"
+                      "can all be recycled in the blue recycle bin. "
+                      "Make sure no liquid is left in the cans";
+        break;
+    }
     }
 }
 
@@ -78,6 +91,10 @@ void RecycleItems::setLevel(int index)
         break;
     }
     case 1: { // Cardboard
+        level = 1;
+        break;
+    }
+    case 2: { // Cardboard
         level = 1;
         break;
     }
