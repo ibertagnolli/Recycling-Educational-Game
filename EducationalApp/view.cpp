@@ -95,18 +95,6 @@ void View::on_buttonToPurposeScreen_clicked()
 }
 
 // GAME SCREEN METHODS
-void View::on_buttonToLoad1_clicked()
-{
-    ui->stackWidget->setCurrentIndex(4);
-    emit firstLoadScreenStart();
-    QTimer::singleShot(5000, ui->stackWidget, [this](){ui->stackWidget->setCurrentIndex(3);});
-}
-
-void View::on_buttonToLoad2_clicked()
-{
-    ui->stackWidget->setCurrentIndex(5);
-    QTimer::singleShot(1500, ui->stackWidget, [this]() { ui->stackWidget->setCurrentIndex(3); });
-}
 
 void View::on_itemSlot0_pressed()
 {

@@ -133,16 +133,6 @@ private slots:
     void on_buttonToPurposeScreen_clicked();
 
     /**
-     * @brief This method will be deleted. Moves from gameScreen to loadingScreen1.
-     */
-    void on_buttonToLoad1_clicked();
-
-    /**
-     * @brief This method will be deleted. Moves from gameScreen to loadingScreen2.
-     */
-    void on_buttonToLoad2_clicked();
-
-    /**
      * @brief THIS WILL BE DELETED. This method will move to the conclusion screen.
      */
     void on_conclusionButton_clicked();

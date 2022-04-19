@@ -95,9 +95,7 @@ void Model::mouseReleased(QPointF position)
             barItems[currentItemIndex] = currGameItems.dequeue();
             if (!correctCollision)
                 currGameItems.enqueue(index);
-        }
-        //barItemLocs[currentItemBarLoc] = currGameItems.dequeue();
-        else {
+        } else {
             if (correctCollision)
                 barItems[currentItemIndex] = -1;
         }
