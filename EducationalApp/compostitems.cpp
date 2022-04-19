@@ -36,11 +36,11 @@ void CompostItems::setImage(int index){
         itemImage = image.copy();
         break;
 }
-    //case 2: { // Tea Bag
-//        QImage image(":/images/images/TrashImages/Tea Bag.png");
-//        itemImage = image.copy();
-//        break;
-        //}
+    case 2: { // Tea Bag
+        QImage image(":/images/images/TrashImages/Tea Bag.png");
+        itemImage = image.copy();
+        break;
+        }
    }
 }
 
@@ -52,6 +52,10 @@ void CompostItems::setName(int index) {
     }
     case 1: {
         name = "Lawn Clippings";
+        break;
+    }
+    case 2: {
+        name = "Tea bag";
         break;
     }
     }
@@ -70,6 +74,12 @@ void CompostItems::setDescription(int index) {
                       "wood cannot.";
         break;
     }
+    case 2: { // Tea Bag
+        description = "Salt Lake allows tea bags to be composted as long as they do not have staples. "
+                      "Tea bags and other food items without packaging such as egg shells "
+                      "or cofee grounds can be composted as well.";
+        break;
+    }
     }
 }
 
@@ -81,6 +91,10 @@ void CompostItems::setLevel(int index)
         break;
     }
     case 1: { // Lawn Clippings
+        level = 1;
+        break;
+    }
+    case 2: { // Tea Bag
         level = 1;
         break;
     }

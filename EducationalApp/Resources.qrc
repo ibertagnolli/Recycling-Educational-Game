@@ -29,5 +29,6 @@
         <file>images/CongratsImage.png</file>
         <file>images/TrashImages/Book.png</file>
         <file>images/TrashImages/Metal and Aluminum Cans.png</file>
+        <file>images/TrashImages/Tea Bag.png</file>
     </qresource>
 </RCC>
