@@ -8,14 +8,14 @@ SpecialBins::SpecialBins()
 
 SpecialBins::~SpecialBins(){}
 
-std::string SpecialBins::getDescription(){
+QString SpecialBins::getDescription(){
     return "Even though materials are recycle some of these"
            " items are not allowed in the curbside recycle bin. Some "
            "items are glass, electronics, clothing, art supplies, and "
            "auto tires.";
 }
 
-std::string SpecialBins::getName(){
+QString SpecialBins::getName(){
     return "Special Recycling Center";
 }
 

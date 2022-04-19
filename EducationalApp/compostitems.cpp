@@ -12,11 +12,11 @@ Items::ItemType CompostItems::getType(){
     return Items::ItemType::Compost;
 }
 
-std::string CompostItems::getName(){
+QString CompostItems::getName(){
     return name;
 }
 
-std::string CompostItems::getDescription() {
+QString CompostItems::getDescription() {
     return description;
 }
 
@@ -27,12 +27,12 @@ int CompostItems::getLevel()
 
 void CompostItems::setImage(int index){
     switch(index) {
-    case 0: { // banana Peel
-        QImage image(":/images/images/TrashImages/bananaPeel.png");
+    case 0: { // Banana Peel
+        QImage image(":/images/images/TrashImages/Banana Peel.png");
         itemImage = image.copy();
         break;
     } case 1: { // Lawn Clippings
-        QImage image(":/images/images/pinkTulip1.png");
+        QImage image(":/images/images/TrashImages/Lawn Clippings.png");
         itemImage = image.copy();
         break;
     }
@@ -44,7 +44,8 @@ void CompostItems::setName(int index) {
     case 0: {
         name = "Banana Peel";
         break;
-    } case 1: {
+    }
+    case 1: {
         name = "Lawn Clippings";
         break;
     }
@@ -54,15 +55,14 @@ void CompostItems::setName(int index) {
 void CompostItems::setDescription(int index) {
     switch(index) {
     case 0: { // Banana Peel
-        description = "Whole fruits and vegetables and their"
-                      " scraps can go in the compost bin. Just "
-                      "make sure that all of the stickers are removed";
+        description = "Whole fruits and vegetables and their scraps can go in "
+                      "the compost bin. Remember to remove any stickers!";
         break;
-    } case 1: { // Lawn Clippings
-        description = "Most yard work waste such as lawn clippings, "
-                      "leaves, branches, and weeds can go in the "
-                      "compost bin. However, plastic bags, sod, dirt, rocks, construction "
-                      "wood can not go in compost bin";
+    }
+    case 1: { // Lawn Clippings
+        description = "Lawn clippings, leaves, branches, and weeds can go in the "
+                      "compost bin. Plastic bags, sod, dirt, rocks, and construction "
+                      "wood cannot.";
         break;
     }
     }
@@ -71,8 +71,14 @@ void CompostItems::setDescription(int index) {
 void CompostItems::setLevel(int index)
 {
     switch (index) {
-    case 0: //Banana Peel
-        level = 4;
+    case 0: { //Banana Peel
+        level = 1; // for right now, let's just have each item on one level
         break;
     }
+    case 1: { // Lawn Clippings
+        level = 1;
+        break;
+    }
+    }
 }
+

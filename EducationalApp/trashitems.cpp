@@ -12,11 +12,11 @@ Items::ItemType TrashItems::getType(){
     return Items::ItemType::Trash;
 }
 
-std::string TrashItems::getName(){
+QString TrashItems::getName(){
     return name;
 }
 
-std::string TrashItems::getDescription(){
+QString TrashItems::getDescription(){
     return description;
 }
 
@@ -27,12 +27,12 @@ int TrashItems::getLevel()
 
 void TrashItems::setImage(int index) {
     switch(index) {
-    case 0: { // banana Peel
-        QImage image(":/images/images/TrashImages/bananaPeel.png");
+    case 0: { // Meat
+        QImage image(":/images/images/TrashImages/Meat.png");
         itemImage = image.copy();
         break;
-    } case 1: { // Lawn Clippings
-        QImage image(":/images/images/TrashImages/plasticWaterBottle.png");
+    } case 1: { // Food Wrappers
+        QImage image(":/images/images/TrashImages/Food Wrappers.png");
         itemImage = image.copy();
         break;
     }
@@ -47,7 +47,7 @@ void TrashItems::setDescription(int index){
                       "waste goes into the compost bin";
         break;
     } case 1: { // Food Wrappers
-        description = "In salt lake city, most food wrappers are non "
+        description = "In Salt Lake County, most food wrappers are non-"
                       "recyclable. Food wrappers that are recyclable are "
                       "plastic containers and cardboard boxes.";
         break;
@@ -61,7 +61,7 @@ void TrashItems::setName(int index){
         name = "Meat";
         break;
     } case 1: {
-        name = "Lawn Clippings";
+        name = "Food Wrappers";
     }
     }
 }
@@ -69,8 +69,12 @@ void TrashItems::setName(int index){
 void TrashItems::setLevel(int index)
 {
     switch (index) {
-    case 0: {
-        level = 4;
+    case 0: { // Meat
+        level = 1;
+        break;
+    }
+    case 1: { // Food Wrappers
+        level = 1;
         break;
     }
     }

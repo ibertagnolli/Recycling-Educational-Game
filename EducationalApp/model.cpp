@@ -29,8 +29,9 @@ Model::Model(QObject *parent) : QObject{parent} , world(b2Vec2 (0.0f, 10.0f))
 }
 
 //GENERAL METHODS
-void Model::pageChanged(int index)
+void Model::updateScreenIndex(int index)
 {
+    // When index == 3, gameScreen is displayed. Increment the level shown on gameScreen.
     if (index == 3) {
         currentLevel++;
     }
@@ -53,7 +54,7 @@ void Model::updateQueue(int level)
     for (int i = 0; i < 5; i++) {
         barItemLocs[i] = currGameItems.dequeue();
     }
-    emit itemBar(barItemLocs);
+    emit sendFiveBarItems(barItemLocs);
 }
 
 void Model::setUpItems(){
@@ -103,9 +104,9 @@ void Model::mouseReleased(QPointF position)
             }
         }
         if (!correctCollision)
-            currGameItems.enqueue(currentItem);
+            currGameItems.enqueue(currentItemIndex);
     }
-    emit itemBar(barItemLocs);
+    emit sendFiveBarItems(barItemLocs);
 }
 
 bool Model::checkTrashCollision(QPointF position, bool &trashCollision)
@@ -128,6 +129,13 @@ bool Model::checkTrashCollision(QPointF position, bool &trashCollision)
         trashCollision = false;
     }
     return correctCollision;
+}
+
+void Model::receiveSelectedItem(int index) // TODO this might have coordinate parameters from which we calculate index
+{
+    currentItemIndex = index;
+    emit sendItemInfoToWindow(items.at(index)->getType(), items.at(index)->getName(), items.at(index)->getDescription());
+    // TODO check that I'm using enums correctly
 }
 // LOADING SCREEN METHODS
 

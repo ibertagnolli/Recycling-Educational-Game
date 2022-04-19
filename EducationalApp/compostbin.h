@@ -2,6 +2,7 @@
 #define COMPOSTBIN_H
 
 # include "bins.h"
+# include <QString>
 
 /**
  * @brief The CompostBin class - This class stores all of the information
@@ -32,7 +33,7 @@ public:
      * of the bin object
      * @return String representation of the description
      */
-    std::string getDescription();
+    QString getDescription();
 
     /**
      * @brief getImage - Retrieves the image of the reference
@@ -51,7 +52,7 @@ public:
      * @brief getName - Gets the name of the bin
      * @return The string representation of the name of the bin
      */
-    std::string getName();
+    QString getName();
 
     /**
      * @brief getRegion - Retrieves the bounding region of

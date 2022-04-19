@@ -17,9 +17,13 @@
         <file>images/yardBin.png</file>
         <file>images/recycleLoading.png</file>
         <file>images/GameScreenGrass.png</file>
-        <file>images/TrashImages/bananaPeel.png</file>
-        <file>images/TrashImages/plasticWaterBottle.png</file>
+        <file>images/TrashImages/Banana Peel.png</file>
+        <file>images/TrashImages/Plastic Water Bottle.png</file>
         <file>images/firstLoadingScreen.jpg</file>
         <file>images/recycleLoadingBlue.png</file>
+        <file>images/TrashImages/Cardboard.png</file>
+        <file>images/TrashImages/Food Wrappers.png</file>
+        <file>images/TrashImages/Lawn Clippings.png</file>
+        <file>images/TrashImages/Meat.png</file>
     </qresource>
 </RCC>

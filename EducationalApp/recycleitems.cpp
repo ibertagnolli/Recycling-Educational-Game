@@ -9,11 +9,11 @@ RecycleItems::RecycleItems(int index)
     setLevel(index);
 }
 
-std::string RecycleItems::getName() {
+QString RecycleItems::getName() {
     return name;
 }
 
-std::string RecycleItems::getDescription(){
+QString RecycleItems::getDescription(){
     return description;
 }
 
@@ -28,12 +28,12 @@ int RecycleItems::getLevel()
 
 void RecycleItems::setItemImage(int index){
     switch(index){
-    case 0: { // Water Bottle
-        QImage image(":/images/images/TrashImages/plasticWaterBottle.png");
+    case 0: { // Plastic Water Bottle
+        QImage image(":/images/images/TrashImages/Plastic Water Bottle.png");
         itemImage = image.copy();
         break;
-    } case 1: { // Cardboard Boxes
-        QImage image(":/images/images/pinkTulip1.png");
+    } case 1: { // Cardboard
+        QImage image(":/images/images/TrashImages/Cardboard Box.png");
         itemImage = image.copy();
         break;
     }
@@ -43,25 +43,25 @@ void RecycleItems::setItemImage(int index){
 void RecycleItems::setItemName(int index) {
     switch(index) {
     case 0: {
-        name = "Water Bottle";
+        name = "Plastic Water Bottle";
         break;
     }
     case 1: {
-        name = "Cardboard Boxes";
+        name = "Cardboard";
     }
     }
 }
 
 void RecycleItems::setItemDescription(int index){
     switch(index) {
-    case 0: { // Water Bottle
+    case 0: { // Plastic Water Bottle
         description = "Any plastic bottle, tub, or jug - "
                       "as long as it is clean and dry - can be"
                       "recycled in Salt Lake County regardless of the "
-                      "number or chasing arrows";
+                      "number or chasing arrows.";
         break;
     }
-    case 1: {
+    case 1: { // Cardboard
         description = "Cardboard boxes, shoe boxes, cereal boxes, and paper tubes "
                       "all can be placed in the curbside recycle bin. Break down the "
                       "boxes before placing them in the bin.";
@@ -73,8 +73,13 @@ void RecycleItems::setItemDescription(int index){
 void RecycleItems::setLevel(int index)
 {
     switch (index) {
-    case 0: //Water Bottle
-        level = 4;
+    case 0: { // Plastic Water Bottle
+        level = 1;
         break;
+    }
+    case 1: { // Cardboard
+        level = 1;
+        break;
+    }
     }
 }

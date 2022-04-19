@@ -7,7 +7,6 @@
 #ifndef MODEL_H
 #define MODEL_H
 #include "bins.h"
-
 #include "Box2D/Box2D.h"
 #include "items.h"
 #include <vector>
@@ -28,7 +27,7 @@ public:
      * @brief When informed by the view, changes to the current screen's data
      * @param current screen index
      */
-    void pageChanged(int index);
+    void updateScreenIndex(int index);
 
     /**
      * @brief Checks to see if there is a collision between where the mouse is released and a trash can object
@@ -49,7 +48,7 @@ signals:
      * @brief Informs the view which items should show up on the item bar
      * @param items - array of trash items
      */
-    void itemBar(std::vector<int> items);
+    void sendFiveBarItems(std::vector<int> items);
 
     /**
      * @brief Informs the view the current screen the user is viewing must be changed
@@ -57,12 +56,28 @@ signals:
      */
     void changeScreen(int screen);
 
+    /**
+     * @brief Emitted when the current selected item is updated. Sends the item's
+     * trash type, name, and description to the View. TODO have name match image name
+     * to easily upload the image without sending it!
+     */
+    void sendItemInfoToWindow(int itemType, QString itemName, QString itemDescrip);
+
 public slots:
     /**
      * @brief Sets up the world for the first loading screen.
      * This defines a ground and a dynamic body that bounces on the ground.
      */
     void setupFirstLoadingWorld();
+
+    /**
+     * @brief Connected to View's signal that a new trash item was selected.
+     * Updates the selected trash item.
+     * @param index - the index of the selected trash item.
+     *
+     * TODO CONNECT WITH MOUSERELEASE BRANCH
+     */
+    void receiveSelectedItem(int index);
 
 private slots:
     /**
@@ -83,9 +98,10 @@ private:
     int currentLevel = 0;
 
     /**
-     * @brief keeps track of what item is currently in use, -1 when none is selected
+     * @brief keeps track of what item is currently in use. Its index is from the
+     * vector of all trash items. -1 when none is selected.
      */
-    int currentItem = -1;
+    int currentItemIndex = -1;
 
     /**
      * @brief Keeps track of where the current item is in the item bar, -1 when no item is selected

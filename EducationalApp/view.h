@@ -46,6 +46,42 @@ signals:
     // First Loading Screen Signals
      void firstLoadScreenStart();
 
+    /**
+     * @brief Sends the index of the selected item to the model.
+     * TODO might send coordinates, not index
+     * @param index
+     */
+    void sendSelectedItem(int index);
+
+public slots:
+    /**
+     * @brief Updates the label's psoition in the UI with the provided X and X coordinates.
+     * @param xPosition - X position of the top left corner of the label
+     * @param yPosition - Y position of the top left corner of the label
+     */
+    void setLogoPosition(int xPosition, int yPosition);
+
+    /**
+     * @brief Recieved from the model when a user has put an item into a garbage bin
+     * @param correctlyIdentified
+     */
+    void trashInBin(bool correctlyIdentified);
+
+    /**
+     * @brief Recieved from the model when the trash items are selected
+     * @param items - array of trash items
+     */
+    void receiveItemBar(std::vector<int> items);
+
+    /**
+     * @brief Connected to Model's sendItemInfoToWindow signal. Receives the currently
+     * selected trash item's type, name, and description to update the item info window.
+     * @param itemType - Trash = 0, Recycle = 1, Compost = 2, Special = 3
+     * TODO make sure I'm using enums correctly
+     */
+    void receiveItemInfo(int itemType, QString itemName, QString itemDescrip);
+
+
 private:
     /**
      * @brief Tracks the current ui
@@ -68,26 +104,6 @@ private:
      * @param event
      */
     void mouseMoveEvent(QMouseEvent *event);
-
-public slots:
-    /**
-     * @brief Updates the label's psoition in the UI with the provided X and X coordinates.
-     * @param xPosition - X position of the top left corner of the label
-     * @param yPosition - Y position of the top left corner of the label
-     */
-    void setLogoPosition(int xPosition, int yPosition);
-
-    /**
-     * @brief Recieved from the model when a user has put an item into a garbage bin
-     * @param correctlyIdentified
-     */
-    void trashInBin(bool correctlyIdentified);
-
-    /**
-     * @brief Recieved from the model when the trash items are selected
-     * @param items - array of trash items
-     */
-    void receiveItemBar(std::vector<int> items);
 
 private slots:
     /**
