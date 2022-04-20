@@ -179,6 +179,18 @@ private:
     void setUpItems();
 
     /**
+     * @brief updateTheBarItems - A helper method that
+     * updates all of the items in the bar that is shown in the
+     * game.
+     * @param correctCollision - Whether there was a collision
+     * or not.
+     */
+    void updateTheBarItemsIndex(bool correctCollision);
+
+    void updateTheBarItemIcons();
+
+    bool timeToSwitch();
+    /**
      * @brief Checks if the trash item collided with a trash can
      * @param position of where the trash item is released
      * @return whether or not a collision occured

@@ -97,32 +97,33 @@ void Model::mouseReleased(QPointF position)
     bool trashCollision;
     bool correctCollision = checkTrashCollision(position, trashCollision);
 
-    if (trashCollision) {
-        if (currGameItems.size() > 0) {
-            int index = barItems[currentItemIndex];
-            barItems[currentItemIndex] = currGameItems.dequeue();
-            if (!correctCollision)
-                currGameItems.enqueue(index);
-        } else {
-            if (correctCollision)
-                barItems[currentItemIndex] = -1;
-        }
-        if (correctCollision)
-            itemsLeft--;
-        if (itemsLeft == 0) {
-            switch (currentLevel) {
-            case 1: //go to loading screen 1
-                emit changeScreen(4);
-                return;
-            case 2: //go to loading screen 2
-                emit changeScreen(5);
-                return;
-            case 3: // go to conclusion page
-                emit changeScreen(6);
-                return;
-            }
+    if (trashCollision)
+        updateTheBarItemsIndex(correctCollision);
+
+    if(timeToSwitch())
+        return;
+
+    updateTheBarItemIcons();
+}
+
+bool Model::timeToSwitch(){
+    if (itemsLeft == 0) {
+        switch (currentLevel) {
+        case 1: //go to loading screen 1
+            emit changeScreen(4);
+            return true;
+        case 2: //go to loading screen 2
+            emit changeScreen(5);
+            return true;
+        case 3: // go to conclusion page
+            emit changeScreen(6);
+            return true;
         }
     }
+    return false;
+}
+
+void Model::updateTheBarItemIcons(){
     std::vector<QImage *> barItemNames;
     QImage emptyImage(":/images/images/TrashImages/Empty.png");
     for (int i = 0; i < (int)barItems.size(); i++) {
@@ -135,8 +136,24 @@ void Model::mouseReleased(QPointF position)
     currentItemIndex = -1;
 }
 
+void Model::updateTheBarItemsIndex(bool correctCollision){
+    if (currGameItems.size() > 0) {
+        int index = barItems[currentItemIndex];
+        barItems[currentItemIndex] = currGameItems.dequeue();
+        if (!correctCollision)
+            currGameItems.enqueue(index);
+    } else {
+        if (correctCollision)
+            barItems[currentItemIndex] = -1;
+    }
+
+    if (correctCollision)
+        itemsLeft--;
+}
+
 bool Model::checkTrashCollision(QPointF position, bool &trashCollision)
 {
+    // TODO: Add a level check for this section
     Items::ItemType currentItemType = items.at(currentItemIndex)->getType();
     trashCollision = false;
     bool correctCollision = false;
@@ -155,10 +172,8 @@ bool Model::checkTrashCollision(QPointF position, bool &trashCollision)
 
 void Model::receiveSelectedItem(int index) // TODO this might have coordinate parameters from which we calculate index
 {
-    std::cout << "Model: Receive Selected Item" << std::endl;
-    if(barItems[index] == -1) {
+    if(barItems[index] == -1)
         return;
-    }
 
     currentItemIndex = index;
     emit sendItemInfoToWindow(items.at(barItems.at(currentItemIndex))->getType(),
