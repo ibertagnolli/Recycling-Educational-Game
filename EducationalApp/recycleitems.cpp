@@ -33,7 +33,7 @@ void RecycleItems::setItemImage(int index){
         itemImage = image.copy();
         break;
     } case 1: { // Cardboard
-        QImage image(":/images/images/TrashImages/Cardboard Box.png");
+        QImage image(":/images/images/TrashImages/Cardboard.png");
         itemImage = image.copy();
         break;
     }case 2: { // Cardboard
@@ -52,7 +52,7 @@ void RecycleItems::setItemImage(int index){
             break;
         }
     case 5: { // Milk Carton
-            QImage image(":/images/images/TrashImages/NewsPaper.png");
+            QImage image(":/images/images/TrashImages/Newspaper.png");
             itemImage = image.copy();
             break;
         }

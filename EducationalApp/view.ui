@@ -1109,6 +1109,9 @@ border-bottom-right-radius: 10px;
            <property name="text">
             <string>description here</string>
            </property>
+           <property name="wordWrap">
+            <bool>true</bool>
+           </property>
           </widget>
          </item>
         </layout>
