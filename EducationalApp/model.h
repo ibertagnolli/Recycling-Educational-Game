@@ -59,7 +59,7 @@ signals:
      * @brief Informs the view which items should show up on the item bar
      * @param items - array of trash items
      */
-    void sendFiveBarItems(std::vector<QString> items);
+    void sendFiveBarItems(std::vector<QImage *> items);
 
     /**
      * @brief Informs the view the current screen the user is viewing must be changed

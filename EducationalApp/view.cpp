@@ -175,21 +175,22 @@ void View::receiveItemInfo(int itemType, QString itemName, QString itemDescrip, 
     // TODO update correct/incorrect label when the user drags the image to the bin
 }
 
-void View::receiveItemBar(std::vector<QString> items)
+void View::receiveItemBar(std::vector<QImage *> items)
 {
-    ui->itemSlot0->setIcon(QPixmap(":/images/images/TrashImages/" + items[0] + ".png"));
+    QPixmap map;
+    ui->itemSlot0->setIcon(map.fromImage(*items[0]));
     ui->itemSlot0->setIconSize(QSize(70, 70));
 
-    ui->itemSlot1->setIcon(QPixmap(":/images/images/TrashImages/" + items[1] + ".png"));
+    ui->itemSlot1->setIcon(map.fromImage(*items[1]));
     ui->itemSlot1->setIconSize(QSize(70, 70));
 
-    ui->itemSlot2->setIcon(QPixmap(":/images/images/TrashImages/" + items[2] + ".png"));
+    ui->itemSlot2->setIcon(map.fromImage(*items[2]));
     ui->itemSlot2->setIconSize(QSize(70, 70));
 
-    ui->itemSlot3->setIcon(QPixmap(":/images/images/TrashImages/" + items[3] + ".png"));
+    ui->itemSlot3->setIcon(map.fromImage(*items[3]));
     ui->itemSlot3->setIconSize(QSize(70, 70));
 
-    ui->itemSlot4->setIcon(QPixmap(":/images/images/TrashImages/" + items[4] + ".png"));
+    ui->itemSlot4->setIcon(map.fromImage(*items[4]));
     ui->itemSlot4->setIconSize(QSize(70, 70));
 }
 

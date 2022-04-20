@@ -60,11 +60,11 @@ void Model::updateQueue(int level)
 
     itemsLeft = currGameItems.size();
     //shuffle queue
-    std::vector<QString> barItemNames;
+    std::vector<QImage *> barItemNames;
     for (int i = 0; i < 5; i++) {
         int index = currGameItems.dequeue();
         barItems.push_back(index);
-        barItemNames.push_back(items.at(index)->getName());
+        barItemNames.push_back(items.at(index)->getImage());
     }
     emit sendFiveBarItems(barItemNames);
 }
@@ -118,12 +118,13 @@ void Model::mouseReleased(QPointF position)
             }
         }
     }
-    std::vector<QString> barItemNames;
+    std::vector<QImage *> barItemNames;
+    QImage emptyImage(":/images/images/TrashImages/Empty.png");
     for (int i = 0; i < (int)barItems.size(); i++) {
         if (barItems.at(i) == -1)
-            barItemNames.push_back("empty");
+            barItemNames.push_back(&emptyImage);
         else
-            barItemNames.push_back(items.at(barItems.at(i))->getName());
+            barItemNames.push_back(items.at(barItems.at(i))->getImage());
     }
     emit sendFiveBarItems(barItemNames);
     currentItemIndex = -1;
