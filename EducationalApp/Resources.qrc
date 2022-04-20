@@ -27,8 +27,6 @@
         <file>images/TrashImages/Meat.png</file>
         <file>images/Concluding_Screen_Image.jpg</file>
         <file>images/CongratsImage.png</file>
-        <file>images/TrashImages/Book.png</file>
-        <file>images/TrashImages/Metal and Aluminum Cans.png</file>
         <file>images/TrashImages/Tea Bag.png</file>
         <file>images/TrashImages/Tire.png</file>
         <file>images/TrashImages/Glass.png</file>
@@ -48,5 +46,7 @@
         <file>images/TrashImages/Sticky Tape.png</file>
         <file>images/TrashImages/Styrofoam.png</file>
         <file>images/TrashImages/Takeout Container.png</file>
+        <file>images/TrashImages/Book.png</file>
+        <file>images/TrashImages/Metal and Aluminum Cans.png</file>
     </qresource>
 </RCC>
