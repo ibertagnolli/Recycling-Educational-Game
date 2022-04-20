@@ -45,9 +45,9 @@ void Model::updateScreenIndex(int index)
     if (currentLevel == 1) {
         updateQueue(1);
     } else if (currentLevel == 2) {
-        updateQueue(2);
+        //updateQueue(2);
     } else if (currentLevel == 3) {
-        updateQueue(3);
+        //updateQueue(3);
     }
 }
 

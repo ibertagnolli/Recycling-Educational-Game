@@ -867,6 +867,9 @@ their correct bin.</string>
        </widget>
       </widget>
       <widget class="QWidget" name="gameScreen">
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
        <widget class="QLabel" name="trashBinLabel">
         <property name="geometry">
          <rect>
@@ -1303,7 +1306,7 @@ background-color: rgba(255, 255, 255, 0);</string>
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>25</height>
+     <height>24</height>
     </rect>
    </property>
   </widget>
