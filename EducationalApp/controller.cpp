@@ -39,7 +39,7 @@ void Controller::gameScreenConnections()
     connect(view, &View::sendSelectedItem, model, &Model::receiveSelectedItem);
     connect(model, &Model::sendItemInfoToWindow, view, &View::receiveItemInfo);
     connect(model, &Model::sendItemPhoto, view, &View::setLabelBackground);
-
+    connect(view, &View::sendLabelPositions, model, &Model::setRegions);
 }
 // LOADING SCREEN METHODS
 void Controller::firstLoadingScreenConnections()

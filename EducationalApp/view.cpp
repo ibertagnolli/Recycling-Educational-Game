@@ -94,6 +94,13 @@ void View::on_buttonToInstrScreen_clicked()
 void View::on_buttonToGameScreen_clicked()
 {
     ui->stackWidget->setCurrentIndex(3);
+    std::vector trashLabel{ui->trashBinLabel->x(), ui->trashBinLabel->y(),
+                          ui->trashBinLabel->width(), ui->trashBinLabel->height()};
+    std::vector recycleLabel{ui->recycleBinLabel->x(), ui->recycleBinLabel->y(),
+                            ui->recycleBinLabel->width(), ui->recycleBinLabel->height()};
+    std::vector otherBin{ui->yardBinLabel->x(), ui->yardBinLabel->y(),
+                        ui->yardBinLabel->width(), ui->yardBinLabel->height()};
+    emit sendLabelPositions(trashLabel, recycleLabel, otherBin);
 }
 
 void View::on_buttonToPurposeScreen_clicked()

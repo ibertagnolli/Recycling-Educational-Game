@@ -22,10 +22,33 @@ Model::Model(QObject *parent) : QObject{parent} , world(b2Vec2 (0.0f, 10.0f))
 {
     simulationDuration = 5000;
     setUpItems();
+}
+
+void Model::setRegions(std::vector<int> trashLabel,
+                       std::vector<int> recycleLabel,
+                       std::vector<int> OtherBin){
+    std::cout << "setRegions" << std::endl;
     cans.push_back(new RecycleBins);
     cans.push_back(new TrashBins);
     cans.push_back(new CompostBin);
-    cans.push_back(new SpecialBins);
+//    cans.push_back(new SpecialBins);
+
+    for(auto bin : cans){
+        switch(bin->getType()){
+        case Bins::Trash: {
+            bin->setRegion(trashLabel[0], trashLabel[1],
+                    trashLabel[2], trashLabel[3]);
+            break;
+        } case Bins::Recycle: {
+            bin->setRegion(recycleLabel[0], recycleLabel[1],
+                    recycleLabel[2], recycleLabel[3]);
+            break;
+        } default: {
+            bin->setRegion(OtherBin[0], OtherBin[1], OtherBin[2],
+                    OtherBin[3]);
+        }
+        }
+    }
 }
 
 Model::~Model(){

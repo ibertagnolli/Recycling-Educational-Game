@@ -98,6 +98,16 @@ public slots:
      */
     void receiveSelectedItem(int index);
 
+    /**
+     * @brief setRegions - Sets the region of the bins based on the placement
+     * of the label on the game screen.
+     * @param trashLabel - The label x, y, width, height for trash bin
+     * @param recycleLabel - The label x, y, width, height for recycle bin
+     * @param OtherBin - The label x, y, width, height for special and compost bin
+     */
+    void setRegions(std::vector<int> trashLabel,
+                    std::vector<int> recycleLabel,
+                    std::vector<int> OtherBin);
 
 
 private slots:

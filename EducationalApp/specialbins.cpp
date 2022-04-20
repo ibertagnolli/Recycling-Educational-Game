@@ -24,11 +24,18 @@ Bins::BinType SpecialBins::getType(){
 }
 
 std::vector<int> SpecialBins::getRegion(){
-    return std::vector<int> {420, 240, 150,220};
+    return std::vector<int> {x, y, width,height};
+}
+
+void SpecialBins::setRegion(int x, int y, int width, int height){
+    this->x = x;
+    this->y = y;
+    this->width = width;
+    this->height = height;
 }
 
 bool SpecialBins::CollisionWithMe(QPointF pos){
-    return ((pos.x() > 420 && pos.x() < 420+150) && (pos.y() > 240 && pos.y() < 240+220));
+    return ((pos.x() > x && pos.x() < x+width) && (pos.y() > y && pos.y() < y+height));
 }
 
 QImage* SpecialBins::getImage() {
