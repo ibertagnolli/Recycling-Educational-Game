@@ -5,6 +5,7 @@
  */
 
 #include "controller.h"
+#include <iostream>
 
 Controller::Controller(QObject *parent) : QObject{parent} {}
 
@@ -15,6 +16,7 @@ Controller::Controller(View *view, Model *model)
     generalConnections();
     gameScreenConnections();
     firstLoadingScreenConnections();
+    secondLoadingScreenConnections();
 }
 
 // GENERAL METHODS
@@ -46,6 +48,21 @@ void Controller::firstLoadingScreenConnections()
 {
     connect(view, &View::firstLoadScreenStart, model, &Model::setupFirstLoadingWorld);
     connect(model, &Model::updateLabelPosition, view, &View::setLogoPosition);
+}
+
+void Controller::secondLoadingScreenConnections()
+{
+    connect(view, &View::secondLoadScreenStart, model, &Model::setupSecondLoadingWorld);
+    //connect(model, &Model::updateRainPosition, view, &View::setLogoPosition);
+    //connect(model, &Model::updateRainPosition, view, &View::drawRain);
+    connect(model, &Model::updateRain, this, &Controller::rain);
+    //connect(model, &Model::updateRain, view, &View::paintEvent);
+}
+
+void Controller::rain()
+{
+    view->updateView();
+    std::cout << "entered rain";
 }
 
 // CONCLUDING SCREEN METHODS

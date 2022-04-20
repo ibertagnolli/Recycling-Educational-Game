@@ -10,6 +10,7 @@
 #include <QMainWindow>
 #include <QMouseEvent>
 #include <QLabel>
+#include <QPainter>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class View; }
@@ -53,6 +54,7 @@ signals:
       * start the first loading screen
       */
      void firstLoadScreenStart();
+     void secondLoadScreenStart();
 
     /**
      * @brief Sends the index of the selected item to the model.
@@ -68,6 +70,11 @@ public slots:
      * @param yPosition - Y position of the top left corner of the label
      */
     void setLogoPosition(int xPosition, int yPosition);
+
+    void paintEvent(QPaintEvent *);
+    void paintEvent(QPaintEvent *, int xPosition, int yPosition);
+    void drawRain(int xPosition, int yPosition);
+    void updateView();
 
     /**
      * @brief Recieved from the model when a user has put an item into a garbage bin

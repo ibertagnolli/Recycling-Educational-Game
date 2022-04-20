@@ -49,6 +49,9 @@ signals:
      */
     void updateLabelPosition(int xPosition, int yPosition);
 
+    void updateRainPosition(int xPosition, int yPosition);
+    void updateRain();;
+
     /**
      * @brief Informs the view that trash has been put in a bin
      * @param correctlyIdentified: whether or not the trash item type matches the trash can type
@@ -89,6 +92,9 @@ public slots:
      */
     void setupFirstLoadingWorld();
 
+    void setupSecondLoadingWorld();
+
+
     /**
      * @brief Connected to View's signal that a new trash item was selected.
      * Updates the selected trash item.
@@ -107,6 +113,8 @@ private slots:
      * The simulation runs until the simulation duration ends.
      */
     void updateFirstLoadingWorld();
+
+    void updateSecondLoadingWorld();
 
 private:
     /**
