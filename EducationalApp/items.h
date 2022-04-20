@@ -4,6 +4,7 @@
 
 #include <string>
 #include <QString>
+#include <QImage>
 
 /**
  * @brief The Items class - This class is an abstract class
@@ -51,6 +52,8 @@ public:
      * @return level of the item
      */
     virtual int getLevel(void) = 0;
+
+    virtual QImage* getImage(void) = 0;
 };
 
 #endif // ITEMS_H

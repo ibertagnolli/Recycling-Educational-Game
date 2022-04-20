@@ -60,6 +60,10 @@ void RecycleItems::setItemImage(int index){
     }
 }
 
+QImage* RecycleItems::getImage(){
+    return &itemImage;
+}
+
 void RecycleItems::setItemName(int index) {
     switch(index) {
     case 0: {

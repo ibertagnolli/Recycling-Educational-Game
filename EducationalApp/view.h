@@ -9,6 +9,7 @@
 
 #include <QMainWindow>
 #include <QMouseEvent>
+#include <QLabel>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class View; }
@@ -94,11 +95,31 @@ public slots:
      */
     void changeScreen(int screen);
 
+    /**
+     * @brief setLabelBackground - sets the background of the
+     * label to the image.
+     * @param image - The item's icon
+     */
+    void setLabelBackground(QImage image);
+
 private:
     /**
      * @brief Tracks the current ui
      */
     Ui::View *ui;
+
+    /**
+     * @brief itemPressed - Indicates if an item
+     * is actively being pressed.
+     */
+    bool itemPressed;
+
+
+    /**
+     * @brief dragLabel - a pointer that references
+     * the new labels that are created throughout the game.
+     */
+    QLabel* dragLabel = nullptr;
 
     /**
      * @brief Tracks when the mouse is released
@@ -111,6 +132,14 @@ private:
      * @param event
      */
     void mouseMoveEvent(QMouseEvent *event);
+
+    /**
+     * @brief initializeLabel - Creates a new label based on the
+     * the icon that was created
+     * @param x - The x cordinate
+     * @param y - The y cordinate
+     */
+    void initializeLabel(int x, int y);
 
 private slots:
     /**
@@ -172,5 +201,7 @@ private slots:
      * slot is selected.
      */
     void on_itemSlot4_pressed();
+
+
 };
 #endif // VIEW_H

@@ -59,6 +59,10 @@ void CompostItems::setImage(int index){
    }
 }
 
+QImage* CompostItems::getImage(){
+    return &itemImage;
+}
+
 void CompostItems::setName(int index) {
     switch(index) {
     case 0: {

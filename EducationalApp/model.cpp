@@ -147,10 +147,13 @@ bool Model::checkTrashCollision(QPointF position, bool &trashCollision)
 
 void Model::receiveSelectedItem(int index) // TODO this might have coordinate parameters from which we calculate index
 {
+    std::cout << "Model: Receive Selected Item" << std::endl;
     currentItemIndex = index;
     emit sendItemInfoToWindow(items.at(barItems.at(currentItemIndex))->getType(),
                               items.at(barItems.at(currentItemIndex))->getName(),
                               items.at(barItems.at(currentItemIndex))->getDescription());
+    QImage image = *items.at(barItems.at(currentItemIndex))->getImage();
+    emit sendItemPhoto(image);
     // TODO check that I'm using enums correctly
 }
 // LOADING SCREEN METHODS

@@ -59,6 +59,10 @@
         }
     }
 
+    QImage* SpecialItems::getImage(){
+        return &itemImage;
+    }
+
     void SpecialItems::setItemName(int index) {
         switch(index) {
         case 0: {

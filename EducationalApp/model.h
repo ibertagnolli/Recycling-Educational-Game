@@ -68,6 +68,13 @@ signals:
      */
     void sendItemInfoToWindow(int itemType, QString itemName, QString itemDescrip);
 
+    /**
+     * @brief sendItemPhoto - A slot that sends
+     * the image photo to the view
+     * @param image - The image.
+     */
+    void sendItemPhoto(QImage image);
+
 public slots:
     /**
      * @brief Sets up the world for the first loading screen.
@@ -83,6 +90,8 @@ public slots:
      * TODO CONNECT WITH MOUSERELEASE BRANCH
      */
     void receiveSelectedItem(int index);
+
+
 
 private slots:
     /**

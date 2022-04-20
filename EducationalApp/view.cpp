@@ -56,12 +56,16 @@ View::View(QWidget *parent)
     ui->learnMoreLink->setTextFormat(Qt::RichText);
     ui->learnMoreLink->setTextInteractionFlags(Qt::TextBrowserInteraction);
     ui->learnMoreLink->setOpenExternalLinks(true);
+
+    itemPressed = false;
 }
 
 View::~View()
 {
+    delete dragLabel;
     delete ui;
 }
+
 //GENERAL STACK WIDGET METHODS
 void View::on_stackWidget_currentChanged(int index)
 {
@@ -95,39 +99,63 @@ void View::on_buttonToPurposeScreen_clicked()
 }
 
 // GAME SCREEN METHODS
+void View::initializeLabel(int x, int y){
+    std::cout << "Creating a label" << std::endl;
+    itemPressed = true;
+    dragLabel = new QLabel();
+    dragLabel->move(x, y);
+}
 
 void View::on_itemSlot0_pressed()
 {
+    initializeLabel(this->x(), this->y());
     emit sendSelectedItem(0);
 }
 
 void View::on_itemSlot1_pressed()
 {
+    initializeLabel(this->x(), this->y());
     emit sendSelectedItem(1);
 }
 
 void View::on_itemSlot2_pressed()
 {
+    initializeLabel(this->x(), this->y());
     emit sendSelectedItem(2);
 }
 
 void View::on_itemSlot3_pressed()
 {
+    initializeLabel(this->x(), this->y());
     emit sendSelectedItem(3);
 }
 
 void View::on_itemSlot4_pressed()
 {
+    initializeLabel(this->x(), this->y());
     emit sendSelectedItem(4);
+}
+
+void View::setLabelBackground(QImage image){
+    std::cout << "Setting Image" << std::endl;
+    QPixmap map;
+    map.convertFromImage(image,Qt::ColorOnly);
+    dragLabel->setPixmap(map);
 }
 
 void View::mouseReleaseEvent(QMouseEvent *event)
 {
+    itemPressed = false;
+    delete dragLabel;
     QPointF position = event->position();
     emit mouseReleased(position);
 }
 
-void View::mouseMoveEvent(QMouseEvent *event) {}
+void View::mouseMoveEvent(QMouseEvent *event) {
+    if(itemPressed){
+        dragLabel->move((int)event->x(), (int)event->y());
+    }
+}
 
 void View::trashInBin(bool correctlyIdentified)
 {

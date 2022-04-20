@@ -43,6 +43,10 @@ void TrashItems::setImage(int index) {
     }
 }
 
+QImage* TrashItems::getImage(){
+    return &itemImage;
+}
+
 void TrashItems::setDescription(int index){
     switch(index) {
     case 0: { // Meat
