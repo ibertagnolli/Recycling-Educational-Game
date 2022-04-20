@@ -29,10 +29,10 @@ Model::Model(QObject *parent) : QObject{parent} , world(b2Vec2 (0.0f, 10.0f))
 }
 
 Model::~Model(){
-//    for(auto bin : cans)
-//        delete bin;
-//    for(auto item : items)
-//        delete item;
+    //    for(auto bin : cans)
+    //        delete bin;
+    //    for(auto item : items)
+    //        delete item;
 }
 
 //GENERAL METHODS
@@ -94,40 +94,42 @@ void Model::mouseReleased(QPointF position)
     if (currentItemIndex == -1)
         return;
 
+    int index = barItems.at(currentItemIndex);
+    if(index == -1)
+        return;
+
     bool trashCollision;
-    bool correctCollision = checkTrashCollision(position, trashCollision);
+    bool correctCollision = checkTrashCollision(position, trashCollision, index);
 
     if (trashCollision)
         updateTheBarItemsIndex(correctCollision);
 
-    if(timeToSwitch())
+    if(timeToSwitchLevel())
         return;
 
     updateTheBarItemIcons();
 }
 
-bool Model::timeToSwitch(){
+bool Model::timeToSwitchLevel(){
     if(itemsLeft > 0)
         return false;
 
-    if (itemsLeft == 0) {
-        switch (currentLevel) {
-        case 1: //go to loading screen 1
-            emit changeScreen(4);
-            break;
-        case 2: //go to loading screen 2
-            emit changeScreen(5);
-            break;
-        case 3: // go to conclusion page
-            emit changeScreen(6);
-            break;
-        }
+    switch (currentLevel) {
+    case 1: //go to loading screen 1
+        emit changeScreen(4);
+        break;
+    case 2: //go to loading screen 2
+        emit changeScreen(5);
+        break;
+    case 3: // go to conclusion page
+        emit changeScreen(6);
+        break;
     }
 
     return true;
 }
 
-void Model::updateTheBarItemIcons(){
+void Model::updateTheBarItemIcons(){ // Remove "The"
     std::vector<QImage *> barItemNames;
     QImage emptyImage(":/images/images/TrashImages/Empty.png");
     for (int i = 0; i < (int)barItems.size(); i++) {
@@ -136,38 +138,36 @@ void Model::updateTheBarItemIcons(){
         else
             barItemNames.push_back(items.at(barItems.at(i))->getImage());
     }
+
     emit sendFiveBarItems(barItemNames);
     currentItemIndex = -1;
 }
 
 void Model::updateTheBarItemsIndex(bool correctCollision){
-    if (currGameItems.size() > 0) {
-        int index = barItems[currentItemIndex];
+    int index = barItems[currentItemIndex];
+    barItems[currentItemIndex] = -1;
+
+    if(currGameItems.size() > 0){
         barItems[currentItemIndex] = currGameItems.dequeue();
-        if (!correctCollision)
-            currGameItems.enqueue(index);
-    } else {
-        if (correctCollision)
-            barItems[currentItemIndex] = -1;
     }
 
-    if (correctCollision)
-        itemsLeft--;
+    if(!correctCollision) {
+        currGameItems.enqueue(index);
+        return;
+    }
+
+    itemsLeft--;
 }
 
-bool Model::checkTrashCollision(QPointF position, bool &trashCollision)
+bool Model::checkTrashCollision(QPointF position, bool &trashCollision, int index)
 {
-    int index = barItems.at(currentItemIndex);
-    if(index == -1)
-        return false;
 
-    // TODO: Add a level check for this section
     trashCollision = false;
     bool correctCollision = false;
     Items::ItemType currentItemType = items.at(index)->getType();
 
     for(int i = 0; i < 3; i++){
-        if(cans[i]->CollisionWithMe(position)){
+        if(cans[i]->CollisionWithMe(position)){ // CollisionWithMe not a great name
             correctCollision = (int)currentItemType == (int)cans[i]->getType();
             emit trashInBin(correctCollision);
             trashCollision = true;

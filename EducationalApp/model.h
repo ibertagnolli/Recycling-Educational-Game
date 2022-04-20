@@ -198,13 +198,13 @@ private:
      * and emit signals to switch when necessary.
      * @return A boolean indicated that it sent the switch signal.
      */
-    bool timeToSwitch();
+    bool timeToSwitchLevel();
     /**
      * @brief Checks if the trash item collided with a trash can
      * @param position of where the trash item is released
      * @return whether or not a collision occured
      */
-    bool checkTrashCollision(QPointF position, bool &trashCollision);
+    bool checkTrashCollision(QPointF position, bool &trashCollision, int index);
 
     /**
      * @brief updateQueue - A method that will update the items
