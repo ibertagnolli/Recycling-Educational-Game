@@ -71,7 +71,7 @@ void Model::updateQueue(int level)
 
 void Model::setUpItems()
 {
-    for(int i = 0; i < 2; i++){
+    for(int i = 0; i < 3; i++){
         items.push_back(new TrashItems(i));
         items.push_back(new RecycleItems(i));
         items.push_back(new CompostItems(i));

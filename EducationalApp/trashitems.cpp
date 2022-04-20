@@ -78,8 +78,9 @@ void TrashItems::setName(int index){
         break;
     }
     case 2: {
-            name = "Paper Towels";
-        }
+        name = "Paper Towels";
+        break;
+    }
     }
 }
 

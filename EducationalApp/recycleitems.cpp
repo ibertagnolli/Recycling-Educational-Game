@@ -72,18 +72,23 @@ void RecycleItems::setItemName(int index) {
     }
     case 1: {
         name = "Cardboard";
+        break;
     }
     case 2: {
         name = "Aluminum and Metal";
+        break;
     }
     case 3: {
         name = "Paper Bag";
+        break;
     }
     case 4: {
         name = "Milk Carton";
+        break;
     }
     case 5: {
         name = "NewsPaper";
+        break;
     }
     }
 }

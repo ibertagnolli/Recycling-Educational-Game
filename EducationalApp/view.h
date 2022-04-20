@@ -126,14 +126,6 @@ private:
      */
     void mouseMoveEvent(QMouseEvent *event);
 
-    /**
-     * @brief initializeLabel - Creates a new label based on the
-     * the icon that was created
-     * @param x - The x cordinate
-     * @param y - The y cordinate
-     */
-    void initializeLabel(int x, int y);
-
 private slots:
     /**
      * @brief Informs the view whenever the current widget has changed

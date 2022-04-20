@@ -102,10 +102,6 @@ void View::on_buttonToPurposeScreen_clicked()
 }
 
 // GAME SCREEN METHODS
-void View::initializeLabel(int x, int y){
-
-}
-
 void View::on_itemSlot0_pressed()
 {
     emit sendSelectedItem(0);
@@ -135,8 +131,8 @@ void View::setLabelBackground(QImage image){
     this->grabMouse();
     itemPressed = true;
     QPixmap map;
-    map.convertFromImage(image.scaledToHeight(72),Qt::ColorOnly);
-    ui->TestLabel->setGeometry(0,0,71,71);
+    map.convertFromImage(image.scaled(72, 72),Qt::ColorOnly);
+    ui->TestLabel->setGeometry(0,0,72,72);
     ui->TestLabel->setPixmap(map);
 }
 
@@ -144,9 +140,9 @@ void View::mouseReleaseEvent(QMouseEvent *event)
 {
     itemPressed = false;
     ui->TestLabel->hide();
-    this->releaseMouse();
     QPointF position = event->position();
     emit mouseReleased(position);
+    this->releaseMouse();
 }
 
 
@@ -173,7 +169,7 @@ void View::receiveItemInfo(int itemType, QString itemName, QString itemDescrip, 
     ui->itemTitleLabel->setText(itemName);
     ui->sideBarLabel->setText(itemDescrip); // TODO just display this after user disposes of trash, then start timer? Or just have it up until the next item is selected
     QPixmap map;
-    map.convertFromImage(image.scaledToHeight(57),Qt::ColorOnly);
+    map.convertFromImage(image.scaled(133, 57),Qt::ColorOnly);
     ui->itemImageLabel->setPixmap(map); // TODO have itemName mage file name!
     ui->itemImageLabel->setScaledContents(true); // TODO can this line go in the form?
     // TODO update correct/incorrect label when the user drags the image to the bin

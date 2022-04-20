@@ -1153,8 +1153,12 @@ border-bottom-right-radius: 10px;
           <height>20</height>
          </rect>
         </property>
+        <property name="styleSheet">
+         <string notr="true">border-color: rgba(0, 0, 0, 0);
+background-color: rgba(255, 255, 255, 0);</string>
+        </property>
         <property name="text">
-         <string>TextLabel</string>
+         <string/>
         </property>
        </widget>
        <zorder>gameScreenBackgroundLabel</zorder>
