@@ -53,16 +53,15 @@ void Controller::firstLoadingScreenConnections()
 void Controller::secondLoadingScreenConnections()
 {
     connect(view, &View::secondLoadScreenStart, model, &Model::setupSecondLoadingWorld);
-    //connect(model, &Model::updateRainPosition, view, &View::setLogoPosition);
-    //connect(model, &Model::updateRainPosition, view, &View::drawRain);
-    connect(model, &Model::updateRain, this, &Controller::rain);
-    //connect(model, &Model::updateRain, view, &View::paintEvent);
+    //connect(model, &Model::updateRain, this, &Controller::rain);
+    connect(model, &Model::updatedRainVector, view, &View::updateRaindropVector);
 }
 
 void Controller::rain()
 {
-    view->updateView();
-    std::cout << "entered rain";
+    //view->updateView();
+    //std::cout << "entered rain";
+    view->drawRain(100,100);
 }
 
 // CONCLUDING SCREEN METHODS

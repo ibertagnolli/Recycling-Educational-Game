@@ -11,6 +11,8 @@
 #include <QMouseEvent>
 #include <QLabel>
 #include <QPainter>
+#include <vector>
+#include "rain.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class View; }
@@ -34,6 +36,8 @@ public:
     * Destructor for the View
     */
     ~View();
+
+    std::vector<Rain* > raindrops;
 
 signals:
 
@@ -75,6 +79,7 @@ public slots:
     void paintEvent(QPaintEvent *, int xPosition, int yPosition);
     void drawRain(int xPosition, int yPosition);
     void updateView();
+    void updateRaindropVector(std::vector<Rain*> raindropVector);
 
     /**
      * @brief Recieved from the model when a user has put an item into a garbage bin

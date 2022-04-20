@@ -62,6 +62,7 @@ SOURCES += \
     items.cpp \
     main.cpp \
     model.cpp \
+    rain.cpp \
     recyclebins.cpp \
     specialbins.cpp \
     trashbins.cpp \
@@ -124,6 +125,7 @@ HEADERS += \
     controller.h \
     items.h \
     model.h \
+    rain.h \
     recyclebins.h \
     specialbins.h \
     trashbins.h \

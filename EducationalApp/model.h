@@ -9,6 +9,7 @@
 #include "bins.h"
 #include "Box2D/Box2D.h"
 #include "items.h"
+#include "rain.h"
 #include <vector>
 #include <QObject>
 #include <QQueue>
@@ -50,7 +51,8 @@ signals:
     void updateLabelPosition(int xPosition, int yPosition);
 
     void updateRainPosition(int xPosition, int yPosition);
-    void updateRain();;
+    void updateRain();
+    void updatedRainVector(std::vector<Rain *> raindrops);
 
     /**
      * @brief Informs the view that trash has been put in a bin
@@ -199,5 +201,7 @@ private:
      * @param level - The level that we are currently at.
      */
     void updateQueue(int level);
+
+    std::vector<Rain *> raindrops;
 };
 #endif // MODEL_H

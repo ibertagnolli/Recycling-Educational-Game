@@ -273,7 +273,7 @@ void Model::setupSecondLoadingWorld()
     // Define the dynamic body. We set its position and call the body factory.
     b2BodyDef bodyDef;
     bodyDef.type = b2_dynamicBody;
-    bodyDef.position.Set(-2.0f, 0.0f);
+    bodyDef.position.Set(1.0f, 0.0f);
     body = world.CreateBody(&bodyDef);
 
     // Apply a force so that the body moves to the right
@@ -299,6 +299,11 @@ void Model::setupSecondLoadingWorld()
     // Add the shape to the body.
     body->CreateFixture(&fixtureDef);
 
+    for(int i = 0; i < 20; i++)
+    {
+        raindrops.push_back(new Rain());
+    }
+
     // Tells the world to update the dynamic body
     updateSecondLoadingWorld();
 }
@@ -316,13 +321,21 @@ void Model::updateSecondLoadingWorld(){
     world.Step(timeStep, velocityIterations, positionIterations);
     b2Vec2 position = body->GetPosition();
 
-    emit updateRainPosition(position.x*100, position.y*100);
-    emit updateRain();
+    for(int i = 0; i < 20; i++)
+    {
+        raindrops[i]->xPos = position.x*100;
+        raindrops[i]->yPos = position.y*100;
+    }
+
+    emit updatedRainVector(raindrops);
+    //emit updateRainPosition(position.x*100, position.y*100);
+
+    //emit updateRain();
 
     // Has the simulation run for only 5 seconds.
     if (simulationDuration > 0)
     {
-        simulationDuration -= 20;
+        //simulationDuration -= 20;
         QTimer::singleShot(20, this, &Model::updateSecondLoadingWorld);
     }
     else

@@ -10,6 +10,7 @@
 #include <QObject>
 #include "model.h"
 #include "view.h"
+#include "rain.h"
 
 /**
  * @brief The Controller class - This class is used to manage all
