@@ -166,7 +166,7 @@ bool Model::checkTrashCollision(QPointF position, bool &trashCollision, int inde
     bool correctCollision = false;
     Items::ItemType currentItemType = items.at(index)->getType();
 
-    for(int i = 0; i < 3; i++){
+    for(int i = 0; i < 3; i++){ // Might have to have a level check in the collision
         if(cans[i]->CollisionWithMe(position)){ // CollisionWithMe not a great name
             correctCollision = (int)currentItemType == (int)cans[i]->getType();
             emit trashInBin(correctCollision);
