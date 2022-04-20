@@ -114,13 +114,6 @@ private:
      */
     bool itemPressed;
 
-
-    /**
-     * @brief dragLabel - a pointer that references
-     * the new labels that are created throughout the game.
-     */
-    QLabel* dragLabel = nullptr;
-
     /**
      * @brief Tracks when the mouse is released
      * @param event

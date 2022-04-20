@@ -23,6 +23,12 @@ class Model : public QObject
     Q_OBJECT
 public:
     explicit Model(QObject *parent = nullptr);
+
+    /**
+     * @brief - The desctructor of the model
+     **/
+    ~Model();
+
     /**
      * @brief When informed by the view, changes to the current screen's data
      * @param current screen index

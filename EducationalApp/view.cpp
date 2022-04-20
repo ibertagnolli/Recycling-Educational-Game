@@ -9,6 +9,7 @@
 #include <iostream>
 #include <QMouseEvent>
 #include <QTimer>
+#include <QPoint>
 
 View::View(QWidget *parent)
     : QMainWindow(parent)
@@ -57,12 +58,14 @@ View::View(QWidget *parent)
     ui->learnMoreLink->setTextInteractionFlags(Qt::TextBrowserInteraction);
     ui->learnMoreLink->setOpenExternalLinks(true);
 
+
     itemPressed = false;
+    ui->TestLabel->setMouseTracking(true);
+    ui->TestLabel->hide();
 }
 
 View::~View()
 {
-    delete dragLabel;
     delete ui;
 }
 
@@ -102,59 +105,57 @@ void View::on_buttonToPurposeScreen_clicked()
 void View::initializeLabel(int x, int y){
     std::cout << "Creating a label" << std::endl;
     itemPressed = true;
-    dragLabel = new QLabel();
-    dragLabel->move(x, y);
+    ui->TestLabel->setGeometry(x-72/2, y-71/2, 71, 71);
+    ui->TestLabel->show();
+    this->grabMouse();
 }
 
 void View::on_itemSlot0_pressed()
 {
-    initializeLabel(this->x(), this->y());
     emit sendSelectedItem(0);
 }
 
 void View::on_itemSlot1_pressed()
 {
-    initializeLabel(this->x(), this->y());
     emit sendSelectedItem(1);
 }
 
 void View::on_itemSlot2_pressed()
 {
-    initializeLabel(this->x(), this->y());
     emit sendSelectedItem(2);
 }
 
 void View::on_itemSlot3_pressed()
 {
-    initializeLabel(this->x(), this->y());
     emit sendSelectedItem(3);
 }
 
 void View::on_itemSlot4_pressed()
 {
-    initializeLabel(this->x(), this->y());
     emit sendSelectedItem(4);
 }
 
 void View::setLabelBackground(QImage image){
-    std::cout << "Setting Image" << std::endl;
+    QPoint p = QCursor::pos();
+    initializeLabel(p.x(), p.y());
     QPixmap map;
-    map.convertFromImage(image,Qt::ColorOnly);
-    dragLabel->setPixmap(map);
+    map.convertFromImage(image.scaledToHeight(71),Qt::ColorOnly);
+    ui->TestLabel->setPixmap(map);
 }
 
 void View::mouseReleaseEvent(QMouseEvent *event)
 {
     itemPressed = false;
-    delete dragLabel;
+    ui->TestLabel->hide();
+    this->releaseMouse();
     QPointF position = event->position();
     emit mouseReleased(position);
 }
 
+
 void View::mouseMoveEvent(QMouseEvent *event) {
-    if(itemPressed){
-        dragLabel->move((int)event->x(), (int)event->y());
-    }
+    if(itemPressed)
+        ui->TestLabel->move((int)event->position().x()-71/2, (int)event->position().y()-71/2);
 }
 
 void View::trashInBin(bool correctlyIdentified)

@@ -95,34 +95,34 @@ void CompostItems::setName(int index) {
 void CompostItems::setDescription(int index) {
     switch(index) {
     case 0: { // Banana Peel
-        description = "Whole fruits and vegetables and their scraps can go in "
-                      "the compost bin. Remember to remove any stickers!";
+        description = "Whole fruits and vegetables \nand their scraps can go \nin "
+                      "the compost bin. \nRemember to remove any \nstickers!";
         break;
     }
     case 1: { // Lawn Clippings
-        description = "Lawn clippings, leaves, branches, and weeds can go in the "
-                      "compost bin. Plastic bags, sod, dirt, rocks, and construction "
-                      "wood cannot.";
+        description = "Lawn clippings, leaves, \nbranches, and weeds can go \nin the "
+                      "compost bin. \nPlastic bags, sod, dirt, \nrocks, and construction "
+                      "wood \ncannot.";
         break;
     }
     case 2: { // Tea Bag
-        description = "Salt Lake allows tea bags to be composted as long as they do not have staples. "
-                      "Tea bags and other food items without packaging such as egg shells "
-                      "or cofee grounds can be composted as well.";
+        description = "Salt Lake allows tea bags \nto be composted as long as \nthey do not have staples. "
+                      "Tea bags and other food \nitems without packaging such \nas egg shells "
+                      "or cofee \ngrounds can be composted as well.";
         break;
     }
     case 3: { // Egg Shells
-        description = "Salt Lake allows egg shells to be composted unlike meat";
+        description = "Salt Lake allows egg shells to be \ncomposted unlike meat";
         break;
     }
     case 4: { // Coffee Grounds
-        description = "Salt Lake allows Coffee Grounds, not cups or lids to be composted.";
+        description = "Salt Lake allows Coffee Grounds, \nnot cups or lids to be composted.";
         break;
     }
     case 5: { // Sticky Tape
-        description = "Sticky tape is not recyclable and should be put in the compost bin. "
-                      "Sticky tape is reffering to painters or yellow tape that will degrade over time,"
-                      "not packing or clear tape. ";
+        description = "Sticky tape is not recyclable and should \nbe put in the compost bin. "
+                      "Sticky tape is reffering to \npainters or yellow tape \nthat will degrade over "
+                      "\ntime, not packing or clear tape. ";
         break;
     }
     }

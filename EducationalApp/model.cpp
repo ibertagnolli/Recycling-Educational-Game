@@ -28,6 +28,13 @@ Model::Model(QObject *parent) : QObject{parent} , world(b2Vec2 (0.0f, 10.0f))
     cans.push_back(new SpecialBins);
 }
 
+Model::~Model(){
+//    for(auto bin : cans)
+//        delete bin;
+//    for(auto item : items)
+//        delete item;
+}
+
 //GENERAL METHODS
 void Model::updateScreenIndex(int index)
 {
@@ -129,15 +136,15 @@ bool Model::checkTrashCollision(QPointF position, bool &trashCollision)
     trashCollision = true;
     bool correctCollision = false;
     if (position.x() > 81 && position.x() < 204 && position.y() > 288 && position.y() < 463) {
-        correctCollision = (int)currentItemType == cans.at(0)->getType();
+        correctCollision = (int)currentItemType == (int)cans.at(0)->getType();
         emit trashInBin(correctCollision);
     } else if (position.x() > 261 && position.x() < 385 && position.y() > 288
                && position.y() < 463) {
-        correctCollision = (int)currentItemType == cans.at(1)->getType();
+        correctCollision = (int)currentItemType == (int)cans.at(1)->getType();
         emit trashInBin(correctCollision);
     } else if (position.x() > 440 && position.x() < 573 && position.y() > 288
                && position.y() < 463) {
-        correctCollision = (int)currentItemType == cans.at(2)->getType();
+        correctCollision = (int)currentItemType == (int)cans.at(2)->getType();
         emit trashInBin(correctCollision);
     } else {
         trashCollision = false;
@@ -148,6 +155,10 @@ bool Model::checkTrashCollision(QPointF position, bool &trashCollision)
 void Model::receiveSelectedItem(int index) // TODO this might have coordinate parameters from which we calculate index
 {
     std::cout << "Model: Receive Selected Item" << std::endl;
+    if(barItems[index] == -1) {
+        return;
+    }
+
     currentItemIndex = index;
     emit sendItemInfoToWindow(items.at(barItems.at(currentItemIndex))->getType(),
                               items.at(barItems.at(currentItemIndex))->getName(),
