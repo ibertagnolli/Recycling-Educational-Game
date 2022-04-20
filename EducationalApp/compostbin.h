@@ -60,6 +60,12 @@ public:
      * represents x,y, width, height
      */
     std::vector<int> getRegion();
+
+    /**
+     * @brief CollisionWithMe - Indicates collision between
+     * bins and position.
+     */
+    bool CollisionWithMe(QPointF pos);
 };
 
 #endif // COMPOSTBIN_H

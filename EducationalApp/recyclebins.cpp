@@ -29,6 +29,10 @@ std::vector<int> RecycleBins::getRegion(){
     return std::vector<int> {60,240,150,220};
 }
 
+bool RecycleBins::CollisionWithMe(QPointF pos){
+    return ((pos.x() > 60 && pos.x() < 60+150) && (pos.y() > 240 && pos.y() < 240+220));
+}
+
 QImage* RecycleBins::getImage(){
     return &binImage;
 }

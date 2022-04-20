@@ -26,6 +26,10 @@ std::vector<int> TrashBins::getRegion(){
     return std::vector<int> {240, 240, 150,220};
 }
 
+bool TrashBins::CollisionWithMe(QPointF pos){
+    return ((pos.x() > 240 && pos.x() < 240+150) && (pos.y() > 240 && pos.y() < 240+220));
+}
+
 QImage* TrashBins::getImage(){
     return &binImage;
 }

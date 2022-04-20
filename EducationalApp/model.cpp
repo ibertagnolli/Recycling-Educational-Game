@@ -53,13 +53,17 @@ void Model::updateScreenIndex(int index)
 
 void Model::updateQueue(int level)
 {
+    // Adds Item into the Queue Object
     for (int i = 0; i < (int)items.size(); i++) {
         if (items.at(i)->getLevel() == level) //modify this to be MORE dynamic
             currGameItems.enqueue(i);
     }
 
     itemsLeft = currGameItems.size();
+
     //shuffle queue
+    //std::shuffle(0, itemsLeft, currGameItems);
+
     std::vector<QImage *> barItemNames;
     for (int i = 0; i < 5; i++) {
         int index = currGameItems.dequeue();
@@ -89,6 +93,7 @@ void Model::mouseReleased(QPointF position)
 {
     if (currentItemIndex == -1)
         return;
+
     bool trashCollision;
     bool correctCollision = checkTrashCollision(position, trashCollision);
 
@@ -133,23 +138,18 @@ void Model::mouseReleased(QPointF position)
 bool Model::checkTrashCollision(QPointF position, bool &trashCollision)
 {
     Items::ItemType currentItemType = items.at(currentItemIndex)->getType();
-    //Items::ItemType currentItemType = items.at(currentItemBarLoc)->getType();
-    trashCollision = true;
+    trashCollision = false;
     bool correctCollision = false;
-    if (position.x() > 81 && position.x() < 204 && position.y() > 288 && position.y() < 463) {
-        correctCollision = (int)currentItemType == (int)cans.at(0)->getType();
-        emit trashInBin(correctCollision);
-    } else if (position.x() > 261 && position.x() < 385 && position.y() > 288
-               && position.y() < 463) {
-        correctCollision = (int)currentItemType == (int)cans.at(1)->getType();
-        emit trashInBin(correctCollision);
-    } else if (position.x() > 440 && position.x() < 573 && position.y() > 288
-               && position.y() < 463) {
-        correctCollision = (int)currentItemType == (int)cans.at(2)->getType();
-        emit trashInBin(correctCollision);
-    } else {
-        trashCollision = false;
+
+    for(int i = 0; i < 3; i++){
+        if(cans[i]->CollisionWithMe(position)){
+            correctCollision = (int)currentItemType == (int)cans[i]->getType();
+            emit trashInBin(correctCollision);
+            trashCollision = true;
+            return correctCollision;
+        }
     }
+
     return correctCollision;
 }
 

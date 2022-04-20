@@ -59,6 +59,14 @@ public:
      * @return Vector<int> ordered with x, y, width, height
      */
     virtual std::vector<int> getRegion(void) = 0;
+
+    /**
+     * @brief CollisionWithMe - Checks whether the given item
+     * collides with the trash bin.
+     * @param pos - x and y position
+     * @return Boolean indicating collisions.
+     */
+    virtual bool CollisionWithMe(QPointF pos) = 0;
 };
 
 #endif // BINS_H

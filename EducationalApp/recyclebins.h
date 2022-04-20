@@ -44,6 +44,12 @@ public:
     QImage* getImage();
 
     /**
+     * @brief CollisionWithMe - Indicates collision between
+     * bins and position.
+     */
+    bool CollisionWithMe(QPointF pos);
+
+    /**
      * @brief getType - Indicates the type of bin
      * @return a string representation of the type of bin.
      */
