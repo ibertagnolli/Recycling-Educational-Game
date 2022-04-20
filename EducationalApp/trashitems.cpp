@@ -75,6 +75,7 @@ void TrashItems::setName(int index){
         break;
     } case 1: {
         name = "Food Wrappers";
+        break;
     }
     case 2: {
             name = "Paper Towels";

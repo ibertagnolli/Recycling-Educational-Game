@@ -87,7 +87,7 @@ public slots:
      * @param itemType - Trash = 0, Recycle = 1, Compost = 2, Special = 3
      * TODO make sure I'm using enums correctly
      */
-    void receiveItemInfo(int itemType, QString itemName, QString itemDescrip);
+    void receiveItemInfo(int itemType, QString itemName, QString itemDescrip, QImage image);
 
     /**
      * @brief informs the view when the current screen needs to be updated

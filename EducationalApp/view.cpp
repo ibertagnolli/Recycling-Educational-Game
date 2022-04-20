@@ -103,11 +103,7 @@ void View::on_buttonToPurposeScreen_clicked()
 
 // GAME SCREEN METHODS
 void View::initializeLabel(int x, int y){
-    std::cout << "Creating a label" << std::endl;
-    itemPressed = true;
-    ui->TestLabel->setGeometry(x-72/2, y-71/2, 71, 71);
-    ui->TestLabel->show();
-    this->grabMouse();
+
 }
 
 void View::on_itemSlot0_pressed()
@@ -136,10 +132,11 @@ void View::on_itemSlot4_pressed()
 }
 
 void View::setLabelBackground(QImage image){
-    QPoint p = QCursor::pos();
-    initializeLabel(p.x(), p.y());
+    this->grabMouse();
+    itemPressed = true;
     QPixmap map;
-    map.convertFromImage(image.scaledToHeight(71),Qt::ColorOnly);
+    map.convertFromImage(image.scaledToHeight(72),Qt::ColorOnly);
+    ui->TestLabel->setGeometry(0,0,71,71);
     ui->TestLabel->setPixmap(map);
 }
 
@@ -154,8 +151,10 @@ void View::mouseReleaseEvent(QMouseEvent *event)
 
 
 void View::mouseMoveEvent(QMouseEvent *event) {
-    if(itemPressed)
+    if(itemPressed) {
         ui->TestLabel->move((int)event->position().x()-71/2, (int)event->position().y()-71/2);
+        ui->TestLabel->show();
+    }
 }
 
 void View::trashInBin(bool correctlyIdentified)
@@ -169,12 +168,13 @@ void View::trashInBin(bool correctlyIdentified)
     }
 }
 
-void View::receiveItemInfo(int itemType, QString itemName, QString itemDescrip)
+void View::receiveItemInfo(int itemType, QString itemName, QString itemDescrip, QImage image)
 {
     ui->itemTitleLabel->setText(itemName);
     ui->sideBarLabel->setText(itemDescrip); // TODO just display this after user disposes of trash, then start timer? Or just have it up until the next item is selected
-    ui->itemImageLabel->setPixmap(
-        QPixmap(":/images/images/TrashImages/" + itemName + ".png")); // TODO have itemName mage file name!
+    QPixmap map;
+    map.convertFromImage(image.scaledToHeight(57),Qt::ColorOnly);
+    ui->itemImageLabel->setPixmap(map); // TODO have itemName mage file name!
     ui->itemImageLabel->setScaledContents(true); // TODO can this line go in the form?
     // TODO update correct/incorrect label when the user drags the image to the bin
 }

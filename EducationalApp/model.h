@@ -72,7 +72,8 @@ signals:
      * trash type, name, and description to the View. TODO have name match image name
      * to easily upload the image without sending it!
      */
-    void sendItemInfoToWindow(int itemType, QString itemName, QString itemDescrip);
+    void sendItemInfoToWindow(int itemType, QString itemName, QString itemDescrip,
+                              QImage image);
 
     /**
      * @brief sendItemPhoto - A slot that sends

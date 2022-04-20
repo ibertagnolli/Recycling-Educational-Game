@@ -162,7 +162,8 @@ void Model::receiveSelectedItem(int index) // TODO this might have coordinate pa
     currentItemIndex = index;
     emit sendItemInfoToWindow(items.at(barItems.at(currentItemIndex))->getType(),
                               items.at(barItems.at(currentItemIndex))->getName(),
-                              items.at(barItems.at(currentItemIndex))->getDescription());
+                              items.at(barItems.at(currentItemIndex))->getDescription(),
+                              (*items.at(barItems.at(currentItemIndex))->getImage()));
     QImage image = *items.at(barItems.at(currentItemIndex))->getImage();
     emit sendItemPhoto(image);
     // TODO check that I'm using enums correctly
