@@ -33,7 +33,7 @@ void RecycleItems::setItemImage(int index){
         itemImage = image.copy();
         break;
     } case 1: { // Cardboard
-        QImage image(":/images/images/TrashImages/Cardboard Box.png");
+        QImage image(":/images/images/TrashImages/Cardboard.png");
         itemImage = image.copy();
         break;
     }case 2: { // Cardboard
@@ -52,12 +52,16 @@ void RecycleItems::setItemImage(int index){
             break;
         }
     case 5: { // Milk Carton
-            QImage image(":/images/images/TrashImages/NewsPaper.png");
+            QImage image(":/images/images/TrashImages/Newspaper.png");
             itemImage = image.copy();
             break;
         }
 
     }
+}
+
+QImage* RecycleItems::getImage(){
+    return &itemImage;
 }
 
 void RecycleItems::setItemName(int index) {
@@ -68,18 +72,23 @@ void RecycleItems::setItemName(int index) {
     }
     case 1: {
         name = "Cardboard";
+        break;
     }
     case 2: {
         name = "Aluminum and Metal";
+        break;
     }
     case 3: {
         name = "Paper Bag";
+        break;
     }
     case 4: {
         name = "Milk Carton";
+        break;
     }
     case 5: {
         name = "NewsPaper";
+        break;
     }
     }
 }

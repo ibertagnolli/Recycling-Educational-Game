@@ -9,6 +9,7 @@
 
 #include <QMainWindow>
 #include <QMouseEvent>
+#include <QLabel>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class View; }
@@ -86,7 +87,7 @@ public slots:
      * @param itemType - Trash = 0, Recycle = 1, Compost = 2, Special = 3
      * TODO make sure I'm using enums correctly
      */
-    void receiveItemInfo(int itemType, QString itemName, QString itemDescrip);
+    void receiveItemInfo(int itemType, QString itemName, QString itemDescrip, QImage image);
 
     /**
      * @brief informs the view when the current screen needs to be updated
@@ -94,11 +95,24 @@ public slots:
      */
     void changeScreen(int screen);
 
+    /**
+     * @brief setLabelBackground - sets the background of the
+     * label to the image.
+     * @param image - The item's icon
+     */
+    void setLabelBackground(QImage image);
+
 private:
     /**
      * @brief Tracks the current ui
      */
     Ui::View *ui;
+
+    /**
+     * @brief itemPressed - Indicates if an item
+     * is actively being pressed.
+     */
+    bool itemPressed;
 
     /**
      * @brief Tracks when the mouse is released
@@ -172,5 +186,7 @@ private slots:
      * slot is selected.
      */
     void on_itemSlot4_pressed();
+
+
 };
 #endif // VIEW_H

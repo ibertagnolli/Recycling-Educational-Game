@@ -47,6 +47,13 @@ public:
     QString getDescription();
 
     /**
+     * @brief getImage - Gets the image for the specific
+     * item
+     * @return
+     */
+    QImage* getImage();
+
+    /**
      * @brief Returns the item's game level
      * @return int representing each game level
      */

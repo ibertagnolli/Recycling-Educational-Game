@@ -9,6 +9,7 @@
 #include <iostream>
 #include <QMouseEvent>
 #include <QTimer>
+#include <QPoint>
 
 View::View(QWidget *parent)
     : QMainWindow(parent)
@@ -56,12 +57,18 @@ View::View(QWidget *parent)
     ui->learnMoreLink->setTextFormat(Qt::RichText);
     ui->learnMoreLink->setTextInteractionFlags(Qt::TextBrowserInteraction);
     ui->learnMoreLink->setOpenExternalLinks(true);
+
+
+    itemPressed = false;
+    ui->TestLabel->setMouseTracking(true);
+    ui->TestLabel->hide();
 }
 
 View::~View()
 {
     delete ui;
 }
+
 //GENERAL STACK WIDGET METHODS
 void View::on_stackWidget_currentChanged(int index)
 {
@@ -95,7 +102,6 @@ void View::on_buttonToPurposeScreen_clicked()
 }
 
 // GAME SCREEN METHODS
-
 void View::on_itemSlot0_pressed()
 {
     emit sendSelectedItem(0);
@@ -121,13 +127,31 @@ void View::on_itemSlot4_pressed()
     emit sendSelectedItem(4);
 }
 
-void View::mouseReleaseEvent(QMouseEvent *event)
-{
-    QPointF position = event->position();
-    emit mouseReleased(position);
+void View::setLabelBackground(QImage image){
+    this->grabMouse();
+    itemPressed = true;
+    QPixmap map;
+    map.convertFromImage(image.scaled(72, 72),Qt::ColorOnly);
+    ui->TestLabel->setGeometry(0,0,72,72);
+    ui->TestLabel->setPixmap(map);
 }
 
-void View::mouseMoveEvent(QMouseEvent *event) {}
+void View::mouseReleaseEvent(QMouseEvent *event)
+{
+    itemPressed = false;
+    ui->TestLabel->hide();
+    QPointF position = event->position();
+    emit mouseReleased(position);
+    this->releaseMouse();
+}
+
+
+void View::mouseMoveEvent(QMouseEvent *event) {
+    if(itemPressed) {
+        ui->TestLabel->move((int)event->position().x()-71/2, (int)event->position().y()-71/2);
+        ui->TestLabel->show();
+    }
+}
 
 void View::trashInBin(bool correctlyIdentified)
 {
@@ -140,12 +164,13 @@ void View::trashInBin(bool correctlyIdentified)
     }
 }
 
-void View::receiveItemInfo(int itemType, QString itemName, QString itemDescrip)
+void View::receiveItemInfo(int itemType, QString itemName, QString itemDescrip, QImage image)
 {
     ui->itemTitleLabel->setText(itemName);
     ui->sideBarLabel->setText(itemDescrip); // TODO just display this after user disposes of trash, then start timer? Or just have it up until the next item is selected
-    ui->itemImageLabel->setPixmap(
-        QPixmap(":/images/images/TrashImages/" + itemName + ".png")); // TODO have itemName mage file name!
+    QPixmap map;
+    map.convertFromImage(image.scaled(133, 57),Qt::ColorOnly);
+    ui->itemImageLabel->setPixmap(map); // TODO have itemName mage file name!
     ui->itemImageLabel->setScaledContents(true); // TODO can this line go in the form?
     // TODO update correct/incorrect label when the user drags the image to the bin
 }

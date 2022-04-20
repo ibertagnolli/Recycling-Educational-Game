@@ -1109,6 +1109,9 @@ border-bottom-right-radius: 10px;
            <property name="text">
             <string>description here</string>
            </property>
+           <property name="wordWrap">
+            <bool>true</bool>
+           </property>
           </widget>
          </item>
         </layout>
@@ -1144,6 +1147,23 @@ border-bottom-right-radius: 10px;
          <string>Conclusion Screen</string>
         </property>
        </widget>
+       <widget class="QLabel" name="TestLabel">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>120</y>
+          <width>63</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border-color: rgba(0, 0, 0, 0);
+background-color: rgba(255, 255, 255, 0);</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
        <zorder>gameScreenBackgroundLabel</zorder>
        <zorder>trashBinLabel</zorder>
        <zorder>yardBinLabel</zorder>
@@ -1152,6 +1172,7 @@ border-bottom-right-radius: 10px;
        <zorder>ItemInfoBox</zorder>
        <zorder>itemBarLabel</zorder>
        <zorder>conclusionButton</zorder>
+       <zorder>TestLabel</zorder>
       </widget>
       <widget class="QWidget" name="loadingScreen1">
        <widget class="QLabel" name="recycleLogo">
@@ -1282,7 +1303,7 @@ border-bottom-right-radius: 10px;
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>21</height>
+     <height>25</height>
     </rect>
    </property>
   </widget>

@@ -23,6 +23,12 @@ class Model : public QObject
     Q_OBJECT
 public:
     explicit Model(QObject *parent = nullptr);
+
+    /**
+     * @brief - The desctructor of the model
+     **/
+    ~Model();
+
     /**
      * @brief When informed by the view, changes to the current screen's data
      * @param current screen index
@@ -66,7 +72,15 @@ signals:
      * trash type, name, and description to the View. TODO have name match image name
      * to easily upload the image without sending it!
      */
-    void sendItemInfoToWindow(int itemType, QString itemName, QString itemDescrip);
+    void sendItemInfoToWindow(int itemType, QString itemName, QString itemDescrip,
+                              QImage image);
+
+    /**
+     * @brief sendItemPhoto - A slot that sends
+     * the image photo to the view
+     * @param image - The image.
+     */
+    void sendItemPhoto(QImage image);
 
 public slots:
     /**
@@ -83,6 +97,8 @@ public slots:
      * TODO CONNECT WITH MOUSERELEASE BRANCH
      */
     void receiveSelectedItem(int index);
+
+
 
 private slots:
     /**

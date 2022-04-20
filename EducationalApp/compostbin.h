@@ -23,9 +23,8 @@ public:
     CompostBin();
 
     /**
-     * @brief - ~CompostBin - The destructor for the
-     * compost bin.
-     * */
+     * @brief - The destructor.
+     **/
     ~CompostBin();
 
     /**
