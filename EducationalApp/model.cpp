@@ -107,20 +107,24 @@ void Model::mouseReleased(QPointF position)
 }
 
 bool Model::timeToSwitch(){
+    if(itemsLeft > 0)
+        return false;
+
     if (itemsLeft == 0) {
         switch (currentLevel) {
         case 1: //go to loading screen 1
             emit changeScreen(4);
-            return true;
+            break;
         case 2: //go to loading screen 2
             emit changeScreen(5);
-            return true;
+            break;
         case 3: // go to conclusion page
             emit changeScreen(6);
-            return true;
+            break;
         }
     }
-    return false;
+
+    return true;
 }
 
 void Model::updateTheBarItemIcons(){
@@ -153,10 +157,14 @@ void Model::updateTheBarItemsIndex(bool correctCollision){
 
 bool Model::checkTrashCollision(QPointF position, bool &trashCollision)
 {
+    int index = barItems.at(currentItemIndex);
+    if(index == -1)
+        return false;
+
     // TODO: Add a level check for this section
-    Items::ItemType currentItemType = items.at(currentItemIndex)->getType();
     trashCollision = false;
     bool correctCollision = false;
+    Items::ItemType currentItemType = items.at(index)->getType();
 
     for(int i = 0; i < 3; i++){
         if(cans[i]->CollisionWithMe(position)){

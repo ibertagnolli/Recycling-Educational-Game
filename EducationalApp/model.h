@@ -187,8 +187,17 @@ private:
      */
     void updateTheBarItemsIndex(bool correctCollision);
 
+    /**
+     * @brief updateTheBarItemIcons - A helper method that
+     * updates the images of the item bar.
+     */
     void updateTheBarItemIcons();
 
+    /**
+     * @brief timeToSwitch - Indicates if it is time to switch items
+     * and emit signals to switch when necessary.
+     * @return A boolean indicated that it sent the switch signal.
+     */
     bool timeToSwitch();
     /**
      * @brief Checks if the trash item collided with a trash can
