@@ -295,7 +295,7 @@ void Model::setupSecondLoadingWorld()
 
     // Define the ground body.
     b2BodyDef wall2BodyDef;
-   wall2BodyDef.position.Set(8.0f, 0.0f);
+   wall2BodyDef.position.Set(7.5f, 0.0f);
 
     // Call the body factory which allocates memory for the ground body
     // from a pool and creates the ground box shape (also from a pool).

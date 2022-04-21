@@ -42,7 +42,7 @@ View::View(QWidget *parent)
     ui->recycleLogo->setPixmap(QPixmap(":/images/images/recycleLoadingBlue"));
     ui->loadingBackground1->setPixmap(QPixmap(":/images/images/firstLoadingScreen"));
     QImage rain = QImage(":/images/images/recycleLoadingBlue");
-    rain2 = rain.scaled(50, 50);
+    rain2 = rain.scaled(100, 100);
 
     // Image importing for Conclusion Screen
     ui->conclusionBackgroundLabel->setScaledContents(true);

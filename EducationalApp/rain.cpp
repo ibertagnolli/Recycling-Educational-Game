@@ -20,7 +20,7 @@ Rain::Rain(b2World* world)
     //add circle fixture
     b2CircleShape circleShape;
     circleShape.m_p.Set(0, 0);
-    circleShape.m_radius = 0.17;
+    circleShape.m_radius = 0.32;
     b2FixtureDef myFixtureDef;
     myFixtureDef.shape = &circleShape;
     myFixtureDef.density = 1;
