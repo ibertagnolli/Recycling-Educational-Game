@@ -40,6 +40,26 @@ void TrashItems::setImage(int index) {
         itemImage = image.copy();
         break;
     }
+    case 3: { // Toothbrush
+            QImage image(":/images/images/TrashImages/Paper Towels.png");
+            itemImage = image.copy();
+            break;
+        }
+    case 4: { // Shredded Paper
+            QImage image(":/images/images/TrashImages/Toothbrush.png");
+            itemImage = image.copy();
+            break;
+        }
+    case 5: { // Hot Beverage Cup
+            QImage image(":/images/images/TrashImages/Hot Beverage Cup.png");
+            itemImage = image.copy();
+            break;
+        }
+    case 6: { // Hot Beverage Cup
+            QImage image(":/images/images/TrashImages/Coffee Pod.png");
+            itemImage = image.copy();
+            break;
+        }
     }
 }
 
@@ -64,6 +84,23 @@ void TrashItems::setDescription(int index){
                       " it's made from recycled paper, so the fibers are shortened to the point where it "
                       "cannot feasibly go through the recycling process again.";
         break;
+    }case 3: { // ToothBrush
+        description = "Toothbrushes get caught in the machine so they can't be recycled.";
+        break;
+    }
+    case 4: { // Shredded paper
+        description = "shredded paper cannot be recycled because it is too small.";
+        break;
+    }
+    case 5: { //Hot Beverage cup
+        description = "Hot Beverage cups from places like starbucks and beans and brews have a "
+                      "waxy film on the inside that make them unrecylable.";
+        break;
+    }
+    case 6: { //Coffee Pod
+        description = "Coffee pods are made of non recyclable plastic and since they are "
+                      "so small they also cannot be recycled.  ";
+        break;
     }
     }
 }
@@ -79,6 +116,21 @@ void TrashItems::setName(int index){
     }
     case 2: {
         name = "Paper Towels";
+        break;
+    }
+    case 3: {
+        name = "Toothbrush";
+        break;
+    } case 4: {
+        name = "Shredded Paper";
+        break;
+    }
+    case 5: {
+        name = "Hot Beverage Cup";
+        break;
+    }
+    case 6: {
+        name = "Coffee Pod";
         break;
     }
     }
@@ -97,6 +149,22 @@ void TrashItems::setLevel(int index)
     }
     case 2: { // Paper Towels
         level = 1;
+        break;
+    }
+    case 3: { // ToothBrush
+        level = 2;
+        break;
+    }
+    case 4: { // Shredded Paper
+        level = 2;
+        break;
+    }
+    case 5: { // Hot Beverage Cup
+        level = 3;
+        break;
+    }
+    case 6: { // coffee pod
+        level = 3;
         break;
     }
     }
