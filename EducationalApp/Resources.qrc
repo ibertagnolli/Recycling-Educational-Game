@@ -48,5 +48,6 @@
         <file>images/TrashImages/Takeout Container.png</file>
         <file>images/TrashImages/Book.png</file>
         <file>images/TrashImages/Metal and Aluminum Cans.png</file>
+        <file>images/congratsWizard.png</file>
     </qresource>
 </RCC>

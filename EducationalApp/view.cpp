@@ -50,7 +50,7 @@ View::View(QWidget *parent)
     // Setting content for conclusion screen.
     ui->congratLabel->setScaledContents(true);
     ui->congratLabel->setSizePolicy( QSizePolicy::Ignored, QSizePolicy::Ignored );
-    ui->congratLabel->setPixmap(QPixmap(":/images/images/CongratsImage.png"));
+    ui->congratLabel->setPixmap(QPixmap(":/images/images/congratsWizard.png"));
 
     // Setting the clickable link on the conclusion screen.
     ui->learnMoreLink->setText("<a href=\"https://www.epa.gov/recycle/how-do-i-recycle-common-recyclables/\">Click Here!</a>");
