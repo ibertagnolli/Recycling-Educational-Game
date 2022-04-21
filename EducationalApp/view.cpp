@@ -170,7 +170,7 @@ void View::mouseMoveEvent(QMouseEvent *event) {
 void View::trashInBin(bool correctlyIdentified)
 {
     if (correctlyIdentified) {
-        ui->correctLabel->setStyleSheet("color: rgb(63, 191, 4)");
+        ui->correctLabel->setStyleSheet("color: rgb(52, 163, 3)");
         ui->correctLabel->setText("Correct!");
     } else {
         ui->correctLabel->setStyleSheet("color: rgb(221, 80, 38)");
