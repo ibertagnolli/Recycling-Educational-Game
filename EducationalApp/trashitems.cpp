@@ -70,19 +70,15 @@ QImage* TrashItems::getImage(){
 void TrashItems::setDescription(int index){
     switch(index) {
     case 0: { // Meat
-        description = "Meat, dairy, and non-compostable food waste"
-                      " goes into the trash bin; wheras compostable food "
-                      "waste goes into the compost bin";
+        description = "Meat, dairy, and non-compostable food waste goes into the trash bin;"
+                      "compostable food waste goes into the compost bin";
         break;
     } case 1: { // Food Wrappers
         description = "In Salt Lake County, most food wrappers are non-"
-                      "recyclable. Food wrappers that are recyclable are "
-                      "plastic containers and cardboard boxes.";
+                      "recyclable.";
         break;
     }case 2: { // Paper Towels
-        description = "Tissue paper is hard to recycle because it's already been recycled:"
-                      " it's made from recycled paper, so the fibers are shortened to the point where it "
-                      "cannot feasibly go through the recycling process again.";
+        description = "Tissue paper is hard to recycle because it's already been recycled:";
         break;
     }case 3: { // ToothBrush
         description = "Toothbrushes get caught in the machine so they can't be recycled.";

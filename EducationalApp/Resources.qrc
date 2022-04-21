@@ -23,7 +23,6 @@
         <file>images/recycleLoadingBlue.png</file>
         <file>images/TrashImages/Cardboard.png</file>
         <file>images/TrashImages/Food Wrappers.png</file>
-        <file>images/TrashImages/Lawn Clippings.png</file>
         <file>images/TrashImages/Meat.png</file>
         <file>images/Concluding_Screen_Image.jpg</file>
         <file>images/CongratsImage.png</file>
@@ -49,5 +48,7 @@
         <file>images/TrashImages/Book.png</file>
         <file>images/TrashImages/Metal and Aluminum Cans.png</file>
         <file>images/congratsWizard.png</file>
+        <file>images/TrashImages/Lawn Clippings.png</file>
+        <file>images/TrashImages/Leaves and Branches.png</file>
     </qresource>
 </RCC>
