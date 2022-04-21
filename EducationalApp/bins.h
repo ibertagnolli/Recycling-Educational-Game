@@ -26,6 +26,13 @@ public:
     };
 
     /**
+     * @brief ~Bins - The Virtual Destructor
+     * that will allow the bins pointer to delete the
+     * inherited objects.
+     */
+    virtual ~Bins() {};
+
+    /**
      * @brief getDescription - Retrieves the description of the
      * specific bin object.
      * @return The string description of the specific object.

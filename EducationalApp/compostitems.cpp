@@ -8,6 +8,8 @@ CompostItems::CompostItems(int itemIndex)
     setLevel(itemIndex);
 }
 
+CompostItems::~CompostItems(){}
+
 Items::ItemType CompostItems::getType(){
     return Items::ItemType::Compost;
 }

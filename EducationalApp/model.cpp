@@ -31,7 +31,7 @@ void Model::setRegions(std::vector<int> trashLabel,
     cans.push_back(new RecycleBins);
     cans.push_back(new TrashBins);
     cans.push_back(new CompostBin);
-//    cans.push_back(new SpecialBins);
+    //    cans.push_back(new SpecialBins);
 
     for(auto bin : cans){
         switch(bin->getType()){
@@ -52,17 +52,17 @@ void Model::setRegions(std::vector<int> trashLabel,
 }
 
 Model::~Model(){
-    //    for(auto bin : cans)
-    //        delete bin;
-    //    for(auto item : items)
-    //        delete item;
+    for(auto bin : cans)
+        delete bin;
+    for(auto item : items)
+        delete item;
 }
 
 //GENERAL METHODS
 void Model::updateScreenIndex(int index)
 {
     // When index == 3, gameScreen is displayed. Increment the level shown on gameScreen.
-    if (index == 3) {
+    if (index >= 3) {
         currentLevel++;
     }
     if (currentLevel == 1) {
@@ -84,9 +84,10 @@ void Model::updateQueue(int level)
 
     itemsLeft = currGameItems.size();
 
-    //shuffle queue
-    //std::shuffle(0, itemsLeft, currGameItems);
+    while(barItems.size() != 0)
+        barItems.pop_back();
 
+    //shuffle queue
     std::vector<QImage *> barItemNames;
     for (int i = 0; i < 5; i++) {
         int index = currGameItems.dequeue();

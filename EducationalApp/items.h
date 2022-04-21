@@ -25,6 +25,13 @@ public:
     };
 
     /**
+     * @brief ~Items - virtual destructor that
+     * will allow the item pointer delete the inherited
+     * items.
+     */
+    virtual ~Items() {};
+
+    /**
      * @brief getType - The abstract method to
      * return the type of the item
      * @return ItemType enum: Trash = 0,
@@ -53,6 +60,11 @@ public:
      */
     virtual int getLevel(void) = 0;
 
+    /**
+     * @brief getImage - Virtual method that will
+     * allow the items to pass the image reference
+     * @return A pointer to the QImage of the item
+     */
     virtual QImage* getImage(void) = 0;
 };
 
