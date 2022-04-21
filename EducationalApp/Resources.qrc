@@ -48,5 +48,7 @@
         <file>images/TrashImages/Takeout Container.png</file>
         <file>images/TrashImages/Book.png</file>
         <file>images/TrashImages/Metal and Aluminum Cans.png</file>
+        <file>images/truck.png</file>
+        <file>images/truckClear.png</file>
     </qresource>
 </RCC>

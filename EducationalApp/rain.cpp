@@ -12,7 +12,7 @@ Rain::Rain(b2World* world)
     //set up dynamic body, store in class variable
     b2BodyDef myBodyDef;
     myBodyDef.type = b2_dynamicBody;
-    int x = rand() % 650 + 10;
+    int x = rand() % 500 + 150;
     int y = rand() % 200 - 300;
     myBodyDef.position.Set(x/100.0, y/100.0);
     raindropBody = world->CreateBody(&myBodyDef);
@@ -20,7 +20,7 @@ Rain::Rain(b2World* world)
     //add circle fixture
     b2CircleShape circleShape;
     circleShape.m_p.Set(0, 0);
-    circleShape.m_radius = 0.32;
+    circleShape.m_radius = 0.25;
     b2FixtureDef myFixtureDef;
     myFixtureDef.shape = &circleShape;
     myFixtureDef.density = 1;

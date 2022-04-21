@@ -20,7 +20,7 @@
 
 Model::Model(QObject *parent) : QObject{parent}, world(b2Vec2 (0.0f, 10.0f))
 {
-    simulationDuration = 5000;
+    simulationDuration = 10000;
     setUpItems();
     cans.push_back(new RecycleBins);
     cans.push_back(new TrashBins);
@@ -259,7 +259,7 @@ void Model::setupSecondLoadingWorld()
 {
     // Define the ground body.
     b2BodyDef groundBodyDef;
-    groundBodyDef.position.Set(0.0f, 5.0f);
+    groundBodyDef.position.Set(0.0f, 4.65f);
 
     // Call the body factory which allocates memory for the ground body
     // from a pool and creates the ground box shape (also from a pool).
@@ -277,7 +277,7 @@ void Model::setupSecondLoadingWorld()
 
     // Define the ground body.
     b2BodyDef wall1BodyDef;
-   wall1BodyDef.position.Set(0.0f, 0.0f);
+    wall1BodyDef.position.Set(1.5f, 0.0f);
 
     // Call the body factory which allocates memory for the ground body
     // from a pool and creates the ground box shape (also from a pool).
@@ -288,14 +288,14 @@ void Model::setupSecondLoadingWorld()
     b2PolygonShape wall1Box;
 
     // The extents are the half-widths of the box.
-    wall1Box.SetAsBox(0.001f, 10.0f);
+    wall1Box.SetAsBox(0.001f, 50.0f);
 
     // Add the ground fixture to the ground body.
     wall1Body->CreateFixture(&wall1Box, 0.0f);
 
     // Define the ground body.
     b2BodyDef wall2BodyDef;
-   wall2BodyDef.position.Set(7.5f, 0.0f);
+    wall2BodyDef.position.Set(7.2f, 0.0f);
 
     // Call the body factory which allocates memory for the ground body
     // from a pool and creates the ground box shape (also from a pool).
@@ -306,7 +306,7 @@ void Model::setupSecondLoadingWorld()
     b2PolygonShape wall2Box;
 
     // The extents are the half-widths of the box.
-    wall2Box.SetAsBox(0.001f, 10.0f);
+    wall2Box.SetAsBox(0.001f, 50.0f);
 
     // Add the ground fixture to the ground body.
     wall2Body->CreateFixture(&wall2Box, 0.0f);
@@ -389,5 +389,7 @@ void Model::updateSecondLoadingWorld(){
     else
         simulationDuration = 5000;
 }
+
+
 
 // CONCLUDING SCREEN METHODS

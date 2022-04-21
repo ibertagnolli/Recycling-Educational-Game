@@ -41,8 +41,13 @@ View::View(QWidget *parent)
     // Image Importing for First Loading Screen
     ui->recycleLogo->setPixmap(QPixmap(":/images/images/recycleLoadingBlue"));
     ui->loadingBackground1->setPixmap(QPixmap(":/images/images/firstLoadingScreen"));
+
+    ui->label_11->setPixmap(QPixmap(":/images/images/truckClear"));
+    ui->label_11->setScaledContents(true);
+    ui->label_11->setGeometry(0, 0, 800,600);
+    ui->label_11->lower();
     QImage rain = QImage(":/images/images/recycleLoadingBlue");
-    rain2 = rain.scaled(100, 100);
+    rain2 = rain.scaled(75, 75);
 
     // Image importing for Conclusion Screen
     ui->conclusionBackgroundLabel->setScaledContents(true);
@@ -216,7 +221,7 @@ void View::setLogoPosition(int xPosition, int yPosition)
 
 void View::drawGround(int xPosition, int yPosition)
 {
-    ui->label_11->setGeometry(xPosition, yPosition, 200, 200);
+    //ui->label_11->setGeometry(xPosition, yPosition, 200, 200);
 }
 
 //void View::paintEvent(QPaintEvent *)
