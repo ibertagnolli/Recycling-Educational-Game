@@ -18,6 +18,7 @@ public:
      * @param index - Indicates the specific trash item
      */
     TrashItems(int index);
+
     /**
      * @brief ~TrashItem - The destructor for the trash
      * items for the game.

@@ -8,6 +8,8 @@ TrashItems::TrashItems(int itemIndex)
     setLevel(itemIndex);
 }
 
+TrashItems::~TrashItems(){}
+
 Items::ItemType TrashItems::getType(){
     return Items::ItemType::Trash;
 }

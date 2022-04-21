@@ -109,7 +109,6 @@ public slots:
                     std::vector<int> recycleLabel,
                     std::vector<int> OtherBin);
 
-
 private slots:
     /**
      * @brief Updates the world to perform a single step of the simulation.

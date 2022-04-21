@@ -9,6 +9,8 @@ RecycleItems::RecycleItems(int index)
     setLevel(index);
 }
 
+RecycleItems::~RecycleItems() {};
+
 QString RecycleItems::getName() {
     return name;
 }
