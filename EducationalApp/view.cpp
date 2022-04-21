@@ -62,6 +62,8 @@ View::View(QWidget *parent)
     itemPressed = false;
     ui->TestLabel->setMouseTracking(true);
     ui->TestLabel->hide();
+
+    ui->buttonToInstrScreen->setDisabled(true);
 }
 
 View::~View()
@@ -230,4 +232,35 @@ void View::setLogoPosition(int xPosition, int yPosition)
 void View::on_conclusionButton_clicked()
 {
     ui->stackWidget->setCurrentIndex(6);
+}
+
+void View::on_waterButton_clicked()
+{
+    ui->waterButton->setDisabled(true);
+    ui->waterButton->setText("3,121,890\nGallons of Water");
+}
+
+void View::on_treeButton_clicked()
+{
+    ui->treeButton->setDisabled(true);
+    ui->treeButton->setText("5,732\nMature Trees");
+}
+
+void View::on_gasButton_clicked()
+{
+    ui->gasButton->setDisabled(true);
+    ui->gasButton->setText("2,027\nMetric Tons of\nGreenhouse Gas Emissions");
+}
+
+void View::on_electricityButton_clicked()
+{
+    ui->electricityButton->setDisabled(true);
+    ui->electricityButton->setText("1,832\nMWH of\nElectricity");
+}
+
+void View::on_landfillButton_clicked()
+{
+    ui->landfillButton->setDisabled(true);
+    ui->landfillButton->setText("2,238\nCubic Yards of\nLandfill Airspace");
+    ui->buttonToInstrScreen->setEnabled(true);
 }

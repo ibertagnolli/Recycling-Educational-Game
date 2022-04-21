@@ -192,6 +192,10 @@ private slots:
      */
     void on_itemSlot4_pressed();
 
-
+    void on_waterButton_clicked();
+    void on_treeButton_clicked();
+    void on_gasButton_clicked();
+    void on_electricityButton_clicked();
+    void on_landfillButton_clicked();
 };
 #endif // VIEW_H
