@@ -68,9 +68,9 @@ void Model::updateScreenIndex(int index)
     if (currentLevel == 1) {
         updateQueue(1);
     } else if (currentLevel == 2) {
-        //updateQueue(2);
+        updateQueue(2);
     } else if (currentLevel == 3) {
-        //updateQueue(3);
+        updateQueue(3);
     }
 }
 
@@ -98,7 +98,7 @@ void Model::updateQueue(int level)
 
 void Model::setUpItems()
 {
-    for(int i = 0; i < 3; i++){
+    for (int i = 0; i < 7; i++) {
         items.push_back(new TrashItems(i));
         items.push_back(new RecycleItems(i));
         items.push_back(new CompostItems(i));

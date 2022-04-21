@@ -56,6 +56,16 @@
             itemImage = image.copy();
             break;
         }
+        case 6: { //Electronics
+            QImage image(":/images/images/TrashImages/Electronics.png");
+            itemImage = image.copy();
+            break;
+        }
+        case 7: { //Battery
+            QImage image(":/images/images/TrashImages/Battery.png");
+            itemImage = image.copy();
+            break;
+        }
         }
     }
 
@@ -87,6 +97,14 @@
         }
         case 5: {
             name = "Styrofoam";
+            break;
+        }
+        case 6: {
+            name = "Electronics";
+            break;
+        }
+        case 7: {
+            name = "Batteries";
             break;
         }
         }
@@ -125,6 +143,16 @@
             description = "  Block Styrofoam is accepted for drop off but no packing peanuts or take-out containers are allowed.";
             break;
         }
+        case 6: { //Electronics
+            description = "Working electronics may be donated. Broken electronics should be "
+                          "recycled or disposed of at drop off locations.";
+            break;
+        }
+        case 7: { //Battery
+            description = "look for dedicated in-store recycling bins or household hazardous waste "
+                          "collection events for battery disposal";
+            break;
+        }
         }
     }
 
@@ -152,6 +180,14 @@
             break;
         }
         case 5: { // Glass
+            level = 3;
+            break;
+        }
+        case 6: { //Electronics
+            level = 3;
+            break;
+        }
+        case 7: { //Battery
             level = 3;
             break;
         }
