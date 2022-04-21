@@ -38,6 +38,7 @@ public:
     ~View();
 
     std::vector<QPoint*> raindrops;
+    QImage rain2;
 
 signals:
 

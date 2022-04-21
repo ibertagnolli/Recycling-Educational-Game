@@ -275,6 +275,42 @@ void Model::setupSecondLoadingWorld()
     // Add the ground fixture to the ground body.
     groundBody->CreateFixture(&groundBox, 0.0f);
 
+    // Define the ground body.
+    b2BodyDef wall1BodyDef;
+   wall1BodyDef.position.Set(0.0f, 0.0f);
+
+    // Call the body factory which allocates memory for the ground body
+    // from a pool and creates the ground box shape (also from a pool).
+    // The body is also added to the world.
+    b2Body* wall1Body = world.CreateBody(&wall1BodyDef);
+
+    // Define the ground box shape.
+    b2PolygonShape wall1Box;
+
+    // The extents are the half-widths of the box.
+    wall1Box.SetAsBox(0.001f, 10.0f);
+
+    // Add the ground fixture to the ground body.
+    wall1Body->CreateFixture(&wall1Box, 0.0f);
+
+    // Define the ground body.
+    b2BodyDef wall2BodyDef;
+   wall2BodyDef.position.Set(8.0f, 0.0f);
+
+    // Call the body factory which allocates memory for the ground body
+    // from a pool and creates the ground box shape (also from a pool).
+    // The body is also added to the world.
+    b2Body* wall2Body = world.CreateBody(&wall2BodyDef);
+
+    // Define the ground box shape.
+    b2PolygonShape wall2Box;
+
+    // The extents are the half-widths of the box.
+    wall2Box.SetAsBox(0.001f, 10.0f);
+
+    // Add the ground fixture to the ground body.
+    wall2Body->CreateFixture(&wall2Box, 0.0f);
+
 //    // Define the dynamic body. We set its position and call the body factory.
 //    b2BodyDef bodyDef;
 //    bodyDef.type = b2_dynamicBody;

@@ -41,6 +41,8 @@ View::View(QWidget *parent)
     // Image Importing for First Loading Screen
     ui->recycleLogo->setPixmap(QPixmap(":/images/images/recycleLoadingBlue"));
     ui->loadingBackground1->setPixmap(QPixmap(":/images/images/firstLoadingScreen"));
+    QImage rain = QImage(":/images/images/recycleLoadingBlue");
+    rain2 = rain.scaled(50, 50);
 
     // Image importing for Conclusion Screen
     ui->conclusionBackgroundLabel->setScaledContents(true);
@@ -248,8 +250,8 @@ void View::paintEvent(QPaintEvent *)
     {
         //std::cout<< "entered INSIDE paint event";
         for (int i = 0; i < 20; i++){
-            //painter.drawImage(raindrops[i]->x(), raindrops[i]->y(), rain2);
-            painter.drawEllipse(QPoint(raindrops[i]->x(), raindrops[i]->y()), 15, 15);
+            painter.drawImage(raindrops[i]->x(), raindrops[i]->y(), rain2);
+            //painter.drawEllipse(QPoint(raindrops[i]->x(), raindrops[i]->y()), 15, 15);
         }
     }
     painter.end();
