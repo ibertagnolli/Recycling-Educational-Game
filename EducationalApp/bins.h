@@ -59,6 +59,24 @@ public:
      * @return Vector<int> ordered with x, y, width, height
      */
     virtual std::vector<int> getRegion(void) = 0;
+
+    /**
+     * @brief CollisionWithMe - Checks whether the given item
+     * collides with the trash bin.
+     * @param pos - x and y position
+     * @return Boolean indicating collisions.
+     */
+    virtual bool CollisionWithMe(QPointF pos) = 0;
+
+    /**
+     * @brief setRegion - Sets the region of the bin based
+     * on the image label
+     * @param x - The top left x position
+     * @param y - The top left y position
+     * @param width - The width of the label
+     * @param height - The height of the label
+     */
+    virtual void setRegion(int x, int y, int width, int height) = 0;
 };
 
 #endif // BINS_H

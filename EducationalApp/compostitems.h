@@ -55,6 +55,7 @@ public:
      */
     QImage* getImage();
 
+
     /**
      * @brief Returns the item's game level
      * @return int representing each game level

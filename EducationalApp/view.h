@@ -61,6 +61,11 @@ signals:
      */
     void sendSelectedItem(int index);
 
+    void sendLabelPositions(std::vector<int> trashLabel,
+                            std::vector<int> recycleLabel,
+                            std::vector<int> OtherBin);
+
+
 public slots:
     /**
      * @brief Updates the label's psoition in the UI with the provided X and X coordinates.

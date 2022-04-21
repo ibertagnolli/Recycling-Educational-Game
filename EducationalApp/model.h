@@ -98,6 +98,16 @@ public slots:
      */
     void receiveSelectedItem(int index);
 
+    /**
+     * @brief setRegions - Sets the region of the bins based on the placement
+     * of the label on the game screen.
+     * @param trashLabel - The label x, y, width, height for trash bin
+     * @param recycleLabel - The label x, y, width, height for recycle bin
+     * @param OtherBin - The label x, y, width, height for special and compost bin
+     */
+    void setRegions(std::vector<int> trashLabel,
+                    std::vector<int> recycleLabel,
+                    std::vector<int> OtherBin);
 
 
 private slots:
@@ -179,11 +189,32 @@ private:
     void setUpItems();
 
     /**
+     * @brief updateTheBarItems - A helper method that
+     * updates all of the items in the bar that is shown in the
+     * game.
+     * @param correctCollision - Whether there was a collision
+     * or not.
+     */
+    void updateTheBarItemsIndex(bool correctCollision);
+
+    /**
+     * @brief updateTheBarItemIcons - A helper method that
+     * updates the images of the item bar.
+     */
+    void updateTheBarItemIcons();
+
+    /**
+     * @brief timeToSwitch - Indicates if it is time to switch items
+     * and emit signals to switch when necessary.
+     * @return A boolean indicated that it sent the switch signal.
+     */
+    bool timeToSwitchLevel();
+    /**
      * @brief Checks if the trash item collided with a trash can
      * @param position of where the trash item is released
      * @return whether or not a collision occured
      */
-    bool checkTrashCollision(QPointF position, bool &trashCollision);
+    bool checkTrashCollision(QPointF position, bool &trashCollision, int index);
 
     /**
      * @brief updateQueue - A method that will update the items

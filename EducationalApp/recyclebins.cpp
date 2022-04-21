@@ -26,7 +26,18 @@ Bins::BinType RecycleBins::getType(){
 }
 
 std::vector<int> RecycleBins::getRegion(){
-    return std::vector<int> {60,240,150,220};
+    return std::vector<int> {x,y,width,height};
+}
+
+void RecycleBins::setRegion(int x, int y, int width, int height){
+    this->x = x;
+    this->y = y;
+    this->width = width;
+    this->height = height;
+}
+
+bool RecycleBins::CollisionWithMe(QPointF pos){
+    return ((pos.x() > x && pos.x() < x+width) && (pos.y() > y && pos.y() < y+height));
 }
 
 QImage* RecycleBins::getImage(){

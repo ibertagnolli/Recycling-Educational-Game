@@ -23,7 +23,19 @@ Bins::BinType CompostBin::getType(){
 }
 
 std::vector<int> CompostBin::getRegion(){
-    return std::vector<int> {420, 240, 150,223};
+    return std::vector<int> {x, y, width,height};
+}
+
+void CompostBin::setRegion(int x, int y, int width, int height){
+    this->x = x;
+    this->y = y;
+    this->width = width;
+    this->height = height;
+}
+
+
+bool CompostBin::CollisionWithMe(QPointF pos){
+    return ((pos.x() > x && pos.x() < x+width) && (pos.y() > y && pos.y() < y+height));
 }
 
 QImage* CompostBin::getImage(){

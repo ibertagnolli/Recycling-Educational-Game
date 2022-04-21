@@ -23,7 +23,18 @@ Bins::BinType TrashBins::getType(){
 }
 
 std::vector<int> TrashBins::getRegion(){
-    return std::vector<int> {240, 240, 150,220};
+    return std::vector<int> {x, y, width,height};
+}
+
+bool TrashBins::CollisionWithMe(QPointF pos){
+    return ((pos.x() > x && pos.x() < x+width) && (pos.y() > y && pos.y() < y+height));
+}
+
+void TrashBins::setRegion(int x, int y, int width, int height){
+    this->x = x;
+    this->y = y;
+    this->width = width;
+    this->height = height;
 }
 
 QImage* TrashBins::getImage(){
