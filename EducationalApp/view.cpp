@@ -150,6 +150,13 @@ void View::mouseReleaseEvent(QMouseEvent *event)
     QPointF position = event->position();
     emit mouseReleased(position);
     this->releaseMouse();
+
+    QTimer::singleShot(700, this, [this]() {
+        ui->itemImageLabel->clear();
+        ui->sideBarLabel->clear();
+        ui->itemTitleLabel->clear();
+        ui->correctLabel->clear();
+    });
 }
 
 
@@ -169,13 +176,6 @@ void View::trashInBin(bool correctlyIdentified)
         ui->correctLabel->setStyleSheet("color: rgb(221, 80, 38)");
         ui->correctLabel->setText("Incorrect!");
     }
-
-    QTimer::singleShot(1000, this, [this]() {
-        ui->itemImageLabel->clear();
-        ui->sideBarLabel->clear();
-        ui->itemTitleLabel->clear();
-        ui->correctLabel->clear();
-    });
 }
 
 void View::receiveItemInfo(int itemType, QString itemName, QString itemDescrip, QImage image)
