@@ -49,10 +49,11 @@ signals:
      * @param yPosition - The y cordinates
      */
     void updateLabelPosition(int xPosition, int yPosition);
+    void updateGroundPosition(int xPosition, int yPosition);
 
     void updateRainPosition(int xPosition, int yPosition);
     void updateRain();
-    void updatedRainVector(std::vector<Rain *> raindrops);
+    void updatedRainVector(std::vector<QPoint*> raindrops);
 
     /**
      * @brief Informs the view that trash has been put in a bin
@@ -203,5 +204,6 @@ private:
     void updateQueue(int level);
 
     std::vector<Rain *> raindrops;
+    std::vector<QPoint*> raindropPoints;
 };
 #endif // MODEL_H

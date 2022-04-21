@@ -18,7 +18,7 @@
 #include <iostream>
 #include <QPointF>
 
-Model::Model(QObject *parent) : QObject{parent} , world(b2Vec2 (0.0f, 10.0f))
+Model::Model(QObject *parent) : QObject{parent}, world(b2Vec2 (0.0f, 10.0f))
 {
     simulationDuration = 5000;
     setUpItems();
@@ -26,6 +26,11 @@ Model::Model(QObject *parent) : QObject{parent} , world(b2Vec2 (0.0f, 10.0f))
     cans.push_back(new TrashBins);
     cans.push_back(new CompostBin);
     cans.push_back(new SpecialBins);
+
+    for (int i = 0; i < 20; i++)
+    {
+      raindropPoints.push_back(new QPoint(0,0));
+    }
 }
 
 Model::~Model(){
@@ -270,45 +275,51 @@ void Model::setupSecondLoadingWorld()
     // Add the ground fixture to the ground body.
     groundBody->CreateFixture(&groundBox, 0.0f);
 
-    // Define the dynamic body. We set its position and call the body factory.
-    b2BodyDef bodyDef;
-    bodyDef.type = b2_dynamicBody;
-    bodyDef.position.Set(1.0f, 0.0f);
-    body = world.CreateBody(&bodyDef);
+//    // Define the dynamic body. We set its position and call the body factory.
+//    b2BodyDef bodyDef;
+//    bodyDef.type = b2_dynamicBody;
+//    bodyDef.position.Set(1.0f, 0.0f);
+//    body = world.CreateBody(&bodyDef);
 
-    // Apply a force so that the body moves to the right
-    //body->ApplyForceToCenter(b2Vec2 (0.08f, 0.0f), true);
+//    // Apply a force so that the body moves to the right
+//    //body->ApplyForceToCenter(b2Vec2 (0.08f, 0.0f), true);
 
-    // Define another box shape for our dynamic body.
-    b2PolygonShape dynamicBox;
-    dynamicBox.SetAsBox(0.01f, 0.01f);
+//    // Define another box shape for our dynamic body.
+//    b2PolygonShape dynamicBox;
+//    dynamicBox.SetAsBox(0.01f, 0.01f);
 
-    // Define the dynamic body fixture.
-    b2FixtureDef fixtureDef;
-    fixtureDef.shape = &dynamicBox;
+//    // Define the dynamic body fixture.
+//    b2FixtureDef fixtureDef;
+//    fixtureDef.shape = &dynamicBox;
 
-    // Set the box density to be non-zero, so it will be dynamic.
-    fixtureDef.density = 1.0f;
+//    // Set the box density to be non-zero, so it will be dynamic.
+//    fixtureDef.density = 1.0f;
 
-    // Add restitution for bounciness
-    fixtureDef.restitution = 0.9f;
+//    // Add restitution for bounciness
+//    fixtureDef.restitution = 0.9f;
 
-    // Override the default friction.
-    fixtureDef.friction = 0.01f;
+//    // Override the default friction.
+//    fixtureDef.friction = 0.01f;
 
-    // Add the shape to the body.
-    body->CreateFixture(&fixtureDef);
+//    // Add the shape to the body.
+//    body->CreateFixture(&fixtureDef);
 
-    for(int i = 0; i < 20; i++)
+    for (int i = 0; i < 20; i++)
     {
-        raindrops.push_back(new Rain());
+      Rain* rain = new Rain(&world);
+      raindrops.push_back(rain);
     }
+
+    b2Vec2 position = groundBody->GetPosition();
+    emit updateGroundPosition(position.x*100, position.y*100);
 
     // Tells the world to update the dynamic body
     updateSecondLoadingWorld();
 }
 
 void Model::updateSecondLoadingWorld(){
+    std::cout<< "Entered update second loading world\n";
+
     // Prepare for simulation. Typically we use a time step of 1/60 of a
     // second (60Hz) and 10 iterations. This provides a high quality simulation
     // in most game scenarios.
@@ -319,15 +330,16 @@ void Model::updateSecondLoadingWorld(){
     // Instruct the world to perform a single step of simulation.
     // It is generally best to keep the time step and iterations fixed.
     world.Step(timeStep, velocityIterations, positionIterations);
-    b2Vec2 position = body->GetPosition();
+    //b2Vec2 position = body->GetPosition();
 
     for(int i = 0; i < 20; i++)
     {
-        raindrops[i]->xPos = position.x*100;
-        raindrops[i]->yPos = position.y*100;
+        b2Vec2 rainPosition = raindrops[i]->raindropBody->GetPosition();
+        raindropPoints[i]->setX(int(rainPosition.x * 100));
+        raindropPoints[i]->setY(int(rainPosition.y * 1000));
     }
 
-    emit updatedRainVector(raindrops);
+    emit updatedRainVector(raindropPoints);
     //emit updateRainPosition(position.x*100, position.y*100);
 
     //emit updateRain();

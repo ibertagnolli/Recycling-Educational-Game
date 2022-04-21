@@ -37,7 +37,7 @@ public:
     */
     ~View();
 
-    std::vector<Rain* > raindrops;
+    std::vector<QPoint*> raindrops;
 
 signals:
 
@@ -79,7 +79,8 @@ public slots:
     void paintEvent(QPaintEvent *, int xPosition, int yPosition);
     void drawRain(int xPosition, int yPosition);
     void updateView();
-    void updateRaindropVector(std::vector<Rain*> raindropVector);
+    void updateRaindropVector(std::vector<QPoint*> raindropVector);
+    void drawGround(int xPosition, int yPosition);
 
     /**
      * @brief Recieved from the model when a user has put an item into a garbage bin

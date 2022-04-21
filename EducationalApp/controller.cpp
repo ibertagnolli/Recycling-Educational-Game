@@ -55,6 +55,7 @@ void Controller::secondLoadingScreenConnections()
     connect(view, &View::secondLoadScreenStart, model, &Model::setupSecondLoadingWorld);
     //connect(model, &Model::updateRain, this, &Controller::rain);
     connect(model, &Model::updatedRainVector, view, &View::updateRaindropVector);
+    connect(model, &Model::updateGroundPosition, view, &View::drawGround);
 }
 
 void Controller::rain()

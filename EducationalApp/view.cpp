@@ -212,6 +212,11 @@ void View::setLogoPosition(int xPosition, int yPosition)
     ui->recycleLogo->setGeometry(xPosition, yPosition, 200, 200);
 }
 
+void View::drawGround(int xPosition, int yPosition)
+{
+    ui->label_11->setGeometry(xPosition, yPosition, 200, 200);
+}
+
 //void View::paintEvent(QPaintEvent *)
 //{
 //    if(ui->stackWidget->currentIndex() == 5){
@@ -242,7 +247,7 @@ void View::paintEvent(QPaintEvent *)
     {
         std::cout<< "entered INSIDE paint event";
         for (int i = 0; i < 20; i++){
-            painter.drawImage(raindrops[i]->xPos, raindrops[i]->yPos, rain2);
+            painter.drawImage(raindrops[i]->x(), raindrops[i]->y(), rain2);
         }
     }
     painter.end();
@@ -294,7 +299,7 @@ void View::updateView()
 
 }
 
-void View::updateRaindropVector(std::vector<Rain*> raindropVector)
+void View::updateRaindropVector(std::vector<QPoint*> raindropVector)
 {
     raindrops = raindropVector;
     update();
