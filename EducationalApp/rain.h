@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include "Box2D/Box2D.h"
+#include <QRandomGenerator>
 
 class Rain : public QObject
 {

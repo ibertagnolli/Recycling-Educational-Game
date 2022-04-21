@@ -259,7 +259,7 @@ void Model::setupSecondLoadingWorld()
 {
     // Define the ground body.
     b2BodyDef groundBodyDef;
-    groundBodyDef.position.Set(0.0f, 4.0f);
+    groundBodyDef.position.Set(0.0f, 5.0f);
 
     // Call the body factory which allocates memory for the ground body
     // from a pool and creates the ground box shape (also from a pool).
@@ -318,7 +318,7 @@ void Model::setupSecondLoadingWorld()
 }
 
 void Model::updateSecondLoadingWorld(){
-    std::cout<< "Entered update second loading world\n";
+    //std::cout<< "Entered update second loading world\n";
 
     // Prepare for simulation. Typically we use a time step of 1/60 of a
     // second (60Hz) and 10 iterations. This provides a high quality simulation
@@ -336,7 +336,7 @@ void Model::updateSecondLoadingWorld(){
     {
         b2Vec2 rainPosition = raindrops[i]->raindropBody->GetPosition();
         raindropPoints[i]->setX(int(rainPosition.x * 100));
-        raindropPoints[i]->setY(int(rainPosition.y * 1000));
+        raindropPoints[i]->setY(int(rainPosition.y * 100));
     }
 
     emit updatedRainVector(raindropPoints);

@@ -237,17 +237,19 @@ void View::drawGround(int xPosition, int yPosition)
 
 void View::paintEvent(QPaintEvent *)
 {
-    std::cout<< "entered paint event";
+    //std::cout<< "entered paint event";
     // Create a painter
     QPainter painter(this);
-    QImage rain = QImage(":/images/images/recycleLoadingBlue");
-    QImage rain2 = rain.scaled(50, 50);
+    painter.setBrush(Qt::blue);
+    //QImage rain = QImage(":/images/images/recycleLoadingBlue");
+    //QImage rain2 = rain.scaled(50, 50);
 
     if(ui->stackWidget->currentIndex() == 5)
     {
-        std::cout<< "entered INSIDE paint event";
+        //std::cout<< "entered INSIDE paint event";
         for (int i = 0; i < 20; i++){
-            painter.drawImage(raindrops[i]->x(), raindrops[i]->y(), rain2);
+            //painter.drawImage(raindrops[i]->x(), raindrops[i]->y(), rain2);
+            painter.drawEllipse(QPoint(raindrops[i]->x(), raindrops[i]->y()), 15, 15);
         }
     }
     painter.end();
