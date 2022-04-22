@@ -62,9 +62,13 @@ Model::~Model(){
 void Model::updateScreenIndex(int index)
 {
     // When index == 3, gameScreen is displayed. Increment the level shown on gameScreen.
-    if (index >= 3) {
+    if(index != 3)
+        return;
+
+    if (index == 3) {
         currentLevel++;
     }
+
     if (currentLevel == 1) {
         updateQueue(1);
     } else if (currentLevel == 2) {
@@ -76,7 +80,6 @@ void Model::updateScreenIndex(int index)
 
 void Model::updateQueue(int level)
 {
-    // Adds Item into the Queue Object
     for (int i = 0; i < (int)items.size(); i++) {
         if (items.at(i)->getLevel() == level) //modify this to be MORE dynamic
             currGameItems.enqueue(i);

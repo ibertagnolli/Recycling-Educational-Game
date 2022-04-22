@@ -48,7 +48,7 @@ void TrashItems::setImage(int index) {
             break;
         }
     case 4: { // Shredded Paper
-            QImage image(":/images/images/TrashImages/Toothbrush.png");
+            QImage image(":/images/images/TrashImages/Shredded Paper.png");
             itemImage = image.copy();
             break;
         }
