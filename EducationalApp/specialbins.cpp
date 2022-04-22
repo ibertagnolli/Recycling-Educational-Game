@@ -2,7 +2,7 @@
 
 SpecialBins::SpecialBins()
 {
-    QImage image(":/images/images/yellowTulip1.png");
+    QImage image(":/images/images/DonationBin.png");
     binImage = image;
 }
 

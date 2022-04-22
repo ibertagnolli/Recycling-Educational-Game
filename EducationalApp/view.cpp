@@ -220,6 +220,7 @@ void View::changeScreen(int screen)
     }
     if (screen == 5) {
         QTimer::singleShot(1500, ui->stackWidget, [this]() { ui->stackWidget->setCurrentIndex(3); });
+        ui->yardBinLabel->setPixmap(QPixmap(":/images/images/DonationBin.png"));
     }
 }
 
@@ -235,6 +236,7 @@ void View::on_conclusionButton_clicked()
     ui->stackWidget->setCurrentIndex(6);
 }
 
+//TULIP ClICKED METHODS PURPOSE SCREEN
 void View::on_waterButton_clicked()
 {
     ui->waterButton->setDisabled(true);
