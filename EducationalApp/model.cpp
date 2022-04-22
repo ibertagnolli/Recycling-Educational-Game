@@ -61,21 +61,11 @@ Model::~Model(){
 //GENERAL METHODS
 void Model::updateScreenIndex(int index)
 {
-    // When index == 3, gameScreen is displayed. Increment the level shown on gameScreen.
     if(index != 3)
         return;
 
-    if (index == 3) {
-        currentLevel++;
-    }
-
-    if (currentLevel == 1) {
-        updateQueue(1);
-    } else if (currentLevel == 2) {
-        updateQueue(2);
-    } else if (currentLevel == 3) {
-        updateQueue(3);
-    }
+    currentLevel++;
+    updateQueue(currentLevel);
 }
 
 void Model::updateQueue(int level)
