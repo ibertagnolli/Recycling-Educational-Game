@@ -906,6 +906,7 @@ border-top-left-radius: 10px;
 border-top-right-radius: 10px;
 border-bottom-left-radius: 10px;
 border-bottom-right-radius: 10px;
+background-color: rgba(255, 255, 255, 50);
 
 </string>
         </property>
@@ -981,11 +982,14 @@ border-bottom-right-radius: 10px;
           <x>610</x>
           <y>10</y>
           <width>161</width>
-          <height>351</height>
+          <height>421</height>
          </rect>
         </property>
+        <property name="autoFillBackground">
+         <bool>false</bool>
+        </property>
         <property name="styleSheet">
-         <string notr="true">color:rgb(255, 255, 255)</string>
+         <string notr="true">background-color: rgba(255, 255, 255, 50);</string>
         </property>
         <property name="title">
          <string>Item Info</string>
@@ -996,8 +1000,14 @@ border-bottom-right-radius: 10px;
            <property name="maximumSize">
             <size>
              <width>16777215</width>
-             <height>30</height>
+             <height>40</height>
             </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+             <bold>true</bold>
+            </font>
            </property>
            <property name="text">
             <string/>
@@ -1231,7 +1241,7 @@ background-color: rgba(255, 255, 255, 0);</string>
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>25</height>
+     <height>17</height>
     </rect>
    </property>
   </widget>

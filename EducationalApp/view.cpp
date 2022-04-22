@@ -21,6 +21,7 @@ View::View(QWidget *parent)
     ui->instructionPictureLabel->setSizePolicy( QSizePolicy::Ignored, QSizePolicy::Ignored);
     ui->instructionPictureLabel->setPixmap(pixmap);
     ui->instructionFrame->setAutoFillBackground(false);
+    ui->itemTitleLabel->setWordWrap(true);
 
     ui->instructionScreen->setStyleSheet("QWidget#instructionScreen {background-color: rgb(211, 253, 255); background-image: url(:/images/images/meadow6.png) 0 0 0 0 stretch stretch;background-repeat: no-repeat;}");
 
@@ -218,7 +219,7 @@ void View::changeScreen(int screen)
         QTimer::singleShot(5000, ui->stackWidget, [this]() { ui->stackWidget->setCurrentIndex(3); });
     }
     if (screen == 5) {
-        //QTimer::singleShot(1500, ui->stackWidget, [this]() { ui->stackWidget->setCurrentIndex(3); });
+        QTimer::singleShot(1500, ui->stackWidget, [this]() { ui->stackWidget->setCurrentIndex(3); });
     }
 }
 
