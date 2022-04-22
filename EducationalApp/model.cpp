@@ -170,6 +170,7 @@ void Model::updateTheBarItemsIndex(bool correctCollision){
 
     if(!correctCollision) {
         currGameItems.enqueue(index);
+        barItems[currentItemIndex] = currGameItems.dequeue();
         return;
     }
 
