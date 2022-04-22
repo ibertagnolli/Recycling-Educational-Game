@@ -164,17 +164,15 @@ void Model::updateTheBarItemsIndex(bool correctCollision){
     int index = barItems[currentItemIndex];
     barItems[currentItemIndex] = -1;
 
+    if(!correctCollision)
+        currGameItems.enqueue(index);
+
     if(currGameItems.size() > 0){
         barItems[currentItemIndex] = currGameItems.dequeue();
     }
 
-    if(!correctCollision) {
-        currGameItems.enqueue(index);
-        barItems[currentItemIndex] = currGameItems.dequeue();
-        return;
-    }
-
-    itemsLeft--;
+    if(correctCollision)
+        itemsLeft--;
 }
 
 bool Model::checkTrashCollision(QPointF position, bool &trashCollision, int index)
