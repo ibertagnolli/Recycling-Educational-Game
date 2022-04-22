@@ -14,6 +14,7 @@
 #include "trashitems.h"
 #include "compostitems.h"
 #include "recycleitems.h"
+#include "specialitems.h"
 #include <vector>
 #include <iostream>
 #include <QPointF>
@@ -71,8 +72,9 @@ void Model::updateScreenIndex(int index)
 void Model::updateQueue(int level)
 {
     for (int i = 0; i < (int)items.size(); i++) {
-        if (items.at(i)->getLevel() == level) //modify this to be MORE dynamic
+        if (items.at(i)->getLevel() == level) {
             currGameItems.enqueue(i);
+        }
     }
 
     itemsLeft = currGameItems.size();
@@ -96,6 +98,7 @@ void Model::setUpItems()
         items.push_back(new TrashItems(i));
         items.push_back(new RecycleItems(i));
         items.push_back(new CompostItems(i));
+        items.push_back(new SpecialItems(i));
     }
 }
 
