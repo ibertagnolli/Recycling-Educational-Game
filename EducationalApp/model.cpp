@@ -32,7 +32,6 @@ void Model::setRegions(std::vector<int> trashLabel,
     cans.push_back(new RecycleBins);
     cans.push_back(new TrashBins);
     cans.push_back(new CompostBin);
-    //    cans.push_back(new SpecialBins);
 
     for(auto bin : cans){
         switch(bin->getType()){
@@ -66,6 +65,15 @@ void Model::updateScreenIndex(int index)
         return;
 
     currentLevel++;
+
+    // Update the third bin to specialBin
+    if (currentLevel == 3) {
+        std::vector<int> thirdRegion = cans.back()->getRegion();
+        cans.pop_back();
+        cans.push_back(new SpecialBins);
+        cans.back()->setRegion(thirdRegion[0], thirdRegion[1], thirdRegion[2], thirdRegion[3]);
+    }
+
     updateQueue(currentLevel);
 }
 
