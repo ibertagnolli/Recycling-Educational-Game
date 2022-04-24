@@ -20,7 +20,7 @@
 
 Model::Model(QObject *parent) : QObject{parent}, world(b2Vec2 (0.0f, 10.0f))
 {
-    simulationDuration = 10000;
+    simulationDuration = 6000;
     setUpItems();
     cans.push_back(new RecycleBins);
     cans.push_back(new TrashBins);
@@ -383,7 +383,7 @@ void Model::updateSecondLoadingWorld(){
     // Has the simulation run for only 5 seconds.
     if (simulationDuration > 0)
     {
-        //simulationDuration -= 20;
+        simulationDuration -= 20;
         QTimer::singleShot(20, this, &Model::updateSecondLoadingWorld);
     }
     else

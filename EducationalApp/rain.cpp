@@ -12,7 +12,7 @@ Rain::Rain(b2World* world)
     //set up dynamic body, store in class variable
     b2BodyDef myBodyDef;
     myBodyDef.type = b2_dynamicBody;
-    int x = rand() % 500 + 150;
+    int x = rand() % 540 + 150;
     int y = rand() % 200 - 300;
     myBodyDef.position.Set(x/100.0, y/100.0);
     raindropBody = world->CreateBody(&myBodyDef);
@@ -26,7 +26,7 @@ Rain::Rain(b2World* world)
     myFixtureDef.density = 1;
 
     // Add restitution for bounciness
-    myFixtureDef.restitution = 0.9f;
+    myFixtureDef.restitution = 0.8f;
 
     // Override the default friction.
     myFixtureDef.friction = 0.001f;

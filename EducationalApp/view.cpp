@@ -219,93 +219,24 @@ void View::setLogoPosition(int xPosition, int yPosition)
     ui->recycleLogo->setGeometry(xPosition, yPosition, 200, 200);
 }
 
-void View::drawGround(int xPosition, int yPosition)
-{
-    //ui->label_11->setGeometry(xPosition, yPosition, 200, 200);
-}
-
-//void View::paintEvent(QPaintEvent *)
-//{
-//    if(ui->stackWidget->currentIndex() == 5){
-//    // Create a painter
-//    QPainter painter(this);
-
-////    printf("%4.2f %4.2f %4.2f\n", position.x, position.y, angle);
-
-//    QImage rain = QImage(":/images/images/recycleLoadingBlue");
-//    QImage rain2 = rain.scaled(50, 50);
-
-//    //painter.drawImage((int)(xPosition), (int)(yPosition), QImage(":/images/images/recycleLoadingBlue"));
-//    painter.drawImage(100, 100, rain2);
-////    qDebug() << image;
-//    painter.end();
-//    }
-//}
-
 void View::paintEvent(QPaintEvent *)
 {
-    //std::cout<< "entered paint event";
     // Create a painter
     QPainter painter(this);
-    painter.setBrush(Qt::blue);
-    //QImage rain = QImage(":/images/images/recycleLoadingBlue");
-    //QImage rain2 = rain.scaled(50, 50);
 
     if(ui->stackWidget->currentIndex() == 5)
     {
-        //std::cout<< "entered INSIDE paint event";
         for (int i = 0; i < 20; i++){
             painter.drawImage(raindrops[i]->x(), raindrops[i]->y(), rain2);
-            //painter.drawEllipse(QPoint(raindrops[i]->x(), raindrops[i]->y()), 15, 15);
         }
     }
     painter.end();
-}
-
-void View::paintEvent(QPaintEvent *, int xPosition, int yPosition)
-{
-    // Create a painter
-    QPainter painter(this);
-
-//    printf("%4.2f %4.2f %4.2f\n", position.x, position.y, angle);
-
-    painter.drawImage((int)(xPosition), (int)(yPosition), QImage(":/images/images/recycleLoadingBlue"));
-    painter.drawImage(200, 200, QImage(":/images/images/recycleLoadingBlue"));
-//    qDebug() << image;
-    painter.end();
-
-//    // Create a painter
-//    QPainter painter(this);
-//    b2Vec2 position = body->GetPosition();
-//    float angle = body->GetAngle();
-
-////    printf("%4.2f %4.2f %4.2f\n", position.x, position.y, angle);
-
-//    painter.drawImage((int)(position.x*20), (int)(position.y*20), image);
-//    painter.drawImage(200, 200, image);
-////    qDebug() << image;
-//    painter.end();
-}
-
-void View::drawRain(int xPosition, int yPosition){
-    // Create a painter
-    QPainter painter(this);
-
-    QImage rain = QImage(":/images/images/recycleLoadingBlue");
-    QImage rain2 = rain.scaled(50, 50);
-//    printf("%4.2f %4.2f %4.2f\n", position.x, position.y, angle);
-
-    painter.drawImage(xPosition, yPosition, rain2);
-//    qDebug() << image;
-    painter.end();
-
 }
 
 void View::updateView()
 {
     if(ui->stackWidget->currentIndex() == 5)
         update();
-
 }
 
 void View::updateRaindropVector(std::vector<QPoint*> raindropVector)
