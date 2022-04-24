@@ -53,7 +53,7 @@ void Controller::firstLoadingScreenConnections()
 void Controller::secondLoadingScreenConnections()
 {
     connect(view, &View::secondLoadScreenStart, model, &Model::setupSecondLoadingWorld);
-    connect(model, &Model::updatedRainVector, view, &View::updateRaindropVector);
+    connect(model, &Model::ballsMoved, view, &View::updateBallPositions);
 }
 
 // CONCLUDING SCREEN METHODS

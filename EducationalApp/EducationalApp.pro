@@ -55,6 +55,7 @@ SOURCES += \
     Box2D/Dynamics/b2World.cpp \
     Box2D/Dynamics/b2WorldCallbacks.cpp \
     Box2D/Rope/b2Rope.cpp \
+    ball.cpp \
     bins.cpp \
     compostbin.cpp \
     compostitems.cpp \
@@ -62,7 +63,6 @@ SOURCES += \
     items.cpp \
     main.cpp \
     model.cpp \
-    rain.cpp \
     recyclebins.cpp \
     specialbins.cpp \
     trashbins.cpp \
@@ -119,13 +119,13 @@ HEADERS += \
     Box2D/Dynamics/b2World.h \
     Box2D/Dynamics/b2WorldCallbacks.h \
     Box2D/Rope/b2Rope.h \
+    ball.h \
     bins.h \
     compostbin.h \
     compostitems.h \
     controller.h \
     items.h \
     model.h \
-    rain.h \
     recyclebins.h \
     specialbins.h \
     trashbins.h \

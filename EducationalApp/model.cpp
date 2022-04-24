@@ -29,7 +29,7 @@ Model::Model(QObject *parent) : QObject{parent}, world(b2Vec2 (0.0f, 10.0f))
 
     for (int i = 0; i < 20; i++)
     {
-      raindropPoints.push_back(new QPoint(0,0));
+      ballPoints.push_back(new QPoint(0,0));
     }
 }
 
@@ -174,6 +174,7 @@ void Model::receiveSelectedItem(int index) // TODO this might have coordinate pa
     emit sendItemPhoto(image);
     // TODO check that I'm using enums correctly
 }
+
 // LOADING SCREEN METHODS
 
 // FIRST LOADING SCREEN METHODS
@@ -311,43 +312,11 @@ void Model::setupSecondLoadingWorld()
     // Add the ground fixture to the ground body.
     wall2Body->CreateFixture(&wall2Box, 0.0f);
 
-//    // Define the dynamic body. We set its position and call the body factory.
-//    b2BodyDef bodyDef;
-//    bodyDef.type = b2_dynamicBody;
-//    bodyDef.position.Set(1.0f, 0.0f);
-//    body = world.CreateBody(&bodyDef);
-
-//    // Apply a force so that the body moves to the right
-//    //body->ApplyForceToCenter(b2Vec2 (0.08f, 0.0f), true);
-
-//    // Define another box shape for our dynamic body.
-//    b2PolygonShape dynamicBox;
-//    dynamicBox.SetAsBox(0.01f, 0.01f);
-
-//    // Define the dynamic body fixture.
-//    b2FixtureDef fixtureDef;
-//    fixtureDef.shape = &dynamicBox;
-
-//    // Set the box density to be non-zero, so it will be dynamic.
-//    fixtureDef.density = 1.0f;
-
-//    // Add restitution for bounciness
-//    fixtureDef.restitution = 0.9f;
-
-//    // Override the default friction.
-//    fixtureDef.friction = 0.01f;
-
-//    // Add the shape to the body.
-//    body->CreateFixture(&fixtureDef);
-
     for (int i = 0; i < 20; i++)
     {
-      Rain* rain = new Rain(&world);
-      raindrops.push_back(rain);
+      Ball* ball = new Ball(&world);
+      balls.push_back(ball);
     }
-
-    b2Vec2 position = groundBody->GetPosition();
-    emit updateGroundPosition(position.x*100, position.y*100);
 
     // Tells the world to update the dynamic body
     updateSecondLoadingWorld();
@@ -370,15 +339,12 @@ void Model::updateSecondLoadingWorld(){
 
     for(int i = 0; i < 20; i++)
     {
-        b2Vec2 rainPosition = raindrops[i]->raindropBody->GetPosition();
-        raindropPoints[i]->setX(int(rainPosition.x * 100));
-        raindropPoints[i]->setY(int(rainPosition.y * 100));
+        b2Vec2 ballPosition = balls[i]->ballBody->GetPosition();
+        ballPoints[i]->setX(int(ballPosition.x * 100));
+        ballPoints[i]->setY(int(ballPosition.y * 100));
     }
 
-    emit updatedRainVector(raindropPoints);
-    //emit updateRainPosition(position.x*100, position.y*100);
-
-    //emit updateRain();
+    emit ballsMoved(ballPoints);
 
     // Has the simulation run for only 5 seconds.
     if (simulationDuration > 0)

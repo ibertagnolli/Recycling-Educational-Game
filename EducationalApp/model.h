@@ -9,7 +9,7 @@
 #include "bins.h"
 #include "Box2D/Box2D.h"
 #include "items.h"
-#include "rain.h"
+#include "ball.h"
 #include <vector>
 #include <QObject>
 #include <QQueue>
@@ -44,16 +44,17 @@ public:
 
 signals:
     /**
-     * @brief updateLabelPosition - A signal that will update the label position
+     * @brief A signal that will update the label position
      * @param xPosition - The x cordinates
      * @param yPosition - The y cordinates
      */
     void updateLabelPosition(int xPosition, int yPosition);
-    void updateGroundPosition(int xPosition, int yPosition);
 
-    void updateRainPosition(int xPosition, int yPosition);
-    void updateRain();
-    void updatedRainVector(std::vector<QPoint*> raindrops);
+    /**
+     * @brief Signals that the position of balls in the world has changed.
+     * @param ballPositions - The changed positions of the balls.
+     */
+    void ballsMoved(std::vector<QPoint*> ballPositions);
 
     /**
      * @brief Informs the view that trash has been put in a bin
@@ -203,7 +204,7 @@ private:
      */
     void updateQueue(int level);
 
-    std::vector<Rain *> raindrops;
-    std::vector<QPoint*> raindropPoints;
+    std::vector<Ball*> balls;
+    std::vector<QPoint*> ballPoints;
 };
 #endif // MODEL_H

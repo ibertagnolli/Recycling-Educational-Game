@@ -1,13 +1,13 @@
-#include "rain.h"
+#include "ball.h"
 
-Rain::Rain(QObject *parent): QObject{parent}
+Ball::Ball(QObject *parent): QObject{parent}
 {
-    raindropBody = NULL;
+    ballBody = NULL;
 }
 
-Rain::Rain(b2World* world)
+Ball::Ball(b2World* world)
 {
-    raindropBody = NULL;
+    ballBody = NULL;
 
     // Define the dynamic body. We set its position and call the body factory.
     b2BodyDef ballBodyDef;
@@ -16,7 +16,7 @@ Rain::Rain(b2World* world)
     int x = rand() % 540 + 150;
     int y = rand() % 200 - 300;
     ballBodyDef.position.Set(x/100.0, y/100.0);
-    raindropBody = world->CreateBody(&ballBodyDef);
+    ballBody = world->CreateBody(&ballBodyDef);
 
     // Define a circle shape for our dynamic body.
     b2CircleShape circleShape;
@@ -24,16 +24,16 @@ Rain::Rain(b2World* world)
     circleShape.m_radius = 0.25;
 
     // Define the dynamic body fixture.
-    b2FixtureDef myFixtureDef;
-    myFixtureDef.shape = &circleShape;
-    myFixtureDef.density = 1;
+    b2FixtureDef ballFixtureDef;
+    ballFixtureDef.shape = &circleShape;
+    ballFixtureDef.density = 1;
 
     // Add restitution for bounciness
-    myFixtureDef.restitution = 0.8f;
+    ballFixtureDef.restitution = 0.8f;
 
     // Override the default friction.
-    myFixtureDef.friction = 0.001f;
+    ballFixtureDef.friction = 0.001f;
 
     // Add the shape to the body.
-    raindropBody->CreateFixture(&myFixtureDef);
+    ballBody->CreateFixture(&ballFixtureDef);
 }

@@ -38,16 +38,16 @@ View::View(QWidget *parent)
     ui->yellowTulipLabel->setPixmap(QPixmap(":/images/images/yellowTulip1"));
     ui->redTulipLabel->setPixmap(QPixmap(":/images/images/redTulip1"));
 
-    // Image Importing for First Loading Screen
+    // Image setup for First Loading Screen
     ui->recycleLogo->setPixmap(QPixmap(":/images/images/recycleLoadingBlue"));
     ui->loadingBackground1->setPixmap(QPixmap(":/images/images/firstLoadingScreen"));
 
+    // Image setup for Second Loading Screen
     ui->label_11->setPixmap(QPixmap(":/images/images/truckClear"));
     ui->label_11->setScaledContents(true);
     ui->label_11->setGeometry(0, 0, 800,600);
     ui->label_11->lower();
-    QImage rain = QImage(":/images/images/recycleLoadingBlue");
-    rain2 = rain.scaled(75, 75);
+    ballImage = QImage(":/images/images/recycleLoadingBlue").scaled(75, 75);
 
     // Image importing for Conclusion Screen
     ui->conclusionBackgroundLabel->setScaledContents(true);
@@ -227,7 +227,7 @@ void View::paintEvent(QPaintEvent *)
     if(ui->stackWidget->currentIndex() == 5)
     {
         for (int i = 0; i < 20; i++){
-            painter.drawImage(raindrops[i]->x(), raindrops[i]->y(), rain2);
+            painter.drawImage(ballPositionsVector[i]->x(), ballPositionsVector[i]->y(), ballImage);
         }
     }
     painter.end();
@@ -239,9 +239,9 @@ void View::updateView()
         update();
 }
 
-void View::updateRaindropVector(std::vector<QPoint*> raindropVector)
+void View::updateBallPositions(std::vector<QPoint*> ballPosVector)
 {
-    raindrops = raindropVector;
+    ballPositionsVector = ballPosVector;
     update();
 }
 
