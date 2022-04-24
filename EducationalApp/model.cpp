@@ -188,7 +188,7 @@ void Model::setupFirstLoadingWorld()
     // Call the body factory which allocates memory for the ground body
     // from a pool and creates the ground box shape (also from a pool).
     // The body is also added to the world.
-    b2Body* groundBody = world.CreateBody(&groundBodyDef);
+    groundBody = world.CreateBody(&groundBodyDef);
 
     // Define the ground box shape.
     b2PolygonShape groundBox;
@@ -254,72 +254,63 @@ void Model::updateFirstLoadingWorld(){
         QTimer::singleShot(20, this, &Model::updateFirstLoadingWorld);
     }
     else
-        simulationDuration = 5000;
+    {
+        // Resets simulationDuration for second loading screen
+        simulationDuration = 6000;
+        // Removes ground and ball used in first loading screen
+        world.DestroyBody(groundBody);
+        world.DestroyBody(body);
+    }
 }
 
 void Model::setupSecondLoadingWorld()
 {
-    // Define the ground body.
-    b2BodyDef groundBodyDef;
-    groundBodyDef.position.Set(0.0f, 4.65f);
+    // Define the truck bottom body.
+    b2BodyDef truckBottomBodyDef;
+    truckBottomBodyDef.position.Set(0.0f, 4.65f);
+    b2Body* truckBottomBody = world.CreateBody(&truckBottomBodyDef);
 
-    // Call the body factory which allocates memory for the ground body
-    // from a pool and creates the ground box shape (also from a pool).
-    // The body is also added to the world.
-    b2Body* groundBody = world.CreateBody(&groundBodyDef);
-
-    // Define the ground box shape.
-    b2PolygonShape groundBox;
+    // Define the truck bottom shape.
+    b2PolygonShape truckBottomBox;
 
     // The extents are the half-widths of the box.
-    groundBox.SetAsBox(50.0f, 0.001f);
+    truckBottomBox.SetAsBox(50.0f, 0.001f);
 
-    // Add the ground fixture to the ground body.
-    groundBody->CreateFixture(&groundBox, 0.0f);
+    // Add the fixture to the body.
+    truckBottomBody->CreateFixture(&truckBottomBox, 0.0f);
 
-    // Define the ground body.
-    b2BodyDef wall1BodyDef;
-    wall1BodyDef.position.Set(1.5f, 0.0f);
+    // Define the left wall body.
+    b2BodyDef leftWallBodyDef;
+    leftWallBodyDef.position.Set(1.5f, 0.0f);
+    b2Body* leftWallBody = world.CreateBody(&leftWallBodyDef);
 
-    // Call the body factory which allocates memory for the ground body
-    // from a pool and creates the ground box shape (also from a pool).
-    // The body is also added to the world.
-    b2Body* wall1Body = world.CreateBody(&wall1BodyDef);
+    // Define the left wall shape.
+    b2PolygonShape leftWallBox;
+    leftWallBox.SetAsBox(0.001f, 50.0f);
 
-    // Define the ground box shape.
-    b2PolygonShape wall1Box;
+    // Add the fixture to the body.
+    leftWallBody->CreateFixture(&leftWallBox, 0.0f);
 
-    // The extents are the half-widths of the box.
-    wall1Box.SetAsBox(0.001f, 50.0f);
+    // Define the right wall body.
+    b2BodyDef rightWallBodyDef;
+    rightWallBodyDef.position.Set(7.2f, 0.0f);
+    b2Body* rightWallBody = world.CreateBody(&rightWallBodyDef);
 
-    // Add the ground fixture to the ground body.
-    wall1Body->CreateFixture(&wall1Box, 0.0f);
+    // Define the right wall box shape.
+    b2PolygonShape rightWallBox;
+    rightWallBox.SetAsBox(0.001f, 50.0f);
 
-    // Define the ground body.
-    b2BodyDef wall2BodyDef;
-    wall2BodyDef.position.Set(7.2f, 0.0f);
+    // Add the fixture to the body.
+    rightWallBody->CreateFixture(&rightWallBox, 0.0f);
 
-    // Call the body factory which allocates memory for the ground body
-    // from a pool and creates the ground box shape (also from a pool).
-    // The body is also added to the world.
-    b2Body* wall2Body = world.CreateBody(&wall2BodyDef);
-
-    // Define the ground box shape.
-    b2PolygonShape wall2Box;
-
-    // The extents are the half-widths of the box.
-    wall2Box.SetAsBox(0.001f, 50.0f);
-
-    // Add the ground fixture to the ground body.
-    wall2Body->CreateFixture(&wall2Box, 0.0f);
-
+    // Add balls to the world.
     for (int i = 0; i < numBalls; i++)
     {
       Ball* ball = new Ball(&world);
       balls.push_back(ball);
     }
 
-    // Tells the world to update the dynamic body
+    // Tells the world to update the dynamic ball bodies.
     updateSecondLoadingWorld();
 }
 

@@ -108,8 +108,6 @@ public slots:
      */
     void receiveSelectedItem(int index);
 
-
-
 private slots:
     /**
      * @brief Updates the world to perform a single step of the simulation.
@@ -126,6 +124,11 @@ private:
      * integeration of the Box2D
      */
     b2World world;
+
+    /**
+     * @brief groundBody - ground body used in first loading screen.
+     */
+    b2Body* groundBody;
 
     /**
      * @brief body - The body object that allows for
