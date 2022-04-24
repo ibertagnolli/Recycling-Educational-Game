@@ -48,6 +48,7 @@ View::View(QWidget *parent)
     ui->label_11->setGeometry(0, 0, 800,600);
     ui->label_11->lower();
     ballImage = QImage(":/images/images/recycleLoadingBlue").scaled(75, 75);
+    numBalls = 20;
 
     // Image importing for Conclusion Screen
     ui->conclusionBackgroundLabel->setScaledContents(true);
@@ -219,29 +220,28 @@ void View::setLogoPosition(int xPosition, int yPosition)
     ui->recycleLogo->setGeometry(xPosition, yPosition, 200, 200);
 }
 
+/**
+ * @brief Overrides the paintevent to draw ball objects on the second loading screen.
+ */
 void View::paintEvent(QPaintEvent *)
 {
     // Create a painter
     QPainter painter(this);
 
+    // Only draws balls on second loading screen.
     if(ui->stackWidget->currentIndex() == 5)
     {
-        for (int i = 0; i < 20; i++){
+        for (int i = 0; i < numBalls; i++){
             painter.drawImage(ballPositionsVector[i]->x(), ballPositionsVector[i]->y(), ballImage);
         }
     }
     painter.end();
 }
 
-void View::updateView()
-{
-    if(ui->stackWidget->currentIndex() == 5)
-        update();
-}
-
 void View::updateBallPositions(std::vector<QPoint*> ballPosVector)
 {
     ballPositionsVector = ballPosVector;
+    // Prompts paintevent
     update();
 }
 

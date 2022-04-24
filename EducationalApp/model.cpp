@@ -20,14 +20,15 @@
 
 Model::Model(QObject *parent) : QObject{parent}, world(b2Vec2 (0.0f, 10.0f))
 {
-    simulationDuration = 6000;
+    simulationDuration = 5000;
     setUpItems();
     cans.push_back(new RecycleBins);
     cans.push_back(new TrashBins);
     cans.push_back(new CompostBin);
     cans.push_back(new SpecialBins);
 
-    for (int i = 0; i < 20; i++)
+    numBalls = 20;
+    for (int i = 0; i < numBalls; i++)
     {
       ballPoints.push_back(new QPoint(0,0));
     }
@@ -312,7 +313,7 @@ void Model::setupSecondLoadingWorld()
     // Add the ground fixture to the ground body.
     wall2Body->CreateFixture(&wall2Box, 0.0f);
 
-    for (int i = 0; i < 20; i++)
+    for (int i = 0; i < numBalls; i++)
     {
       Ball* ball = new Ball(&world);
       balls.push_back(ball);
@@ -337,7 +338,7 @@ void Model::updateSecondLoadingWorld(){
     world.Step(timeStep, velocityIterations, positionIterations);
     //b2Vec2 position = body->GetPosition();
 
-    for(int i = 0; i < 20; i++)
+    for(int i = 0; i < numBalls; i++)
     {
         b2Vec2 ballPosition = balls[i]->ballBody->GetPosition();
         ballPoints[i]->setX(int(ballPosition.x * 100));

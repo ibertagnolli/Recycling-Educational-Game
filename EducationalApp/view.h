@@ -31,13 +31,11 @@ public:
      * @param parent
      */
     View(QWidget *parent = nullptr);
-    /*
+
+    /**
     * Destructor for the View
     */
     ~View();
-
-    std::vector<QPoint*> ballPositionsVector;
-    QImage ballImage;
 
 signals:
 
@@ -54,10 +52,13 @@ signals:
     void mouseReleased(QPointF position);
     
     /**
-      * @brief firstLoadScreenStart - The signal to
-      * start the first loading screen
+      * @brief The signal to start the first loading screen
       */
      void firstLoadScreenStart();
+
+     /**
+       * @brief The signal to start the second loading screen
+       */
      void secondLoadScreenStart();
 
     /**
@@ -75,8 +76,16 @@ public slots:
      */
     void setLogoPosition(int xPosition, int yPosition);
 
+    /**
+     * @brief Overrides the paintevent to draw ball objects on the second loading screen.
+     */
     void paintEvent(QPaintEvent *);
-    void updateView();
+
+    /**
+     * @brief Updates the view's ballPositionsVector with the new positions.
+     * Also prompts the update method so that paintevent is triggered.
+     * @param ballPosVector - vector of updated coordinates for where balls should be drawn.
+     */
     void updateBallPositions(std::vector<QPoint*> ballPositionsVector);
 
     /**
@@ -123,6 +132,21 @@ private:
      * is actively being pressed.
      */
     bool itemPressed;
+
+    /**
+     * @brief numBalls - number of balls to draw
+     */
+    int numBalls;
+
+    /**
+     * @brief ballPositionsVector - The positions to draw ball images at.
+     */
+    std::vector<QPoint*> ballPositionsVector;
+
+    /**
+     * @brief ballImage - The image that will have ball qualities. Drawn on loading screens.
+     */
+    QImage ballImage;
 
     /**
      * @brief Tracks when the mouse is released
@@ -196,7 +220,6 @@ private slots:
      * slot is selected.
      */
     void on_itemSlot4_pressed();
-
 
 };
 #endif // VIEW_H

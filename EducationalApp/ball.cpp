@@ -5,6 +5,8 @@ Ball::Ball(QObject *parent): QObject{parent}
     ballBody = NULL;
 }
 
+Ball::~Ball() {}
+
 Ball::Ball(b2World* world)
 {
     ballBody = NULL;

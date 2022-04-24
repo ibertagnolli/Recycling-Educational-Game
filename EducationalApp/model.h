@@ -204,7 +204,19 @@ private:
      */
     void updateQueue(int level);
 
+    /**
+     * @brief numBalls - How many balls exist in the world.
+     */
+    int numBalls;
+
+    /**
+     * @brief balls - The ball objects that exist in the world.
+     */
     std::vector<Ball*> balls;
+
+    /**
+     * @brief ballPoints - The Point positions of balls that exist in the world.
+     */
     std::vector<QPoint*> ballPoints;
 };
 #endif // MODEL_H
