@@ -193,10 +193,6 @@ private slots:
     void on_buttonToPurposeScreen_clicked();
 
     /**
-     * @brief THIS WILL BE DELETED. This method will move to the conclusion screen.
-     */
-    void on_conclusionButton_clicked();
-    /**
      * @brief on_itemSlot0_pressed - Indicates that the first item slot is
      * selected
      */

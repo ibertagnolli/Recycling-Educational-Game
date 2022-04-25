@@ -987,7 +987,7 @@ background-color: rgba( 255, 255, 255, 0%);</string>
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="Resources.qrc">:/images/images/trashBin.png</pixmap>
+         <pixmap>:/images/images/trashBin.png</pixmap>
         </property>
         <property name="scaledContents">
          <bool>true</bool>
@@ -1009,7 +1009,7 @@ background-color: rgba( 255, 255, 255, 0%);</string>
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="Resources.qrc">:/images/images/yardBin.png</pixmap>
+         <pixmap>:/images/images/yardBin.png</pixmap>
         </property>
         <property name="scaledContents">
          <bool>true</bool>
@@ -1037,7 +1037,7 @@ background-color: rgba( 255, 255, 255, 0%);</string>
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="Resources.qrc">:/images/images/recycleBin.png</pixmap>
+         <pixmap>:/images/images/recycleBin.png</pixmap>
         </property>
         <property name="scaledContents">
          <bool>true</bool>
@@ -1067,7 +1067,7 @@ background-repeat: no-repeat;
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="Resources.qrc">:/images/images/GameScreenGrass.png</pixmap>
+         <pixmap>:/images/images/GameScreenGrass.png</pixmap>
         </property>
         <property name="scaledContents">
          <bool>true</bool>
@@ -1256,19 +1256,6 @@ background-color: rgba(255, 255, 255, 50);
          </item>
         </layout>
        </widget>
-       <widget class="QPushButton" name="conclusionButton">
-        <property name="geometry">
-         <rect>
-          <x>420</x>
-          <y>130</y>
-          <width>100</width>
-          <height>32</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Conclusion Screen</string>
-        </property>
-       </widget>
        <widget class="QLabel" name="TestLabel">
         <property name="geometry">
          <rect>
@@ -1292,7 +1279,6 @@ background-color: rgba(255, 255, 255, 0);</string>
        <zorder>recycleBinLabel</zorder>
        <zorder>ItemBarWidget</zorder>
        <zorder>ItemInfoBox</zorder>
-       <zorder>conclusionButton</zorder>
        <zorder>TestLabel</zorder>
       </widget>
       <widget class="QWidget" name="loadingScreen1">
@@ -1477,8 +1463,6 @@ background-color: rgba(255, 255, 255, 0);</string>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources>
-  <include location="Resources.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

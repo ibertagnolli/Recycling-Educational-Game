@@ -128,26 +128,31 @@ void View::on_buttonToPurposeScreen_clicked()
 void View::on_itemSlot0_pressed()
 {
     emit sendSelectedItem(0);
+    ui->correctLabel->clear();
 }
 
 void View::on_itemSlot1_pressed()
 {
     emit sendSelectedItem(1);
+    ui->correctLabel->clear();
 }
 
 void View::on_itemSlot2_pressed()
 {
     emit sendSelectedItem(2);
+    ui->correctLabel->clear();
 }
 
 void View::on_itemSlot3_pressed()
 {
     emit sendSelectedItem(3);
+    ui->correctLabel->clear();
 }
 
 void View::on_itemSlot4_pressed()
 {
     emit sendSelectedItem(4);
+    ui->correctLabel->clear();
 }
 
 void View::setLabelBackground(QImage image){
@@ -166,13 +171,6 @@ void View::mouseReleaseEvent(QMouseEvent *event)
     QPointF position = event->position();
     emit mouseReleased(position);
     this->releaseMouse();
-
-    QTimer::singleShot(700, this, [this]() {
-        ui->itemImageLabel->clear();
-        ui->sideBarLabel->clear();
-        ui->itemTitleLabel->clear();
-        ui->correctLabel->clear();
-    });
 }
 
 
@@ -231,6 +229,10 @@ void View::changeScreen(int screen)
     {
         emit firstLoadScreenStart();
         QTimer::singleShot(5000, ui->stackWidget, [this]() { ui->stackWidget->setCurrentIndex(3); });
+        ui->itemImageLabel->clear();
+        ui->sideBarLabel->clear();
+        ui->itemTitleLabel->clear();
+        ui->correctLabel->clear();
     }
     else if (screen == 5)
     {
@@ -238,6 +240,10 @@ void View::changeScreen(int screen)
         QTimer::singleShot(6000, ui->stackWidget, [this]() { ui->stackWidget->setCurrentIndex(3); });
         ui->yardBinLabel->setPixmap(QPixmap(":/images/images/donationBin.png"));
         ui->yardBinLabel->setToolTip("Special donation or dropoff bin");
+        ui->itemImageLabel->clear();
+        ui->sideBarLabel->clear();
+        ui->itemTitleLabel->clear();
+        ui->correctLabel->clear();
     }
 }
 
@@ -269,13 +275,6 @@ void View::updateBallPositions(std::vector<QPoint*> ballPosVector)
     ballPositionsVector = ballPosVector;
     // Prompts paintevent
     update();
-}
-
-// CONCLUDING SCREEN METHODS
-void View::on_conclusionButton_clicked()
-{
-    ui->stackWidget->setCurrentIndex(5);
-    emit secondLoadScreenStart();
 }
 
 //TULIP ClICKED METHODS PURPOSE SCREEN
