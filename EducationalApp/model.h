@@ -96,8 +96,11 @@ public slots:
      */
     void setupFirstLoadingWorld();
 
+    /**
+     * @brief Sets up the world for the second loading screen.
+     * This creates the walls of the truck and the bouncing balls.
+     */
     void setupSecondLoadingWorld();
-
 
     /**
      * @brief Connected to View's signal that a new trash item was selected.
@@ -116,6 +119,11 @@ private slots:
      */
     void updateFirstLoadingWorld();
 
+    /**
+     * @brief Updates the world to perform a single step of the simulation.
+     * The updated positions of the balls are emitted.
+     * The simulation runs until the simulation duration ends.
+     */
     void updateSecondLoadingWorld();
 
 private:
@@ -131,8 +139,7 @@ private:
     b2Body* groundBody;
 
     /**
-     * @brief body - The body object that allows for
-     * the integeration of the Box2D
+     * @brief body - The body of the ball in the first loading screen.
      */
     b2Body *body;
 

@@ -220,15 +220,13 @@ void View::setLogoPosition(int xPosition, int yPosition)
     ui->recycleLogo->setGeometry(xPosition, yPosition, 200, 200);
 }
 
-/**
- * @brief Overrides the paintevent to draw ball objects on the second loading screen.
- */
 void View::paintEvent(QPaintEvent *)
 {
     // Create a painter
     QPainter painter(this);
 
     // Only draws balls on second loading screen.
+    // Prevents drawing balls on other screens.
     if(ui->stackWidget->currentIndex() == 5)
     {
         for (int i = 0; i < numBalls; i++){
@@ -248,7 +246,6 @@ void View::updateBallPositions(std::vector<QPoint*> ballPosVector)
 // CONCLUDING SCREEN METHODS
 void View::on_conclusionButton_clicked()
 {
-    // Having this go to load 2 temporarily
     ui->stackWidget->setCurrentIndex(5);
     emit secondLoadScreenStart();
 }

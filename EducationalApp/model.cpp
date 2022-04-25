@@ -176,8 +176,6 @@ void Model::receiveSelectedItem(int index) // TODO this might have coordinate pa
     // TODO check that I'm using enums correctly
 }
 
-// LOADING SCREEN METHODS
-
 // FIRST LOADING SCREEN METHODS
 void Model::setupFirstLoadingWorld()
 {
@@ -263,6 +261,7 @@ void Model::updateFirstLoadingWorld(){
     }
 }
 
+// SECOND LOADING SCREEN METHODS
 void Model::setupSecondLoadingWorld()
 {
     // Define the truck bottom body.
@@ -314,21 +313,17 @@ void Model::setupSecondLoadingWorld()
     updateSecondLoadingWorld();
 }
 
-void Model::updateSecondLoadingWorld(){
-    //std::cout<< "Entered update second loading world\n";
-
-    // Prepare for simulation. Typically we use a time step of 1/60 of a
-    // second (60Hz) and 10 iterations. This provides a high quality simulation
-    // in most game scenarios.
+void Model::updateSecondLoadingWorld()
+{
+    // Prepare for simulation.
     float32 timeStep = 1.0f / 60.0f;
     int32 velocityIterations = 6;
     int32 positionIterations = 2;
 
     // Instruct the world to perform a single step of simulation.
-    // It is generally best to keep the time step and iterations fixed.
     world.Step(timeStep, velocityIterations, positionIterations);
-    //b2Vec2 position = body->GetPosition();
 
+    // Update the vector ballPosition that keeps track of where balls are located.
     for(int i = 0; i < numBalls; i++)
     {
         b2Vec2 ballPosition = balls[i]->ballBody->GetPosition();
@@ -336,18 +331,17 @@ void Model::updateSecondLoadingWorld(){
         ballPoints[i]->setY(int(ballPosition.y * 100));
     }
 
+    // Tell view that balls have moved and their new positions.
     emit ballsMoved(ballPoints);
 
-    // Has the simulation run for only 5 seconds.
+    // Has the simulation run for only 6 seconds.
     if (simulationDuration > 0)
     {
         simulationDuration -= 20;
         QTimer::singleShot(20, this, &Model::updateSecondLoadingWorld);
     }
     else
-        simulationDuration = 5000;
+        simulationDuration = 6000;
 }
-
-
 
 // CONCLUDING SCREEN METHODS

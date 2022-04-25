@@ -77,11 +77,6 @@ public slots:
     void setLogoPosition(int xPosition, int yPosition);
 
     /**
-     * @brief Overrides the paintevent to draw ball objects on the second loading screen.
-     */
-    void paintEvent(QPaintEvent *);
-
-    /**
      * @brief Updates the view's ballPositionsVector with the new positions.
      * Also prompts the update method so that paintevent is triggered.
      * @param ballPosVector - vector of updated coordinates for where balls should be drawn.
@@ -221,5 +216,9 @@ private slots:
      */
     void on_itemSlot4_pressed();
 
+    /**
+     * @brief Overrides the paintevent to draw ball objects on the second loading screen.
+     */
+    void paintEvent(QPaintEvent *);
 };
 #endif // VIEW_H
