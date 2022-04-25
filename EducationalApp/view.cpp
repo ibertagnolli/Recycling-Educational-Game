@@ -43,9 +43,9 @@ View::View(QWidget *parent)
     ui->loadingBackground1->setPixmap(QPixmap(":/images/images/firstLoadingScreen"));
 
     // Image setup for Second Loading Screen
-    ui->label_11->setPixmap(QPixmap(":/images/images/truckClear"));
+    ui->label_11->setPixmap(QPixmap(":/images/images/truckLoad"));
     ui->label_11->setScaledContents(true);
-    ui->label_11->setGeometry(0, 0, 800,600);
+    ui->label_11->setGeometry(-10, 0, 800,600);
     ui->label_11->lower();
     ballImage = QImage(":/images/images/recycleLoadingBlue").scaled(75, 75);
     numBalls = 20;

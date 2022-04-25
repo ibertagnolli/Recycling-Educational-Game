@@ -280,7 +280,7 @@ void Model::setupSecondLoadingWorld()
 
     // Define the left wall body.
     b2BodyDef leftWallBodyDef;
-    leftWallBodyDef.position.Set(1.5f, 0.0f);
+    leftWallBodyDef.position.Set(0.12f, 0.0f);
     b2Body* leftWallBody = world.CreateBody(&leftWallBodyDef);
 
     // Define the left wall shape.
@@ -292,7 +292,7 @@ void Model::setupSecondLoadingWorld()
 
     // Define the right wall body.
     b2BodyDef rightWallBodyDef;
-    rightWallBodyDef.position.Set(7.2f, 0.0f);
+    rightWallBodyDef.position.Set(5.85f, 0.0f);
     b2Body* rightWallBody = world.CreateBody(&rightWallBodyDef);
 
     // Define the right wall box shape.
@@ -337,7 +337,7 @@ void Model::updateSecondLoadingWorld()
     // Has the simulation run for only 6 seconds.
     if (simulationDuration > 0)
     {
-        simulationDuration -= 20;
+        //simulationDuration -= 20;
         QTimer::singleShot(20, this, &Model::updateSecondLoadingWorld);
     }
     else

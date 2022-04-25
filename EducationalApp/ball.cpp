@@ -15,7 +15,7 @@ Ball::Ball(b2World* world)
     b2BodyDef ballBodyDef;
     ballBodyDef.type = b2_dynamicBody;
     // Randomizes the ball's starting position so the balls have variety
-    int x = rand() % 540 + 150;
+    int x = rand() % 480 + 60;
     int y = rand() % 200 - 300;
     ballBodyDef.position.Set(x/100.0, y/100.0);
     ballBody = world->CreateBody(&ballBodyDef);
