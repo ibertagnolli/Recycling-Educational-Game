@@ -796,7 +796,6 @@ background-color: rgba( 255, 255, 255, 0%);</string>
               </property>
               <property name="font">
                <font>
-                <family>Helvetica</family>
                 <pointsize>24</pointsize>
                 <italic>false</italic>
                 <bold>false</bold>
@@ -1471,7 +1470,7 @@ background-color: rgba(255, 255, 255, 0);</string>
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>25</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>
