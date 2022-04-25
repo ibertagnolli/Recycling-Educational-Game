@@ -159,9 +159,10 @@ void View::setLabelBackground(QImage image){
     this->grabMouse();
     itemPressed = true;
     QPixmap map;
-    map.convertFromImage(image.scaled(72, 72),Qt::ColorOnly);
+    map.convertFromImage(image.scaled(300, 300, Qt::KeepAspectRatio, Qt::SmoothTransformation),Qt::ColorOnly);
     ui->TestLabel->setGeometry(0,0,72,72);
     ui->TestLabel->setPixmap(map);
+    ui->TestLabel->setScaledContents(true);
 }
 
 void View::mouseReleaseEvent(QMouseEvent *event)
@@ -195,12 +196,11 @@ void View::trashInBin(bool correctlyIdentified)
 void View::receiveItemInfo(int itemType, QString itemName, QString itemDescrip, QImage image)
 {
     ui->itemTitleLabel->setText(itemName);
-    ui->sideBarLabel->setText(itemDescrip); // TODO just display this after user disposes of trash, then start timer? Or just have it up until the next item is selected
+    ui->sideBarLabel->setText(itemDescrip);
     QPixmap map;
-    map.convertFromImage(image.scaled(133, 57),Qt::ColorOnly);
-    ui->itemImageLabel->setPixmap(map); // TODO have itemName mage file name!
-    ui->itemImageLabel->setScaledContents(true); // TODO can this line go in the form?
-    // TODO update correct/incorrect label when the user drags the image to the bin
+    map.convertFromImage(image.scaled(300, 300, Qt::KeepAspectRatio, Qt::SmoothTransformation),Qt::ColorOnly);
+    ui->itemImageLabel->setPixmap(map);
+    ui->itemImageLabel->setScaledContents(true);
 }
 
 void View::receiveItemBar(std::vector<QImage *> items)

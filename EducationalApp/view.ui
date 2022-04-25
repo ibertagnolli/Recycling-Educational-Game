@@ -794,8 +794,16 @@ background-color: rgba( 255, 255, 255, 0%);</string>
                 <height>40</height>
                </size>
               </property>
+              <property name="font">
+               <font>
+                <family>Helvetica</family>
+                <pointsize>24</pointsize>
+                <italic>false</italic>
+                <bold>false</bold>
+               </font>
+              </property>
               <property name="styleSheet">
-               <string notr="true">font: 16pt &quot;Helvetica&quot;;
+               <string notr="true">font: 24pt &quot;Helvetica&quot;;
 color: rgb(0, 0, 0);</string>
               </property>
               <property name="text">
@@ -808,8 +816,14 @@ color: rgb(0, 0, 0);</string>
             </item>
             <item row="6" column="1">
              <widget class="QLabel" name="label_6">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>111</height>
+               </size>
+              </property>
               <property name="styleSheet">
-               <string notr="true">font: 12pt &quot;Helvetica&quot;;
+               <string notr="true">font: 20pt &quot;Helvetica&quot;;
 color: rgb(0, 0, 0);</string>
               </property>
               <property name="text">
@@ -826,7 +840,7 @@ color: rgb(0, 0, 0);</string>
             <item row="4" column="1">
              <widget class="QLabel" name="label_4">
               <property name="styleSheet">
-               <string notr="true">font: 12pt &quot;Helvetica&quot;;
+               <string notr="true">font: 20pt &quot;Helvetica&quot;;
 color: rgb(0, 0, 0);</string>
               </property>
               <property name="text">
@@ -849,7 +863,7 @@ color: rgb(0, 0, 0);</string>
                </size>
               </property>
               <property name="styleSheet">
-               <string notr="true">font: 16pt &quot;Helvetica&quot;;
+               <string notr="true">font: 24pt &quot;Helvetica&quot;;
 color: rgb(0, 0, 0);
 </string>
               </property>
@@ -943,7 +957,7 @@ border-color: rgb(0, 0, 0);</string>
             <item row="0" column="1">
              <widget class="QLabel" name="HowToPlayLabel">
               <property name="styleSheet">
-               <string notr="true">font: 700 20pt &quot;Georgia&quot;;
+               <string notr="true">font: 700 30pt &quot;Georgia&quot;;
 color: rgb(0, 0, 0);
 background-color: rgba( 255, 255, 255, 0%);</string>
               </property>
@@ -1457,7 +1471,7 @@ background-color: rgba(255, 255, 255, 0);</string>
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>21</height>
+     <height>25</height>
     </rect>
    </property>
   </widget>
