@@ -54,5 +54,6 @@
         <file>images/DonationBin.png</file>
         <file>images/truckLoad.png</file>
         <file>images/recycleBall.png</file>
+        <file>images/truck.png</file>
     </qresource>
 </RCC>

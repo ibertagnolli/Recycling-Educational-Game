@@ -665,7 +665,6 @@ background-color: rgba(255, 255, 255, 0)</string>
         </property>
         <property name="font">
          <font>
-          <family>Segoe UI</family>
           <pointsize>14</pointsize>
          </font>
         </property>
@@ -988,7 +987,7 @@ background-color: rgba( 255, 255, 255, 0%);</string>
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap>:/images/images/trashBin.png</pixmap>
+         <pixmap resource="Resources.qrc">:/images/images/trashBin.png</pixmap>
         </property>
         <property name="scaledContents">
          <bool>true</bool>
@@ -1010,7 +1009,7 @@ background-color: rgba( 255, 255, 255, 0%);</string>
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap>:/images/images/yardBin.png</pixmap>
+         <pixmap resource="Resources.qrc">:/images/images/yardBin.png</pixmap>
         </property>
         <property name="scaledContents">
          <bool>true</bool>
@@ -1038,7 +1037,7 @@ background-color: rgba( 255, 255, 255, 0%);</string>
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap>:/images/images/recycleBin.png</pixmap>
+         <pixmap resource="Resources.qrc">:/images/images/recycleBin.png</pixmap>
         </property>
         <property name="scaledContents">
          <bool>true</bool>
@@ -1068,7 +1067,7 @@ background-repeat: no-repeat;
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap>:/images/images/GameScreenGrass.png</pixmap>
+         <pixmap resource="Resources.qrc">:/images/images/GameScreenGrass.png</pixmap>
         </property>
         <property name="scaledContents">
          <bool>true</bool>
@@ -1396,25 +1395,6 @@ background-color: rgba(255, 255, 255, 0);</string>
          <bool>true</bool>
         </property>
        </widget>
-       <widget class="QLabel" name="truckLabel">
-        <property name="geometry">
-         <rect>
-          <x>-10</x>
-          <y>0</y>
-          <width>800</width>
-          <height>600</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Truck Image</string>
-        </property>
-        <property name="scaledContents">
-         <bool>true</bool>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
       </widget>
       <widget class="QWidget" name="conclusionScreen">
        <property name="minimumSize">
@@ -1497,6 +1477,8 @@ background-color: rgba(255, 255, 255, 0);</string>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources/>
+ <resources>
+  <include location="Resources.qrc"/>
+ </resources>
  <connections/>
 </ui>

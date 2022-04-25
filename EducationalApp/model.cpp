@@ -315,7 +315,7 @@ void Model::setupSecondLoadingWorld()
 {
     // Define the truck bottom body.
     b2BodyDef truckBottomBodyDef;
-    truckBottomBodyDef.position.Set(0.0f, 4.75f);
+    truckBottomBodyDef.position.Set(0.0f, 4.65f);
     b2Body* truckBottomBody = world.CreateBody(&truckBottomBodyDef);
 
     // Define the truck bottom shape.

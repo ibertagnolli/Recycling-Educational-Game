@@ -149,6 +149,11 @@ private:
     QImage ballImage;
 
     /**
+     * @brief truckBackground - The truck and background image drawn on the second loading screen.
+     */
+    QImage truckBackground;
+
+    /**
      * @brief Tracks when the mouse is released
      * @param event
      */

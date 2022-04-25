@@ -52,7 +52,7 @@ View::View(QWidget *parent)
     ui->loadingBackground1->setPixmap(QPixmap(":/images/images/firstLoadingScreen"));
 
     // Image setup for Second Loading Screen
-    ui->truckLabel->setPixmap(QPixmap(":/images/images/truckLoad"));
+    truckBackground = QImage(":/images/images/truck").scaled(800, 600);
     ballImage = QImage(":/images/images/recycleBall").scaled(50, 50);
     numBalls = 20;
 
@@ -255,6 +255,7 @@ void View::paintEvent(QPaintEvent *)
     // Prevents drawing balls on other screens.
     if(ui->stackWidget->currentIndex() == 5)
     {
+        painter.drawImage(0, 0, truckBackground);
         for (int i = 0; i < numBalls; i++){
             painter.drawImage(ballPositionsVector[i]->x(), ballPositionsVector[i]->y(), ballImage);
         }
