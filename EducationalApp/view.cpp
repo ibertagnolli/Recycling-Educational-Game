@@ -39,6 +39,14 @@ View::View(QWidget *parent)
     ui->yellowTulipLabel->setPixmap(QPixmap(":/images/images/yellowTulip1"));
     ui->redTulipLabel->setPixmap(QPixmap(":/images/images/redTulip1"));
 
+    // Sets flower labels on Purpose Screen invisible to start.
+    ui->waterLabel->setVisible(false);
+    ui->treeLabel->setVisible(false);
+    ui->gasLabel->setVisible(false);
+    ui->electricityLabel->setVisible(false);
+    ui->landfillLabel->setVisible(false);
+    ui->buttonToInstrScreen->setVisible(false);
+
     // Image setup for First Loading Screen
     ui->recycleLogo->setPixmap(QPixmap(":/images/images/recycleLoadingBlue"));
     ui->loadingBackground1->setPixmap(QPixmap(":/images/images/firstLoadingScreen"));
@@ -222,12 +230,15 @@ void View::receiveItemBar(std::vector<QImage *> items)
 void View::changeScreen(int screen)
 {
     ui->stackWidget->setCurrentIndex(screen);
-    if (screen == 4) {
+    if (screen == 4)
+    {
         emit firstLoadScreenStart();
         QTimer::singleShot(5000, ui->stackWidget, [this]() { ui->stackWidget->setCurrentIndex(3); });
     }
-    if (screen == 5) {
-        QTimer::singleShot(1500, ui->stackWidget, [this]() { ui->stackWidget->setCurrentIndex(3); });
+    else if (screen == 5)
+    {
+        emit secondLoadScreenStart();
+        QTimer::singleShot(6000, ui->stackWidget, [this]() { ui->stackWidget->setCurrentIndex(3); });
         ui->yardBinLabel->setPixmap(QPixmap(":/images/images/DonationBin.png"));
     }
 }
@@ -272,30 +283,31 @@ void View::on_conclusionButton_clicked()
 void View::on_waterButton_clicked()
 {
     ui->waterButton->setDisabled(true);
-    ui->waterButton->setText("3,121,890\nGallons of Water");
+    ui->waterLabel->setVisible(true);
 }
 
 void View::on_treeButton_clicked()
 {
     ui->treeButton->setDisabled(true);
-    ui->treeButton->setText("5,732\nMature Trees");
+    ui->treeLabel->setVisible(true);
 }
 
 void View::on_gasButton_clicked()
 {
     ui->gasButton->setDisabled(true);
-    ui->gasButton->setText("2,027\nMetric Tons of\nGreenhouse Gas Emissions");
+    ui->gasLabel->setVisible(true);
 }
 
 void View::on_electricityButton_clicked()
 {
     ui->electricityButton->setDisabled(true);
-    ui->electricityButton->setText("1,832\nMWH of\nElectricity");
+    ui->electricityLabel->setVisible(true);
 }
 
 void View::on_landfillButton_clicked()
 {
     ui->landfillButton->setDisabled(true);
-    ui->landfillButton->setText("2,238\nCubic Yards of\nLandfill Airspace");
+    ui->landfillLabel->setVisible(true);
+    ui->buttonToInstrScreen->setVisible(true);
     ui->buttonToInstrScreen->setEnabled(true);
 }

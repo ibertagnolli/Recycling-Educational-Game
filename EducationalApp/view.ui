@@ -244,7 +244,7 @@ Trashy!</string>
           <x>0</x>
           <y>70</y>
           <width>801</width>
-          <height>51</height>
+          <height>61</height>
          </rect>
         </property>
         <property name="font">
@@ -272,9 +272,9 @@ Trashy!</string>
         <property name="geometry">
          <rect>
           <x>0</x>
-          <y>30</y>
+          <y>10</y>
           <width>801</width>
-          <height>51</height>
+          <height>81</height>
          </rect>
         </property>
         <property name="font">
@@ -296,21 +296,21 @@ Trashy!</string>
         <property name="geometry">
          <rect>
           <x>0</x>
-          <y>120</y>
-          <width>801</width>
-          <height>41</height>
+          <y>110</y>
+          <width>781</width>
+          <height>71</height>
          </rect>
         </property>
         <property name="font">
          <font>
-          <pointsize>22</pointsize>
+          <pointsize>20</pointsize>
          </font>
         </property>
         <property name="styleSheet">
          <string notr="true">color: rgb(0, 85, 0);</string>
         </property>
         <property name="text">
-         <string>Click each flower below to learn what Salt Lake City saved in June 2019</string>
+         <string>Click each flower to learn what Salt Lake City saved in June 2019</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -454,6 +454,11 @@ Trashy!</string>
           <height>121</height>
          </rect>
         </property>
+        <property name="font">
+         <font>
+          <pointsize>9</pointsize>
+         </font>
+        </property>
         <property name="styleSheet">
          <string notr="true">color: rgb(0, 85, 0);
 background-color: rgba(255, 255, 255, 0)</string>
@@ -461,14 +466,20 @@ background-color: rgba(255, 255, 255, 0)</string>
         <property name="text">
          <string/>
         </property>
+        <property name="checkable">
+         <bool>false</bool>
+        </property>
+        <property name="checked">
+         <bool>false</bool>
+        </property>
        </widget>
        <widget class="QPushButton" name="treeButton">
         <property name="geometry">
          <rect>
-          <x>170</x>
+          <x>160</x>
           <y>380</y>
-          <width>121</width>
-          <height>91</height>
+          <width>141</width>
+          <height>111</height>
          </rect>
         </property>
         <property name="styleSheet">
@@ -501,8 +512,8 @@ background-color: rgba(255, 255, 255, 0)</string>
          <rect>
           <x>450</x>
           <y>310</y>
-          <width>141</width>
-          <height>121</height>
+          <width>151</width>
+          <height>141</height>
          </rect>
         </property>
         <property name="styleSheet">
@@ -519,7 +530,7 @@ background-color: rgba(255, 255, 255, 0)</string>
           <x>610</x>
           <y>250</y>
           <width>161</width>
-          <height>151</height>
+          <height>161</height>
          </rect>
         </property>
         <property name="styleSheet">
@@ -528,6 +539,142 @@ background-color: rgba(255, 255, 255, 0)</string>
         </property>
         <property name="text">
          <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="waterLabel">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>290</y>
+          <width>141</width>
+          <height>111</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>13</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(0, 85, 0);</string>
+        </property>
+        <property name="text">
+         <string>3,121,890                      Gallons of                  Water</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
+       </widget>
+       <widget class="QLabel" name="treeLabel">
+        <property name="geometry">
+         <rect>
+          <x>160</x>
+          <y>380</y>
+          <width>141</width>
+          <height>91</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(0, 85, 0);</string>
+        </property>
+        <property name="text">
+         <string>5,732               Mature Trees</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
+       </widget>
+       <widget class="QLabel" name="gasLabel">
+        <property name="geometry">
+         <rect>
+          <x>290</x>
+          <y>200</y>
+          <width>151</width>
+          <height>211</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(0, 85, 0);</string>
+        </property>
+        <property name="text">
+         <string>2,027                     Metric Tons of                      Greenhouse Gas                         Emissions</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
+       </widget>
+       <widget class="QLabel" name="electricityLabel">
+        <property name="geometry">
+         <rect>
+          <x>470</x>
+          <y>320</y>
+          <width>111</width>
+          <height>111</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(0, 85, 0);</string>
+        </property>
+        <property name="text">
+         <string>1,832                       MWH of                     Electricity</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
+       </widget>
+       <widget class="QLabel" name="landfillLabel">
+        <property name="geometry">
+         <rect>
+          <x>610</x>
+          <y>240</y>
+          <width>161</width>
+          <height>151</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Segoe UI</family>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(0, 85, 0);</string>
+        </property>
+        <property name="text">
+         <string>2,238                       Cubic Yards of                      Landfill Airspace</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
         </property>
        </widget>
        <zorder>backgroundPurposeLabel</zorder>
@@ -545,6 +692,11 @@ background-color: rgba(255, 255, 255, 0)</string>
        <zorder>gasButton</zorder>
        <zorder>electricityButton</zorder>
        <zorder>landfillButton</zorder>
+       <zorder>waterLabel</zorder>
+       <zorder>treeLabel</zorder>
+       <zorder>gasLabel</zorder>
+       <zorder>electricityLabel</zorder>
+       <zorder>landfillLabel</zorder>
       </widget>
       <widget class="QWidget" name="instructionScreen">
        <property name="minimumSize">
@@ -804,7 +956,7 @@ background-color: rgba( 255, 255, 255, 0%);</string>
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="Resources.qrc">:/images/images/trashBin.png</pixmap>
+         <pixmap>:/images/images/trashBin.png</pixmap>
         </property>
         <property name="scaledContents">
          <bool>true</bool>
@@ -826,7 +978,7 @@ background-color: rgba( 255, 255, 255, 0%);</string>
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="Resources.qrc">:/images/images/yardBin.png</pixmap>
+         <pixmap>:/images/images/yardBin.png</pixmap>
         </property>
         <property name="scaledContents">
          <bool>true</bool>
@@ -854,7 +1006,7 @@ background-color: rgba( 255, 255, 255, 0%);</string>
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="Resources.qrc">:/images/images/recycleBin.png</pixmap>
+         <pixmap>:/images/images/recycleBin.png</pixmap>
         </property>
         <property name="scaledContents">
          <bool>true</bool>
@@ -884,7 +1036,7 @@ background-repeat: no-repeat;
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="Resources.qrc">:/images/images/GameScreenGrass.png</pixmap>
+         <pixmap>:/images/images/GameScreenGrass.png</pixmap>
         </property>
         <property name="scaledContents">
          <bool>true</bool>
@@ -1247,8 +1399,6 @@ background-color: rgba(255, 255, 255, 0);</string>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources>
-  <include location="Resources.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

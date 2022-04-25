@@ -25,9 +25,8 @@ Model::Model(QObject *parent) : QObject{parent}, world(b2Vec2 (0.0f, 10.0f))
     setUpItems();
 }
 
-void Model::setRegions(std::vector<int> trashLabel,
-                       std::vector<int> recycleLabel,
-                       std::vector<int> OtherBin){
+void Model::setRegions(std::vector<int> trashLabel, std::vector<int> recycleLabel, std::vector<int> OtherBin)
+{
     std::cout << "setRegions" << std::endl;
     cans.push_back(new RecycleBins);
     cans.push_back(new TrashBins);
@@ -48,12 +47,12 @@ void Model::setRegions(std::vector<int> trashLabel,
                     OtherBin[3]);
         }
         }
-    //cans.push_back(new SpecialBins); <--- Not sure if this is needed here or not - Alyssa
     numBalls = 20;
     for (int i = 0; i < numBalls; i++)
     {
       ballPoints.push_back(new QPoint(0,0));
     }
+}
 }
 
 Model::~Model(){
@@ -144,22 +143,23 @@ void Model::mouseReleased(QPointF position)
 }
 
 bool Model::timeToSwitchLevel(){
-    if(itemsLeft > 0)
-        return false;
-
-    switch (currentLevel) {
-    case 1: //go to loading screen 1
-        emit changeScreen(4);
-        break;
-    case 2: //go to loading screen 2
-        emit changeScreen(5);
-        break;
-    case 3: // go to conclusion page
-        emit changeScreen(6);
-        break;
+    if (itemsLeft == 0)
+    {
+        switch (currentLevel)
+        {
+        case 1: //go to loading screen 1
+            emit changeScreen(4);
+            break;
+        case 2: //go to loading screen 2
+            emit changeScreen(5);
+            break;
+        case 3: // go to conclusion page
+            emit changeScreen(6);
+            break;
+        }
+        return true;
     }
-
-    return true;
+    return false;
 }
 
 void Model::updateTheBarItemIcons(){ // Remove "The"

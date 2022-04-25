@@ -221,11 +221,31 @@ private slots:
      */
     void on_itemSlot4_pressed();
 
+    /**
+     * @brief Displays label with water information and disables button.
+     */
     void on_waterButton_clicked();
+
+    /**
+     * @brief Displays label with tree information and disables button.
+     */
     void on_treeButton_clicked();
+
+    /**
+     * @brief Displays label with gas information and disables button.
+     */
     void on_gasButton_clicked();
+
+    /**
+     * @brief Displays label with electricity information and disables button.
+     */
     void on_electricityButton_clicked();
+
+    /**
+     * @brief Displays label with landfill information and disables button.
+     */
     void on_landfillButton_clicked();
+
     /**
      * @brief Overrides the paintevent to draw ball objects on the second loading screen.
      */
