@@ -50,4 +50,7 @@
         <file>images/TrashImages/Metal and Aluminum Cans.png</file>
         <file>images/congratsWizard.png</file>
     </qresource>
+    <qresource prefix="/sounds">
+        <file>gameMusic.mp3</file>
+    </qresource>
 </RCC>

@@ -17,11 +17,28 @@
 #include <vector>
 #include <iostream>
 #include <QPointF>
+#include <QMediaPlayer>
+#include <QAudioOutput>
+
 
 Model::Model(QObject *parent) : QObject{parent} , world(b2Vec2 (0.0f, 10.0f))
 {
+
+
+    QMediaPlayer *player = new QMediaPlayer;
+    QAudioOutput *audioOutput = new QAudioOutput;
+    player->setAudioOutput(audioOutput);
+    connect(player, SIGNAL(positionChanged(qint64)), this, SLOT(positionChanged(qint64)));
+    player->setSource(QUrl("qrc:/sounds/gameMusic.mp3"));
+    audioOutput->setVolume(50);
+    player->play();
+
     simulationDuration = 5000;
     setUpItems();
+
+
+
+
 }
 
 void Model::setRegions(std::vector<int> trashLabel,
@@ -49,6 +66,7 @@ void Model::setRegions(std::vector<int> trashLabel,
         }
         }
     }
+
 }
 
 Model::~Model(){

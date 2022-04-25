@@ -9,6 +9,7 @@
 #include "view.h"
 #include <QApplication>
 
+
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
@@ -16,6 +17,9 @@ int main(int argc, char *argv[])
     View view;
     Model model;
     Controller controller(&view, &model);
+
+
+
 
     view.show();
     return a.exec();
