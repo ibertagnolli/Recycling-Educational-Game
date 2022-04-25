@@ -24,6 +24,7 @@ Ball::Ball(b2World* world)
     b2CircleShape circleShape;
     circleShape.m_p.Set(0, 0);
     circleShape.m_radius = 0.25;
+    //circleShape.m_radius = 0.25;
 
     // Define the dynamic body fixture.
     b2FixtureDef ballFixtureDef;

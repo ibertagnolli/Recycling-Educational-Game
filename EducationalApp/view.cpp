@@ -47,7 +47,7 @@ View::View(QWidget *parent)
     ui->label_11->setScaledContents(true);
     ui->label_11->setGeometry(-10, 0, 800,600);
     ui->label_11->lower();
-    ballImage = QImage(":/images/images/recycleLoadingBlue").scaled(75, 75);
+    ballImage = QImage(":/images/images/recycleBall").scaled(50, 50);
     numBalls = 20;
 
     // Image importing for Conclusion Screen
