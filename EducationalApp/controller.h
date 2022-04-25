@@ -55,5 +55,10 @@ private:
      */
     void firstLoadingScreenConnections();
 
+    /**
+     * @brief Connects what is happening in the second loading screen's world to the ui.
+     */
+    void secondLoadingScreenConnections();
+
 };
 #endif // CONTROLLER_H

@@ -39,9 +39,17 @@ View::View(QWidget *parent)
     ui->yellowTulipLabel->setPixmap(QPixmap(":/images/images/yellowTulip1"));
     ui->redTulipLabel->setPixmap(QPixmap(":/images/images/redTulip1"));
 
-    // Image Importing for First Loading Screen
+    // Image setup for First Loading Screen
     ui->recycleLogo->setPixmap(QPixmap(":/images/images/recycleLoadingBlue"));
     ui->loadingBackground1->setPixmap(QPixmap(":/images/images/firstLoadingScreen"));
+
+    // Image setup for Second Loading Screen
+    ui->label_11->setPixmap(QPixmap(":/images/images/truckLoad"));
+    ui->label_11->setScaledContents(true);
+    ui->label_11->setGeometry(-10, 0, 800,600);
+    ui->label_11->lower();
+    ballImage = QImage(":/images/images/recycleBall").scaled(50, 50);
+    numBalls = 20;
 
     // Image importing for Conclusion Screen
     ui->conclusionBackgroundLabel->setScaledContents(true);
@@ -230,10 +238,34 @@ void View::setLogoPosition(int xPosition, int yPosition)
     ui->recycleLogo->setGeometry(xPosition, yPosition, 200, 200);
 }
 
+void View::paintEvent(QPaintEvent *)
+{
+    // Create a painter
+    QPainter painter(this);
+
+    // Only draws balls on second loading screen.
+    // Prevents drawing balls on other screens.
+    if(ui->stackWidget->currentIndex() == 5)
+    {
+        for (int i = 0; i < numBalls; i++){
+            painter.drawImage(ballPositionsVector[i]->x(), ballPositionsVector[i]->y(), ballImage);
+        }
+    }
+    painter.end();
+}
+
+void View::updateBallPositions(std::vector<QPoint*> ballPosVector)
+{
+    ballPositionsVector = ballPosVector;
+    // Prompts paintevent
+    update();
+}
+
 // CONCLUDING SCREEN METHODS
 void View::on_conclusionButton_clicked()
 {
-    ui->stackWidget->setCurrentIndex(6);
+    ui->stackWidget->setCurrentIndex(5);
+    emit secondLoadScreenStart();
 }
 
 //TULIP ClICKED METHODS PURPOSE SCREEN

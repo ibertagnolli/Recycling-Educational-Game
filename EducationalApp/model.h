@@ -9,6 +9,7 @@
 #include "bins.h"
 #include "Box2D/Box2D.h"
 #include "items.h"
+#include "ball.h"
 #include <vector>
 #include <QObject>
 #include <QQueue>
@@ -43,11 +44,17 @@ public:
 
 signals:
     /**
-     * @brief updateLabelPosition - A signal that will update the label position
+     * @brief A signal that will update the label position
      * @param xPosition - The x cordinates
      * @param yPosition - The y cordinates
      */
     void updateLabelPosition(int xPosition, int yPosition);
+
+    /**
+     * @brief Signals that the position of balls in the world has changed.
+     * @param ballPositions - The changed positions of the balls.
+     */
+    void ballsMoved(std::vector<QPoint*> ballPositions);
 
     /**
      * @brief Informs the view that trash has been put in a bin
@@ -90,6 +97,12 @@ public slots:
     void setupFirstLoadingWorld();
 
     /**
+     * @brief Sets up the world for the second loading screen.
+     * This creates the walls of the truck and the bouncing balls.
+     */
+    void setupSecondLoadingWorld();
+
+    /**
      * @brief Connected to View's signal that a new trash item was selected.
      * Updates the selected trash item.
      * @param index - the index of the selected trash item.
@@ -117,6 +130,13 @@ private slots:
      */
     void updateFirstLoadingWorld();
 
+    /**
+     * @brief Updates the world to perform a single step of the simulation.
+     * The updated positions of the balls are emitted.
+     * The simulation runs until the simulation duration ends.
+     */
+    void updateSecondLoadingWorld();
+
 private:
     /**
      * @brief world - The world object that allows for the
@@ -125,8 +145,12 @@ private:
     b2World world;
 
     /**
-     * @brief body - The body object that allows for
-     * the integeration of the Box2D
+     * @brief groundBody - ground body used in first loading screen.
+     */
+    b2Body* groundBody;
+
+    /**
+     * @brief body - The body of the ball in the first loading screen.
      */
     b2Body *body;
 
@@ -221,5 +245,20 @@ private:
      * @param level - The level that we are currently at.
      */
     void updateQueue(int level);
+
+    /**
+     * @brief numBalls - How many balls exist in the world.
+     */
+    int numBalls;
+
+    /**
+     * @brief balls - The ball objects that exist in the world.
+     */
+    std::vector<Ball*> balls;
+
+    /**
+     * @brief ballPoints - The Point positions of balls that exist in the world.
+     */
+    std::vector<QPoint*> ballPoints;
 };
 #endif // MODEL_H

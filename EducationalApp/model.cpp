@@ -19,7 +19,7 @@
 #include <iostream>
 #include <QPointF>
 
-Model::Model(QObject *parent) : QObject{parent} , world(b2Vec2 (0.0f, 10.0f))
+Model::Model(QObject *parent) : QObject{parent}, world(b2Vec2 (0.0f, 10.0f))
 {
     simulationDuration = 5000;
     setUpItems();
@@ -48,6 +48,11 @@ void Model::setRegions(std::vector<int> trashLabel,
                     OtherBin[3]);
         }
         }
+    //cans.push_back(new SpecialBins); <--- Not sure if this is needed here or not - Alyssa
+    numBalls = 20;
+    for (int i = 0; i < numBalls; i++)
+    {
+      ballPoints.push_back(new QPoint(0,0));
     }
 }
 
@@ -219,7 +224,6 @@ void Model::receiveSelectedItem(int index) // TODO this might have coordinate pa
     emit sendItemPhoto(image);
     // TODO check that I'm using enums correctly
 }
-// LOADING SCREEN METHODS
 
 // FIRST LOADING SCREEN METHODS
 void Model::setupFirstLoadingWorld()
@@ -231,7 +235,7 @@ void Model::setupFirstLoadingWorld()
     // Call the body factory which allocates memory for the ground body
     // from a pool and creates the ground box shape (also from a pool).
     // The body is also added to the world.
-    b2Body* groundBody = world.CreateBody(&groundBodyDef);
+    groundBody = world.CreateBody(&groundBodyDef);
 
     // Define the ground box shape.
     b2PolygonShape groundBox;
@@ -296,6 +300,97 @@ void Model::updateFirstLoadingWorld(){
         simulationDuration -= 20;
         QTimer::singleShot(20, this, &Model::updateFirstLoadingWorld);
     }
+    else
+    {
+        // Resets simulationDuration for second loading screen
+        simulationDuration = 6000;
+        // Removes ground and ball used in first loading screen
+        world.DestroyBody(groundBody);
+        world.DestroyBody(body);
+    }
+}
+
+// SECOND LOADING SCREEN METHODS
+void Model::setupSecondLoadingWorld()
+{
+    // Define the truck bottom body.
+    b2BodyDef truckBottomBodyDef;
+    truckBottomBodyDef.position.Set(0.0f, 4.75f);
+    b2Body* truckBottomBody = world.CreateBody(&truckBottomBodyDef);
+
+    // Define the truck bottom shape.
+    b2PolygonShape truckBottomBox;
+
+    // The extents are the half-widths of the box.
+    truckBottomBox.SetAsBox(50.0f, 0.001f);
+
+    // Add the fixture to the body.
+    truckBottomBody->CreateFixture(&truckBottomBox, 0.0f);
+
+    // Define the left wall body.
+    b2BodyDef leftWallBodyDef;
+    leftWallBodyDef.position.Set(0.2f, 0.0f);
+    b2Body* leftWallBody = world.CreateBody(&leftWallBodyDef);
+
+    // Define the left wall shape.
+    b2PolygonShape leftWallBox;
+    leftWallBox.SetAsBox(0.001f, 50.0f);
+
+    // Add the fixture to the body.
+    leftWallBody->CreateFixture(&leftWallBox, 0.0f);
+
+    // Define the right wall body.
+    b2BodyDef rightWallBodyDef;
+    rightWallBodyDef.position.Set(6.0f, 0.0f);
+    b2Body* rightWallBody = world.CreateBody(&rightWallBodyDef);
+
+    // Define the right wall box shape.
+    b2PolygonShape rightWallBox;
+    rightWallBox.SetAsBox(0.001f, 50.0f);
+
+    // Add the fixture to the body.
+    rightWallBody->CreateFixture(&rightWallBox, 0.0f);
+
+    // Add balls to the world.
+    for (int i = 0; i < numBalls; i++)
+    {
+      Ball* ball = new Ball(&world);
+      balls.push_back(ball);
+    }
+
+    // Tells the world to update the dynamic ball bodies.
+    updateSecondLoadingWorld();
+}
+
+void Model::updateSecondLoadingWorld()
+{
+    // Prepare for simulation.
+    float32 timeStep = 1.0f / 60.0f;
+    int32 velocityIterations = 6;
+    int32 positionIterations = 2;
+
+    // Instruct the world to perform a single step of simulation.
+    world.Step(timeStep, velocityIterations, positionIterations);
+
+    // Update the vector ballPosition that keeps track of where balls are located.
+    for(int i = 0; i < numBalls; i++)
+    {
+        b2Vec2 ballPosition = balls[i]->ballBody->GetPosition();
+        ballPoints[i]->setX(int(ballPosition.x * 100));
+        ballPoints[i]->setY(int(ballPosition.y * 100));
+    }
+
+    // Tell view that balls have moved and their new positions.
+    emit ballsMoved(ballPoints);
+
+    // Has the simulation run for only 6 seconds.
+    if (simulationDuration > 0)
+    {
+        simulationDuration -= 20;
+        QTimer::singleShot(20, this, &Model::updateSecondLoadingWorld);
+    }
+    else
+        simulationDuration = 6000;
 }
 
 // CONCLUDING SCREEN METHODS

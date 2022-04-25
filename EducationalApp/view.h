@@ -10,6 +10,8 @@
 #include <QMainWindow>
 #include <QMouseEvent>
 #include <QLabel>
+#include <QPainter>
+#include <vector>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class View; }
@@ -29,7 +31,8 @@ public:
      * @param parent
      */
     View(QWidget *parent = nullptr);
-    /*
+
+    /**
     * Destructor for the View
     */
     ~View();
@@ -49,10 +52,14 @@ signals:
     void mouseReleased(QPointF position);
     
     /**
-      * @brief firstLoadScreenStart - The signal to
-      * start the first loading screen
+      * @brief The signal to start the first loading screen
       */
      void firstLoadScreenStart();
+
+     /**
+       * @brief The signal to start the second loading screen
+       */
+     void secondLoadScreenStart();
 
     /**
      * @brief Sends the index of the selected item to the model.
@@ -73,6 +80,13 @@ public slots:
      * @param yPosition - Y position of the top left corner of the label
      */
     void setLogoPosition(int xPosition, int yPosition);
+
+    /**
+     * @brief Updates the view's ballPositionsVector with the new positions.
+     * Also prompts the update method so that paintevent is triggered.
+     * @param ballPosVector - vector of updated coordinates for where balls should be drawn.
+     */
+    void updateBallPositions(std::vector<QPoint*> ballPositionsVector);
 
     /**
      * @brief Recieved from the model when a user has put an item into a garbage bin
@@ -118,6 +132,21 @@ private:
      * is actively being pressed.
      */
     bool itemPressed;
+
+    /**
+     * @brief numBalls - number of balls to draw
+     */
+    int numBalls;
+
+    /**
+     * @brief ballPositionsVector - The positions to draw ball images at.
+     */
+    std::vector<QPoint*> ballPositionsVector;
+
+    /**
+     * @brief ballImage - The image that will have ball qualities. Drawn on loading screens.
+     */
+    QImage ballImage;
 
     /**
      * @brief Tracks when the mouse is released
@@ -197,5 +226,9 @@ private slots:
     void on_gasButton_clicked();
     void on_electricityButton_clicked();
     void on_landfillButton_clicked();
+    /**
+     * @brief Overrides the paintevent to draw ball objects on the second loading screen.
+     */
+    void paintEvent(QPaintEvent *);
 };
 #endif // VIEW_H

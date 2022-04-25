@@ -52,5 +52,7 @@
         <file>images/TrashImages/Leaves and Branches.png</file>
         <file>images/TrashImages/Toothbrush.png</file>
         <file>images/DonationBin.png</file>
+        <file>images/truckLoad.png</file>
+        <file>images/recycleBall.png</file>
     </qresource>
 </RCC>
