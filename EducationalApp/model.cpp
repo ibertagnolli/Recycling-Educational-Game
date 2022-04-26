@@ -209,7 +209,7 @@ bool Model::checkTrashCollision(QPointF position, bool &trashCollision, int inde
     return correctCollision;
 }
 
-void Model::receiveSelectedItem(int index) // TODO this might have coordinate parameters from which we calculate index
+void Model::receiveSelectedItem(int index)
 {
     if(barItems[index] == -1)
         return;
@@ -221,7 +221,6 @@ void Model::receiveSelectedItem(int index) // TODO this might have coordinate pa
                               (*items.at(barItems.at(currentItemIndex))->getImage()));
     QImage image = *items.at(barItems.at(currentItemIndex))->getImage();
     emit sendItemPhoto(image);
-    // TODO check that I'm using enums correctly
 }
 
 // FIRST LOADING SCREEN METHODS
@@ -315,7 +314,7 @@ void Model::setupSecondLoadingWorld()
     // Define the truck bottom body.
     b2BodyDef truckBottomBodyDef;
     truckBottomBodyDef.position.Set(0.0f, 4.65f);
-    b2Body* truckBottomBody = world.CreateBody(&truckBottomBodyDef);
+    truckBottomBody = world.CreateBody(&truckBottomBodyDef);
 
     // Define the truck bottom shape.
     b2PolygonShape truckBottomBox;
@@ -329,7 +328,7 @@ void Model::setupSecondLoadingWorld()
     // Define the left wall body.
     b2BodyDef leftWallBodyDef;
     leftWallBodyDef.position.Set(0.2f, 0.0f);
-    b2Body* leftWallBody = world.CreateBody(&leftWallBodyDef);
+    leftWallBody = world.CreateBody(&leftWallBodyDef);
 
     // Define the left wall shape.
     b2PolygonShape leftWallBox;
@@ -341,7 +340,7 @@ void Model::setupSecondLoadingWorld()
     // Define the right wall body.
     b2BodyDef rightWallBodyDef;
     rightWallBodyDef.position.Set(6.0f, 0.0f);
-    b2Body* rightWallBody = world.CreateBody(&rightWallBodyDef);
+    rightWallBody = world.CreateBody(&rightWallBodyDef);
 
     // Define the right wall box shape.
     b2PolygonShape rightWallBox;
@@ -389,7 +388,15 @@ void Model::updateSecondLoadingWorld()
         QTimer::singleShot(20, this, &Model::updateSecondLoadingWorld);
     }
     else
-        simulationDuration = 6000;
+    {
+        simulationDuration = 5000;
+        // Removes all bodies from world.
+        world.DestroyBody(truckBottomBody);
+        world.DestroyBody(leftWallBody);
+        world.DestroyBody(rightWallBody);
+        for (int i = 0; i < numBalls; i++)
+        {
+            world.DestroyBody(balls[i]->ballBody);
+        }
+    }
 }
-
-// CONCLUDING SCREEN METHODS

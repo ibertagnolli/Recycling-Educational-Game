@@ -155,6 +155,36 @@ private:
     b2Body *body;
 
     /**
+     * @brief balls - The ball objects that exist in the world.
+     */
+    std::vector<Ball*> balls;
+
+    /**
+     * @brief ballPoints - The Point positions of balls that exist in the world.
+     */
+    std::vector<QPoint*> ballPoints;
+
+    /**
+     * @brief truckBottomBody - Bottom wall of the truck on the second loading screen.
+     */
+    b2Body* truckBottomBody;
+
+    /**
+     * @brief leftWallBody - Left wall of the truck on the second loading screen.
+     */
+    b2Body* leftWallBody;
+
+    /**
+     * @brief rightWallBody - Right wall of the truck on the second loading screen.
+     */
+    b2Body* rightWallBody;
+
+    /**
+     * @brief numBalls - How many balls exist in the world.
+     */
+    int numBalls;
+
+    /**
      * @brief simulationDuration - The amount of
      * time that will run the simulation of the
      * loading screen
@@ -245,20 +275,5 @@ private:
      * @param level - The level that we are currently at.
      */
     void updateQueue(int level);
-
-    /**
-     * @brief numBalls - How many balls exist in the world.
-     */
-    int numBalls;
-
-    /**
-     * @brief balls - The ball objects that exist in the world.
-     */
-    std::vector<Ball*> balls;
-
-    /**
-     * @brief ballPoints - The Point positions of balls that exist in the world.
-     */
-    std::vector<QPoint*> ballPoints;
 };
 #endif // MODEL_H
