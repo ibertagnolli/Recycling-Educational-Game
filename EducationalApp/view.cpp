@@ -239,6 +239,7 @@ void View::changeScreen(int screen)
         QTimer::singleShot(6000, ui->stackWidget, [this]() { ui->stackWidget->setCurrentIndex(3); });
         ui->yardBinLabel->setPixmap(QPixmap(":/images/images/donationBin.png"));
         ui->yardBinLabel->setToolTip("Special donation or dropoff bin");
+        ui->compostLabel->setText("Drop Off");
         ui->itemImageLabel->clear();
         ui->sideBarLabel->clear();
         ui->itemTitleLabel->clear();

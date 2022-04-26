@@ -1304,6 +1304,90 @@ background-color: rgba(255, 255, 255, 0);</string>
          <string/>
         </property>
        </widget>
+       <widget class="QLabel" name="recycleLabel">
+        <property name="geometry">
+         <rect>
+          <x>90</x>
+          <y>380</y>
+          <width>91</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>15</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(255, 255, 255);</string>
+        </property>
+        <property name="text">
+         <string>Recycle</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
+       </widget>
+       <widget class="QLabel" name="trashLabel">
+        <property name="geometry">
+         <rect>
+          <x>260</x>
+          <y>370</y>
+          <width>111</width>
+          <height>71</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>15</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(255, 255, 255);</string>
+        </property>
+        <property name="text">
+         <string>Trash</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
+       </widget>
+       <widget class="QLabel" name="compostLabel">
+        <property name="geometry">
+         <rect>
+          <x>440</x>
+          <y>370</y>
+          <width>111</width>
+          <height>71</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>15</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(255, 255, 255);</string>
+        </property>
+        <property name="text">
+         <string>Compost</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
+       </widget>
        <zorder>gameScreenBackgroundLabel</zorder>
        <zorder>trashBinLabel</zorder>
        <zorder>yardBinLabel</zorder>
@@ -1311,6 +1395,9 @@ background-color: rgba(255, 255, 255, 0);</string>
        <zorder>ItemBarWidget</zorder>
        <zorder>ItemInfoBox</zorder>
        <zorder>TestLabel</zorder>
+       <zorder>recycleLabel</zorder>
+       <zorder>trashLabel</zorder>
+       <zorder>compostLabel</zorder>
       </widget>
       <widget class="QWidget" name="loadingScreen1">
        <widget class="QLabel" name="recycleLogo">
