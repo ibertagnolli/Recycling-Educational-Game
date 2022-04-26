@@ -56,11 +56,9 @@ SOURCES += \
     Box2D/Dynamics/b2WorldCallbacks.cpp \
     Box2D/Rope/b2Rope.cpp \
     ball.cpp \
-    bins.cpp \
     compostbin.cpp \
     compostitems.cpp \
     controller.cpp \
-    items.cpp \
     main.cpp \
     model.cpp \
     recyclebins.cpp \
