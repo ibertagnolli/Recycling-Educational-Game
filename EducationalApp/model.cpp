@@ -27,22 +27,27 @@ Model::Model(QObject *parent) : QObject{parent}, world(b2Vec2 (0.0f, 10.0f))
 
 void Model::setRegions(std::vector<int> trashLabel, std::vector<int> recycleLabel, std::vector<int> OtherBin)
 {
-    std::cout << "setRegions" << std::endl;
     cans.push_back(new RecycleBins);
     cans.push_back(new TrashBins);
     cans.push_back(new CompostBin);
 
     for(auto bin : cans){
-        switch(bin->getType()){
-        case Bins::Trash: {
+        switch(bin->getType())
+        {
+        case Bins::Trash:
+        {
             bin->setRegion(trashLabel[0], trashLabel[1],
                     trashLabel[2], trashLabel[3]);
             break;
-        } case Bins::Recycle: {
+        }
+        case Bins::Recycle:
+        {
             bin->setRegion(recycleLabel[0], recycleLabel[1],
                     recycleLabel[2], recycleLabel[3]);
             break;
-        } default: {
+        }
+        default:
+        {
             bin->setRegion(OtherBin[0], OtherBin[1], OtherBin[2],
                     OtherBin[3]);
         }
@@ -71,7 +76,8 @@ void Model::updateScreenIndex(int index)
     currentLevel++;
 
     // Update the third bin to specialBin
-    if (currentLevel == 3) {
+    if (currentLevel == 3)
+    {
         std::vector<int> thirdRegion = cans.back()->getRegion();
         cans.pop_back();
         cans.push_back(new SpecialBins);
@@ -83,8 +89,10 @@ void Model::updateScreenIndex(int index)
 
 void Model::updateQueue(int level)
 {
-    for (int i = 0; i < (int)items.size(); i++) {
-        if (items.at(i)->getLevel() == level) {
+    for (int i = 0; i < (int)items.size(); i++)
+    {
+        if (items.at(i)->getLevel() == level)
+        {
             currGameItems.enqueue(i);
         }
     }
@@ -96,7 +104,8 @@ void Model::updateQueue(int level)
 
     //shuffle queue
     std::vector<QImage *> barItemNames;
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < 5; i++)
+    {
         int index = currGameItems.dequeue();
         barItems.push_back(index);
         barItemNames.push_back(items.at(index)->getImage());
@@ -106,7 +115,8 @@ void Model::updateQueue(int level)
 
 void Model::setUpItems()
 {
-    for (int i = 0; i < 7; i++) {
+    for (int i = 0; i < 7; i++)
+    {
         items.push_back(new TrashItems(i));
         items.push_back(new RecycleItems(i));
         items.push_back(new CompostItems(i));
@@ -162,10 +172,12 @@ bool Model::timeToSwitchLevel(){
     return false;
 }
 
-void Model::updateTheBarItemIcons(){ // Remove "The"
+void Model::updateTheBarItemIcons()
+{
     std::vector<QImage *> barItemNames;
     QImage emptyImage(":/images/images/TrashImages/Empty.png");
-    for (int i = 0; i < (int)barItems.size(); i++) {
+    for (int i = 0; i < (int)barItems.size(); i++)
+    {
         if (barItems.at(i) == -1)
             barItemNames.push_back(&emptyImage);
         else
@@ -176,7 +188,8 @@ void Model::updateTheBarItemIcons(){ // Remove "The"
     currentItemIndex = -1;
 }
 
-void Model::updateTheBarItemsIndex(bool correctCollision){
+void Model::updateTheBarItemsIndex(bool correctCollision)
+{
     int index = barItems[currentItemIndex];
     barItems[currentItemIndex] = -1;
 
@@ -198,8 +211,10 @@ bool Model::checkTrashCollision(QPointF position, bool &trashCollision, int inde
     bool correctCollision = false;
     Items::ItemType currentItemType = items.at(index)->getType();
 
-    for(int i = 0; i < 3; i++){ // Might have to have a level check in the collision
-        if(cans[i]->CollisionWithMe(position)){ // CollisionWithMe not a great name
+    for(int i = 0; i < 3; i++)
+    { // Might have to have a level check in the collision
+        if(cans[i]->CollisionWithMe(position))
+        { // CollisionWithMe not a great name
             correctCollision = (int)currentItemType == (int)cans[i]->getType();
             emit trashInBin(correctCollision);
             trashCollision = true;
@@ -210,7 +225,7 @@ bool Model::checkTrashCollision(QPointF position, bool &trashCollision, int inde
     return correctCollision;
 }
 
-void Model::receiveSelectedItem(int index) // TODO this might have coordinate parameters from which we calculate index
+void Model::receiveSelectedItem(int index)
 {
     if(barItems[index] == -1)
         return;
@@ -222,7 +237,6 @@ void Model::receiveSelectedItem(int index) // TODO this might have coordinate pa
                               (*items.at(barItems.at(currentItemIndex))->getImage()));
     QImage image = *items.at(barItems.at(currentItemIndex))->getImage();
     emit sendItemPhoto(image);
-    // TODO check that I'm using enums correctly
 }
 
 // FIRST LOADING SCREEN METHODS
@@ -279,7 +293,8 @@ void Model::setupFirstLoadingWorld()
     updateFirstLoadingWorld();
 }
 
-void Model::updateFirstLoadingWorld(){
+void Model::updateFirstLoadingWorld()
+{
     // Prepare for simulation. Typically we use a time step of 1/60 of a
     // second (60Hz) and 10 iterations. This provides a high quality simulation
     // in most game scenarios.

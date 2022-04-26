@@ -134,6 +134,11 @@ private:
     bool itemPressed;
 
     /**
+     * @brief tulipPressedCount - Counts how many info tulips have been clicked on purpose screen.
+     */
+    int tulipPressedCount;
+
+    /**
      * @brief numBalls - number of balls to draw
      */
     int numBalls;
@@ -192,10 +197,6 @@ private slots:
     */
     void on_buttonToPurposeScreen_clicked();
 
-    /**
-     * @brief THIS WILL BE DELETED. This method will move to the conclusion screen.
-     */
-    void on_conclusionButton_clicked();
     /**
      * @brief on_itemSlot0_pressed - Indicates that the first item slot is
      * selected
