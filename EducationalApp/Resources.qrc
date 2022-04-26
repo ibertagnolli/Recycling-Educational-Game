@@ -56,4 +56,7 @@
         <file>images/truck.png</file>
         <file>images/donationBin.png</file>
     </qresource>
+    <qresource prefix="/sounds">
+        <file>gameMusic.mp3</file>
+    </qresource>
 </RCC>
