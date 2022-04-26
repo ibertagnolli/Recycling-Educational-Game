@@ -21,6 +21,7 @@ View::View(QWidget *parent)
     ui->instructionPictureLabel->setSizePolicy( QSizePolicy::Ignored, QSizePolicy::Ignored);
     ui->instructionPictureLabel->setPixmap(pixmap);
     ui->instructionFrame->setAutoFillBackground(false);
+    ui->itemTitleLabel->setWordWrap(true);
 
     ui->instructionScreen->setStyleSheet("QWidget#instructionScreen {background-color: rgb(211, 253, 255); background-image: url(:/images/images/meadow6.png) 0 0 0 0 stretch stretch;background-repeat: no-repeat;}");
 
@@ -38,9 +39,24 @@ View::View(QWidget *parent)
     ui->yellowTulipLabel->setPixmap(QPixmap(":/images/images/yellowTulip1"));
     ui->redTulipLabel->setPixmap(QPixmap(":/images/images/redTulip1"));
 
-    // Image Importing for First Loading Screen
+    // Sets flower labels on Purpose Screen invisible to start.
+    ui->waterLabel->setVisible(false);
+    ui->treeLabel->setVisible(false);
+    ui->gasLabel->setVisible(false);
+    ui->electricityLabel->setVisible(false);
+    ui->landfillLabel->setVisible(false);
+    ui->buttonToInstrScreen->setVisible(false);
+    ui->buttonToInstrScreen->setDisabled(true);
+    tulipPressedCount = 0;
+
+    // Image setup for First Loading Screen
     ui->recycleLogo->setPixmap(QPixmap(":/images/images/recycleLoadingBlue"));
     ui->loadingBackground1->setPixmap(QPixmap(":/images/images/firstLoadingScreen"));
+
+    // Image setup for Second Loading Screen
+    truckBackground = QImage(":/images/images/truck").scaled(800, 600);
+    ballImage = QImage(":/images/images/recycleBall").scaled(50, 50);
+    numBalls = 20;
 
     // Image importing for Conclusion Screen
     ui->conclusionBackgroundLabel->setScaledContents(true);
@@ -57,7 +73,6 @@ View::View(QWidget *parent)
     ui->learnMoreLink->setTextFormat(Qt::RichText);
     ui->learnMoreLink->setTextInteractionFlags(Qt::TextBrowserInteraction);
     ui->learnMoreLink->setOpenExternalLinks(true);
-
 
     itemPressed = false;
     ui->TestLabel->setMouseTracking(true);
@@ -112,35 +127,41 @@ void View::on_buttonToPurposeScreen_clicked()
 void View::on_itemSlot0_pressed()
 {
     emit sendSelectedItem(0);
+    ui->correctLabel->clear();
 }
 
 void View::on_itemSlot1_pressed()
 {
     emit sendSelectedItem(1);
+    ui->correctLabel->clear();
 }
 
 void View::on_itemSlot2_pressed()
 {
     emit sendSelectedItem(2);
+    ui->correctLabel->clear();
 }
 
 void View::on_itemSlot3_pressed()
 {
     emit sendSelectedItem(3);
+    ui->correctLabel->clear();
 }
 
 void View::on_itemSlot4_pressed()
 {
     emit sendSelectedItem(4);
+    ui->correctLabel->clear();
 }
 
 void View::setLabelBackground(QImage image){
     this->grabMouse();
     itemPressed = true;
     QPixmap map;
-    map.convertFromImage(image.scaled(72, 72),Qt::ColorOnly);
+    map.convertFromImage(image.scaled(300, 300, Qt::KeepAspectRatio, Qt::SmoothTransformation),Qt::ColorOnly);
     ui->TestLabel->setGeometry(0,0,72,72);
     ui->TestLabel->setPixmap(map);
+    ui->TestLabel->setScaledContents(true);
 }
 
 void View::mouseReleaseEvent(QMouseEvent *event)
@@ -150,13 +171,6 @@ void View::mouseReleaseEvent(QMouseEvent *event)
     QPointF position = event->position();
     emit mouseReleased(position);
     this->releaseMouse();
-
-    QTimer::singleShot(700, this, [this]() {
-        ui->itemImageLabel->clear();
-        ui->sideBarLabel->clear();
-        ui->itemTitleLabel->clear();
-        ui->correctLabel->clear();
-    });
 }
 
 
@@ -170,7 +184,7 @@ void View::mouseMoveEvent(QMouseEvent *event) {
 void View::trashInBin(bool correctlyIdentified)
 {
     if (correctlyIdentified) {
-        ui->correctLabel->setStyleSheet("color: rgb(63, 191, 4)");
+        ui->correctLabel->setStyleSheet("color: rgb(52, 163, 3)");
         ui->correctLabel->setText("Correct!");
     } else {
         ui->correctLabel->setStyleSheet("color: rgb(221, 80, 38)");
@@ -181,12 +195,11 @@ void View::trashInBin(bool correctlyIdentified)
 void View::receiveItemInfo(int itemType, QString itemName, QString itemDescrip, QImage image)
 {
     ui->itemTitleLabel->setText(itemName);
-    ui->sideBarLabel->setText(itemDescrip); // TODO just display this after user disposes of trash, then start timer? Or just have it up until the next item is selected
+    ui->sideBarLabel->setText(itemDescrip);
     QPixmap map;
-    map.convertFromImage(image.scaled(133, 57),Qt::ColorOnly);
-    ui->itemImageLabel->setPixmap(map); // TODO have itemName mage file name!
-    ui->itemImageLabel->setScaledContents(true); // TODO can this line go in the form?
-    // TODO update correct/incorrect label when the user drags the image to the bin
+    map.convertFromImage(image.scaled(300, 300, Qt::KeepAspectRatio, Qt::SmoothTransformation),Qt::ColorOnly);
+    ui->itemImageLabel->setPixmap(map);
+    ui->itemImageLabel->setScaledContents(true);
 }
 
 void View::receiveItemBar(std::vector<QImage *> items)
@@ -211,12 +224,26 @@ void View::receiveItemBar(std::vector<QImage *> items)
 void View::changeScreen(int screen)
 {
     ui->stackWidget->setCurrentIndex(screen);
-    if (screen == 4) {
+    if (screen == 4)
+    {
         emit firstLoadScreenStart();
         QTimer::singleShot(5000, ui->stackWidget, [this]() { ui->stackWidget->setCurrentIndex(3); });
+        ui->itemImageLabel->clear();
+        ui->sideBarLabel->clear();
+        ui->itemTitleLabel->clear();
+        ui->correctLabel->clear();
     }
-    if (screen == 5) {
-        //QTimer::singleShot(1500, ui->stackWidget, [this]() { ui->stackWidget->setCurrentIndex(3); });
+    else if (screen == 5)
+    {
+        emit secondLoadScreenStart();
+        QTimer::singleShot(6000, ui->stackWidget, [this]() { ui->stackWidget->setCurrentIndex(3); });
+        ui->yardBinLabel->setPixmap(QPixmap(":/images/images/donationBin.png"));
+        ui->yardBinLabel->setToolTip("Special donation or dropoff bin");
+        ui->compostLabel->setText("Drop Off");
+        ui->itemImageLabel->clear();
+        ui->sideBarLabel->clear();
+        ui->itemTitleLabel->clear();
+        ui->correctLabel->clear();
     }
 }
 
@@ -226,8 +253,87 @@ void View::setLogoPosition(int xPosition, int yPosition)
     ui->recycleLogo->setGeometry(xPosition, yPosition, 200, 200);
 }
 
-// CONCLUDING SCREEN METHODS
-void View::on_conclusionButton_clicked()
+void View::paintEvent(QPaintEvent *)
 {
-    ui->stackWidget->setCurrentIndex(6);
+    // Create a painter
+    QPainter painter(this);
+
+    // Only draws balls on second loading screen.
+    // Prevents drawing balls on other screens.
+    if(ui->stackWidget->currentIndex() == 5)
+    {
+        painter.drawImage(0, 0, truckBackground);
+        for (int i = 0; i < numBalls; i++){
+            painter.drawImage(ballPositionsVector[i]->x(), ballPositionsVector[i]->y(), ballImage);
+        }
+    }
+    painter.end();
+}
+
+void View::updateBallPositions(std::vector<QPoint*> ballPosVector)
+{
+    ballPositionsVector = ballPosVector;
+    // Prompts paintevent
+    update();
+}
+
+//TULIP ClICKED METHODS PURPOSE SCREEN
+void View::on_waterButton_clicked()
+{
+    ui->waterButton->setDisabled(true);
+    ui->waterLabel->setVisible(true);
+    tulipPressedCount++;
+    if (tulipPressedCount == 5)
+    {
+        ui->buttonToInstrScreen->setVisible(true);
+        ui->buttonToInstrScreen->setEnabled(true);
+    }
+}
+
+void View::on_treeButton_clicked()
+{
+    ui->treeButton->setDisabled(true);
+    ui->treeLabel->setVisible(true);
+    tulipPressedCount++;
+    if (tulipPressedCount == 5)
+    {
+        ui->buttonToInstrScreen->setVisible(true);
+        ui->buttonToInstrScreen->setEnabled(true);
+    }
+}
+
+void View::on_gasButton_clicked()
+{
+    ui->gasButton->setDisabled(true);
+    ui->gasLabel->setVisible(true);
+    tulipPressedCount++;
+    if (tulipPressedCount == 5)
+    {
+        ui->buttonToInstrScreen->setVisible(true);
+        ui->buttonToInstrScreen->setEnabled(true);
+    }
+}
+
+void View::on_electricityButton_clicked()
+{
+    ui->electricityButton->setDisabled(true);
+    ui->electricityLabel->setVisible(true);
+    tulipPressedCount++;
+    if (tulipPressedCount == 5)
+    {
+        ui->buttonToInstrScreen->setVisible(true);
+        ui->buttonToInstrScreen->setEnabled(true);
+    }
+}
+
+void View::on_landfillButton_clicked()
+{
+    ui->landfillButton->setDisabled(true);
+    ui->landfillLabel->setVisible(true);
+    tulipPressedCount++;
+    if (tulipPressedCount == 5)
+    {
+        ui->buttonToInstrScreen->setVisible(true);
+        ui->buttonToInstrScreen->setEnabled(true);
+    }
 }

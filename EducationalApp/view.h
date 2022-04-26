@@ -10,6 +10,8 @@
 #include <QMainWindow>
 #include <QMouseEvent>
 #include <QLabel>
+#include <QPainter>
+#include <vector>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class View; }
@@ -29,7 +31,8 @@ public:
      * @param parent
      */
     View(QWidget *parent = nullptr);
-    /*
+
+    /**
     * Destructor for the View
     */
     ~View();
@@ -49,10 +52,14 @@ signals:
     void mouseReleased(QPointF position);
     
     /**
-      * @brief firstLoadScreenStart - The signal to
-      * start the first loading screen
+      * @brief The signal to start the first loading screen
       */
      void firstLoadScreenStart();
+
+     /**
+       * @brief The signal to start the second loading screen
+       */
+     void secondLoadScreenStart();
 
     /**
      * @brief Sends the index of the selected item to the model.
@@ -73,6 +80,13 @@ public slots:
      * @param yPosition - Y position of the top left corner of the label
      */
     void setLogoPosition(int xPosition, int yPosition);
+
+    /**
+     * @brief Updates the view's ballPositionsVector with the new positions.
+     * Also prompts the update method so that paintevent is triggered.
+     * @param ballPosVector - vector of updated coordinates for where balls should be drawn.
+     */
+    void updateBallPositions(std::vector<QPoint*> ballPositionsVector);
 
     /**
      * @brief Recieved from the model when a user has put an item into a garbage bin
@@ -120,6 +134,31 @@ private:
     bool itemPressed;
 
     /**
+     * @brief tulipPressedCount - Counts how many info tulips have been clicked on purpose screen.
+     */
+    int tulipPressedCount;
+
+    /**
+     * @brief numBalls - number of balls to draw
+     */
+    int numBalls;
+
+    /**
+     * @brief ballPositionsVector - The positions to draw ball images at.
+     */
+    std::vector<QPoint*> ballPositionsVector;
+
+    /**
+     * @brief ballImage - The image that will have ball qualities. Drawn on loading screens.
+     */
+    QImage ballImage;
+
+    /**
+     * @brief truckBackground - The truck and background image drawn on the second loading screen.
+     */
+    QImage truckBackground;
+
+    /**
      * @brief Tracks when the mouse is released
      * @param event
      */
@@ -159,10 +198,6 @@ private slots:
     void on_buttonToPurposeScreen_clicked();
 
     /**
-     * @brief THIS WILL BE DELETED. This method will move to the conclusion screen.
-     */
-    void on_conclusionButton_clicked();
-    /**
      * @brief on_itemSlot0_pressed - Indicates that the first item slot is
      * selected
      */
@@ -192,6 +227,34 @@ private slots:
      */
     void on_itemSlot4_pressed();
 
+    /**
+     * @brief Displays label with water information and disables button.
+     */
+    void on_waterButton_clicked();
 
+    /**
+     * @brief Displays label with tree information and disables button.
+     */
+    void on_treeButton_clicked();
+
+    /**
+     * @brief Displays label with gas information and disables button.
+     */
+    void on_gasButton_clicked();
+
+    /**
+     * @brief Displays label with electricity information and disables button.
+     */
+    void on_electricityButton_clicked();
+
+    /**
+     * @brief Displays label with landfill information and disables button.
+     */
+    void on_landfillButton_clicked();
+
+    /**
+     * @brief Overrides the paintevent to draw ball objects on the second loading screen.
+     */
+    void paintEvent(QPaintEvent *);
 };
 #endif // VIEW_H

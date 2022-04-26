@@ -2,7 +2,7 @@
 
 SpecialBins::SpecialBins()
 {
-    QImage image(":/images/images/yellowTulip1.png");
+    QImage image(":/images/images/DonationBin.png");
     binImage = image;
 }
 
@@ -35,7 +35,7 @@ void SpecialBins::setRegion(int x, int y, int width, int height){
 }
 
 bool SpecialBins::CollisionWithMe(QPointF pos){
-    return ((pos.x() > x && pos.x() < x+width) && (pos.y() > y && pos.y() < y+height));
+    return ((pos.x() > x && pos.x() < x+width) && (pos.y() > y && pos.y() < y+height));    
 }
 
 QImage* SpecialBins::getImage() {
