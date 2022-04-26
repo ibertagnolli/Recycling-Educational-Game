@@ -176,23 +176,28 @@ Trashy!</string>
        <widget class="QLabel" name="flavorTextLabel">
         <property name="geometry">
          <rect>
-          <x>250</x>
+          <x>180</x>
           <y>310</y>
-          <width>161</width>
-          <height>16</height>
+          <width>251</width>
+          <height>121</height>
          </rect>
         </property>
         <property name="font">
-         <font/>
+         <font>
+          <pointsize>20</pointsize>
+         </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">color:rgb(63, 191, 4)</string>
+         <string notr="true">color:rgb(2, 115, 51)</string>
         </property>
         <property name="text">
          <string>Make Recycling Magical!</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
         </property>
        </widget>
        <zorder>backgroundImage</zorder>
@@ -1181,14 +1186,24 @@ background-color: rgba(255, 255, 255, 50);
           <height>421</height>
          </rect>
         </property>
+        <property name="font">
+         <font>
+          <pointsize>9</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
         <property name="autoFillBackground">
          <bool>false</bool>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: rgba(255, 255, 255, 50);</string>
+         <string notr="true">background-color: rgba(255, 255, 255, 50);
+color: rgb(0, 85, 0);</string>
         </property>
         <property name="title">
          <string>Item Info</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout">
          <item>
@@ -1204,6 +1219,9 @@ background-color: rgba(255, 255, 255, 50);
              <pointsize>12</pointsize>
              <bold>true</bold>
             </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(0, 85, 0);</string>
            </property>
            <property name="text">
             <string/>
@@ -1257,7 +1275,7 @@ background-color: rgba(255, 255, 255, 50);
          <item>
           <widget class="QLabel" name="sideBarLabel">
            <property name="styleSheet">
-            <string notr="true"/>
+            <string notr="true">color: rgb(0, 85, 0);</string>
            </property>
            <property name="text">
             <string/>

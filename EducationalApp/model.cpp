@@ -27,7 +27,6 @@ Model::Model(QObject *parent) : QObject{parent}, world(b2Vec2 (0.0f, 10.0f))
 
 void Model::setRegions(std::vector<int> trashLabel, std::vector<int> recycleLabel, std::vector<int> OtherBin)
 {
-    std::cout << "setRegions" << std::endl;
     cans.push_back(new RecycleBins);
     cans.push_back(new TrashBins);
     cans.push_back(new CompostBin);
