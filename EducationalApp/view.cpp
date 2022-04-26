@@ -46,6 +46,8 @@ View::View(QWidget *parent)
     ui->electricityLabel->setVisible(false);
     ui->landfillLabel->setVisible(false);
     ui->buttonToInstrScreen->setVisible(false);
+    ui->buttonToInstrScreen->setDisabled(true);
+    tulipPressedCount = 0;
 
     // Image setup for First Loading Screen
     ui->recycleLogo->setPixmap(QPixmap(":/images/images/recycleLoadingBlue"));
@@ -72,12 +74,9 @@ View::View(QWidget *parent)
     ui->learnMoreLink->setTextInteractionFlags(Qt::TextBrowserInteraction);
     ui->learnMoreLink->setOpenExternalLinks(true);
 
-
     itemPressed = false;
     ui->TestLabel->setMouseTracking(true);
     ui->TestLabel->hide();
-
-    ui->buttonToInstrScreen->setDisabled(true);
 }
 
 View::~View()
@@ -282,30 +281,58 @@ void View::on_waterButton_clicked()
 {
     ui->waterButton->setDisabled(true);
     ui->waterLabel->setVisible(true);
+    tulipPressedCount++;
+    if (tulipPressedCount == 5)
+    {
+        ui->buttonToInstrScreen->setVisible(true);
+        ui->buttonToInstrScreen->setEnabled(true);
+    }
 }
 
 void View::on_treeButton_clicked()
 {
     ui->treeButton->setDisabled(true);
     ui->treeLabel->setVisible(true);
+    tulipPressedCount++;
+    if (tulipPressedCount == 5)
+    {
+        ui->buttonToInstrScreen->setVisible(true);
+        ui->buttonToInstrScreen->setEnabled(true);
+    }
 }
 
 void View::on_gasButton_clicked()
 {
     ui->gasButton->setDisabled(true);
     ui->gasLabel->setVisible(true);
+    tulipPressedCount++;
+    if (tulipPressedCount == 5)
+    {
+        ui->buttonToInstrScreen->setVisible(true);
+        ui->buttonToInstrScreen->setEnabled(true);
+    }
 }
 
 void View::on_electricityButton_clicked()
 {
     ui->electricityButton->setDisabled(true);
     ui->electricityLabel->setVisible(true);
+    tulipPressedCount++;
+    if (tulipPressedCount == 5)
+    {
+        ui->buttonToInstrScreen->setVisible(true);
+        ui->buttonToInstrScreen->setEnabled(true);
+    }
 }
 
 void View::on_landfillButton_clicked()
 {
     ui->landfillButton->setDisabled(true);
     ui->landfillLabel->setVisible(true);
-    ui->buttonToInstrScreen->setVisible(true);
-    ui->buttonToInstrScreen->setEnabled(true);
+    tulipPressedCount++;
+    if (tulipPressedCount == 5)
+    {
+        ui->buttonToInstrScreen->setVisible(true);
+        ui->buttonToInstrScreen->setEnabled(true);
+    }
 }

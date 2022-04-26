@@ -134,6 +134,11 @@ private:
     bool itemPressed;
 
     /**
+     * @brief tulipPressedCount - Counts how many info tulips have been clicked on purpose screen.
+     */
+    int tulipPressedCount;
+
+    /**
      * @brief numBalls - number of balls to draw
      */
     int numBalls;
