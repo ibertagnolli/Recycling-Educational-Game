@@ -170,6 +170,36 @@ private:
      */
     void mouseMoveEvent(QMouseEvent *event);
 
+    /**
+     * @brief Initalizes images and text for the title screen.
+     */
+    void setupTitleScreen();
+
+    /**
+     * @brief Initalizes images and text for the purpose creen.
+     */
+    void setupPurposeScreen();
+
+    /**
+     * @brief Initalizes images and text for the instruction screen.
+     */
+    void setupInstructionScreen();
+
+    /**
+     * @brief Initalizes images and text for loading screen 1.
+     */
+    void setupLoadingScreen1();
+
+    /**
+     * @brief Initalizes images and text for loading screen 2.
+     */
+    void setupLoadingScreen2();
+
+    /**
+     * @brief Initalizes images and text for the conclusion screen.
+     */
+    void setupConclusionScreen();
+
 private slots:
     /**
      * @brief Informs the view whenever the current widget has changed

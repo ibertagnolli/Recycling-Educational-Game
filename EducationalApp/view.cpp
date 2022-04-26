@@ -16,63 +16,13 @@ View::View(QWidget *parent)
       , ui(new Ui::View)
 {
     ui->setupUi(this);
-    QPixmap pixmap(":/images/images/frog.png");
-    ui->instructionPictureLabel->setScaledContents(true);
-    ui->instructionPictureLabel->setSizePolicy( QSizePolicy::Ignored, QSizePolicy::Ignored);
-    ui->instructionPictureLabel->setPixmap(pixmap);
-    ui->instructionFrame->setAutoFillBackground(false);
-    ui->itemTitleLabel->setWordWrap(true);
 
-    ui->instructionScreen->setStyleSheet("QWidget#instructionScreen {background-color: rgb(211, 253, 255); background-image: url(:/images/images/meadow6.png) 0 0 0 0 stretch stretch;background-repeat: no-repeat;}");
-
-    // ui->titleScreen->
-    ui->wizard->setPixmap(
-        QPixmap(":/images/images/wizardBig.png"));
-    ui->backgroundImage->setPixmap(
-        QPixmap(":/images/images/meadow.jpg"));
-
-    // Image Importing for Purpose Screen
-    ui->backgroundPurposeLabel->setPixmap(QPixmap(":/images/images/purposeField1"));
-    ui->blueTulipLabel->setPixmap(QPixmap(":/images/images/blueTulip1"));
-    ui->orangeTulipLabel->setPixmap(QPixmap(":/images/images/orangeTulip1"));
-    ui->pinkTulipLabel->setPixmap(QPixmap(":/images/images/pinkTulip1"));
-    ui->yellowTulipLabel->setPixmap(QPixmap(":/images/images/yellowTulip1"));
-    ui->redTulipLabel->setPixmap(QPixmap(":/images/images/redTulip1"));
-
-    // Sets flower labels on Purpose Screen invisible to start.
-    ui->waterLabel->setVisible(false);
-    ui->treeLabel->setVisible(false);
-    ui->gasLabel->setVisible(false);
-    ui->electricityLabel->setVisible(false);
-    ui->landfillLabel->setVisible(false);
-    ui->buttonToInstrScreen->setVisible(false);
-    ui->buttonToInstrScreen->setDisabled(true);
-    tulipPressedCount = 0;
-
-    // Image setup for First Loading Screen
-    ui->recycleLogo->setPixmap(QPixmap(":/images/images/recycleLoadingBlue"));
-    ui->loadingBackground1->setPixmap(QPixmap(":/images/images/firstLoadingScreen"));
-
-    // Image setup for Second Loading Screen
-    truckBackground = QImage(":/images/images/truck").scaled(800, 600);
-    ballImage = QImage(":/images/images/recycleBall").scaled(50, 50);
-    numBalls = 20;
-
-    // Image importing for Conclusion Screen
-    ui->conclusionBackgroundLabel->setScaledContents(true);
-    ui->conclusionBackgroundLabel->setSizePolicy( QSizePolicy::Ignored, QSizePolicy::Ignored );
-    ui->conclusionBackgroundLabel->setPixmap(QPixmap(":/images/images/Concluding_Screen_Image.jpg"));
-
-    // Setting content for conclusion screen.
-    ui->congratLabel->setScaledContents(true);
-    ui->congratLabel->setSizePolicy( QSizePolicy::Ignored, QSizePolicy::Ignored );
-    ui->congratLabel->setPixmap(QPixmap(":/images/images/congratsWizard.png"));
-
-    // Setting the clickable link on the conclusion screen.
-    ui->learnMoreLink->setText("<a href=\"https://www.epa.gov/recycle/how-do-i-recycle-common-recyclables/\">Click Here!</a>");
-    ui->learnMoreLink->setTextFormat(Qt::RichText);
-    ui->learnMoreLink->setTextInteractionFlags(Qt::TextBrowserInteraction);
-    ui->learnMoreLink->setOpenExternalLinks(true);
+    setupTitleScreen();
+    setupPurposeScreen();
+    setupInstructionScreen();
+    setupLoadingScreen1();
+    setupLoadingScreen2();
+    setupConclusionScreen();
 
     itemPressed = false;
     ui->TestLabel->setMouseTracking(true);
@@ -91,13 +41,39 @@ void View::on_stackWidget_currentChanged(int index)
 }
 
 // TITLE SCREEN METHODS
-
+void View::setupTitleScreen()
+{
+    ui->wizard->setPixmap(
+        QPixmap(":/images/images/wizardBig.png"));
+    ui->backgroundImage->setPixmap(
+        QPixmap(":/images/images/meadow.jpg"));
+}
 void View::on_startButton_clicked()
 {
     ui->stackWidget->setCurrentIndex(1);
 }
 
 // PURPOSE SCREEN METHODS
+void View::setupPurposeScreen()
+{
+    // Image Importing for Purpose Screen
+    ui->backgroundPurposeLabel->setPixmap(QPixmap(":/images/images/purposeField1"));
+    ui->blueTulipLabel->setPixmap(QPixmap(":/images/images/blueTulip1"));
+    ui->orangeTulipLabel->setPixmap(QPixmap(":/images/images/orangeTulip1"));
+    ui->pinkTulipLabel->setPixmap(QPixmap(":/images/images/pinkTulip1"));
+    ui->yellowTulipLabel->setPixmap(QPixmap(":/images/images/yellowTulip1"));
+    ui->redTulipLabel->setPixmap(QPixmap(":/images/images/redTulip1"));
+
+    // Sets flower labels on Purpose Screen invisible to start.
+    ui->waterLabel->setVisible(false);
+    ui->treeLabel->setVisible(false);
+    ui->gasLabel->setVisible(false);
+    ui->electricityLabel->setVisible(false);
+    ui->landfillLabel->setVisible(false);
+    ui->buttonToInstrScreen->setVisible(false);
+    ui->buttonToInstrScreen->setDisabled(true);
+    tulipPressedCount = 0;
+}
 
 void View::on_buttonToInstrScreen_clicked()
 {
@@ -105,6 +81,16 @@ void View::on_buttonToInstrScreen_clicked()
 }
 
 // INSTRUCTION SCREEN METHODS
+void View::setupInstructionScreen()
+{
+    QPixmap pixmap(":/images/images/frog.png");
+    ui->instructionPictureLabel->setScaledContents(true);
+    ui->instructionPictureLabel->setSizePolicy( QSizePolicy::Ignored, QSizePolicy::Ignored);
+    ui->instructionPictureLabel->setPixmap(pixmap);
+    ui->instructionFrame->setAutoFillBackground(false);
+    ui->itemTitleLabel->setWordWrap(true);
+    ui->instructionScreen->setStyleSheet("QWidget#instructionScreen {background-color: rgb(211, 253, 255); background-image: url(:/images/images/meadow6.png) 0 0 0 0 stretch stretch;background-repeat: no-repeat;}");
+}
 
 void View::on_buttonToGameScreen_clicked()
 {
@@ -248,6 +234,19 @@ void View::changeScreen(int screen)
 }
 
 // LOADING SCREEN METHODS
+void View::setupLoadingScreen1()
+{
+    ui->recycleLogo->setPixmap(QPixmap(":/images/images/recycleLoadingBlue"));
+    ui->loadingBackground1->setPixmap(QPixmap(":/images/images/firstLoadingScreen"));
+}
+
+void View::setupLoadingScreen2()
+{
+    truckBackground = QImage(":/images/images/truck").scaled(800, 600);
+    ballImage = QImage(":/images/images/recycleBall").scaled(50, 50);
+    numBalls = 20;
+}
+
 void View::setLogoPosition(int xPosition, int yPosition)
 {
     ui->recycleLogo->setGeometry(xPosition, yPosition, 200, 200);
@@ -336,4 +335,24 @@ void View::on_landfillButton_clicked()
         ui->buttonToInstrScreen->setVisible(true);
         ui->buttonToInstrScreen->setEnabled(true);
     }
+}
+
+// CONCLUSION SCREEN METHODS
+void View::setupConclusionScreen()
+{
+    // Image importing for Conclusion Screen
+    ui->conclusionBackgroundLabel->setScaledContents(true);
+    ui->conclusionBackgroundLabel->setSizePolicy( QSizePolicy::Ignored, QSizePolicy::Ignored );
+    ui->conclusionBackgroundLabel->setPixmap(QPixmap(":/images/images/Concluding_Screen_Image.jpg"));
+
+    // Setting content for conclusion screen.
+    ui->congratLabel->setScaledContents(true);
+    ui->congratLabel->setSizePolicy( QSizePolicy::Ignored, QSizePolicy::Ignored );
+    ui->congratLabel->setPixmap(QPixmap(":/images/images/congratsWizard.png"));
+
+    // Setting the clickable link on the conclusion screen.
+    ui->learnMoreLink->setText("<a href=\"https://www.epa.gov/recycle/how-do-i-recycle-common-recyclables/\">Click Here!</a>");
+    ui->learnMoreLink->setTextFormat(Qt::RichText);
+    ui->learnMoreLink->setTextInteractionFlags(Qt::TextBrowserInteraction);
+    ui->learnMoreLink->setOpenExternalLinks(true);
 }
