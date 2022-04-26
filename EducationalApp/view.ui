@@ -569,7 +569,9 @@ background-color: rgba(255, 255, 255, 0)</string>
          <string notr="true">color: rgb(0, 85, 0);</string>
         </property>
         <property name="text">
-         <string>3,121,890                      Gallons of                  Water</string>
+         <string>3,121,890
+Gallons of
+Water</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -596,7 +598,8 @@ background-color: rgba(255, 255, 255, 0)</string>
          <string notr="true">color: rgb(0, 85, 0);</string>
         </property>
         <property name="text">
-         <string>5,732               Mature Trees</string>
+         <string>5,732
+Mature Trees</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -623,7 +626,10 @@ background-color: rgba(255, 255, 255, 0)</string>
          <string notr="true">color: rgb(0, 85, 0);</string>
         </property>
         <property name="text">
-         <string>2,027                     Metric Tons of                      Greenhouse Gas                         Emissions</string>
+         <string>2,027
+Metric Tons of
+Greenhouse Gas
+Emissions</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -650,7 +656,9 @@ background-color: rgba(255, 255, 255, 0)</string>
          <string notr="true">color: rgb(0, 85, 0);</string>
         </property>
         <property name="text">
-         <string>1,832                       MWH of                     Electricity</string>
+         <string>1,832
+MWH of
+Electricity</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -677,7 +685,9 @@ background-color: rgba(255, 255, 255, 0)</string>
          <string notr="true">color: rgb(0, 85, 0);</string>
         </property>
         <property name="text">
-         <string>2,238                       Cubic Yards of                      Landfill Airspace</string>
+         <string>2,238
+Cubic Yards of
+Landfill Airspace</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -1005,7 +1015,7 @@ background-color: rgba( 255, 255, 255, 0%);</string>
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap>:/images/images/trashBin.png</pixmap>
+         <pixmap resource="Resources.qrc">:/images/images/trashBin.png</pixmap>
         </property>
         <property name="scaledContents">
          <bool>true</bool>
@@ -1027,7 +1037,7 @@ background-color: rgba( 255, 255, 255, 0%);</string>
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap>:/images/images/yardBin.png</pixmap>
+         <pixmap resource="Resources.qrc">:/images/images/yardBin.png</pixmap>
         </property>
         <property name="scaledContents">
          <bool>true</bool>
@@ -1055,7 +1065,7 @@ background-color: rgba( 255, 255, 255, 0%);</string>
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap>:/images/images/recycleBin.png</pixmap>
+         <pixmap resource="Resources.qrc">:/images/images/recycleBin.png</pixmap>
         </property>
         <property name="scaledContents">
          <bool>true</bool>
@@ -1085,7 +1095,7 @@ background-repeat: no-repeat;
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap>:/images/images/GameScreenGrass.png</pixmap>
+         <pixmap resource="Resources.qrc">:/images/images/GameScreenGrass.png</pixmap>
         </property>
         <property name="scaledContents">
          <bool>true</bool>
@@ -1439,7 +1449,7 @@ background-color: rgba(255, 255, 255, 0);</string>
         <property name="geometry">
          <rect>
           <x>220</x>
-          <y>20</y>
+          <y>-10</y>
           <width>321</width>
           <height>131</height>
          </rect>
@@ -1465,16 +1475,42 @@ background-color: rgba(255, 255, 255, 0);</string>
          <bool>true</bool>
         </property>
        </widget>
+       <widget class="QLabel" name="label_2">
+        <property name="geometry">
+         <rect>
+          <x>170</x>
+          <y>80</y>
+          <width>391</width>
+          <height>71</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(0, 85, 0);</string>
+        </property>
+        <property name="text">
+         <string>Commonly Misplaced Items</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
        <zorder>loadingBackground1</zorder>
        <zorder>recycleLogo</zorder>
        <zorder>level2Label</zorder>
+       <zorder>label_2</zorder>
       </widget>
       <widget class="QWidget" name="loadingScreen2">
        <widget class="QLabel" name="level3Label">
         <property name="geometry">
          <rect>
           <x>120</x>
-          <y>0</y>
+          <y>-20</y>
           <width>431</width>
           <height>131</height>
          </rect>
@@ -1497,6 +1533,31 @@ background-color: rgba(255, 255, 255, 0);</string>
         </property>
         <property name="wordWrap">
          <bool>true</bool>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_3">
+        <property name="geometry">
+         <rect>
+          <x>160</x>
+          <y>70</y>
+          <width>341</width>
+          <height>91</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(0, 85, 0);</string>
+        </property>
+        <property name="text">
+         <string>Donations and Drop Offs</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
         </property>
        </widget>
       </widget>
@@ -1581,6 +1642,8 @@ background-color: rgba(255, 255, 255, 0);</string>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources/>
+ <resources>
+  <include location="Resources.qrc"/>
+ </resources>
  <connections/>
 </ui>
