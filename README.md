@@ -17,7 +17,8 @@ The game flow could be improved. The look of the second page with instructions i
  - Emily Best 
  - Audrey Olsen
  - Vista Vee-Lloyd
- -Alyssa Johnson
+ - Alyssa Johnson
+ - Kutey Eken
 
 # Acknowledgements:
 
